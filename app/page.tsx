@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-      Explore Tirupati with Comforts
+      Explore Tirupati with Comforts.
     </div>
   );
 }
