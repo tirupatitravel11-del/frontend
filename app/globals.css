@@ -1,26 +1,328 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* =========================================================
+   THEME
+========================================================= */
+
+@theme {
+  /* Colors */
+  --color-primary: #0f2d52;
+  --color-primary-light: #1f4d86;
+  --color-primary-dark: #081b33;
+
+  --color-secondary: #f2a31a;
+  --color-secondary-light: #ffbf47;
+  --color-secondary-dark: #cf8500;
+
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+
+  --color-heading: #102a43;
+  --color-text: #475569;
+  --color-border: #e2e8f0;
+
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 30px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* =========================================================
+   BASE
+========================================================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-white text-slate-600 antialiased;
+}
+
+/* Selection */
+
+::selection {
+  background: #f2a31a;
+  color: white;
+}
+
+/* Images */
+
+img {
+  @apply select-none;
+}
+
+/* Links */
+
+a {
+  @apply transition-colors duration-300;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold text-[#f6f6f7];
+}
+
+h1 {
+  @apply text-5xl md:text-6xl leading-tight;
+}
+
+h2 {
+  @apply text-4xl md:text-5xl;
+}
+
+h3 {
+  @apply text-3xl;
+}
+
+h4 {
+  @apply text-2xl;
+}
+
+h5 {
+  @apply text-xl;
+}
+
+h6 {
+  @apply text-lg;
+}
+
+p {
+  @apply text-base leading-8 text-slate-600;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-5 lg:px-8;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section {
+  @apply py-20;
+}
+
+.section-sm {
+  @apply py-14;
+}
+
+.section-lg {
+  @apply py-28;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn-primary {
+  @apply inline-flex items-center justify-center
+  rounded-xl
+  bg-[#0F2D52]
+  px-6
+  py-3
+  text-white
+  font-semibold
+  transition-all
+  duration-300;
+}
+
+.btn-primary:hover {
+  @apply bg-[#173f70] shadow-lg;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center
+  rounded-xl
+  bg-[#F2A31A]
+  px-6
+  py-3
+  text-white
+  font-semibold
+  transition-all
+  duration-300;
+}
+
+.btn-secondary:hover {
+  @apply bg-[#d88d0a] shadow-lg;
+}
+
+.btn-outline {
+  @apply inline-flex
+  items-center
+  justify-center
+  rounded-xl
+  border
+  border-[#0F2D52]
+  px-6
+  py-3
+  text-[#0F2D52]
+  font-semibold
+  transition-all;
+}
+
+.btn-outline:hover {
+  @apply bg-[#0F2D52] text-white;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+  @apply bg-white
+  rounded-2xl
+  shadow-sm
+  border
+  border-slate-200
+  overflow-hidden
+  transition-all
+  duration-300;
+}
+
+.card:hover {
+  @apply shadow-xl
+  -translate-y-1;
+}
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.badge {
+  @apply inline-flex
+  items-center
+  rounded-full
+  bg-[#F2A31A]/10
+  px-4
+  py-1.5
+  text-sm
+  font-medium
+  text-[#F2A31A];
+}
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.input {
+  @apply w-full
+  rounded-xl
+  border
+  border-slate-300
+  bg-white
+  px-4
+  py-3
+  outline-none;
+}
+
+.input:focus {
+  @apply border-[#0F2D52]
+  ring-2
+  ring-[#0F2D52]/20;
+}
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title {
+  @apply text-center
+  text-4xl
+  md:text-5xl
+  font-bold
+  text-[#102A43];
+}
+
+.section-subtitle {
+  @apply mt-4
+  text-lg
+  text-slate-500
+  max-w-3xl
+  mx-auto
+  text-center;
+}
+
+/* =========================================================
+   SHADOWS
+========================================================= */
+
+.shadow-soft {
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-large {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0f2d52;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1f4d86;
+}
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+.text-gradient {
+  background: linear-gradient(
+    90deg,
+    #0f2d52,
+    #1f4d86
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(
+    135deg,
+    #0f2d52,
+    #1f4d86
+  );
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(
+    135deg,
+    #f2a31a,
+    #ffbf47
+  );
+}
+
+.rounded-section {
+  border-radius: 40px;
 }
