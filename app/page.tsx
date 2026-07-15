@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Hero from "./components/Home/Hero";
+import QuickEnquiry from "./components/Home/QuickEnquiry";
 
 export default function Home() {
   return (
-    <div>
-      Explore Tirupati with Comforts.
+    <div className="h-full">
+      <Hero />
     </div>
   );
 }
