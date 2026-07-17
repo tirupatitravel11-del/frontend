@@ -8,7 +8,7 @@ export const heroSlides = [
   },
   {
     id: 2,
-    title: "Explore Spiritual Destinations",
+    title: "Spiritual Destinations",
     subtitle:
       "Discover Tirupati, Varanasi, Ayodhya, Gaya and more with our tour packages.",
     image: "/heroImage2.jpg",

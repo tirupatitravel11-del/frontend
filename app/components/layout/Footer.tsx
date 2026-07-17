@@ -46,7 +46,7 @@ export default function Footer() {
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="tel:+919876543210"
-                className="flex items-center gap-2 rounded-full border border-stone-500 px-5 py-3 transition hover:bg-orange-600"
+                className="flex items-center gap-2 rounded-full border border-stone-500 px-5 py-3 transition hover:bg-gold"
               >
                 <Phone size={18} />
                 +91 9876543210
@@ -65,7 +65,7 @@ export default function Footer() {
           {/* Services */}
 
           <div>
-            <h3 className="mb-6 text-xl font-bold uppercase text-orange-400">
+            <h3 className="mb-6 text-xl font-bold uppercase text-gold">
               Our Services
             </h3>
 
@@ -74,7 +74,7 @@ export default function Footer() {
                 <li key={item}>
                   <Link
                     href="/"
-                    className="text-stone-300 transition hover:text-orange-400"
+                    className="text-stone-300 transition hover:text-gold"
                   >
                     {item}
                   </Link>
@@ -86,7 +86,7 @@ export default function Footer() {
           {/* Links */}
 
           <div>
-            <h3 className="mb-6 text-xl font-bold uppercase text-orange-400">
+            <h3 className="mb-6 text-xl font-bold uppercase text-gold">
               Quick Links
             </h3>
 
@@ -95,7 +95,7 @@ export default function Footer() {
                 <li key={item}>
                   <Link
                     href="/"
-                    className="text-stone-300 transition hover:text-orange-400"
+                    className="text-stone-300 transition hover:text-gold"
                   >
                     {item}
                   </Link>
@@ -107,13 +107,13 @@ export default function Footer() {
           {/* Contact */}
 
           <div>
-            <h3 className="mb-6 text-xl font-bold uppercase text-orange-400">
+            <h3 className="mb-6 text-xl font-bold uppercase text-gold">
               Contact Us
             </h3>
 
             <div className="space-y-5 text-stone-300">
               <div className="flex items-start gap-3">
-                <MapPin className="mt-1 text-orange-400" size={18} />
+                <MapPin className="mt-1 text-gold" size={18} />
                 <p>
                   Tirupati Travel Office,
                   <br />
@@ -122,17 +122,17 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3">
-                <Phone className="text-orange-400" size={18} />
+                <Phone className="text-gold" size={18} />
                 <span>+91 9876543210</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <Mail className="text-orange-400" size={18} />
+                <Mail className="text-gold" size={18} />
                 <span>info@tirupatitravel.com</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <Clock className="text-orange-400" size={18} />
+                <Clock className="text-gold" size={18} />
                 <span>24×7 Customer Support</span>
               </div>
             </div>
@@ -148,14 +148,11 @@ export default function Footer() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-5">
-              <Link href="/privacy-policy" className="hover:text-orange-400">
+              <Link href="/privacy-policy" className="hover:text-gold">
                 Privacy Policy
               </Link>
 
-              <Link
-                href="/terms-and-conditions"
-                className="hover:text-orange-400"
-              >
+              <Link href="/terms-and-conditions" className="hover:text-gold">
                 Terms & Conditions
               </Link>
             </div>

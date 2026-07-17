@@ -4,7 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Logo from "../../../public/logo.jpg";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
+import MobileStickyBar from "../Home/MobileStickyBar";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -39,30 +40,52 @@ export default function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className="font-medium hover:text-orange-600"
+              className="font-medium hover:text-gold"
             >
               {item.label}
             </Link>
           ))}
         </nav>
-
-        <button
-          className="rounded p-2 lg:hidden"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex">
+          <a
+            href="tel:+919876543210"
+            className="
+          flex
+          h-10
+          w-10
+          items-center
+          justify-center
+          rounded-full
+          bg-gold
+          text-white
+          shadow-xl
+          transition-all
+          duration-300
+          hover:scale-110
+          hover:shadow-2xl
+          lg:hidden
+        "
+          >
+            <Phone size={20} />
+          </a>
+          <button
+            className="rounded p-2 lg:hidden"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {open && (
         <div className="absolute left-0 top-full z-50 w-full border-t bg-white shadow-md lg:hidden">
-          <div className="flex flex-col">
+          <div className="flex flex-col text ">
             {navLinks.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="border-b px-6 py-4 hover:bg-orange-50"
+                className=" border-b px-6 py-4 hover:bg-orange-50"
               >
                 {item.label}
               </Link>
