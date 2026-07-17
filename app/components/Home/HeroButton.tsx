@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function HeroButtons() {
   return (
-    <div className="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
+    <div className="mt-6 flex flex-wrap items-center justify-start gap-3 sm:mt-8 sm:gap-4">
       <Link
         href="/cab"
         className="rounded-lg bg-orange-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-700 sm:px-6 sm:text-base"

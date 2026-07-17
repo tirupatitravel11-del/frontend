@@ -10,6 +10,8 @@
   --color-primary-light: #1f4d86;
   --color-primary-dark: #081b33;
 
+  --color-gold: #de9619;
+   
   --color-secondary: #f2a31a;
   --color-secondary-light: #ffbf47;
   --color-secondary-dark: #cf8500;
@@ -23,6 +25,8 @@
 
   --color-success: #16a34a;
   --color-danger: #dc2626;
+
+ 
 
   /* Radius */
   --radius-sm: 8px;
@@ -72,7 +76,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-bold text-[#f6f6f7];
+  @apply font-bold;
 }
 
 h1 {
@@ -100,7 +104,7 @@ h6 {
 }
 
 p {
-  @apply text-base leading-8 text-slate-600;
+  @apply text-base leading-8;
 }
 
 /* =========================================================
