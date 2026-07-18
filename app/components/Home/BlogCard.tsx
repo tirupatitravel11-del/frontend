@@ -19,7 +19,7 @@ export default function BlogCard({
 }: BlogCardProps) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-2xl">
-      <div className="relative h-60 overflow-hidden">
+      <div className="relative h-45 overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -38,9 +38,7 @@ export default function BlogCard({
           {date}
         </div>
 
-        <h3 className="mt-4 text-2xl font-bold text-stone-900 transition-colors group-hover:text-gold">
-          {title}
-        </h3>
+        <h3 className="mt-4 text-2xl font-bold text-stone-900 ">{title}</h3>
 
         <p className="mt-4 flex-grow leading-7 text-stone-600">{description}</p>
 
