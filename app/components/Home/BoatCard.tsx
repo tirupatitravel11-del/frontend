@@ -39,7 +39,7 @@ export default function BoatCard({
       "
     >
       {/* Image */}
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-60 overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -54,11 +54,6 @@ export default function BoatCard({
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-6">
-        <div className="flex items-center gap-2 text-gold">
-          <Star size={18} fill="currentColor" />
-          <span className="font-medium">{rating}</span>
-        </div>
-
         <h3 className="mt-4 min-h-[64px] text-2xl font-bold leading-tight text-stone-900">
           {title}
         </h3>
@@ -71,7 +66,7 @@ export default function BoatCard({
         <div className="mt-6">
           <p className="text-sm text-stone-500">Starting From</p>
 
-          <h2 className="text-3xl font-bold text-gold">
+          <h2 className="text-xl font-bold text-gold">
             ₹{price.toLocaleString()}
           </h2>
         </div>

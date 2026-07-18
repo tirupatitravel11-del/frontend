@@ -21,7 +21,7 @@ export default function RouteCard({
 }: RouteCardProps) {
   return (
     <div className="group overflow-hidden rounded-3xl bg-white shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
-      <div className="relative h-56 overflow-hidden">
+      <div className="relative h-[280px] overflow-hidden">
         <Image
           src={image}
           alt={to}
