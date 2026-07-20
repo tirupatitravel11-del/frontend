@@ -33,6 +33,7 @@ export default function CabRouteCard({
       className="
         group
         block
+        min-h-130
         overflow-hidden
         rounded-xl
         border

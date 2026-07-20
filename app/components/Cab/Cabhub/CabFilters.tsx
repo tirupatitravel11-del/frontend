@@ -83,9 +83,9 @@ export default function CabFilters({
   const vehicleTypes = ["Sedan", "SUV", "Tempo Traveller"];
 
   return (
-    <section className="bg-stone-50 px-4 py-10 sm:px-6 lg:py-16">
-      <div className="mx-auto max-w-7xl">
-        <div className="rounded-[28px] border border-stone-200 bg-white p-4 shadow-xl sm:p-6">
+    <section className="w-full max-w-full overflow-hidden rounded-4xl border border-stone-200 bg-white  shadow-xl sm:p-6 min-h-140">
+      <div className="w-full">
+        <div className="w-full rounded-[28px] border border-stone-200 bg-white p-4 shadow-xl sm:p-6">
           <div className="mb-6 flex flex-wrap items-center gap-3">
             <button
               type="button"
@@ -116,8 +116,8 @@ export default function CabFilters({
             </span>
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-[1fr_auto_1fr_1fr_1fr_auto] lg:items-end">
-            <div>
+          <div className="flex flex-col">
+            <div className="min-w-0">
               <label className="mb-2 block text-sm font-semibold text-stone-600">
                 From
               </label>
@@ -146,12 +146,12 @@ export default function CabFilters({
 
             <button
               type="button"
-              className="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-gold bg-white text-gold shadow-md transition hover:bg-gold hover:text-white lg:mb-2"
+              className="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-gold bg-white text-gold shadow-md transition hover:bg-gold mt-4  hover:text-white lg:mb-2"
             >
               <ArrowRightLeft size={18} />
             </button>
 
-            <div>
+            <div className="min-w-0">
               <label className="mb-2 block text-sm font-semibold text-stone-600">
                 To
               </label>
@@ -178,7 +178,7 @@ export default function CabFilters({
               </div>
             </div>
 
-            <div>
+            <div className="min-w-0">
               <label className="mb-2 block text-sm font-semibold text-stone-600">
                 Departure
               </label>
@@ -193,7 +193,7 @@ export default function CabFilters({
               </div>
             </div>
 
-            <div>
+            <div className="min-w-0">
               <label className="mb-2 block text-sm font-semibold text-stone-600">
                 Return
               </label>
@@ -217,7 +217,7 @@ export default function CabFilters({
 
             <button
               type="button"
-              className="flex h-16 items-center justify-center gap-2 rounded-2xl bg-gold px-6 font-bold text-white shadow-md transition hover:bg-[#c88912] lg:mb-0"
+              className="flex h-16 items-center justify-center gap-2 rounded-2xl bg-gold px-6 font-bold text-white shadow-md transition hover:bg-[#c88912] mt-4 lg:mb-0"
             >
               <Search size={20} />
               Search
