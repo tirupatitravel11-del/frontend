@@ -1,80 +1,55 @@
-"use client";
+// // import CabFilters from "../components/Cab/Cabhub/CabFilters";
 
-import { useState } from "react";
-import { cabRoutes } from "../../../constants/cabRoutes";
-import CabFilters from "./CabFilters";
-import CabRouteCard from "./CabRouteCard";
+// import CabFilters from "./CabFilters";
+// import WhyBookWithUs from "./WhyTrustUs";
 
-export default function CabHub() {
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
-  const [vehicle, setVehicle] = useState("");
-  const [tripType, setTripType] = useState("round-trip");
+// export default function Cabhub() {
+//   return (
+//     <main className="bg-stone-50">
+//       <section className="mx-auto max-w-7xl px-6 py-24">
+//         {/* Main Cab Booking Block */}
+//         <div className="grid items-center gap-10 rounded-[32px] border border-stone-200 bg-white p-6 shadow-xl lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
+//           {/* LEFT SIDE - TEXT */}
+//           <div className="px-2 py-8 lg:px-6">
+//             <p className="font-semibold uppercase tracking-[4px] text-gold">
+//               Cab Services
+//             </p>
 
-  const filteredRoutes = cabRoutes.filter((route) => {
-    const matchesFrom = from ? route.origin === from : true;
-    const matchesTo = to ? route.destination === to : true;
-    const matchesVehicle = vehicle
-      ? route.vehicles.some((vehicleOption) => vehicleOption.type === vehicle)
-      : true;
+//             <h1 className="mt-4 max-w-xl text-5xl font-bold leading-tight text-stone-900 md:text-6xl">
+//               Explore Our Cab Routes
+//             </h1>
 
-    return matchesFrom && matchesTo && matchesVehicle;
-  });
+//             <p className="mt-6 max-w-xl text-lg leading-8 text-stone-600">
+//               Book comfortable and reliable cabs for local, outstation, and
+//               intercity travel across India.
+//             </p>
 
-  return (
-    <section className="bg-stone-50 py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        {/* Header */}
-        <div className="text-center">
-          <p className="font-semibold uppercase tracking-[4px] text-gold">
-            Cab Services
-          </p>
+//             <div className="mt-8 flex flex-wrap gap-4">
+//               <button
+//                 type="button"
+//                 className="rounded-full bg-gold px-7 py-4 font-bold text-white shadow-md transition hover:bg-[#c88912]"
+//               >
+//                 View Cab Fares
+//               </button>
 
-          <h1 className="mt-3 text-4xl font-bold text-stone-900 md:text-5xl">
-            Book a Cab for Your Journey
-          </h1>
+//               <button
+//                 type="button"
+//                 className="rounded-full border-2 border-gold px-7 py-4 font-bold text-gold transition hover:bg-gold hover:text-white"
+//               >
+//                 Call to Book
+//               </button>
+//             </div>
+//           </div>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-stone-600">
-            Choose your route, vehicle type and trip option to find the perfect
-            cab for your journey.
-          </p>
-        </div>
+//           {/* RIGHT SIDE - FILTER FORM */}
+//           {/* <div className="w-full">
+//             <CabFilters />
+//           </div>
+//         </div> */}
 
-        {/* Filters */}
-        <div className="mt-12">
-          <CabFilters
-            from={from}
-            to={to}
-            vehicle={vehicle}
-            tripType={tripType}
-            setFrom={setFrom}
-            setTo={setTo}
-            setVehicle={setVehicle}
-            setTripType={setTripType}
-          />
-        </div>
-
-        {/* Results */}
-        <div className="mt-12">
-          <h2 className="mb-6 text-2xl font-bold text-stone-900">
-            Available Routes
-          </h2>
-
-          {filteredRoutes.length === 0 ? (
-            <div className="rounded-2xl bg-white p-10 text-center shadow">
-              <p className="text-lg text-stone-600">
-                No routes found for your selected filters.
-              </p>
-            </div>
-          ) : (
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {filteredRoutes.map((route) => (
-                <CabRouteCard key={route.id} {...route} />
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
+//         {/* Trust Section */}
+//         <WhyBookWithUs />
+//       </section>
+//     </main>
+//   );
+// }
