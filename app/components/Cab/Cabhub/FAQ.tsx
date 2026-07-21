@@ -67,7 +67,7 @@ export default function CabFAQ() {
   };
 
   return (
-    <section className="bg-stone-50 py-24">
+    <section className="bg-stone-50 py-24 ">
       {/* FAQ Schema Markup */}
       <script
         type="application/ld+json"
@@ -79,7 +79,7 @@ export default function CabFAQ() {
       <div className="mx-auto max-w-4xl px-6">
         {/* Header */}
         <div className="text-center">
-          <p className="font-semibold uppercase tracking-[4px] text-gold">
+          <p className="font-semibold uppercase tracking-[4px] text-gold ">
             Frequently Asked Questions
           </p>
 
