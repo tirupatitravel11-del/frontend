@@ -11,6 +11,13 @@ import BookingProcess from "../components/Cab/Cabhub/BookingProcess";
 import VehicleFleet from "../components/Cab/Cabhub/VehicleFleet";
 import OneWayVsRoundTrip from "../components/Cab/Cabhub/OnewayVSRoundTrip";
 import CabFAQ from "../components/Cab/Cabhub/FAQ";
+import UniqueIntro from "../components/Cab/Cabhub/UniqueIntro";
+import LucknowFareTable from "../components/Cab/Cabhub/Luckow_faretable";
+import AboutLucknow from "../components/Cab/Cabhub/AboutLucknow";
+import LucknowFAQ from "../components/Cab/Cabhub/LucknowFAQ";
+import TestimonialCard from "../components/Home/TestimonialCard";
+import Testimonials from "../components/Home/Testimonials";
+import OutstationRoutes from "../components/Cab/Cabhub/OutstationRoute";
 
 export default function CabsPage() {
   return (
@@ -55,13 +62,21 @@ export default function CabsPage() {
             <CabFilters />
           </div>
         </div>
-        {/* <TrustPoints /> */}
+        <TrustPoints />
       </section>
+      <UniqueIntro />
       <VehicleFleet />
+      <LucknowFareTable />
+      <AboutLucknow />
+      <LucknowFAQ />
+      <Testimonials />
+      <OutstationRoutes />
       <WhyBookWithUs />
+
+      {/* <WhyBookWithUs />
       <BookingProcess />
-      <OneWayVsRoundTrip />
-      <CabFAQ />
+      <OneWayVsRoundTrip /> */}
+      {/* <CabFAQ /> */}
 
       {/* Why Book With Us */}
     </main>
