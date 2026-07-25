@@ -5,22 +5,26 @@ import {
   Heart,
   Plane,
   TrainFront,
-  Phone,
 } from "lucide-react";
 
-export default function AboutLucknow() {
+import type { AboutLocationData } from "../../../constants/AboutLocation";
+
+type AboutLocationProps = {
+  location: AboutLocationData;
+};
+
+export default function AboutLocation({ location }: AboutLocationProps) {
   return (
     <>
-      {/* About Lucknow */}
+      {/* About Location */}
       <section className="border-l-4 border-gold bg-[#fffbea] px-7 py-8 md:px-8">
-        <h2 className="text-3xl font-bold text-stone-900">About Lucknow</h2>
+        <h2 className="text-3xl font-bold text-stone-900">
+          About {location.city}
+        </h2>
 
         <p className="mt-6 text-base leading-7 text-stone-700">
-          <strong className="text-stone-900">Overview:</strong> Lucknow, the
-          capital of Uttar Pradesh, is known for its rich Nawabi heritage,
-          historic architecture, refined culture, famous cuisine, and warm
-          hospitality. The city is also an important hub for business,
-          education, tourism, and travel across North India.
+          <strong className="text-stone-900">Overview:</strong>{" "}
+          {location.overview}
         </p>
 
         {/* Information Cards */}
@@ -33,15 +37,11 @@ export default function AboutLucknow() {
               <h3 className="text-xl font-bold text-stone-900">Famous For</h3>
             </div>
 
-            <p className="mt-6 text-lg leading-8 text-stone-600">
-              Nawabi Heritage,
-              <br />
-              Bara Imambara,
-              <br />
-              Chikankari,
-              <br />
-              Historic Architecture
-            </p>
+            <div className="mt-6 space-y-1 text-lg leading-8 text-stone-600">
+              {location.famousFor.map((item) => (
+                <p key={item}>{item}</p>
+              ))}
+            </div>
           </div>
 
           {/* Local Cuisine */}
@@ -54,15 +54,11 @@ export default function AboutLucknow() {
               </h3>
             </div>
 
-            <p className="mt-6 text-lg leading-8 text-stone-600">
-              Galouti Kebab,
-              <br />
-              Tunday Kebab,
-              <br />
-              Lucknowi Biryani,
-              <br />
-              Basket Chaat
-            </p>
+            <div className="mt-6 space-y-1 text-lg leading-8 text-stone-600">
+              {location.localCuisine.map((item) => (
+                <p key={item}>{item}</p>
+              ))}
+            </div>
           </div>
 
           {/* Best Time */}
@@ -76,7 +72,7 @@ export default function AboutLucknow() {
             </div>
 
             <p className="mt-6 text-lg leading-8 text-stone-600">
-              October to March
+              {location.bestTimeToVisit}
             </p>
           </div>
 
@@ -88,62 +84,44 @@ export default function AboutLucknow() {
               <h3 className="text-xl font-bold text-stone-900">Ideal For</h3>
             </div>
 
-            <p className="mt-6 text-lg leading-8 text-stone-600">
-              Bara Imambara,
-              <br />
-              Chota Imambara,
-              <br />
-              Rumi Darwaza,
-              <br />
-              Hazratganj,
-              <br />
-              British Residency
-            </p>
+            <div className="mt-6 space-y-1 text-lg leading-8 text-stone-600">
+              {location.idealFor.map((item) => (
+                <p key={item}>{item}</p>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Airport & Railway */}
         <div className="mt-8 grid gap-5 border-t border-stone-200 pt-6 md:grid-cols-2">
-          <div className="flex items-center gap-3 text-stone-700">
-            <Plane className="h-5 w-5 text-gold" />
+          <div className="flex items-start gap-3 text-stone-700">
+            <Plane className="mt-1 h-5 w-5 shrink-0 text-gold" />
 
             <p>
               <strong className="text-stone-900">Nearest Airport:</strong>{" "}
-              Chaudhary Charan Singh International Airport (LKO)
+              {location.nearestAirport}
             </p>
           </div>
 
-          <div className="flex items-center gap-3 text-stone-700">
-            <TrainFront className="h-5 w-5 text-gold" />
+          <div className="flex items-start gap-3 text-stone-700">
+            <TrainFront className="mt-1 h-5 w-5 shrink-0 text-gold" />
 
             <p>
-              <strong className="text-stone-900">Main Railway Station:</strong>{" "}
-              Lucknow Charbagh Railway Station
+              <strong className="text-stone-900">
+                Nearest Railway Station:
+              </strong>{" "}
+              {location.nearestRailwayStation}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Fare Note */}
+      {/* Note */}
       <section className="mt-7 border-l-4 border-gold bg-[#fffbea] px-7 py-6">
         <p className="leading-7 text-stone-700">
-          <strong className="text-stone-900">Note:</strong> The above fares are
-          indicative and may vary depending on the vehicle category, travel
-          distance, route, tolls, parking, permits, and other applicable
-          charges. The final fare is confirmed before booking.
+          <strong className="text-stone-900">Note:</strong> {location.note}
         </p>
       </section>
-
-      {/* CTA */}
-      <div className="mt-7 flex justify-center">
-        <a
-          href="tel:+919876543210"
-          className="inline-flex items-center gap-3 rounded-xl bg-gold px-7 py-4 text-lg font-semibold text-stone-900 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-        >
-          <Phone className="h-5 w-5" />
-          Book Your Ride Now
-        </a>
-      </div>
     </>
   );
 }
