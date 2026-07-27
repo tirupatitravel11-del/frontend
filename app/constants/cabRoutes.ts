@@ -3,8 +3,8 @@ export const cabRoutes = [
     id: 1,
     slug: "tirupati-to-chennai",
 
-    origin: "Tirupati",
-    destination: "Chennai",
+    origin: "kanpur",
+    destination: "Lucknow",
 
     distance: "135 km",
     duration: "3.5 Hours",

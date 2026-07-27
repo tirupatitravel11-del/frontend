@@ -17,7 +17,7 @@ export default function UniqueIntro({ location }: UniqueIntroProps) {
         <p className="mt-6 max-w-7xl text-lg leading-9 text-stone-600">
           {location.description}
         </p>
-      </div>
+      </div>_
     </section>
   );
 }
