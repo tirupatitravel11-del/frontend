@@ -9,6 +9,8 @@ import {
   Users,
 } from "lucide-react";
 import { cabRoutes } from "@/app/constants/cabRoutes";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 interface CabFiltersProps {
   from?: string;
@@ -35,6 +37,7 @@ export default function CabFilters({
   const [localTo, setLocalTo] = useState(to ?? "");
   const [localVehicle, setLocalVehicle] = useState(vehicle ?? "");
   const [localTripType, setLocalTripType] = useState(tripType ?? "round-trip");
+  const router = useRouter();
 
   useEffect(() => {
     setLocalFrom(from ?? "");
@@ -75,6 +78,26 @@ export default function CabFilters({
   const handleTripTypeChange = (value: string) => {
     setTripType?.(value);
     setLocalTripType(value);
+  };
+
+  const handleSearch = async () => {
+   
+    if (!currentFrom || !currentTo) {
+      alert("Please select From and To city");
+      return;
+    }
+
+    try {
+      const res = await axios.post(process.env.apiUrl+"/api/search-route", {
+        from: currentFrom,
+        to: currentTo,
+      });
+
+      router.push(res.data.url);
+      
+    } catch (error) {
+      console.error("Route search failed:", error);
+    }
   };
   const origins = [...new Set(cabRoutes.map((route) => route.origin))];
   const destinations = [
@@ -217,6 +240,7 @@ export default function CabFilters({
 
             <button
               type="button"
+              onClick={handleSearch}
               className="flex h-16 items-center justify-center gap-2 rounded-2xl bg-gold px-6 font-bold text-white shadow-md transition hover:bg-[#c88912] mt-4 lg:mb-0"
             >
               <Search size={20} />
