@@ -8,23 +8,24 @@ import {
 } from "lucide-react";
 
 import type { AboutLocationData } from "../../../constants/AboutLocation";
+import { capitalizeFirstLetter } from "@/app/utils/commonfunction";
 
 type AboutLocationProps = {
   location: AboutLocationData;
 };
 
-export default function AboutLocation({ location }: AboutLocationProps) {
+export default function AboutLocation({ data }: any) {
   return (
     <>
       {/* About Location */}
       <section className="border-l-4 border-gold bg-[#fffbea] px-7 py-8 md:px-8">
         <h2 className="text-3xl font-bold text-stone-900">
-          About {location.city}
+          About {capitalizeFirstLetter(data.cityName)}
         </h2>
 
         <p className="mt-6 text-base leading-7 text-stone-700">
           <strong className="text-stone-900">Overview:</strong>{" "}
-          {location.overview}
+          {data.overview}
         </p>
 
         {/* Information Cards */}
@@ -38,7 +39,7 @@ export default function AboutLocation({ location }: AboutLocationProps) {
             </div>
 
             <div className="mt-6 space-y-1 text-lg leading-8 text-stone-600">
-              {location.famousFor.map((item) => (
+              {data.famousFor.map((item:any) => (
                 <p key={item}>{item}</p>
               ))}
             </div>
@@ -55,7 +56,7 @@ export default function AboutLocation({ location }: AboutLocationProps) {
             </div>
 
             <div className="mt-6 space-y-1 text-lg leading-8 text-stone-600">
-              {location.localCuisine.map((item) => (
+              {data.localCuisine.map((item:any) => (
                 <p key={item}>{item}</p>
               ))}
             </div>
@@ -72,7 +73,7 @@ export default function AboutLocation({ location }: AboutLocationProps) {
             </div>
 
             <p className="mt-6 text-lg leading-8 text-stone-600">
-              {location.bestTimeToVisit}
+              {data.bestToVisit}
             </p>
           </div>
 
@@ -85,7 +86,7 @@ export default function AboutLocation({ location }: AboutLocationProps) {
             </div>
 
             <div className="mt-6 space-y-1 text-lg leading-8 text-stone-600">
-              {location.idealFor.map((item) => (
+              {data.idealFor.map((item:any) => (
                 <p key={item}>{item}</p>
               ))}
             </div>
@@ -99,7 +100,7 @@ export default function AboutLocation({ location }: AboutLocationProps) {
 
             <p>
               <strong className="text-stone-900">Nearest Airport:</strong>{" "}
-              {location.nearestAirport}
+              {data.nearestAirport}
             </p>
           </div>
 
@@ -110,18 +111,18 @@ export default function AboutLocation({ location }: AboutLocationProps) {
               <strong className="text-stone-900">
                 Nearest Railway Station:
               </strong>{" "}
-              {location.nearestRailwayStation}
+              {data.nearestRailway}
             </p>
           </div>
         </div>
       </section>
 
       {/* Note */}
-      <section className="mt-7 border-l-4 border-gold bg-[#fffbea] px-7 py-6">
+      {/* <section className="mt-7 border-l-4 border-gold bg-[#fffbea] px-7 py-6">
         <p className="leading-7 text-stone-700">
           <strong className="text-stone-900">Note:</strong> {location.note}
         </p>
-      </section>
+      </section> */}
     </>
   );
 }

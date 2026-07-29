@@ -108,21 +108,9 @@ import LucknowFAQ from "../components/Cab/Cabhub/LucknowFAQ";
 import Testimonials from "../components/Home/Testimonials";
 import OutstationRoutes from "../components/Cab/Cabhub/OutstationRoute";
 
-import { uniqueLocations } from "../constants/UniqueLocation";
-import { aboutLocationData } from "../constants/AboutLocation";
+
 
 export default function CabsPage() {
-  const uniqueLocation = uniqueLocations.find(
-    (item) => item.slug === "lucknow"
-  );
-
-  const aboutLocation = aboutLocationData.find(
-    (item) => item.city === "Lucknow"
-  );
-
-  if (!uniqueLocation || !aboutLocation) {
-    return <p>Location data not found.</p>;
-  }
 
   return (
     <main className="bg-stone-50">
@@ -171,25 +159,25 @@ export default function CabsPage() {
       </section>
 
       {/* Dynamic Unique Intro */}
-      <UniqueIntro location={uniqueLocation} />
+      {/* <UniqueIntro location={uniqueLocation} /> */}
 
       {/* Vehicle Fleet */}
       <VehicleFleet />
 
       {/* Fare Table */}
-      <LucknowFareTable />
+      {/* <LucknowFareTable /> */}
 
       {/* Dynamic About Location */}
-      <AboutLocation location={aboutLocation} />
+      {/* <AboutLocation location={aboutLocation} /> */}
 
       {/* FAQ */}
-      <LucknowFAQ />
+      {/* <LucknowFAQ /> */}
 
       {/* Testimonials */}
       <Testimonials />
 
       {/* Outstation Routes */}
-      <OutstationRoutes />
+      {/* <OutstationRoutes /> */}
 
       {/* Why Book With Us */}
       <WhyBookWithUs />

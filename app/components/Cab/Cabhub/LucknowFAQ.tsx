@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { capitalizeFirstLetter } from "@/app/utils/commonfunction";
 
 const faqs = [
   {
@@ -35,7 +36,7 @@ const faqs = [
   },
 ];
 
-export default function LucknowFAQs() {
+export default function LucknowFAQs({data}:any) {
   const [openIndex, setOpenIndex] = useState<any>(null);
 
   return (
@@ -48,7 +49,7 @@ export default function LucknowFAQs() {
           </p>
 
           <h2 className="mt-3 text-3xl font-bold text-stone-900 md:text-4xl">
-            Lucknow Cab Service FAQs
+            {capitalizeFirstLetter(data.cityName)} Cab Service FAQs
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-stone-600">
@@ -59,7 +60,7 @@ export default function LucknowFAQs() {
 
         {/* FAQ List */}
         <div className="mt-10 space-y-4">
-          {faqs.map((faq, index) => {
+          {data.faqs.map((faq:any, index:any) => {
             const isOpen = openIndex === index;
 
             return (

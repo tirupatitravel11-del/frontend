@@ -1,10 +1,13 @@
-export default function LucknowFareTable() {
+import { capitalizeFirstLetter } from "@/app/utils/commonfunction";
+
+export default function LucknowFareTable({data}:any ) {
+ 
   return (
     <section className="bg-white py-16">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section Heading */}
         <h2 className="text-3xl font-bold text-stone-900 md:text-4xl">
-          Lucknow Cab Fare & Vehicle Details
+          {capitalizeFirstLetter(data.cityName)} Cab Fare & Vehicle Details
         </h2>
 
         {/* Table */}
@@ -40,144 +43,169 @@ export default function LucknowFareTable() {
               </thead>
 
               {/* Table Body */}
-              <tbody className="divide-y divide-stone-200">
-                {/* Hatchback */}
-                <tr className="bg-white transition-colors duration-200 hover:bg-gold/50">
-                  <td className="px-5 py-5 font-semibold text-stone-900">
-                    Hatchback
-                  </td>
+           <tbody className="divide-y divide-stone-200">
+  {/* Hatchback */}
+  <tr className="bg-white transition-colors duration-200 hover:bg-gold/50">
+    <td className="px-5 py-5 font-semibold text-stone-900">
+      Hatchback
+    </td>
 
-                  <td className="px-5 py-5 text-stone-700">4</td>
+    <td className="px-5 py-5 text-stone-700">
+      4
+    </td>
 
-                  <td className="px-5 py-5 text-stone-700">2 Bags</td>
+    <td className="px-5 py-5 text-stone-700">
+      2 Bags
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹9.00/km
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[0]?.localFare || "0"}/km
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹9.00/km
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[0]?.roundTripFare || "0"}/km
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹10.00/km
-                  </td>
-                </tr>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[0]?.oneWayFare || "0"}/km
+    </td>
+  </tr>
 
-                {/* Sedan */}
-                <tr className="bg-stone-50 transition-colors duration-200 hover:bg-gold/50">
-                  <td className="px-5 py-5 font-semibold text-stone-900">
-                    Sedan
-                  </td>
+  {/* Sedan */}
+  <tr className="bg-stone-50 transition-colors duration-200 hover:bg-gold/50">
+    <td className="px-5 py-5 font-semibold text-stone-900">
+      Sedan
+    </td>
 
-                  <td className="px-5 py-5 text-stone-700">4</td>
+    <td className="px-5 py-5 text-stone-700">
+      4
+    </td>
 
-                  <td className="px-5 py-5 text-stone-700">3 Bags</td>
+    <td className="px-5 py-5 text-stone-700">
+      3 Bags
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹10.00/km
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[1]?.localFare || "0"}/km
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹10.00/km
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[1]?.roundTripFare || "0"}/km
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹11.00/km
-                  </td>
-                </tr>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[1]?.oneWayFare || "0"}/km
+    </td>
+  </tr>
 
-                {/* SUV / Ertiga */}
-                <tr className="bg-white transition-colors duration-200 hover:bg-gold/50">
-                  <td className="px-5 py-5 font-semibold text-stone-900">
-                    Ertiga
-                  </td>
+  {/* Ertiga */}
+  <tr className="bg-white transition-colors duration-200 hover:bg-gold/50">
+    <td className="px-5 py-5 font-semibold text-stone-900">
+      Ertiga
+    </td>
 
-                  <td className="px-5 py-5 text-stone-700">6</td>
+    <td className="px-5 py-5 text-stone-700">
+      6
+    </td>
 
-                  <td className="px-5 py-5 text-stone-700">4 Bags</td>
+    <td className="px-5 py-5 text-stone-700">
+      4 Bags
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹14.00/km
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[2]?.localFare || "0"}/km
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹14.00/km
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[2]?.roundTripFare || "0"}/km
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹15.00/km
-                  </td>
-                </tr>
-                {/* SUV */}
-                <tr className="bg-white transition-colors duration-200 hover:bg-gold/50">
-                  <td className="px-5 py-5 font-semibold text-stone-900">
-                    SUV
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[2]?.oneWayFare || "0"}/km
+    </td>
+  </tr>
 
-                  <td className="px-5 py-5 text-stone-700">6</td>
+  {/* SUV */}
+  <tr className="bg-white transition-colors duration-200 hover:bg-gold/50">
+    <td className="px-5 py-5 font-semibold text-stone-900">
+      SUV
+    </td>
 
-                  <td className="px-5 py-5 text-stone-700">4 Bags</td>
+    <td className="px-5 py-5 text-stone-700">
+      6
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹15.00/km
-                  </td>
+    <td className="px-5 py-5 text-stone-700">
+      4 Bags
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹13.00/km
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[3]?.localFare || "0"}/km
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹14.00/km
-                  </td>
-                </tr>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[3]?.roundTripFare || "0"}/km
+    </td>
 
-                {/* Innova */}
-                <tr className="bg-stone-50 transition-colors duration-200 hover:bg-gold/50">
-                  <td className="px-5 py-5 font-semibold text-stone-900">
-                    Innova
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[3]?.oneWayFare || "0"}/km
+    </td>
+  </tr>
 
-                  <td className="px-5 py-5 text-stone-700">7</td>
+  {/* Innova */}
+  <tr className="bg-stone-50 transition-colors duration-200 hover:bg-gold/50">
+    <td className="px-5 py-5 font-semibold text-stone-900">
+      Innova
+    </td>
 
-                  <td className="px-5 py-5 text-stone-700">5 Bags</td>
+    <td className="px-5 py-5 text-stone-700">
+      7
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹17.00/km
-                  </td>
+    <td className="px-5 py-5 text-stone-700">
+      5 Bags
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹17.00/km
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[4]?.localFare || "0"}/km
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹18.00/km
-                  </td>
-                </tr>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[4]?.roundTripFare || "0"}/km
+    </td>
 
-                {/* Innova Crysta */}
-                <tr className="bg-white transition-colors duration-200 hover:bg-gold/50">
-                  <td className="px-5 py-5 font-semibold text-stone-900">
-                    Innova Crysta
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[4]?.oneWayFare || "0"}/km
+    </td>
+  </tr>
 
-                  <td className="px-5 py-5 text-stone-700">7</td>
+  {/* Innova Crysta */}
+  <tr className="bg-white transition-colors duration-200 hover:bg-gold/50">
+    <td className="px-5 py-5 font-semibold text-stone-900">
+      Innova Crysta
+    </td>
 
-                  <td className="px-5 py-5 text-stone-700">5 Bags</td>
+    <td className="px-5 py-5 text-stone-700">
+      7
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹19.00/km
-                  </td>
+    <td className="px-5 py-5 text-stone-700">
+      5 Bags
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹19.00/km
-                  </td>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[5]?.localFare || "0"}/km
+    </td>
 
-                  <td className="px-5 py-5 font-medium text-stone-900">
-                    ₹20.00/km
-                  </td>
-                </tr>
-              </tbody>
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[5]?.roundTripFare || "0"}/km
+    </td>
+
+    <td className="px-5 py-5 font-medium text-stone-900">
+      ₹{data?.fareDetails?.[5]?.oneWayFare || "0"}/km
+    </td>
+  </tr>
+</tbody>
             </table>
           </div>
         </div>
