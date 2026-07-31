@@ -2,8 +2,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { capitalizeFirstLetter } from "@/app/utils/commonfunction";
 
-
-export default function OutstationRoutes({data}:any) {
+export default function OutstationRoutes({ data }: any) {
   return (
     <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6">
@@ -18,7 +17,8 @@ export default function OutstationRoutes({data}:any) {
           </h2>
 
           <p className="mt-5 text-lg leading-8 text-stone-600">
-            Book reliable outstation cabs from {capitalizeFirstLetter(data.cityName)} to popular destinations
+            Book reliable outstation cabs from{" "}
+            {capitalizeFirstLetter(data.cityName)} to popular destinations
             across Uttar Pradesh and nearby cities. Choose your destination and
             get a comfortable cab with experienced drivers.
           </p>
@@ -26,7 +26,7 @@ export default function OutstationRoutes({data}:any) {
 
         {/* Route Cards */}
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {data?.routes.map((route:any, index:any) => (
+          {data?.routes.map((route: any, index: any) => (
             <div
               key={index}
               // href={route.href}
@@ -59,7 +59,7 @@ export default function OutstationRoutes({data}:any) {
           ))}
         </div>
 
-        {/* Region Hub Link */}
+        {/* Region Hub Link
         <div className="mt-12 text-center">
           <Link
             href="/uttar-pradesh-taxi"
@@ -68,7 +68,7 @@ export default function OutstationRoutes({data}:any) {
             Explore All Uttar Pradesh Routes
             <ArrowRight className="h-5 w-5" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );
