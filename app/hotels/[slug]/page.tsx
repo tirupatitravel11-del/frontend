@@ -1,96 +1,148 @@
-// import CabFilters from "../../components/Cab/Cabhub/CabFilters";
+"use client";
 
-// import axios from "axios";
+import { useMemo, useState } from "react";
+import HotelFilters from "@/app/components/Hotels/HotelFilters";
+import HotelResults from "@/app/components/Hotels/HotelResults";
+import HotelFiltersLeft from "@/app/components/Hotels/HotelFiltersLeft";
 
-// type PageProps = {
-//   params: Promise<{
-//     slug: string;
-//   }>;
-// };
+const hotels = [
+  {
+    id: 1,
+    name: "Hotel The Royal Plaza",
+    location: "Connaught Place, Delhi",
 
-// // async function getData(slug: string) {
-// //   try {
-// //     console.log("Sending slug to API:", slug);
+    image: "/images/hotels/hotel-1.jpg",
+    rating: 3.4,
+    ratingText: "Good",
+    reviews: 12494,
+    oldPrice: 8480,
+    price: 7208,
+    amenities: ["Free Cancellation", "Couple Friendly", "Breakfast Included"],
+  },
+  {
+    id: 2,
+    name: "The Grand Delhi Hotel",
+    location: "Aerocity, Delhi",
 
-// //     const response = await axios.post(
-// //       `${process.env.apiUrl}/api/get-page`,
-// //       {
-// //         cityName: slug,
-// //       },
-// //       {
-// //         withCredentials: true,
-// //       },
-// //     );
+    image: "/images/hotels/hotel-2.jpg",
+    rating: 4.0,
+    ratingText: "Very Good",
+    reviews: 8240,
+    oldPrice: 7200,
+    price: 5800,
+    amenities: ["Free Cancellation", "Swimming Pool", "Breakfast Included"],
+  },
+  {
+    id: 3,
+    name: "Hotel City Palace",
+    location: "Karol Bagh, Delhi",
 
-// //     console.log("API RESPONSE:", response.data);
+    image: "/images/hotels/hotel-3.jpg",
+    rating: 4.2,
+    ratingText: "Very Good",
+    reviews: 6320,
+    oldPrice: 6500,
+    price: 4999,
+    amenities: ["Free WiFi", "Parking", "Couple Friendly"],
+  },
+];
 
-// //     return response.data.data;
-// //   } catch (error) {
-// //     console.error("GET PAGE API ERROR:", error);
+export default function HotelCityPage() {
+  const [search, setSearch] = useState("");
 
-// //     if (axios.isAxiosError(error)) {
-// //       console.error("Status:", error.response?.status);
-// //       console.error("Response:", error.response?.data);
-// //     }
+  // IMPORTANT: initialize as an empty array
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
-// //     return null;
-// //   }
-// // }
+  const [sort, setSort] = useState("Popularity");
 
-// export default async function Hotels({ params }: PageProps) {
-//   // URL:
-//   // /cabs/lucknow
+  const city = "Delhi";
 
-//   const { slug } = await params;
-//   // API call
-//   const data = await getData(slug);
-//   if (!data) {
-//     return <p>Unable to load page data.</p>;
-//   }
+  const toggleFilter = (filter: string) => {
+    setSelectedFilters((prev) =>
+      prev.includes(filter)
+        ? prev.filter((item) => item !== filter)
+        : [...prev, filter],
+    );
+  };
 
-//   return (
-//     <main className="bg-stone-50">
-//       {/* Hero + Cab Filter */}
-//       <section className="mx-auto max-w-7xl px-6 py-24">
-//         <div className="grid items-center gap-12 lg:grid-cols-2">
-//           {/* LEFT SIDE — TEXT */}
-//           <div>
-//             <p className="font-semibold uppercase tracking-[4px] text-gold">
-//               500+ Routes · Verified Drivers
-//             </p>
+  const filteredHotels = useMemo(() => {
+    let result = hotels.filter((hotel) =>
+      `${hotel.name} ${hotel.location}`
+        .toLowerCase()
+        .includes(search.toLowerCase()),
+    );
 
-//             <h1 className="mt-4 max-w-xl text-5xl font-bold leading-tight text-stone-900 md:text-6xl">
-//               Cabs You Can Trust.
-//             </h1>
+    // Breakfast filter
+    if (selectedFilters.includes("Breakfast Included")) {
+      result = result.filter((hotel) =>
+        hotel.amenities.includes("Breakfast Included"),
+      );
+    }
 
-//             <p className="mt-6 max-w-xl text-lg leading-8 text-stone-600">
-//               One-way or round-trip — choose your route, pick your vehicle, and
-//               go. Transparent fares, no hidden charges.
-//             </p>
+    // Swimming pool filter
+    if (selectedFilters.includes("Swimming Pool")) {
+      result = result.filter((hotel) =>
+        hotel.amenities.includes("Swimming Pool"),
+      );
+    }
 
-//             <div className="mt-8 flex flex-wrap gap-4">
-//               <button
-//                 type="button"
-//                 className="rounded-full bg-gold px-7 py-3.5 font-bold text-white shadow-md transition hover:bg-[#c88912]"
-//               >
-//                 View Hotels
-//               </button>
+    // Free cancellation filter
+    if (selectedFilters.includes("Free Cancellation")) {
+      result = result.filter((hotel) =>
+        hotel.amenities.includes("Free Cancellation"),
+      );
+    }
 
-//               <button
-//                 type="button"
-//                 className="rounded-full border-2 border-gold px-7 py-3.5 font-bold text-gold transition hover:bg-gold hover:text-white"
-//               >
-//                 Call to Book
-//               </button>
-//             </div>
-//           </div>
+    // 5 Star filter
+    if (selectedFilters.includes("5 Star")) {
+      result = result.filter((hotel) => hotel.rating >= 4.5);
+    }
 
-//           {/* RIGHT SIDE — FORM */}
-//           {/* <div className="w-full">
-//             <CabFilters />
-//           </div> */}
-//         </div>
-//       </section>
-//     </main>
-//   );
-// }
+    // Sorting
+    if (sort === "Price (Low to High)") {
+      result.sort((a, b) => a.price - b.price);
+    }
+
+    if (sort === "Price (High to Low)") {
+      result.sort((a, b) => b.price - a.price);
+    }
+
+    if (sort === "User Rating (Highest)") {
+      result.sort((a, b) => b.rating - a.rating);
+    }
+
+    return result;
+  }, [search, selectedFilters, sort]);
+
+  return (
+    <main className="min-h-screen bg-stone-100">
+      <div className="mx-auto max-w-[1500px] px-4 py-6 lg:px-6">
+        
+
+        <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
+          {/* ================= LEFT SIDE ================= */}
+          <aside>
+            <div className="sticky top-5 rounded-lg bg-white px-4">
+              <HotelFiltersLeft
+                search={search}
+                setSearch={setSearch}
+                selectedFilters={selectedFilters}
+                toggleFilter={toggleFilter}
+              />
+            </div>
+          </aside>
+
+          {/* ================= RIGHT SIDE ================= */}
+          <section className="min-w-0">
+            <HotelResults
+              hotels={filteredHotels}
+              city={city}
+              sort={sort}
+              setSort={setSort}
+            />
+          </section>
+        </div>
+      </div>
+    </main>
+  );
+}
