@@ -12,37 +12,37 @@ const trustFeatures = [
     icon: BadgeCheck,
     title: "Verified Hotels",
     description:
-      "Stay with confidence at carefully selected and verified hotels that meet our standards for comfort, service, and guest experience.",
+      "Stay confidently at carefully selected hotels that meet our standards for comfort and service.",
   },
   {
     icon: IndianRupee,
     title: "Best Available Prices",
     description:
-      "Find comfortable stays at competitive prices with transparent rates, helping you get great value for your hotel booking.",
+      "Find comfortable stays at competitive prices with transparent rates and great value.",
   },
   {
     icon: MapPin,
     title: "Great Locations",
     description:
-      "Choose hotels in convenient locations close to popular attractions, business areas, transport hubs, and major destinations.",
+      "Choose hotels close to popular attractions, business areas, transport hubs, and key destinations.",
   },
   {
     icon: Building2,
     title: "Comfortable Stays",
     description:
-      "From budget-friendly rooms to premium properties, find accommodations designed to make your trip comfortable and relaxing.",
+      "Choose from budget-friendly rooms to premium properties designed for a comfortable stay.",
   },
   {
     icon: ShieldCheck,
     title: "Secure Booking",
     description:
-      "Book your stay with confidence through a simple and secure booking experience with clear hotel and room information.",
+      "Book confidently with a simple and secure experience and clear hotel information.",
   },
   {
     icon: Headphones,
     title: "Customer Support",
     description:
-      "Our support team is available to help with your hotel booking and assist you whenever you need help during your stay.",
+      "Our support team is available to help with your booking whenever you need assistance.",
   },
 ];
 
@@ -73,20 +73,20 @@ export default function WhyBookWithUsHotels() {
             return (
               <div
                 key={feature.title}
-                className="group rounded-3xl border border-stone-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-xl"
+                className="group rounded-3xl border border-stone-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-xl"
               >
                 {/* Icon */}
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10 text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-white">
-                  <Icon size={28} strokeWidth={1.8} />
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10 text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-white">
+                  <Icon size={25} strokeWidth={1.8} />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-stone-900">
+                <h3 className="text-lg font-bold text-stone-900">
                   {feature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="mt-4 leading-7 text-stone-600">
+                <p className="mt-3 text-sm leading-6 text-stone-600">
                   {feature.description}
                 </p>
               </div>

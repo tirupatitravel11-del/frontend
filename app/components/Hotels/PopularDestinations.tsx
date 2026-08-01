@@ -1,197 +1,194 @@
 "use client";
 
-import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight, MapPin, Star } from "lucide-react";
+import Link from "next/link";
+import { MapPin } from "lucide-react";
 
 const popularDestinations = [
   {
     id: 1,
     city: "Mumbai",
-    region: "Maharashtra, India",
-    properties: 1240,
+    slug: "mumbai",
+    categories:
+      "Hotels, Budget Hotels, Resorts, Best Hotels, Near Airport, Marine Drive",
     image:
-      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=600&h=400&fit=crop",
-    isPopular: true,
+      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=200&h=200&fit=crop",
   },
   {
     id: 2,
-    city: "Goa",
-    region: "India",
-    properties: 856,
-    image: "/Packages_goa.jpg",
-    isPopular: true,
+    city: "Delhi",
+    slug: "delhi",
+    categories:
+      "Hotels, Budget Hotels, Resorts, Best Hotels, Near IGI Airport, Connaught Place",
+    image:
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=200&h=200&fit=crop",
   },
   {
     id: 3,
-    city: "Jaipur",
-    region: "Rajasthan, India",
-    properties: 654,
+    city: "Bangalore",
+    slug: "bangalore",
+    categories:
+      "Hotels, Budget Hotels, Resorts, Near Airport, MG Road, Indiranagar",
     image:
-      "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=600&h=400&fit=crop",
-    isPopular: true,
+      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=200&h=200&fit=crop",
   },
   {
     id: 4,
-    city: "Delhi",
-    region: "India",
-    properties: 980,
-    image:
-      "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=600&h=400&fit=crop",
-    isPopular: false,
+    city: "Goa",
+    slug: "goa",
+    categories:
+      "Hotels, Budget Hotels, Resorts, Best Hotels, North Goa, South Goa, Beach Resorts",
+    image: "/Packages_goa.jpg",
   },
   {
     id: 5,
-    city: "Bangalore",
-    region: "Karnataka, India",
-    properties: 742,
-    image: "/popular_cab_route5.jpg",
-    isPopular: false,
+    city: "Pune",
+    slug: "pune",
+    categories:
+      "Hotels, Budget Hotels, Resorts, Near Airport, Hinjewadi, Kothrud, Viman Nagar",
+    image:
+      "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=200&h=200&fit=crop",
   },
   {
     id: 6,
-    city: "Kerala",
-    region: "India",
-    properties: 589,
+    city: "Hyderabad",
+    slug: "hyderabad",
+    categories:
+      "Hotels, Budget Hotels, Resorts, Best Hotels, HITEC City, Gachibowli, Banjara Hills",
     image:
-      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=600&h=400&fit=crop",
-    isPopular: false,
+      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=200&h=200&fit=crop",
+  },
+  {
+    id: 7,
+    city: "Chennai",
+    slug: "chennai",
+    categories:
+      "Hotels, Budget Hotels, Resorts, Near Airport, T Nagar, Anna Nagar, OMR",
+    image:
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=200&h=200&fit=crop",
+  },
+  {
+    id: 8,
+    city: "Kolkata",
+    slug: "kolkata",
+    categories:
+      "Hotels, Budget Hotels, Best Hotels, Resorts, Park Street, Salt Lake, New Town",
+    image:
+      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=200&h=200&fit=crop",
+  },
+  {
+    id: 9,
+    city: "Jaipur",
+    slug: "jaipur",
+    categories:
+      "Hotels, Resorts, Budget Hotels, Best Hotels, Near Railway Station, Pink City",
+    image:
+      "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=200&h=200&fit=crop",
+  },
+  {
+    id: 10,
+    city: "Ahmedabad",
+    slug: "ahmedabad",
+    categories:
+      "Hotels, Budget Hotels, Resorts, Best Hotels, SG Highway, Prahlad Nagar, Satellite",
+    image:
+      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=200&h=200&fit=crop",
+  },
+  {
+    id: 11,
+    city: "Lucknow",
+    slug: "lucknow",
+    categories:
+      "Hotels, Budget Hotels, Best Hotels, Resorts, Gomti Nagar, Hazratganj, Alambagh",
+    image:
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=200&h=200&fit=crop",
+  },
+  {
+    id: 12,
+    city: "Chandigarh",
+    slug: "chandigarh",
+    categories:
+      "Hotels, Budget Hotels, Resorts, Best Hotels, Sector 17, Industrial Area, Mohali",
+    image:
+      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=200&h=200&fit=crop",
+  },
+  {
+    id: 13,
+    city: "Kochi",
+    slug: "kochi",
+    categories:
+      "Hotels, Resorts, Budget Hotels, Best Hotels, Marine Drive, MG Road, Ernakulam",
+    image:
+      "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=200&h=200&fit=crop",
+  },
+  {
+    id: 14,
+    city: "Indore",
+    slug: "indore",
+    categories:
+      "Hotels, Budget Hotels, Resorts, Best Hotels, Vijay Nagar, South Tukoganj, Airport Road",
+    image:
+      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=200&h=200&fit=crop",
+  },
+  {
+    id: 15,
+    city: "Surat",
+    slug: "surat",
+    categories:
+      "Hotels, Budget Hotels, Resorts, Best Hotels, Adajan, Vesu, City Light Road",
+    image:
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=200&h=200&fit=crop",
   },
 ];
 
 export default function PopularDestinations() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-  });
-
   return (
-    <section className="bg-stone-50 py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
+    <section className="bg-white py-16">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <div className="text-center md:text-left">
-            <span className="font-semibold uppercase tracking-[4px] text-gold">
-              Top Locations
-            </span>
+        <div>
+          <p className="font-semibold uppercase tracking-[4px] text-gold">
+            Top Locations
+          </p>
 
-            <h2 className="mt-3 text-3xl font-bold text-stone-900 md:text-5xl">
-              Popular Hotel Destinations
-            </h2>
+          <h2 className="mt-3 text-3xl font-bold text-stone-900 md:text-5xl">
+            Popular Hotel Destinations
+          </h2>
 
-            <p className="mt-5 max-w-3xl text-base text-stone-600 md:text-lg">
-              Explore our most booked hotel destinations for comfortable stays
-              and unforgettable experiences.
-            </p>
-          </div>
-
-          {/* Navigation Buttons */}
-          <div className="flex justify-center gap-4 md:justify-end">
-            <button
-              onClick={() => emblaApi?.scrollPrev()}
-              className="rounded-full border border-gold p-3 text-gold transition hover:bg-gold hover:text-white"
-              aria-label="Previous destination"
-            >
-              <ChevronLeft size={24} />
-            </button>
-
-            <button
-              onClick={() => emblaApi?.scrollNext()}
-              className="rounded-full border border-gold p-3 text-gold transition hover:bg-gold hover:text-white"
-              aria-label="Next destination"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
+          <p className="mt-5 max-w-3xl text-base text-stone-600 md:text-lg">
+            Explore our most booked hotel destinations for comfortable stays and
+            unforgettable experiences.
+          </p>
         </div>
 
-        {/* Carousel */}
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex">
-            {popularDestinations.map((destination) => (
-              <div
-                key={destination.id}
-                className="min-w-0 flex-[0_0_100%] px-2 sm:flex-[0_0_50%] sm:px-3 lg:flex-[0_0_33.333%]"
-              >
-                {/* Destination Card */}
-                <div className="group relative flex h-[420px] flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-lg">
-                  {/* Image Container (Fixed height, won't shrink) */}
-                  <div className="relative h-56 shrink-0 overflow-hidden">
-                    <img
-                      src={destination.image}
-                      alt={destination.city}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-
-                    {/* City Name on Image */}
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-2xl font-bold text-white drop-shadow-lg">
-                        {destination.city}
-                      </h3>
-                      <div className="mt-1.5 flex items-center gap-1.5 text-sm text-white/95">
-                        <MapPin className="h-4 w-4" />
-                        {destination.region}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Card Content (Fills remaining space perfectly) */}
-                  <div className="flex flex-1 flex-col justify-between p-5">
-                    {/* Rating & Reviews */}
-                    <div className="flex items-center gap-2">
-                      <div className="flex items-center gap-1 rounded-lg bg-green-50 px-2 py-1">
-                        <Star className="h-4 w-4 fill-green-600 text-green-600" />
-                        <span className="text-sm font-bold text-green-700">
-                          4.8
-                        </span>
-                      </div>
-                      <span className="text-xs text-stone-500">
-                        (2.4k reviews)
-                      </span>
-                    </div>
-
-                    {/* Features/Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      <span className="rounded-full bg-stone-100 px-3 py-1 text-xs font-medium text-stone-700">
-                        Free WiFi
-                      </span>
-                      <span className="rounded-full bg-stone-100 px-3 py-1 text-xs font-medium text-stone-700">
-                        Pool
-                      </span>
-                      <span className="rounded-full bg-stone-100 px-3 py-1 text-xs font-medium text-stone-700">
-                        Spa
-                      </span>
-                    </div>
-
-                    {/* Footer */}
-                    <div className="flex items-end justify-between border-t border-stone-100 pt-4">
-                      <div>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-xs text-stone-500">from</span>
-                          <span className="text-2xl font-bold text-stone-900">
-                            ₹2,499
-                          </span>
-                        </div>
-                        <span className="text-xs text-stone-500">
-                          per night
-                        </span>
-                      </div>
-
-                      <button className="flex items-center gap-1.5 rounded-full bg-gold/10 px-4 py-2 text-sm font-semibold text-gold transition-all hover:bg-gold hover:text-white">
-                        Explore
-                        <ChevronRight
-                          size={16}
-                          className="transition-transform group-hover:translate-x-1"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </div>
+        {/* Grid Layout */}
+        <div className="mt-10 grid gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
+          {popularDestinations.map((destination) => (
+            <Link
+              key={destination.id}
+              href={`/hotels/${destination.slug}`}
+              className="group flex items-start gap-4 rounded-lg p-3 transition-all duration-300 hover:bg-stone-50"
+            >
+              {/* Circular Image */}
+              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-stone-200 shadow-sm transition-all duration-300 group-hover:border-gold/40 group-hover:shadow-md">
+                <img
+                  src={destination.image}
+                  alt={destination.city}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
               </div>
-            ))}
-          </div>
+
+              {/* Content */}
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-stone-900 transition-colors duration-300 group-hover:text-gold">
+                  {destination.city}
+                </h3>
+
+                <p className="mt-1.5 text-sm leading-relaxed text-stone-600">
+                  {destination.categories}
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
