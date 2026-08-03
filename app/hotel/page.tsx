@@ -65,12 +65,6 @@ export default function HotelsPage() {
           </div>
         </div>
 
-        {/* Trust — directly below hero */}
-        <div className="border-t border-stone-100 bg-stone-50">
-          <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
-            <HotelTrustPoints />
-          </div>
-        </div>
       </section>
 
       <HotelOffers />
