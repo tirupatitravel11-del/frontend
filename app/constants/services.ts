@@ -20,7 +20,7 @@ export const services = [
     id: 3,
     title: "Hotel Booking",
     description: "Find budget, deluxe, and luxury hotels with the best deals.",
-    href: "/hotels",
+    href: "/hotel",
     image: "/services_hotels.jpg",
   },
   {

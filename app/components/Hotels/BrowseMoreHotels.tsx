@@ -9,7 +9,8 @@ const moreHotels = [
     id: 101,
     name: "The Grand Mumbai",
     location: "Andheri West, Mumbai",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
     rating: 4.8,
     reviews: 1240,
     price: 4500,
@@ -19,7 +20,8 @@ const moreHotels = [
     id: 102,
     name: "Royal Heritage Haveli",
     location: "Pink City, Jaipur",
-    image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop",
     rating: 4.9,
     reviews: 856,
     price: 6200,
@@ -29,7 +31,8 @@ const moreHotels = [
     id: 103,
     name: "ITC Gardenia",
     location: "Richmond Town, Bangalore",
-    image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&h=400&fit=crop",
     rating: 4.7,
     reviews: 2100,
     price: 5800,
@@ -39,7 +42,8 @@ const moreHotels = [
     id: 104,
     name: "Taj Exotica",
     location: "Benaulim, Goa",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop",
     rating: 4.9,
     reviews: 3400,
     price: 12500,
@@ -49,7 +53,8 @@ const moreHotels = [
     id: 105,
     name: "JW Marriott",
     location: "Senapati Bapat Marg, Pune",
-    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop",
     rating: 4.6,
     reviews: 980,
     price: 5200,
@@ -59,7 +64,8 @@ const moreHotels = [
     id: 106,
     name: "The Leela Palace",
     location: "Chanakyapuri, Delhi",
-    image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop",
     rating: 4.8,
     reviews: 1560,
     price: 8900,
@@ -81,7 +87,7 @@ export default function MoreHotels() {
               Explore More Top Hotels
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-7 text-stone-600 md:text-lg">
-              Handpicked premium and budget-friendly stays across India's most 
+              Handpicked premium and budget-friendly stays across India's most
               vibrant cities for an unforgettable experience.
             </p>
           </div>
@@ -92,9 +98,9 @@ export default function MoreHotels() {
             className="group flex shrink-0 items-center gap-2 font-semibold text-gold transition-colors hover:text-gold/80"
           >
             View All Hotels
-            <ArrowRight 
-              size={18} 
-              className="transition-transform group-hover:translate-x-1" 
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
             />
           </Link>
         </div>
@@ -148,7 +154,9 @@ export default function MoreHotels() {
                 {/* Footer: Price & Action */}
                 <div className="mt-auto flex items-end justify-between border-t border-stone-100 pt-4">
                   <div>
-                    <span className="text-xs text-stone-500">Starting from</span>
+                    <span className="text-xs text-stone-500">
+                      Starting from
+                    </span>
                     <div className="flex items-baseline gap-1">
                       <span className="text-2xl font-bold text-stone-900">
                         ₹{hotel.price.toLocaleString()}

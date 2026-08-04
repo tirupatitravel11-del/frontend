@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useParams } from "next/navigation";
 import {
   Star,
@@ -16,9 +17,32 @@ import {
 } from "lucide-react";
 
 import { hotels } from "../../../constants/hotelsdetails";
+import HotelRooms from "@/app/components/Hotels/HotelRooms";
+
+interface SelectedRoom {
+  id: number;
+  name: string;
+  price: number;
+  taxes: number;
+}
+
+const defaultSelectedRoom: SelectedRoom = {
+  id: 1,
+  name: "Classic",
+  price: 836,
+  taxes: 143,
+};
 
 export default function HotelDetailsPage() {
   const params = useParams();
+
+  const [showAllAmenities, setShowAllAmenities] = useState(false);
+  const [selectedRoom, setSelectedRoom] =
+    useState<SelectedRoom>(defaultSelectedRoom);
+
+  const handleRoomSelect = (room: SelectedRoom) => {
+    setSelectedRoom(room);
+  };
 
   const citySlug = String(params.slug || "").toLowerCase();
   const hotelSlug = String(
@@ -30,6 +54,25 @@ export default function HotelDetailsPage() {
       item.city.toLowerCase() === citySlug &&
       item.slug.toLowerCase() === hotelSlug,
   );
+
+  const fallbackAmenities = [
+    "Free WiFi",
+    "Restaurant",
+    "Breakfast",
+    "Parking",
+    "Room Service",
+    "Airport Transfer",
+    "Swimming Pool",
+    "Spa",
+  ];
+
+  const allAmenities = Array.from(
+    new Set([...hotel?.amenities, ...fallbackAmenities]),
+  );
+  const hasMoreAmenities = allAmenities.length > 4;
+  const visibleAmenities = showAllAmenities
+    ? allAmenities
+    : allAmenities.slice(0, 4);
 
   if (!hotel) {
     return (
@@ -117,22 +160,38 @@ export default function HotelDetailsPage() {
               </section>
 
               {/* AMENITIES */}
-              <section className="mt-6">
-                <h2 className="text-lg font-bold text-stone-900">Amenities</h2>
-
-                <div className="mt-4 flex flex-wrap gap-x-8 gap-y-4">
-                  {hotel.amenities.map((amenity) => (
+              <div className="mt-4">
+                <div
+                  className={`flex flex-wrap gap-x-8 gap-y-4 ${
+                    showAllAmenities ? "max-h-48 overflow-y-auto pr-2" : ""
+                  }`}
+                >
+                  {visibleAmenities.map((amenity) => (
                     <div
                       key={amenity}
                       className="flex items-center gap-2 text-sm text-stone-600"
                     >
-                      <CheckCircle size={17} className="text-green-600" />
+                      <CheckCircle
+                        size={17}
+                        className="shrink-0 text-green-600"
+                      />
 
-                      {amenity}
+                      <span>{amenity}</span>
                     </div>
                   ))}
                 </div>
-              </section>
+
+                {hasMoreAmenities && (
+                  <button
+                    type="button"
+                    aria-expanded={showAllAmenities}
+                    onClick={() => setShowAllAmenities((prev) => !prev)}
+                    className="mt-5 font-semibold text-blue-600 hover:underline"
+                  >
+                    {showAllAmenities ? "Show Less" : "More Details"}
+                  </button>
+                )}
+              </div>
 
               {/* EXTRA AMENITIES */}
               <section className="mt-7">
@@ -182,106 +241,44 @@ export default function HotelDetailsPage() {
 
             {/* ================= RIGHT BOOKING CARD ================= */}
             <aside>
-              <div className="sticky top-5 rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
-                {/* ROOM */}
-                <div>
-                  <h2 className="text-base font-bold text-stone-900">
-                    Standard King Room
-                  </h2>
+              <div className="sticky top-5 rounded-xl bg-white p-6 shadow-sm">
+                {/* Selected room */}
+                <p className="text-sm text-stone-500">Selected Room</p>
 
-                  <p className="mt-1 text-sm text-stone-600">Fits 2 Adults</p>
-                </div>
+                <p className="mt-1 text-lg font-bold text-stone-900">
+                  {selectedRoom.name}
+                </p>
 
-                {/* CHECK IN INFO */}
-                <div className="mt-4 flex gap-2">
-                  <Clock3 size={17} className="mt-1 shrink-0 text-stone-600" />
+                {/* Price */}
+                <div className="mt-5">
+                  <p className="text-sm text-stone-500">Starting from</p>
 
-                  <p className="text-sm leading-5 text-stone-600">
-                    Allows to extend guaranteed check-in as early as 11
-                    AM/check-out as late as 3 PM at extra charges.
+                  <p className="mt-1 text-3xl font-bold text-stone-900">
+                    ₹{selectedRoom.price.toLocaleString()}
                   </p>
+
+                  <p className="mt-1 text-sm text-stone-500">
+                    + ₹{selectedRoom.taxes.toLocaleString()} taxes & fees
+                  </p>
+
+                  <p className="mt-1 text-sm text-stone-500">Per Night</p>
                 </div>
 
-                {/* CANCELLATION */}
-                <div className="mt-3 flex items-center gap-2 text-sm text-teal-600">
-                  <CheckCircle size={16} />
-                  Free Cancellation till 24 hrs before check in
-                </div>
-
-                <hr className="my-4 border-stone-200" />
-
-                {/* PRICE */}
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-stone-400 line-through">
-                      ₹{hotel.oldPrice.toLocaleString()}
-                    </span>
-
-                    <span className="text-xs text-stone-500">Per Night:</span>
-                  </div>
-
-                  <div className="mt-1">
-                    <span className="text-2xl font-bold text-stone-900">
-                      ₹{hotel.price.toLocaleString()}
-                    </span>
-
-                    <span className="ml-2 text-sm text-stone-500">
-                      + taxes & fees
-                    </span>
-                  </div>
-                </div>
-
-                {/* BOOK BUTTON */}
-                <button className="mt-5 w-full rounded-lg bg-blue-600 px-5 py-3 font-bold text-white shadow-sm transition hover:bg-blue-700">
-                  BOOK THIS NOW
+                {/* Book button */}
+                <button
+                  type="button"
+                  className="mt-6 w-full rounded-lg bg-gold px-5 py-3 font-bold text-white transition hover:bg-[#c88912]"
+                >
+                  Book Now
                 </button>
 
-                {/* RATING */}
-                <div className="mt-4 border-t border-stone-200 pt-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="rounded-xl bg-blue-700 px-4 py-3 text-xl font-bold text-white">
-                        {hotel.rating}
-                      </div>
-
-                      <div>
-                        <p className="font-bold text-stone-800">
-                          {hotel.ratingText}
-                        </p>
-                      </div>
-                    </div>
-
-                    <button className="text-sm font-semibold text-blue-600">
-                      All Reviews
-                    </button>
-                  </div>
-                </div>
-
-                {/* LOCATION CARD */}
-                <div className="mt-4 border-t border-stone-200 pt-4">
-                  <div className="flex gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50">
-                      <MapPin className="text-blue-600" />
-                    </div>
-
-                    <div>
-                      <p className="font-bold text-stone-800">
-                        {hotel.location.split(",")[0]}
-                      </p>
-
-                      <p className="text-xs text-stone-500">
-                        Convenient location near the city center
-                      </p>
-
-                      <button className="mt-1 text-xs font-semibold text-blue-600">
-                        See on Map
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <p className="mt-4 text-center text-xs text-stone-500">
+                  Free cancellation available
+                </p>
               </div>
             </aside>
           </div>
+          <HotelRooms onRoomSelect={handleRoomSelect} />
         </div>
       </div>
     </main>

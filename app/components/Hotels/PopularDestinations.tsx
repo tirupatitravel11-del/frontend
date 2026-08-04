@@ -165,7 +165,7 @@ export default function PopularDestinations() {
           {popularDestinations.map((destination) => (
             <Link
               key={destination.id}
-              href={`/hotels/${destination.slug}`}
+              href={`/hotel/${destination.slug}`}
               className="group flex items-start gap-4 rounded-lg p-3 transition-all duration-300 hover:bg-stone-50"
             >
               {/* Circular Image */}
