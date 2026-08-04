@@ -81,7 +81,7 @@ export default function HotelResults({
           return (
             <Link
               key={hotel.id}
-              href={`/hotels/${hotel.city}/${hotelSlug}`}
+              href={`/hotel/${hotel.city}/${hotelSlug}`}
               className="block"
             >
               <div className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm transition hover:border-blue-300 hover:shadow-md">
