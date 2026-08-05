@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+
 import { MapPin } from "lucide-react";
 
 const popularDestinations = [
@@ -10,8 +11,7 @@ const popularDestinations = [
     slug: "mumbai",
     categories:
       "Hotels, Budget Hotels, Resorts, Best Hotels, Near Airport, Marine Drive",
-    image:
-      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 2,
@@ -19,8 +19,7 @@ const popularDestinations = [
     slug: "delhi",
     categories:
       "Hotels, Budget Hotels, Resorts, Best Hotels, Near IGI Airport, Connaught Place",
-    image:
-      "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 3,
@@ -28,8 +27,7 @@ const popularDestinations = [
     slug: "bangalore",
     categories:
       "Hotels, Budget Hotels, Resorts, Near Airport, MG Road, Indiranagar",
-    image:
-      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 4,
@@ -37,7 +35,7 @@ const popularDestinations = [
     slug: "goa",
     categories:
       "Hotels, Budget Hotels, Resorts, Best Hotels, North Goa, South Goa, Beach Resorts",
-    image: "/Packages_goa.jpg",
+    icon: MapPin,
   },
   {
     id: 5,
@@ -45,8 +43,7 @@ const popularDestinations = [
     slug: "pune",
     categories:
       "Hotels, Budget Hotels, Resorts, Near Airport, Hinjewadi, Kothrud, Viman Nagar",
-    image:
-      "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 6,
@@ -54,8 +51,7 @@ const popularDestinations = [
     slug: "hyderabad",
     categories:
       "Hotels, Budget Hotels, Resorts, Best Hotels, HITEC City, Gachibowli, Banjara Hills",
-    image:
-      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 7,
@@ -63,8 +59,7 @@ const popularDestinations = [
     slug: "chennai",
     categories:
       "Hotels, Budget Hotels, Resorts, Near Airport, T Nagar, Anna Nagar, OMR",
-    image:
-      "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 8,
@@ -72,8 +67,7 @@ const popularDestinations = [
     slug: "kolkata",
     categories:
       "Hotels, Budget Hotels, Best Hotels, Resorts, Park Street, Salt Lake, New Town",
-    image:
-      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 9,
@@ -81,8 +75,7 @@ const popularDestinations = [
     slug: "jaipur",
     categories:
       "Hotels, Resorts, Budget Hotels, Best Hotels, Near Railway Station, Pink City",
-    image:
-      "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 10,
@@ -90,8 +83,7 @@ const popularDestinations = [
     slug: "ahmedabad",
     categories:
       "Hotels, Budget Hotels, Resorts, Best Hotels, SG Highway, Prahlad Nagar, Satellite",
-    image:
-      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 11,
@@ -99,8 +91,7 @@ const popularDestinations = [
     slug: "lucknow",
     categories:
       "Hotels, Budget Hotels, Best Hotels, Resorts, Gomti Nagar, Hazratganj, Alambagh",
-    image:
-      "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 12,
@@ -108,8 +99,7 @@ const popularDestinations = [
     slug: "chandigarh",
     categories:
       "Hotels, Budget Hotels, Resorts, Best Hotels, Sector 17, Industrial Area, Mohali",
-    image:
-      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 13,
@@ -117,8 +107,7 @@ const popularDestinations = [
     slug: "kochi",
     categories:
       "Hotels, Resorts, Budget Hotels, Best Hotels, Marine Drive, MG Road, Ernakulam",
-    image:
-      "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 14,
@@ -126,8 +115,7 @@ const popularDestinations = [
     slug: "indore",
     categories:
       "Hotels, Budget Hotels, Resorts, Best Hotels, Vijay Nagar, South Tukoganj, Airport Road",
-    image:
-      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
   {
     id: 15,
@@ -135,11 +123,9 @@ const popularDestinations = [
     slug: "surat",
     categories:
       "Hotels, Budget Hotels, Resorts, Best Hotels, Adajan, Vesu, City Light Road",
-    image:
-      "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=200&h=200&fit=crop",
+    icon: MapPin,
   },
 ];
-
 export default function PopularDestinations() {
   return (
     <section className="bg-white py-16">
@@ -168,12 +154,12 @@ export default function PopularDestinations() {
               href={`/hotel/${destination.slug}`}
               className="group flex items-start gap-4 rounded-lg p-3 transition-all duration-300 hover:bg-stone-50"
             >
-              {/* Circular Image */}
-              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-stone-200 shadow-sm transition-all duration-300 group-hover:border-gold/40 group-hover:shadow-md">
-                <img
-                  src={destination.image}
-                  alt={destination.city}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              {/* Circular icon for city */}
+              <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-stone-200 bg-stone-50 shadow-sm transition-all duration-300 group-hover:border-gold/40 group-hover:bg-gold/5 group-hover:shadow-md">
+                <destination.icon
+                  size={30}
+                  strokeWidth={1.8}
+                  className="text-stone-600 transition-transform duration-500 group-hover:scale-110 group-hover:text-gold"
                 />
               </div>
 
