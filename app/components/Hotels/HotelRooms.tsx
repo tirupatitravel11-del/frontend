@@ -1,17 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, Wifi, Tv, Wind } from "lucide-react";
+import { Circle, Tv, Wifi, Wind } from "lucide-react";
 
-interface Room {
-  id: number;
-  name: string;
-  description: string;
-  image: string;
+export interface BackendRoom {
+  roomName: string;
   price: number;
-  oldPrice: number;
-  taxes: number;
-  available: boolean;
 }
 
 interface SelectedRoom {
@@ -22,103 +16,59 @@ interface SelectedRoom {
 }
 
 interface HotelRoomsProps {
+  rooms: BackendRoom[];
   onRoomSelect: (room: SelectedRoom) => void;
 }
 
-const rooms: Room[] = [
-  {
-    id: 1,
-    name: "Classic",
-    description: "Room size: 11 sqm approx",
-    image: "/hotels/classic-room.jpg",
-    price: 836,
-    oldPrice: 4350,
-    taxes: 143,
-    available: true,
-  },
+export default function HotelRooms({ rooms, onRoomSelect }: HotelRoomsProps) {
+  const [selectedRoom, setSelectedRoom] = useState(0);
 
-  {
-    id: 2,
-    name: "Deluxe",
-    description: "Room size: 12 sqm approx",
-    image: "/hotels/deluxe-room.jpg",
-    price: 921,
-    oldPrice: 4004,
-    taxes: 153,
-    available: true,
-  },
-
-  {
-    id: 3,
-    name: "Saver Double",
-    description: "Saver: Spaces with functional amenities",
-    image: "/hotels/saver-room.jpg",
-    price: 819,
-    oldPrice: 4368,
-    taxes: 140,
-    available: true,
-  },
-
-  {
-    id: 4,
-    name: "Premium Room",
-    description: "Spacious room with premium facilities",
-    image: "/hotels/premium-room.jpg",
-    price: 1250,
-    oldPrice: 5200,
-    taxes: 180,
-    available: true,
-  },
-];
-
-export default function HotelRooms({ onRoomSelect }: HotelRoomsProps) {
-  const [selectedRoom, setSelectedRoom] = useState<number>(1);
-
-  const handleSelectRoom = (room: Room) => {
-    if (!room.available) {
-      return;
-    }
-
-    setSelectedRoom(room.id);
+  const handleSelectRoom = (room: BackendRoom, index: number) => {
+    setSelectedRoom(index);
 
     onRoomSelect({
-      id: room.id,
-      name: room.name,
-      price: room.price,
-      taxes: room.taxes,
+      id: index + 1,
+      name: room.roomName,
+      price: Number(room.price),
+      taxes: 0,
     });
   };
 
+  if (!rooms || rooms.length === 0) {
+    return (
+      <div className="mt-6 rounded-xl border border-stone-200 bg-white p-6 text-center text-stone-500">
+        No rooms available for this hotel.
+      </div>
+    );
+  }
+
   return (
-    <div className="space-y-5">
-      {rooms.map((room) => {
-        const isSelected = selectedRoom === room.id;
+    <div className="mt-6 space-y-5">
+      {rooms.map((room, index) => {
+        const isSelected = selectedRoom === index;
 
         return (
           <div
-            key={room.id}
+            key={`${room.roomName}-${index}`}
             className={`overflow-hidden rounded-xl border bg-white transition ${
               isSelected ? "border-green-500 shadow-sm" : "border-stone-200"
             }`}
           >
-            {/* SELECTED CATEGORY */}
             {isSelected && (
               <div className="flex items-center gap-2 bg-slate-500 px-4 py-2 text-sm font-bold text-white">
                 ⭐ SELECTED CATEGORY
               </div>
             )}
 
-            {/* ROOM TOP */}
-            <div className="grid gap-5 p-5 md:grid-cols-[1fr_180px]">
-              {/* LEFT */}
+            <div className="grid gap-5 p-5 md:grid-cols-[1fr_360px]">
               <div>
                 <div className="flex items-center gap-2">
                   <h3 className="text-2xl font-bold text-stone-900">
-                    {room.name}
+                    {room.roomName}
                   </h3>
 
                   {isSelected && (
-                    <CheckCircle
+                    <Circle
                       size={22}
                       className="fill-green-500 text-green-500"
                     />
@@ -126,10 +76,9 @@ export default function HotelRooms({ onRoomSelect }: HotelRoomsProps) {
                 </div>
 
                 <p className="mt-3 text-sm text-stone-600">
-                  {room.description}
+                  Comfortable room with essential facilities.
                 </p>
 
-                {/* ROOM FEATURES */}
                 <div className="mt-8 flex flex-wrap gap-6 text-sm text-stone-700">
                   <div className="flex items-center gap-2">
                     <Wind size={20} />
@@ -148,64 +97,47 @@ export default function HotelRooms({ onRoomSelect }: HotelRoomsProps) {
                 </div>
               </div>
 
-              {/* IMAGE */}
               <div className="relative">
                 <img
-                  src={room.image}
-                  alt={room.name}
-                  className="h-32 w-full rounded-lg object-cover"
+                  src="/hotels/hotelroom1.jpg"
+                  alt={room.roomName}
+                  className="h-56 w-full rounded-lg object-cover"
                 />
-
-                {/* <div className="absolute right-2 top-2 rounded-full bg-black/60 px-2 py-1 text-xs text-white">
-                  📷
-                </div> */}
               </div>
             </div>
 
-            {/* PRICE SECTION */}
             <div className="border-t border-stone-200">
               <div className="grid md:grid-cols-[1fr_180px]">
-                {/* PRICE */}
                 <div className="p-5">
                   <div className="flex items-center gap-3">
                     <span className="text-xl font-bold text-stone-900">
-                      ₹{room.price.toLocaleString()}
-                    </span>
-
-                    <span className="text-sm text-stone-400 line-through">
-                      ₹{room.oldPrice.toLocaleString()}
+                      ₹{Number(room.price).toLocaleString()}
                     </span>
                   </div>
 
-                  <p className="mt-1 text-sm text-stone-500">
-                    + ₹{room.taxes.toLocaleString()} taxes & fee
-                  </p>
+                  <p className="mt-1 text-sm text-stone-500">+ taxes & fees</p>
+
+                  <p className="mt-1 text-sm text-stone-500">Per Night</p>
                 </div>
 
-                {/* SELECT BUTTON */}
                 <div className="flex items-center p-5">
                   <button
                     type="button"
-                    disabled={!room.available}
-                    onClick={() => handleSelectRoom(room)}
+                    onClick={() => handleSelectRoom(room, index)}
                     className={`w-full rounded-lg border px-4 py-3 text-sm font-bold transition ${
-                      !room.available
-                        ? "cursor-not-allowed border-stone-200 bg-stone-200 text-stone-400"
-                        : isSelected
-                          ? "border-green-500 text-stone-900"
-                          : "border-stone-300 text-red-600 hover:border-blue-500 hover:text-blue-600"
+                      isSelected
+                        ? "border-green-500 text-stone-900"
+                        : "border-stone-300 text-red-600 hover:border-blue-500 hover:text-blue-600"
                     }`}
                   >
                     {isSelected ? (
                       <span className="flex items-center justify-center gap-2">
-                        <CheckCircle
+                        <Circle
                           size={16}
                           className="fill-green-500 text-green-500"
                         />
                         SELECTED
                       </span>
-                    ) : !room.available ? (
-                      "SOLD OUT"
                     ) : (
                       "SELECT"
                     )}
