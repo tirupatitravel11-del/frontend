@@ -125,7 +125,7 @@ export default function PopularDestinations() {
           {destinations.map((destination) => (
             <Link
               key={destination.id}
-              href={`/packages/destination/${destination.slug}`}
+              href={`/packages/${destination.slug}`}
               className="group flex items-start gap-4 rounded-xl p-4 transition-all duration-300 hover:bg-stone-50"
             >
               {/* Icon */}

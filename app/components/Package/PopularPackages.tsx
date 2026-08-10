@@ -151,12 +151,6 @@ export default function PopularPackages() {
                   <div className="absolute bottom-3 left-3 rounded-xl bg-linear-to-r from-gold to-[#c88912] px-4 py-2 text-sm font-bold text-white shadow-lg shadow-stone-900/30">
                     From {item.price}
                   </div>
-
-                  {/* Location */}
-                  <div className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-stone-800 backdrop-blur-sm">
-                    <MapPin className="h-3.5 w-3.5 text-gold" />
-                    {item.title}
-                  </div>
                 </div>
 
                 {/* Content */}
