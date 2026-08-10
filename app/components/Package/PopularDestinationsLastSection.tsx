@@ -123,21 +123,21 @@ export default function PopularDestinationsLastSection() {
         {/* Carousel */}
         <div ref={emblaRef} className="overflow-hidden">
           <div className="-ml-6 flex">
-            {popularDestinations.map((item) => (
+            {popularDestinations.map((destination) => (
               <div
-                key={item.id}
+                key={destination.id}
                 className="min-w-0 flex-[0_0_90%] pl-6 sm:flex-[0_0_60%] md:flex-[0_0_48%] lg:flex-[0_0_42%] xl:flex-[0_0_33.333%]"
               >
                 <Link
-                  href={`/packages/${item.slug}`}
+                 href={`/packages/destination/${destination.slug}`}
                   className="group block h-full"
                 >
                   <article className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/70 bg-white shadow-[0_20px_45px_rgba(15,23,42,0.08)] transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_30px_80px_rgba(15,23,42,0.16)]">
                     {/* Image */}
                     <div className="relative h-72 overflow-hidden sm:h-80 lg:h-[22rem]">
                       <img
-                        src={item.image}
-                        alt={`${item.city} holiday packages`}
+                        src={destination.image}
+                        alt={`${destination.city} holiday packages`}
                         loading="lazy"
                         className="h-full w-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
                       />
@@ -147,7 +147,7 @@ export default function PopularDestinationsLastSection() {
 
                       {/* Package Badge */}
                       <div className="absolute left-6 top-6 rounded-full bg-white/95 px-5 py-2.5 text-[11px] font-extrabold uppercase tracking-[0.16em] text-gold shadow-lg backdrop-blur-sm">
-                        {item.packages}
+                        {destination.packages}
                       </div>
 
                       {/* Location */}
@@ -155,7 +155,7 @@ export default function PopularDestinationsLastSection() {
                         <div className="flex items-center gap-4">
                           <div>
                             <h3 className="text-2xl font-bold text-white">
-                              {item.city}
+                              {destination.city}
                             </h3>
                             <p className="mt-1 text-sm text-white/80">
                               Luxury travel experiences
@@ -168,7 +168,7 @@ export default function PopularDestinationsLastSection() {
                     {/* Content */}
                     <div className="flex flex-1 flex-col p-7 lg:p-8">
                       <p className="flex-1 text-base leading-8 text-stone-600">
-                        {item.description}
+                        {destination.description}
                       </p>
 
                       <div className="mt-8 flex items-center justify-between border-t border-stone-100 pt-6">
