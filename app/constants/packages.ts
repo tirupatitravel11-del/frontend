@@ -1,3 +1,28 @@
+// Shared lists (reuse for all packages)
+const standardInclusions = [
+  "Hotel Accommodation",
+  "Daily Breakfast & Dinner",
+  "Private Cab for All Transfers",
+  "Experienced Hill Drivers",
+  "Driver Allowance & Night Charges",
+  "Fuel & Toll Charges",
+  "Ferry / Train / Bus Tickets",
+  "Pick Up & Drop",
+  "State Tax & GST",
+];
+
+const standardExclusions = [
+  "Airfare / Train Fare",
+  "Entry Tickets & Monuments",
+  "Adventure Activities",
+  "Camera & Video Fees",
+  "Extra KM Charges",
+  "Guide Charges",
+  "Parking Charges",
+  "Personal Expenses",
+  "Anything Not Mentioned in Inclusions",
+];
+
 export const popularPackages = [
   {
     id: 1,
@@ -13,6 +38,59 @@ export const popularPackages = [
     location: "Goa, India",
     tags: ["Beach", "Nightlife", "Water Sports"],
     highlights: ["Baga Beach", "Cruise", "Water Sports"],
+    pricingBasis: "Per Person",
+    maxGuests: 6,
+    route: ["Baga", "Anjuna", "Vagator", "Panjim"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival & Baga Beach",
+        activities: [
+          "Airport transfer & hotel check-in.",
+          "Relax at Baga Beach & try water sports.",
+          "Explore Baga market & beach shacks.",
+          "Optional: Enjoy Goa nightlife at clubs.",
+          "Dinner & overnight stay in Goa.",
+        ],
+        overnight: "Goa",
+      },
+      {
+        day: 2,
+        title: "North Goa Sightseeing",
+        activities: [
+          "Breakfast at the hotel.",
+          "Visit Fort Aguada & Sinquerim Beach.",
+          "Lunch at Anjuna Beach.",
+          "Explore the famous Anjuna Flea Market.",
+          "Sunset at Vagator & Chapora Fort.",
+          "Overnight stay in Goa.",
+        ],
+        overnight: "Goa",
+      },
+      {
+        day: 3,
+        title: "South Goa & Mandovi Cruise",
+        activities: [
+          "Visit Old Goa churches & Basilica of Bom Jesus.",
+          "Dona Paula viewpoint & Miramar Beach.",
+          "Evening Mandovi River sunset cruise.",
+          "Overnight stay in Goa.",
+        ],
+        overnight: "Goa",
+      },
+      {
+        day: 4,
+        title: "Departure",
+        activities: [
+          "Breakfast & hotel check-out.",
+          "Souvenir shopping at Mapusa Market.",
+          "Transfer to the airport with sweet memories.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 2,
@@ -28,6 +106,68 @@ export const popularPackages = [
     location: "Kashmir, India",
     tags: ["Mountains", "Snow", "Houseboat"],
     highlights: ["Dal Lake", "Gulmarg", "Pahalgam"],
+    pricingBasis: "Per Person",
+    maxGuests: 8,
+    route: ["Srinagar", "Sonamarg", "Gulmarg", "Pahalgam"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Srinagar Arrival & Dal Lake",
+        activities: [
+          "Arrive at Srinagar airport & transfer to houseboat.",
+          "Check-in & welcome drink on the houseboat.",
+          "Evening Shikara ride on Dal Lake.",
+          "Dinner & overnight stay on the houseboat.",
+        ],
+        overnight: "Srinagar",
+      },
+      {
+        day: 2,
+        title: "Sonamarg Excursion",
+        activities: [
+          "Breakfast & drive to Sonamarg, the Meadow of Gold.",
+          "Enjoy the Sindh river views.",
+          "Optional pony ride to Thajiwas Glacier.",
+          "Return to Srinagar by evening.",
+          "Overnight stay in Srinagar.",
+        ],
+        overnight: "Srinagar",
+      },
+      {
+        day: 3,
+        title: "Gulmarg Day Trip",
+        activities: [
+          "Drive to Gulmarg after breakfast.",
+          "Ride the famous Gulmarg Gondola (subject to tickets).",
+          "Enjoy the meadows & strawberry valley.",
+          "Return to Srinagar & overnight stay.",
+        ],
+        overnight: "Srinagar",
+      },
+      {
+        day: 4,
+        title: "Pahalgam Valley",
+        activities: [
+          "Drive to Pahalgam via saffron fields.",
+          "Visit Betaab Valley, Chandanwari & Aru Valley.",
+          "Enjoy the Lidder river side.",
+          "Return to Srinagar & overnight stay.",
+        ],
+        overnight: "Srinagar",
+      },
+      {
+        day: 5,
+        title: "Mughal Gardens & Departure",
+        activities: [
+          "Visit Nishat & Shalimar Gardens.",
+          "Shopping at local markets.",
+          "Transfer to the airport for departure.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 3,
@@ -43,6 +183,58 @@ export const popularPackages = [
     location: "Kerala, India",
     tags: ["Backwaters", "Tea Gardens", "Beaches"],
     highlights: ["Alleppey", "Munnar", "Kovalam"],
+    pricingBasis: "Per Person",
+    maxGuests: 6,
+    route: ["Kochi", "Alleppey", "Munnar", "Kovalam"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Kochi to Alleppey Houseboat",
+        activities: [
+          "Arrive in Kochi & visit Fort Kochi.",
+          "See the famous Chinese fishing nets.",
+          "Transfer to Alleppey & board the houseboat.",
+          "Cruise through serene backwaters with meals on board.",
+          "Overnight stay on the houseboat.",
+        ],
+        overnight: "Alleppey",
+      },
+      {
+        day: 2,
+        title: "Alleppey to Munnar",
+        activities: [
+          "Enjoy sunrise over the backwaters.",
+          "Drive to Munnar through spice plantations.",
+          "Visit Mattupetty Dam & Echo Point.",
+          "Overnight stay in Munnar.",
+        ],
+        overnight: "Munnar",
+      },
+      {
+        day: 3,
+        title: "Munnar to Kovalam",
+        activities: [
+          "Visit Eravikulam National Park.",
+          "Explore tea gardens & the Tea Museum.",
+          "Drive to Kovalam by evening.",
+          "Relax at Lighthouse Beach.",
+          "Overnight stay in Kovalam.",
+        ],
+        overnight: "Kovalam",
+      },
+      {
+        day: 4,
+        title: "Kovalam & Departure",
+        activities: [
+          "Morning free for an Ayurvedic massage (optional).",
+          "Beach time at Kovalam.",
+          "Transfer to the airport for departure.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 4,
@@ -58,6 +250,66 @@ export const popularPackages = [
     location: "Rajasthan, India",
     tags: ["Palaces", "Desert", "Heritage"],
     highlights: ["Jaipur", "Jaisalmer", "Udaipur"],
+    pricingBasis: "Per Person",
+    maxGuests: 10,
+    route: ["Jaipur", "Jaisalmer", "Sam Dunes"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Jaipur Arrival",
+        activities: [
+          "Check-in & rest at the hotel.",
+          "Photo stop at Hawa Mahal.",
+          "Visit City Palace & Jantar Mantar.",
+          "Overnight stay in Jaipur.",
+        ],
+        overnight: "Jaipur",
+      },
+      {
+        day: 2,
+        title: "Amber Fort & Local Bazaars",
+        activities: [
+          "Visit Amber Fort with elephant/jeep ride.",
+          "Photo stop at Jal Mahal.",
+          "Shopping at Johari & Bapu Bazaar.",
+          "Overnight stay in Jaipur.",
+        ],
+        overnight: "Jaipur",
+      },
+      {
+        day: 3,
+        title: "Jaipur to Jaisalmer",
+        activities: [
+          "Drive/transfer to the Golden City, Jaisalmer.",
+          "Visit Jaisalmer Fort & Patwon Ki Haveli.",
+          "Evening at Gadisar Lake.",
+          "Overnight stay in Jaisalmer.",
+        ],
+        overnight: "Jaisalmer",
+      },
+      {
+        day: 4,
+        title: "Sam Desert Safari",
+        activities: [
+          "Drive to Sam Sand Dunes.",
+          "Enjoy camel ride & jeep safari.",
+          "Cultural folk dance & music at the camp.",
+          "Overnight stay in a desert camp.",
+        ],
+        overnight: "Sam Dunes",
+      },
+      {
+        day: 5,
+        title: "Departure",
+        activities: [
+          "Sunrise over the dunes & breakfast.",
+          "Return transfer for onward journey.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 5,
@@ -73,8 +325,60 @@ export const popularPackages = [
     location: "Himachal, India",
     tags: ["Mountains", "Adventure", "Snow"],
     highlights: ["Shimla", "Manali", "Rohtang Pass"],
+    pricingBasis: "Per Vehicle",
+    maxGuests: 8,
+    route: ["Chandigarh", "Shimla", "Kufri", "Manali"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Chandigarh to Shimla",
+        activities: [
+          "Early morning departure from Chandigarh.",
+          "Stop at Pinjore Gardens for refreshments.",
+          "Continue via Solan on the scenic Himalayan drive.",
+          "Visit The Ridge & Christ Church in Shimla.",
+          "Free time for shopping at Mall Road.",
+          "Dinner & overnight stay in Shimla.",
+        ],
+        overnight: "Shimla",
+      },
+      {
+        day: 2,
+        title: "Shimla & Kufri Sightseeing",
+        activities: [
+          "Breakfast at the hotel.",
+          "Visit Kufri & enjoy adventure activities.",
+          "Jakhoo Temple & Mall Road leisure walk.",
+          "Overnight stay in Shimla.",
+        ],
+        overnight: "Shimla",
+      },
+      {
+        day: 3,
+        title: "Shimla to Manali",
+        activities: [
+          "Drive to Manali via Kullu valley.",
+          "Photo stop at Pandoh Dam.",
+          "Visit Kullu Shawal Factory (optional).",
+          "Evening free at Manali Mall Road.",
+          "Overnight stay in Manali.",
+        ],
+        overnight: "Manali",
+      },
+      {
+        day: 4,
+        title: "Manali Sightseeing & Departure",
+        activities: [
+          "Visit Hadimba Temple & Vashisht Hot Springs.",
+          "Excursion to Solang Valley / Rohtang (subject to permission).",
+          "Begin the return journey by evening.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
-
   {
     id: 7,
     title: "Uttarakhand Spiritual Journey",
@@ -89,6 +393,56 @@ export const popularPackages = [
     location: "Uttarakhand, India",
     tags: ["Spiritual", "Mountains", "Adventure"],
     highlights: ["Rishikesh", "Mussoorie", "Haridwar"],
+    pricingBasis: "Per Person",
+    maxGuests: 8,
+    route: ["Mussoorie", "Rishikesh", "Haridwar"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival & Mussoorie",
+        activities: [
+          "Arrive & drive to Mussoorie, the Queen of Hills.",
+          "Visit Kempty Falls.",
+          "Evening walk on Mall Road.",
+          "Overnight stay in Mussoorie.",
+        ],
+        overnight: "Mussoorie",
+      },
+      {
+        day: 2,
+        title: "Mussoorie to Rishikesh",
+        activities: [
+          "Visit Gun Hill & Lal Tibba viewpoint.",
+          "Drive to Rishikesh.",
+          "Explore Laxman Jhula & Ram Jhula.",
+          "Overnight stay in Rishikesh.",
+        ],
+        overnight: "Rishikesh",
+      },
+      {
+        day: 3,
+        title: "Rishikesh & Ganga Aarti",
+        activities: [
+          "Visit Beatles Ashram & Triveni Ghat.",
+          "Optional river rafting (seasonal).",
+          "Attend the famous evening Ganga Aarti.",
+          "Overnight stay in Rishikesh.",
+        ],
+        overnight: "Rishikesh",
+      },
+      {
+        day: 4,
+        title: "Haridwar & Departure",
+        activities: [
+          "Drive to Haridwar.",
+          "Visit Har Ki Pauri & Mansa Devi Temple.",
+          "Transfer for onward journey.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 8,
@@ -104,6 +458,73 @@ export const popularPackages = [
     location: "North East, India",
     tags: ["Hill Stations", "Culture", "Waterfalls"],
     highlights: ["Shillong", "Gangtok", "Tawang"],
+    pricingBasis: "Per Person",
+    maxGuests: 8,
+    route: ["Shillong", "Cherrapunji", "Dawki", "Gangtok"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Shillong Arrival",
+        activities: [
+          "Arrive & enjoy Umiam Lake views.",
+          "Visit Lady Hydari Park & Ward's Lake.",
+          "Overnight stay in Shillong.",
+        ],
+        overnight: "Shillong",
+      },
+      {
+        day: 2,
+        title: "Cherrapunji Excursion",
+        activities: [
+          "Visit Nohkalikai & Seven Sisters Falls.",
+          "Explore Mawsmai Caves.",
+          "Return to Shillong & overnight stay.",
+        ],
+        overnight: "Shillong",
+      },
+      {
+        day: 3,
+        title: "Dawki & Transfer to Gangtok",
+        activities: [
+          "Boating on the crystal-clear Umngot river at Dawki.",
+          "Drive towards Gangtok.",
+          "Overnight stay in Gangtok.",
+        ],
+        overnight: "Gangtok",
+      },
+      {
+        day: 4,
+        title: "Gangtok Sightseeing",
+        activities: [
+          "Visit Rumtek Monastery.",
+          "Banjhakri Falls & Energy Park.",
+          "Evening at MG Marg.",
+          "Overnight stay in Gangtok.",
+        ],
+        overnight: "Gangtok",
+      },
+      {
+        day: 5,
+        title: "Tsomgo Lake & Nathu La",
+        activities: [
+          "Excursion to Tsomgo Lake (subject to permission).",
+          "Visit Baba Harbhajan Singh Mandir.",
+          "Overnight stay in Gangtok.",
+        ],
+        overnight: "Gangtok",
+      },
+      {
+        day: 6,
+        title: "Departure",
+        activities: [
+          "Breakfast & check-out.",
+          "Transfer to the airport with memories.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 9,
@@ -119,6 +540,64 @@ export const popularPackages = [
     location: "Tamil Nadu, India",
     tags: ["Temples", "Heritage", "Culture"],
     highlights: ["Meenakshi Temple", "Brihadeeswarar", "Rameswaram"],
+    pricingBasis: "Per Person",
+    maxGuests: 10,
+    route: ["Chennai", "Mahabalipuram", "Thanjavur", "Madurai", "Rameswaram"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Chennai Arrival",
+        activities: [
+          "Check-in & rest at the hotel.",
+          "Visit Marina Beach & Kapaleeshwarar Temple.",
+          "Overnight stay in Chennai.",
+        ],
+        overnight: "Chennai",
+      },
+      {
+        day: 2,
+        title: "Mahabalipuram & Kanchipuram",
+        activities: [
+          "Visit Shore Temple & Pancha Rathas.",
+          "Explore Kanchipuram silk saree weavers.",
+          "Overnight stay in Chennai.",
+        ],
+        overnight: "Chennai",
+      },
+      {
+        day: 3,
+        title: "Thanjavur Temples",
+        activities: [
+          "Drive to Thanjavur.",
+          "Visit the grand Brihadeeswarar Temple.",
+          "Overnight stay in Thanjavur.",
+        ],
+        overnight: "Thanjavur",
+      },
+      {
+        day: 4,
+        title: "Madurai Meenakshi Temple",
+        activities: [
+          "Drive to Madurai.",
+          "Visit Meenakshi Amman Temple.",
+          "Thirumalai Nayakar Mahal & evening temple ceremony.",
+          "Overnight stay in Madurai.",
+        ],
+        overnight: "Madurai",
+      },
+      {
+        day: 5,
+        title: "Rameswaram & Departure",
+        activities: [
+          "Visit Ramanathaswamy Temple.",
+          "Explore the ghost town of Dhanushkodi.",
+          "Transfer for onward journey.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 10,
@@ -134,6 +613,70 @@ export const popularPackages = [
     location: "Sikkim, India",
     tags: ["Mountains", "Monasteries", "Nature"],
     highlights: ["Gangtok", "Nathu La", "Tsomgo Lake"],
+    pricingBasis: "Per Person",
+    maxGuests: 8,
+    route: ["Gangtok", "Tsomgo Lake", "Pelling", "Nathu La"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Gangtok Arrival",
+        activities: [
+          "Arrive & transfer to Gangtok.",
+          "Evening leisure at MG Marg.",
+          "Overnight stay in Gangtok.",
+        ],
+        overnight: "Gangtok",
+      },
+      {
+        day: 2,
+        title: "Gangtok Sightseeing",
+        activities: [
+          "Visit Rumtek Monastery.",
+          "Namgyal Institute of Tibetology.",
+          "Banjhakri Falls.",
+          "Overnight stay in Gangtok.",
+        ],
+        overnight: "Gangtok",
+      },
+      {
+        day: 3,
+        title: "Tsomgo Lake & Baba Mandir",
+        activities: [
+          "Excursion to Tsomgo Lake.",
+          "Visit Baba Harbhajan Singh Mandir.",
+          "Overnight stay in Gangtok.",
+        ],
+        overnight: "Gangtok",
+      },
+      {
+        day: 4,
+        title: "Gangtok to Pelling",
+        activities: [
+          "Drive to Pelling with Kanchenjunga views.",
+          "Visit Pemayangtse Monastery.",
+          "Overnight stay in Pelling.",
+        ],
+        overnight: "Pelling",
+      },
+      {
+        day: 5,
+        title: "Pelling to Gangtok",
+        activities: [
+          "Visit Khecheopalri Lake.",
+          "Return to Gangtok via Ravangla Buddha Park.",
+          "Overnight stay in Gangtok.",
+        ],
+        overnight: "Gangtok",
+      },
+      {
+        day: 6,
+        title: "Departure",
+        activities: ["Breakfast & check-out.", "Transfer for onward journey."],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 11,
@@ -149,6 +692,53 @@ export const popularPackages = [
     location: "Odisha, India",
     tags: ["Temples", "Culture", "Beaches"],
     highlights: ["Konark", "Puri", "Bhubaneswar"],
+    pricingBasis: "Per Person",
+    maxGuests: 8,
+    route: ["Bhubaneswar", "Konark", "Puri"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Bhubaneswar Arrival",
+        activities: [
+          "Visit Lingaraj Temple.",
+          "Explore Udayagiri & Khandagiri caves.",
+          "Overnight stay in Bhubaneswar.",
+        ],
+        overnight: "Bhubaneswar",
+      },
+      {
+        day: 2,
+        title: "Konark & Puri",
+        activities: [
+          "Visit the Sun Temple at Konark.",
+          "Relax at Chandrabhaga Beach.",
+          "Darshan at Jagannath Temple, Puri.",
+          "Overnight stay in Puri.",
+        ],
+        overnight: "Puri",
+      },
+      {
+        day: 3,
+        title: "Puri & Raghurajpur",
+        activities: [
+          "Morning free at Puri beach.",
+          "Visit Raghurajpur artist village.",
+          "Overnight stay in Puri.",
+        ],
+        overnight: "Puri",
+      },
+      {
+        day: 4,
+        title: "Departure",
+        activities: [
+          "Drive back to Bhubaneswar.",
+          "Transfer for onward journey.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 12,
@@ -164,6 +754,64 @@ export const popularPackages = [
     location: "Gujarat, India",
     tags: ["Desert", "Wildlife", "Heritage"],
     highlights: ["Rann of Kutch", "Gir National Park", "Somnath"],
+    pricingBasis: "Per Person",
+    maxGuests: 10,
+    route: ["Ahmedabad", "Kutch", "Somnath", "Dwarka"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Ahmedabad Arrival",
+        activities: [
+          "Visit Sabarmati Ashram.",
+          "Evening at Kankaria Lake.",
+          "Overnight stay in Ahmedabad.",
+        ],
+        overnight: "Ahmedabad",
+      },
+      {
+        day: 2,
+        title: "Ahmedabad to Kutch",
+        activities: [
+          "Drive to the White Rann of Kutch.",
+          "Enjoy sunset over the white desert.",
+          "Overnight stay in a Kutch resort.",
+        ],
+        overnight: "Kutch",
+      },
+      {
+        day: 3,
+        title: "Kutch Local & Craft Villages",
+        activities: [
+          "Visit Vijay Vilas Palace.",
+          "Explore famous craft & embroidery villages.",
+          "Overnight stay in Kutch.",
+        ],
+        overnight: "Kutch",
+      },
+      {
+        day: 4,
+        title: "Somnath Temple",
+        activities: [
+          "Drive to Somnath.",
+          "Darshan at Somnath Temple.",
+          "Attend the evening light & sound show.",
+          "Overnight stay in Somnath.",
+        ],
+        overnight: "Somnath",
+      },
+      {
+        day: 5,
+        title: "Dwarka & Departure",
+        activities: [
+          "Visit Dwarkadhish Temple.",
+          "Optional boat ride to Bet Dwarka.",
+          "Transfer for onward journey.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 13,
@@ -179,6 +827,63 @@ export const popularPackages = [
     location: "Madhya Pradesh, India",
     tags: ["Wildlife", "Tigers", "Heritage"],
     highlights: ["Bandhavgarh", "Kanha", "Sanchi"],
+    pricingBasis: "Per Person",
+    maxGuests: 8,
+    route: ["Jabalpur", "Bandhavgarh", "Kanha"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Jabalpur & Bhedaghat",
+        activities: [
+          "Arrive in Jabalpur.",
+          "Boat ride at Marble Rocks, Bhedaghat.",
+          "Visit Dhuandhar Falls.",
+          "Overnight stay in Jabalpur.",
+        ],
+        overnight: "Jabalpur",
+      },
+      {
+        day: 2,
+        title: "Jabalpur to Bandhavgarh",
+        activities: [
+          "Drive to Bandhavgarh National Park.",
+          "Evening nature walk around the reserve.",
+          "Overnight stay in Bandhavgarh.",
+        ],
+        overnight: "Bandhavgarh",
+      },
+      {
+        day: 3,
+        title: "Bandhavgarh Tiger Safari",
+        activities: [
+          "Morning & evening jeep safaris.",
+          "Spot tigers, leopards & deer.",
+          "Overnight stay in Bandhavgarh.",
+        ],
+        overnight: "Bandhavgarh",
+      },
+      {
+        day: 4,
+        title: "Bandhavgarh to Kanha",
+        activities: [
+          "Drive to Kanha National Park.",
+          "Evening safari in Kanha meadows.",
+          "Overnight stay in Kanha.",
+        ],
+        overnight: "Kanha",
+      },
+      {
+        day: 5,
+        title: "Kanha Safari & Departure",
+        activities: [
+          "Morning jeep safari in Kanha.",
+          "Transfer for onward journey.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 14,
@@ -194,6 +899,45 @@ export const popularPackages = [
     location: "Punjab, India",
     tags: ["Spiritual", "Culture", "Heritage"],
     highlights: ["Golden Temple", "Jallianwala Bagh", "Wagah Border"],
+    pricingBasis: "Per Person",
+    maxGuests: 8,
+    route: ["Amritsar", "Wagah Border"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Amritsar & Golden Temple",
+        activities: [
+          "Arrive & check-in at the hotel.",
+          "Darshan at the Golden Temple.",
+          "Visit Jallianwala Bagh.",
+          "Overnight stay in Amritsar.",
+        ],
+        overnight: "Amritsar",
+      },
+      {
+        day: 2,
+        title: "Wagah Border Ceremony",
+        activities: [
+          "Visit the Partition Museum.",
+          "Try famous Amritsari kulcha.",
+          "Attend the Wagah Border retreat ceremony.",
+          "Overnight stay in Amritsar.",
+        ],
+        overnight: "Amritsar",
+      },
+      {
+        day: 3,
+        title: "Departure",
+        activities: [
+          "Visit Durgiana Temple.",
+          "Shopping at Hall Bazaar.",
+          "Transfer for onward journey.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
   {
     id: 15,
@@ -210,5 +954,81 @@ export const popularPackages = [
     location: "Ladakh, India",
     tags: ["Mountains", "Adventure", "Monasteries"],
     highlights: ["Pangong Lake", "Nubra Valley", "Khardung La"],
+    pricingBasis: "Per Person",
+    maxGuests: 6,
+    route: ["Leh", "Khardung La", "Nubra Valley", "Pangong Lake"],
+    itinerary: [
+      {
+        day: 1,
+        title: "Leh Arrival & Acclimatization",
+        activities: [
+          "Arrive in Leh & complete rest.",
+          "Short walk to Leh market in the evening.",
+          "Overnight stay in Leh.",
+        ],
+        overnight: "Leh",
+      },
+      {
+        day: 2,
+        title: "Leh Local Sightseeing",
+        activities: [
+          "Visit Shanti Stupa & Leh Palace.",
+          "Hall of Fame Museum.",
+          "Overnight stay in Leh.",
+        ],
+        overnight: "Leh",
+      },
+      {
+        day: 3,
+        title: "Sham Valley Excursion",
+        activities: [
+          "Visit Magnetic Hill & Gurudwara Pathar Sahib.",
+          "Indus–Zanskar Sangam point.",
+          "Overnight stay in Leh.",
+        ],
+        overnight: "Leh",
+      },
+      {
+        day: 4,
+        title: "Leh to Nubra via Khardung La",
+        activities: [
+          "Cross the world-famous Khardung La pass.",
+          "Camel ride at Hunder sand dunes.",
+          "Overnight stay in Nubra Valley.",
+        ],
+        overnight: "Nubra",
+      },
+      {
+        day: 5,
+        title: "Nubra to Pangong Lake",
+        activities: [
+          "Drive to Pangong via the scenic Shyok road.",
+          "Evening at the blue Pangong Lake.",
+          "Overnight stay in a lakeside camp.",
+        ],
+        overnight: "Pangong",
+      },
+      {
+        day: 6,
+        title: "Pangong to Leh",
+        activities: [
+          "Sunrise over Pangong Lake.",
+          "Return drive to Leh.",
+          "Overnight stay in Leh.",
+        ],
+        overnight: "Leh",
+      },
+      {
+        day: 7,
+        title: "Departure",
+        activities: [
+          "Transfer to Leh airport.",
+          "Fly back with unforgettable memories.",
+        ],
+        overnight: "",
+      },
+    ],
+    inclusions: standardInclusions,
+    exclusions: standardExclusions,
   },
 ];
