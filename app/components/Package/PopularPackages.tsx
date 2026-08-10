@@ -73,7 +73,7 @@ export default function PopularPackages() {
   return (
     <section
       id="packages-section"
-      className="relative overflow-hidden bg-gradient-to-b from-stone-50 to-white py-24"
+      className="relative overflow-hidden bg-linear-to-b from-stone-50 to-white py-24"
     >
       {/* Subtle background pattern */}
       <div className="pointer-events-none absolute inset-0 opacity-40">
@@ -90,20 +90,20 @@ export default function PopularPackages() {
         {/* Header */}
         <div className="mb-16 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-gold" />
+            <div className="h-px w-12 bg-linear-to-r from-transparent to-gold" />
             <Star className="h-5 w-5 text-gold" />
             <span className="text-xs font-bold uppercase tracking-[0.3em] text-gold">
               Explore India
             </span>
             <Star className="h-5 w-5 text-gold" />
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-gold" />
+            <div className="h-px w-12 bg-linear-to-l from-transparent to-gold" />
           </div>
 
           <h2 className="mt-3 text-4xl font-bold tracking-tight text-stone-900 md:text-5xl">
-            Popular Holiday{" "}
+            Top Holiday{" "}
             <span className="relative inline-block">
               <span className="relative z-10 text-gold">Packages</span>
-              <span className="absolute inset-x-0 bottom-1 h-3 bg-gold/10 -z-0" />
+              <span className="absolute inset-x-0 bottom-1 h-3 bg-gold/10 z-0" />
             </span>
           </h2>
 
@@ -139,7 +139,7 @@ export default function PopularPackages() {
                   />
 
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/20 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-stone-900/70 via-stone-900/20 to-transparent" />
 
                   {/* Duration Badge */}
                   <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-stone-900/80 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
@@ -148,7 +148,7 @@ export default function PopularPackages() {
                   </div>
 
                   {/* Price Badge */}
-                  <div className="absolute bottom-3 left-3 rounded-xl bg-gradient-to-r from-gold to-[#c88912] px-4 py-2 text-sm font-bold text-white shadow-lg shadow-stone-900/30">
+                  <div className="absolute bottom-3 left-3 rounded-xl bg-linear-to-r from-gold to-[#c88912] px-4 py-2 text-sm font-bold text-white shadow-lg shadow-stone-900/30">
                     From {item.price}
                   </div>
 
@@ -189,7 +189,7 @@ export default function PopularPackages() {
                       {item.tags?.slice(0, 2).map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full bg-gradient-to-r from-stone-100 to-stone-50 px-3 py-1 text-xs font-medium text-stone-600 ring-1 ring-stone-200/50"
+                          className="rounded-full bg-linear-to-r from-stone-100 to-stone-50 px-3 py-1 text-xs font-medium text-stone-600 ring-1 ring-stone-200/50"
                         >
                           {tag}
                         </span>
@@ -226,12 +226,11 @@ export default function PopularPackages() {
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="mt-16">
-            <div className="flex items-center justify-center gap-2">
-              {/* Previous Button */}
+            <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:gap-4">
               <button
                 onClick={goToPreviousPage}
                 disabled={currentPage === 1}
-                className={`flex items-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all ${
+                className={`flex items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all w-full md:w-auto ${
                   currentPage === 1
                     ? "cursor-not-allowed bg-stone-100 text-stone-400"
                     : "bg-white text-stone-700 ring-1 ring-stone-200 hover:bg-gold hover:text-white hover:ring-gold hover:shadow-lg"
@@ -243,17 +242,17 @@ export default function PopularPackages() {
               </button>
 
               {/* Page Numbers */}
-              <div className="flex items-center gap-1.5">
+              <div className="hidden items-center gap-1.5 md:flex">
                 {getPageNumbers().map((page, index) => (
                   <button
                     key={index}
                     onClick={() => typeof page === "number" && goToPage(page)}
                     disabled={typeof page !== "number"}
-                    className={`min-w-[44px] rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
+                    className={`min-w-11 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
                       typeof page !== "number"
                         ? "cursor-default text-stone-400"
                         : page === currentPage
-                          ? "bg-gradient-to-r from-gold to-[#c88912] text-white shadow-lg shadow-gold/30"
+                          ? "bg-linear-to-r from-gold to-[#c88912] text-white shadow-lg shadow-gold/30"
                           : "bg-white text-stone-700 ring-1 ring-stone-200 hover:bg-stone-50 hover:text-gold hover:ring-gold"
                     }`}
                   >
@@ -262,11 +261,10 @@ export default function PopularPackages() {
                 ))}
               </div>
 
-              {/* Next Button */}
               <button
                 onClick={goToNextPage}
                 disabled={currentPage === totalPages}
-                className={`flex items-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all ${
+                className={`flex items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all w-full md:w-auto ${
                   currentPage === totalPages
                     ? "cursor-not-allowed bg-stone-100 text-stone-400"
                     : "bg-white text-stone-700 ring-1 ring-stone-200 hover:bg-gold hover:text-white hover:ring-gold hover:shadow-lg"
@@ -279,7 +277,7 @@ export default function PopularPackages() {
             </div>
 
             {/* Page info */}
-            <p className="mt-6 text-center text-sm text-stone-500">
+            <p className="mt-4 text-center text-sm text-stone-500 md:mt-6">
               Page {currentPage} of {totalPages}
             </p>
           </div>

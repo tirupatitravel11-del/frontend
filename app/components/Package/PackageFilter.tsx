@@ -113,7 +113,7 @@ export default function PackageFilter() {
         </span>
         <div className="min-w-0 flex-1">
           <label htmlFor="departure" className={LABEL}>
-            Departure Date
+            Tour Date
           </label>
           <input
             id="departure"
