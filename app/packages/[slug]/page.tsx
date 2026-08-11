@@ -76,40 +76,40 @@ const tagColors = [
   "border-cyan-200 bg-cyan-50 text-cyan-700",
 ];
 
-export default  function PackageDetailsPage() {
+export default function PackageDetailsPage() {
   const params = useParams();
   const slug = String(params?.slug || "").toLowerCase();
-const [packages, setPackages] = useState<any[]>([]);
-const [city, setCity] = useState<any>(null);
-const [pagination, setPagination] = useState({
-  currentPage: 1,
-  hasNextPage: false,
-  hasPreviousPage: false,
-  limit: 9,
-  totalPackages: 0,
-  totalPages: 1,
-});
-useEffect(() => {
-  const fetchPackages = async () => {
-    console.log("CALLING API...");
-    
-    const result = await getData(slug);
+  const [packages, setPackages] = useState<any[]>([]);
+  const [city, setCity] = useState<any>(null);
+  const [pagination, setPagination] = useState({
+    currentPage: 1,
+    hasNextPage: false,
+    hasPreviousPage: false,
+    limit: 9,
+    totalPackages: 0,
+    totalPages: 1,
+  });
+  useEffect(() => {
+    const fetchPackages = async () => {
+      console.log("CALLING API...");
 
-    console.log("CITY:", result.city);
-    console.log("PACKAGES:", result.packages);
-    console.log("PAGINATION:", result.pagination);
+      const result = await getData(slug);
 
-    setCity(result.city);
-    setPackages(result.packages);
-     if (result.pagination) {
-      setPagination(result.pagination);
+      console.log("CITY:", result.city);
+      console.log("PACKAGES:", result.packages);
+      console.log("PAGINATION:", result.pagination);
+
+      setCity(result.city);
+      setPackages(result.packages);
+      if (result.pagination) {
+        setPagination(result.pagination);
+      }
     };
-  };
 
-  if (slug) {
-    fetchPackages();
-  }
-}, [slug]);
+    if (slug) {
+      fetchPackages();
+    }
+  }, [slug]);
 
   // const pkg = packages.find((item) => item.slug === slug);
 
@@ -123,9 +123,9 @@ useEffect(() => {
 
   //   return result;
   // }, [packages]);
-console.log(packages, "sdfgjkh")
+  console.log(packages, "sdfgjkh");
   return (
-     <section
+    <section
       id="packages-section"
       className="relative overflow-hidden bg-linear-to-b from-stone-50 to-white py-24"
     >
@@ -143,26 +143,18 @@ console.log(packages, "sdfgjkh")
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 text-center">
-          <div className="mb-4 flex items-center justify-center gap-3">
-            <div className="h-px w-12 bg-linear-to-r from-transparent to-gold" />
-            <Star className="h-5 w-5 text-gold" />
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-gold">
-              Explore India
-            </span>
-            <Star className="h-5 w-5 text-gold" />
-            <div className="h-px w-12 bg-linear-to-l from-transparent to-gold" />
-          </div>
+         
 
           <h2 className="mt-3 text-4xl font-bold tracking-tight text-stone-900 md:text-5xl">
-            Top Holiday{" "}
+            Holiday{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-gold">Packages</span>
+              <span className="relative z-10 text-gold">Packages for {city?.slug}</span>
               <span className="absolute inset-x-0 bottom-1 h-3 bg-gold/10 z-0" />
             </span>
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-stone-600">
-            Explore India's most loved destinations with curated holiday
+            Explore {city?.slug} most loved destinations with curated holiday
             packages designed for families, couples, groups and solo travellers.
           </p>
 
@@ -235,7 +227,7 @@ console.log(packages, "sdfgjkh")
                   {/* Tags & CTA */}
                   <div className="mt-5 flex items-center justify-between border-t border-stone-100 pt-4">
                     <div className="flex flex-wrap gap-1.5">
-                      {item.tags?.slice(0, 2).map((tag:any) => (
+                      {item.tags?.slice(0, 2).map((tag: any) => (
                         <span
                           key={tag}
                           className="rounded-full bg-linear-to-r from-stone-100 to-stone-50 px-3 py-1 text-xs font-medium text-stone-600 ring-1 ring-stone-200/50"
@@ -273,70 +265,62 @@ console.log(packages, "sdfgjkh")
         )}
 
         {/* Pagination */}
-    {pagination.totalPages > 1 && (
-  <div className="mt-10">
-    <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between">
+        {pagination.totalPages > 1 && (
+          <div className="mt-10">
+            <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between">
+              {/* Previous Button */}
+              <button
+                type="button"
+                onClick={() => {
+                  if (pagination.hasPreviousPage) {
+                    // API call yahan karna hai
+                    console.log("Go to page:", pagination.currentPage - 1);
+                  }
+                }}
+                disabled={!pagination.hasPreviousPage}
+                className={`flex w-full items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all md:w-auto ${
+                  !pagination.hasPreviousPage
+                    ? "cursor-not-allowed bg-stone-100 text-stone-400"
+                    : "bg-white text-stone-700 ring-1 ring-stone-200 hover:bg-gold hover:text-white hover:ring-gold hover:shadow-lg"
+                }`}
+              >
+                <ChevronLeft className="h-4 w-4" />
+                Previous
+              </button>
 
-      {/* Previous Button */}
-      <button
-        type="button"
-        onClick={() => {
-          if (pagination.hasPreviousPage) {
-            // API call yahan karna hai
-            console.log(
-              "Go to page:",
-              pagination.currentPage - 1
-            );
-          }
-        }}
-        disabled={!pagination.hasPreviousPage}
-        className={`flex w-full items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all md:w-auto ${
-          !pagination.hasPreviousPage
-            ? "cursor-not-allowed bg-stone-100 text-stone-400"
-            : "bg-white text-stone-700 ring-1 ring-stone-200 hover:bg-gold hover:text-white hover:ring-gold hover:shadow-lg"
-        }`}
-      >
-        <ChevronLeft className="h-4 w-4" />
-        Previous
-      </button>
+              {/* Page Info */}
+              <div className="text-center">
+                <p className="text-sm font-semibold text-stone-700">
+                  Page {pagination.currentPage} of {pagination.totalPages}
+                </p>
 
-      {/* Page Info */}
-      <div className="text-center">
-        <p className="text-sm font-semibold text-stone-700">
-          Page {pagination.currentPage} of{" "}
-          {pagination.totalPages}
-        </p>
+                <p className="mt-1 text-xs text-stone-500">
+                  {pagination.totalPackages} packages
+                </p>
+              </div>
 
-        <p className="mt-1 text-xs text-stone-500">
-          {pagination.totalPackages} packages
-        </p>
-      </div>
-
-      {/* Next Button */}
-      <button
-        type="button"
-        onClick={() => {
-          if (pagination.hasNextPage) {
-            // API call yahan karna hai
-            console.log(
-              "Go to page:",
-              pagination.currentPage + 1
-            );
-          }
-        }}
-        disabled={!pagination.hasNextPage}
-        className={`flex w-full items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all md:w-auto ${
-          !pagination.hasNextPage
-            ? "cursor-not-allowed bg-stone-100 text-stone-400"
-            : "bg-white text-stone-700 ring-1 ring-stone-200 hover:bg-gold hover:text-white hover:ring-gold hover:shadow-lg"
-        }`}
-      >
-        Next
-        <ChevronRight className="h-4 w-4" />
-      </button>
-    </div>
-  </div>
-)}
+              {/* Next Button */}
+              <button
+                type="button"
+                onClick={() => {
+                  if (pagination.hasNextPage) {
+                    // API call yahan karna hai
+                    console.log("Go to page:", pagination.currentPage + 1);
+                  }
+                }}
+                disabled={!pagination.hasNextPage}
+                className={`flex w-full items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all md:w-auto ${
+                  !pagination.hasNextPage
+                    ? "cursor-not-allowed bg-stone-100 text-stone-400"
+                    : "bg-white text-stone-700 ring-1 ring-stone-200 hover:bg-gold hover:text-white hover:ring-gold hover:shadow-lg"
+                }`}
+              >
+                Next
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </section>
     // <main className="bg-stone-100 py-10">
