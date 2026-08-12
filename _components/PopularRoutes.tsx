@@ -6,67 +6,99 @@ type TaxiRoute = {
   fare: number;
   tag: string;
 };
-
-const PHONE_NUMBER = "+916390008503";
-
-const ROUTES: TaxiRoute[] = [
+const LUCKNOW_AYODHYA_ROUTES: TaxiRoute[] = [
   {
-    from: "Noida Sector 18",
-    to: "Connaught Place",
-    km: "25 km",
-    time: "45–60 min",
-    fare: 1299,
-    tag: "City Centre",
+    from: "Lucknow",
+    to: "Ayodhya Dham",
+    km: "135 km",
+    time: "2.5–3 hr",
+    fare: 2499,
+    tag: "Popular",
   },
   {
-    from: "Noida Sector 62",
-    to: "New Delhi Railway Station",
-    km: "22 km",
-    time: "40–55 min",
-    fare: 1299,
-    tag: "Railway",
-  },
-  {
-    from: "Noida Sector 137",
-    to: "IGI Airport (T1 / T2 / T3)",
-    km: "30 km",
-    time: "50–70 min",
-    fare: 1499,
+    from: "Lucknow Airport",
+    to: "Ayodhya",
+    km: "150 km",
+    time: "3–3.5 hr",
+    fare: 2799,
     tag: "Airport",
   },
   {
-    from: "Greater Noida",
-    to: "Kashmere Gate ISBT",
-    km: "45 km",
-    time: "70–90 min",
-    fare: 1999,
-    tag: "Bus Stand",
-  },
-  {
-    from: "Noida Sector 76",
-    to: "Karol Bagh",
-    km: "28 km",
-    time: "50–65 min",
-    fare: 1499,
-    tag: "Market",
-  },
-  {
-    from: "Noida Expressway",
-    to: "Anand Vihar",
-    km: "15 km",
-    time: "30–45 min",
-    fare: 1099,
+    from: "Lucknow Railway Station",
+    to: "Ayodhya Dham",
+    km: "140 km",
+    time: "2.5–3 hr",
+    fare: 2599,
     tag: "Railway",
   },
 ];
 
+const PHONE_NUMBER = "+916390008503";
+
+// const ROUTES: TaxiRoute[] = [
+//   {
+//     from: "Noida Sector 18",
+//     to: "Connaught Place",
+//     km: "25 km",
+//     time: "45–60 min",
+//     fare: 1299,
+//     tag: "City Centre",
+//   },
+//   {
+//     from: "Noida Sector 62",
+//     to: "New Delhi Railway Station",
+//     km: "22 km",
+//     time: "40–55 min",
+//     fare: 1299,
+//     tag: "Railway",
+//   },
+//   {
+//     from: "Noida Sector 137",
+//     to: "IGI Airport (T1 / T2 / T3)",
+//     km: "30 km",
+//     time: "50–70 min",
+//     fare: 1499,
+//     tag: "Airport",
+//   },
+//   {
+//     from: "Greater Noida",
+//     to: "Kashmere Gate ISBT",
+//     km: "45 km",
+//     time: "70–90 min",
+//     fare: 1999,
+//     tag: "Bus Stand",
+//   },
+//   {
+//     from: "Noida Sector 76",
+//     to: "Karol Bagh",
+//     km: "28 km",
+//     time: "50–65 min",
+//     fare: 1499,
+//     tag: "Market",
+//   },
+//   {
+//     from: "Noida Expressway",
+//     to: "Anand Vihar",
+//     km: "15 km",
+//     time: "30–45 min",
+//     fare: 1099,
+//     tag: "Railway",
+//   },
+// ];
+
 interface PopularRoutesProps {
+  from: string;
+  to: string;
+  routes: TaxiRoute[];
   title?: string;
   subtitle?: string;
 }
 
 export default function PopularRoutes({
-  title = "Popular Noida to Delhi Taxi Routes",
+  from,
+  to,
+  routes,
+  title,
   subtitle = "Fixed fares for the most booked routes. Actual time may vary with traffic conditions.",
 }: PopularRoutesProps) {
   return (
@@ -79,7 +111,7 @@ export default function PopularRoutes({
           </p>
 
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            {title}
+            {title || `Popular ${from} to ${to} Taxi Routes`}
           </h2>
 
           <p className="mt-4 text-base leading-7 text-slate-600">{subtitle}</p>
@@ -87,7 +119,7 @@ export default function PopularRoutes({
 
         {/* ===== Route Cards ===== */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {ROUTES.map((route) => (
+          {routes.map((route) => (
             <article
               key={`${route.from}-${route.to}`}
               className="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
@@ -160,16 +192,16 @@ export default function PopularRoutes({
           </h3>
 
           <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-600">
-            We cover every sector of Noida and Greater Noida — and drop
-            anywhere in Delhi, including hospitals, hotels, offices and metro
-            stations.
+            We cover multiple pickup locations in {from} and provide convenient
+            drops throughout {to}, including hospitals, hotels, offices and
+            railway stations.
           </p>
 
           <a
             href={`tel:${PHONE_NUMBER}`}
             className="mt-5 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
           >
-            📞 Call for Your Route
+            Call for Your Route
           </a>
         </div>
       </div>
