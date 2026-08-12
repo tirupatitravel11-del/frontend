@@ -50,12 +50,16 @@ const EXTRAS = [
 ];
 
 interface FareDetailsProps {
+  from: string;
+  to: string;
   title?: string;
   subtitle?: string;
 }
 
 export default function FareDetails({
-  title = "Noida to Delhi Taxi Fare Details",
+  to,
+  from,
+  title,
   subtitle = "Transparent, fixed pricing — the fare you see is the fare you pay. No surge pricing, no hidden charges.",
 }: FareDetailsProps) {
   return (
@@ -66,9 +70,8 @@ export default function FareDetails({
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
             Transparent Pricing
           </p>
-
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            {title}
+            {title || `${from} to ${to} Taxi Fare Details`}
           </h2>
 
           <p className="mt-4 text-base leading-7 text-slate-600">{subtitle}</p>
@@ -79,7 +82,8 @@ export default function FareDetails({
           <div className="overflow-x-auto">
             <table className="w-full min-w-[640px] text-left text-sm">
               <caption className="sr-only">
-                Noida to Delhi taxi fares for one-way and round trips by cab type
+                {from} to {to} taxi fares for one-way and round trips by cab
+                type
               </caption>
 
               <thead>

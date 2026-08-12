@@ -7,14 +7,26 @@ const WHATSAPP_NUMBER = "916390008503";
 
 type TripType = "one-way" | "round-trip";
 
-interface HeroProps {
+const SEDAN_MODELS = [
+  "Swift Dzire",
+  "Honda Amaze",
+  "Hyundai Aura",
+  "Toyota Etios",
+];
+
+interface SedanHeroProps {
   from: string;
   to: string;
+  startingFare?: number;
 }
 
-export default function Hero({ from, to }: HeroProps) {
+export default function SedanHero({
+  from,
+  to,
+  startingFare = 1599,
+}: SedanHeroProps) {
   const [tripType, setTripType] = useState<TripType>("one-way");
-
+  const [model, setModel] = useState(SEDAN_MODELS[0]);
   const [date, setDate] = useState("");
   const [pickup, setPickup] = useState(from);
   const [drop, setDrop] = useState(to);
@@ -24,16 +36,17 @@ export default function Hero({ from, to }: HeroProps) {
   const handleBook = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const message = `Hello, I want to book a taxi.
+    const message = `Hello, I want to book a SEDAN taxi.
 
 Trip: ${tripType === "one-way" ? "One Way" : "Round Trip"}
+Car Model: ${model}
 Pickup: ${pickup}
 Drop: ${drop}
 Date: ${date}`;
 
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank"
+      "_blank",
     );
   };
 
@@ -44,39 +57,71 @@ Date: ${date}`;
       <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-16 lg:grid-cols-2 lg:py-24">
-
         {/* Left: Content */}
         <div>
+          <span className="inline-block rounded-full bg-gold/10 border border-gold/30 px-4 py-1 text-xs font-bold uppercase tracking-widest text-gold mb-4">
+            🚘 Sedan Cabs Available
+          </span>
+
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
             {from} → {to} Cab Service
           </p>
 
           <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:leading-tight">
-            {from} to {to}{" "}
-            <span className="text-gold">Taxi Service</span> at Fixed Fares
+            {from} to {to} <span className="text-gold">Sedan Taxi</span> Service
+            at Fixed Fares
           </h1>
 
           <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-            Book a clean, sanitized cab in minutes. Pickup from any location
-            in {from} — drop anywhere in {to}. No hidden charges, no surge
-            pricing.
+            Travel in comfort with our premium Sedans. Perfect for families and
+            business travel with extra legroom and space for 3 suitcases.
           </p>
 
-          {/* Highlights */}
-          <ul className="mt-7 space-y-3 text-[15px] text-slate-700">
-            {[
-              "Fixed fares — pay what you booked",
-              `Pickup from any location in ${from}`,
-              `24×7 available for airport & railway station drops`,
-            ].map((point) => (
-              <li key={point} className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">
-                  ✓
-                </span>
+          {/* Sedan Specs */}
+          <div className="mt-8 grid grid-cols-3 gap-4">
+            <div className="rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm">
+              <p className="text-2xl font-bold text-gold">4</p>
+              <p className="text-xs text-slate-500 mt-1">Seats</p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm">
+              <p className="text-2xl font-bold text-gold">3</p>
+              <p className="text-xs text-slate-500 mt-1">Large Bags</p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm">
+              <p className="text-2xl font-bold text-gold">
+                ₹{startingFare.toLocaleString("en-IN")}
+              </p>
+              <p className="text-xs text-slate-500 mt-1">Starting Fare</p>
+            </div>
+          </div>
 
-                {point}
-              </li>
-            ))}
+          {/* Highlights */}
+          <ul className="mt-8 space-y-3 text-[15px] text-slate-700">
+            <li className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">
+                ✓
+              </span>
+              <strong>Top Models:</strong> Swift Dzire, Honda Amaze, Hyundai
+              Aura
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">
+                ✓
+              </span>
+              <strong>Comfort First:</strong> Spacious legroom & AC cooling
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">
+                ✓
+              </span>
+              <strong>Fixed Fare:</strong> No hidden charges or meter anxiety
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">
+                ✓
+              </span>
+              <strong>24×7 Support:</strong> Book anytime, travel anytime
+            </li>
           </ul>
 
           {/* CTA Buttons */}
@@ -85,7 +130,7 @@ Date: ${date}`;
               href={`tel:${PHONE_NUMBER}`}
               className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
             >
-              Call Now
+              Call for Sedan
             </a>
 
             <a
@@ -102,11 +147,11 @@ Date: ${date}`;
         {/* Right: Booking Card */}
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl sm:p-8">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
-            Quick Booking
+            Book Your Sedan
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-            Book Your Taxi
+            Instant Cab Confirmation
           </h2>
 
           {/* Trip Type Toggle */}
@@ -129,6 +174,25 @@ Date: ${date}`;
 
           {/* Form */}
           <form onSubmit={handleBook} className="mt-5 space-y-4">
+            {/* Model Selection */}
+            <div>
+              <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                Select Sedan Model
+              </label>
+
+              <select
+                value={model}
+                onChange={(e) => setModel(e.target.value)}
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
+              >
+                {SEDAN_MODELS.map((m) => (
+                  <option key={m} value={m}>
+                    {m}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-slate-700">
@@ -140,7 +204,7 @@ Date: ${date}`;
                   value={pickup}
                   onChange={(e) => setPickup(e.target.value)}
                   required
-                  placeholder={`e.g. ${from}`}
+                  placeholder={`e.g. ${from} Sector 62`}
                   className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
                 />
               </div>
@@ -155,7 +219,7 @@ Date: ${date}`;
                   value={drop}
                   onChange={(e) => setDrop(e.target.value)}
                   required
-                  placeholder={`e.g. ${to}`}
+                  placeholder={`e.g. ${to} Airport`}
                   className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
                 />
               </div>
@@ -180,13 +244,9 @@ Date: ${date}`;
               type="submit"
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
             >
-              Book Now
+              Book Sedan Now
               <span className="text-lg leading-none">→</span>
             </button>
-
-            <p className="text-center text-xs text-slate-500">
-              No advance payment • Instant confirmation on WhatsApp
-            </p>
           </form>
         </div>
       </div>

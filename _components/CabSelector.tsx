@@ -5,11 +5,17 @@ import { BadgeCheck, Fuel, MapPin, Timer } from "lucide-react";
 
 const WHATSAPP_NUMBER = "916390008503";
 
-type CabType = "SEDAN" | "SUV" | "HATCHBACK" | "TEMPO TRAVELLER";
+type CabType = "SEDAN" | "SUV" | "HATCHBACK";
 type FuelType = "CNG" | "DIESEL" | "ELECTRIC" | "PETROL";
+
+interface CabSelectorProps {
+  from: string;
+  to: string;
+}
 
 type CabOption = {
   model: string;
+  image: string;
   variant: "specific model" | "or similar";
   type: CabType;
   seats: number;
@@ -28,6 +34,7 @@ type CabOption = {
 const CABS: CabOption[] = [
   {
     model: "Swift Dzire",
+    image: "/dezire_white.png",
     variant: "specific model",
     type: "SEDAN",
     seats: 4,
@@ -44,6 +51,7 @@ const CABS: CabOption[] = [
   },
   {
     model: "Honda Amaze",
+    image: "/dezire_white.png",
     variant: "specific model",
     type: "SEDAN",
     seats: 4,
@@ -60,6 +68,7 @@ const CABS: CabOption[] = [
   },
   {
     model: "Maruti Suzuki Ertiga",
+    image: "/ertiga_white.jpg",
     variant: "specific model",
     type: "SUV",
     seats: 6,
@@ -75,7 +84,8 @@ const CABS: CabOption[] = [
     taxes: 373,
   },
   {
-    model: "WagonR, Swift",
+    model: "Swift",
+    image: "/swift.avif",
     variant: "or similar",
     type: "HATCHBACK",
     seats: 4,
@@ -90,24 +100,10 @@ const CABS: CabOption[] = [
     price: 1317,
     taxes: 95,
   },
-  {
-    model: "MG ZS",
-    variant: "specific model",
-    type: "SUV",
-    seats: 4,
-    rating: 4.6,
-    ratingsCount: 132,
-    tagline: "Premium electric SUV",
-    extraKm: "₹25.0/km after 40 kms",
-    extraTime: "₹250.0 per hr after 4hr",
-    fuel: "ELECTRIC",
-    fuelNote: "Electric",
-    cancellation: "Free till 6 hours of departure",
-    price: 1599,
-    taxes: 95,
-  },
+
   {
     model: "Toyota Innova",
+    image: "/innova.avif",
     variant: "specific model",
     type: "SUV",
     seats: 7,
@@ -124,6 +120,7 @@ const CABS: CabOption[] = [
   },
   {
     model: "Innova Crysta",
+    image: "/innova.avif",
     variant: "specific model",
     type: "SUV",
     seats: 7,
@@ -138,46 +135,7 @@ const CABS: CabOption[] = [
     price: 2899,
     taxes: 373,
   },
-  {
-    model: "Toyota Innova Hycross",
-    variant: "specific model",
-    type: "SUV",
-    seats: 7,
-    rating: 4.6,
-    ratingsCount: 210,
-    tagline: "Hybrid luxury SUV",
-    extraKm: "₹34.0/km after 40 kms",
-    extraTime: "₹340.0 per hr after 4hr",
-    fuel: "PETROL",
-    fuelNote: "Petrol hybrid",
-    cancellation: "Free till 6 hours of departure",
-    price: 3199,
-    taxes: 373,
-  },
-  {
-    model: "Tempo Traveller",
-    variant: "specific model",
-    type: "TEMPO TRAVELLER",
-    seats: 12,
-    rating: 4.4,
-    ratingsCount: 180,
-    tagline: "Ideal for group travel",
-    extraKm: "₹45.0/km after 40 kms",
-    extraTime: "₹500.0 per hr after 4hr",
-    fuel: "DIESEL",
-    fuelNote: "Diesel",
-    cancellation: "Free till 24 hours of departure",
-    price: 5499,
-    taxes: 500,
-  },
 ];
-
-const CAB_EMOJI: Record<CabType, string> = {
-  SEDAN: "🚘",
-  SUV: "🚙",
-  HATCHBACK: "🚗",
-  "TEMPO TRAVELLER": "🚐",
-};
 
 /* ---------- Filter checkbox group ---------- */
 
@@ -222,13 +180,19 @@ function FilterGroup({
 
 /* ---------- Main section ---------- */
 
-export default function CabSelector() {
+export default function CabSelector({ from, to }: CabSelectorProps) {
   const [types, setTypes] = useState<string[]>([]);
   const [models, setModels] = useState<string[]>([]);
   const [fuels, setFuels] = useState<string[]>([]);
 
-  const toggle = (list: string[], set: (v: string[]) => void, value: string) => {
-    set(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
+  const toggle = (
+    list: string[],
+    set: (v: string[]) => void,
+    value: string,
+  ) => {
+    set(
+      list.includes(value) ? list.filter((v) => v !== value) : [...list, value],
+    );
   };
 
   const filteredCabs = useMemo(
@@ -237,9 +201,9 @@ export default function CabSelector() {
         (cab) =>
           (types.length === 0 || types.includes(cab.type)) &&
           (models.length === 0 || models.includes(cab.model)) &&
-          (fuels.length === 0 || fuels.includes(cab.fuel))
+          (fuels.length === 0 || fuels.includes(cab.fuel)),
       ),
-    [types, models, fuels]
+    [types, models, fuels],
   );
 
   const countBy = (key: "type" | "model" | "fuel") => {
@@ -264,7 +228,7 @@ export default function CabSelector() {
           </p>
 
           <h2 className="text-3xl font-bold tracking-tight text-stone-900 md:text-4xl">
-            Available Cabs for Noida to Delhi
+            Available Cabs for {from} to {to}
           </h2>
 
           <p className="mt-4 text-base leading-7 text-stone-600">
@@ -277,7 +241,9 @@ export default function CabSelector() {
           {/* ===== Left: Filters ===== */}
           <aside className="h-fit rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
             <div className="mb-6 flex items-center justify-between">
-              <h3 className="text-lg font-bold text-stone-900">Select Filters</h3>
+              <h3 className="text-lg font-bold text-stone-900">
+                Select Filters
+              </h3>
 
               <button
                 type="button"
@@ -314,10 +280,6 @@ export default function CabSelector() {
 
           {/* ===== Right: Cab List ===== */}
           <div>
-            <h3 className="mb-5 text-lg font-bold text-stone-900">
-              Noida to Delhi One way duration 4 hrs
-            </h3>
-
             {filteredCabs.length === 0 && (
               <div className="rounded-2xl border border-stone-200 bg-stone-50 p-10 text-center text-stone-600">
                 No cabs match your filters.{" "}
@@ -339,8 +301,12 @@ export default function CabSelector() {
                 >
                   <div className="flex flex-col gap-6 md:flex-row">
                     {/* ===== Car Image ===== */}
-                    <div className="flex h-28 w-full shrink-0 items-center justify-center rounded-xl bg-slate-100 md:w-36">
-                      <span className="text-6xl">{CAB_EMOJI[cab.type]}</span>
+                    <div className="flex h-28 w-full shrink-0 items-center justify-center overflow-hidden rounded-xl bg-slate-100 md:w-36">
+                      <img
+                        src={cab.image}
+                        alt={cab.model}
+                        className="h-full w-full object-contain p-2 transition-transform duration-300 hover:scale-105"
+                      />
                     </div>
 
                     {/* ===== Details ===== */}
@@ -387,7 +353,9 @@ export default function CabSelector() {
                           <span className="w-32 shrink-0 font-semibold text-stone-700">
                             Extra time fare
                           </span>
-                          <span className="text-stone-600">{cab.extraTime}</span>
+                          <span className="text-stone-600">
+                            {cab.extraTime}
+                          </span>
                         </div>
 
                         <div className="flex items-center gap-3">
@@ -399,12 +367,17 @@ export default function CabSelector() {
                         </div>
 
                         <div className="flex items-center gap-3">
-                          <BadgeCheck size={16} className="shrink-0 text-gold" />
+                          <BadgeCheck
+                            size={16}
+                            className="shrink-0 text-gold"
+                          />
                           <span className="w-32 shrink-0 font-semibold text-stone-700">
                             Cancellation
                           </span>
                           <span className="text-stone-600">
-                            <span className="font-semibold text-emerald-600">Free</span>{" "}
+                            <span className="font-semibold text-emerald-600">
+                              Free
+                            </span>{" "}
                             {cab.cancellation.replace("Free ", "")}
                           </span>
                         </div>
@@ -424,7 +397,7 @@ export default function CabSelector() {
 
                       <a
                         href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                          `Hello, I want to book ${cab.model} for Noida to Delhi (one way).`
+                          `Hello, I want to book ${cab.model} ${from} to ${to} (one way).`,
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
