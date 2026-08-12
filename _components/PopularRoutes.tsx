@@ -155,16 +155,6 @@ export default function PopularRoutes({
                 </div>
               </div>
 
-              {/* ===== Distance & Time ===== */}
-              <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-slate-200 pt-4 text-xs font-medium text-slate-600">
-                <span className="inline-flex items-center gap-1.5">
-                  📏 {route.km}
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  ⏱ {route.time}
-                </span>
-              </div>
-
               {/* ===== Fare & CTA ===== */}
               <div className="mt-5 flex items-center justify-between">
                 <div>
@@ -184,26 +174,6 @@ export default function PopularRoutes({
               </div>
             </article>
           ))}
-        </div>
-
-        {/* ===== Custom Route CTA ===== */}
-        <div className="mt-10 rounded-2xl border border-gold/30 bg-gold/5 p-8 text-center">
-          <h3 className="text-lg font-bold tracking-tight text-slate-900">
-            Don&apos;t see your route?
-          </h3>
-
-          <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-600">
-            We cover multiple pickup locations in {from} and provide convenient
-            drops throughout {to}, including hospitals, hotels, offices and
-            railway stations.
-          </p>
-
-          <a
-            href={`tel:${PHONE_NUMBER}`}
-            className="mt-5 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
-          >
-            Call for Your Route
-          </a>
         </div>
       </div>
     </section>

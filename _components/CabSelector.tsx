@@ -34,7 +34,7 @@ type CabOption = {
 const CABS: CabOption[] = [
   {
     model: "Swift Dzire",
-    image: "/dezire_white.png",
+    image: "/dzire_white.png",
     variant: "specific model",
     type: "SEDAN",
     seats: 4,
@@ -51,7 +51,7 @@ const CABS: CabOption[] = [
   },
   {
     model: "Honda Amaze",
-    image: "/dezire_white.png",
+    image: "/Creta.avif",
     variant: "specific model",
     type: "SEDAN",
     seats: 4,
