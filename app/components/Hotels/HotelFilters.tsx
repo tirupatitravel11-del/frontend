@@ -36,14 +36,7 @@ export default function HotelFilters() {
       return;
     }
 
-    console.log({
-      location,
-      checkIn,
-      checkOut,
-      rooms,
-      adults,
-      price,
-    });
+  
   };
 
   return (

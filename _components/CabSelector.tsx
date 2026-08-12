@@ -180,7 +180,7 @@ function FilterGroup({
 
 /* ---------- Main section ---------- */
 
-export default function CabSelector({ from, to }: CabSelectorProps) {
+export default function CabSelector({ from, to,vehicles }: any) {
   const [types, setTypes] = useState<string[]>([]);
   const [models, setModels] = useState<string[]>([]);
   const [fuels, setFuels] = useState<string[]>([]);

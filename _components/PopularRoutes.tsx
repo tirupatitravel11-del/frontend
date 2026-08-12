@@ -160,7 +160,8 @@ export default function PopularRoutes({
                 <div>
                   <p className="text-xs text-slate-500">Starting fare</p>
                   <p className="text-xl font-bold text-slate-900">
-                    ₹{route.fare.toLocaleString("en-IN")}
+                    {/* ₹{route?.fare?.toLocaleString("en-IN")} */}
+                    1500
                   </p>
                 </div>
 
