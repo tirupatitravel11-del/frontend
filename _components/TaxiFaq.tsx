@@ -60,7 +60,8 @@ interface TaxiFaqProps {
 export default function TaxiFaq({
   title = "Frequently Asked Questions",
   subtitle = "Everything you need to know about booking a taxi from Noida to Delhi.",
-}: TaxiFaqProps) {
+  faqs
+}: any) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {

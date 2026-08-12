@@ -595,26 +595,13 @@ Please share the final fare and booking confirmation.
 
           {/* Floating circles */}
 
-          <motion.div
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 5, 0],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-            }}
+          <div
+          
             className="absolute right-[10%] top-20 w-32 h-32 rounded-full bg-primary/20 blur-2xl"
           />
 
-          <motion.div
-            animate={{
-              y: [0, 20, 0],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-            }}
+          <div
+        
             className="absolute left-[40%] bottom-20 w-40 h-40 rounded-full bg-yellow-400/10 blur-3xl"
           />
 
@@ -626,15 +613,13 @@ Please share the final fare and booking confirmation.
 
               {/* LEFT */}
 
-              <motion.div
-                variants={stagger}
-                initial="hidden"
-                animate="visible"
+              <div
+            
                 className="text-white"
               >
 
-                <motion.div
-                  variants={fadeUp}
+                <div
+                 
                   className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 px-4 py-2 rounded-full mb-6"
                 >
 
@@ -646,11 +631,11 @@ Please share the final fare and booking confirmation.
                     4.9/5 • 1,250+ Reviews
                   </span>
 
-                </motion.div>
+                </div>
 
 
-                <motion.h1
-                  variants={fadeUp}
+                <h1
+                 
                   className="text-5xl md:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight"
                 >
 
@@ -660,23 +645,23 @@ Please share the final fare and booking confirmation.
                     Made Simple.
                   </span>
 
-                </motion.h1>
+                </h1>
 
 
-                <motion.p
-                  variants={fadeUp}
+                <p
+                 
                   className="mt-7 text-lg md:text-xl text-white/75 max-w-xl leading-relaxed"
                 >
                   Travel from one city to another with
                   comfortable cars, verified drivers and
                   transparent one-way pricing.
-                </motion.p>
+                </p>
 
 
                 {/* Price */}
 
-                <motion.div
-                  variants={fadeUp}
+                <div
+                
                   className="flex items-center gap-5 mt-8"
                 >
 
@@ -705,13 +690,13 @@ Please share the final fare and booking confirmation.
                     ✓ Professional drivers
                   </div>
 
-                </motion.div>
+                </div>
 
 
                 {/* CTA */}
 
-                <motion.div
-                  variants={fadeUp}
+                <div
+                
                   className="flex flex-wrap gap-4 mt-9"
                 >
 
@@ -742,13 +727,13 @@ Please share the final fare and booking confirmation.
 
                   </a>
 
-                </motion.div>
+                </div>
 
 
                 {/* Trust */}
 
-                <motion.div
-                  variants={fadeUp}
+                <div
+                 
                   className="grid grid-cols-3 gap-5 mt-10 pt-8 border-t border-white/15 max-w-xl"
                 >
 
@@ -782,28 +767,16 @@ Please share the final fare and booking confirmation.
 
                   </div>
 
-                </motion.div>
+                </div>
 
-              </motion.div>
+              </div>
 
 
               {/* =================================================
                   BOOKING CARD
               ================================================= */}
 
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: 60,
-                }}
-                animate={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                transition={{
-                  duration: 0.8,
-                }}
-              >
+              <div >
 
                 <div className="relative">
 
@@ -1015,7 +988,7 @@ Please share the final fare and booking confirmation.
 
                 </div>
 
-              </motion.div>
+              </div>
 
             </div>
 
@@ -1032,23 +1005,17 @@ Please share the final fare and booking confirmation.
 
           <div className="max-w-6xl mx-auto px-4">
 
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{
-                once: true,
-                amount: 0.3,
-              }}
+            <div
+           
               className="grid grid-cols-2 md:grid-cols-4 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
             >
 
               {STATS.map(
                 (stat, index) => (
 
-                  <motion.div
+                  <div
                     key={stat.label}
-                    variants={fadeUp}
+                  
                     className={`p-7 text-center ${
                       index !== 3
                         ? "md:border-r border-gray-100"
@@ -1064,12 +1031,12 @@ Please share the final fare and booking confirmation.
                       {stat.label}
                     </p>
 
-                  </motion.div>
+                  </div>
 
                 )
               )}
 
-            </motion.div>
+            </div>
 
           </div>
 
@@ -1084,11 +1051,8 @@ Please share the final fare and booking confirmation.
 
           <div className="max-w-7xl mx-auto px-4">
 
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+            <div
+            
               className="text-center max-w-2xl mx-auto mb-14"
             >
 
@@ -1105,29 +1069,20 @@ Please share the final fare and booking confirmation.
                 families and groups.
               </p>
 
-            </motion.div>
+            </div>
 
 
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{
-                once: true,
-                amount: 0.1,
-              }}
+            <div
+         
               className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
             >
 
               {VEHICLES.map(
                 (item) => (
 
-                  <motion.div
+                  <div
                     key={item.slug}
-                    variants={fadeUp}
-                    whileHover={{
-                      y: -10,
-                    }}
+                   
                     className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-shadow"
                   >
 
@@ -1204,12 +1159,12 @@ Please share the final fare and booking confirmation.
 
                     </div>
 
-                  </motion.div>
+                  </div>
 
                 )
               )}
 
-            </motion.div>
+            </div>
 
           </div>
 
@@ -1226,18 +1181,8 @@ Please share the final fare and booking confirmation.
 
             <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: -50,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
+              <div
+              
               >
 
                 <span className="text-primary font-bold text-sm tracking-widest">
@@ -1287,28 +1232,20 @@ Please share the final fare and booking confirmation.
 
                 </div>
 
-              </motion.div>
+              </div>
 
 
-              <motion.div
-                variants={stagger}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{
-                  once: true,
-                }}
+              <div
+           
                 className="grid sm:grid-cols-2 gap-5"
               >
 
                 {FEATURES.map(
                   (feature) => (
 
-                    <motion.div
+                    <div
                       key={feature.title}
-                      variants={fadeUp}
-                      whileHover={{
-                        y: -7,
-                      }}
+                 
                       className="p-6 rounded-3xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-xl transition-all"
                     >
 
@@ -1324,12 +1261,12 @@ Please share the final fare and booking confirmation.
                         {feature.description}
                       </p>
 
-                    </motion.div>
+                    </div>
 
                   )
                 )}
 
-              </motion.div>
+              </div>
 
             </div>
 
@@ -1346,11 +1283,8 @@ Please share the final fare and booking confirmation.
 
           <div className="max-w-5xl mx-auto px-4">
 
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+            <div
+         
               className="text-center"
             >
 
@@ -1367,21 +1301,11 @@ Please share the final fare and booking confirmation.
                 one-way fare instantly.
               </p>
 
-            </motion.div>
+            </div>
 
 
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
+            <div
+           
               className="mt-14 bg-white/5 border border-white/10 rounded-[30px] p-6 md:p-10 backdrop-blur"
             >
 
@@ -1487,31 +1411,19 @@ Please share the final fare and booking confirmation.
                   </p>
 
 
-                  <AnimatePresence mode="wait">
+                  <>
 
-                    <motion.div
-                      key={estimatedPrice}
-                      initial={{
-                        opacity: 0,
-                        y: 15,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      exit={{
-                        opacity: 0,
-                        y: -15,
-                      }}
+                    <div
+               
                       className="text-6xl md:text-7xl font-black text-primary mt-4"
                     >
                       ₹
                       {estimatedPrice.toLocaleString(
                         "en-IN"
                       )}
-                    </motion.div>
+                    </div>
 
-                  </AnimatePresence>
+                  </>
 
 
                   <p className="text-white/50 mt-3">
@@ -1531,7 +1443,7 @@ Please share the final fare and booking confirmation.
 
               </div>
 
-            </motion.div>
+            </div>
 
           </div>
 
@@ -1582,22 +1494,8 @@ Please share the final fare and booking confirmation.
                 },
               ].map((item, index) => (
 
-                <motion.div
-                  key={item.number}
-                  initial={{
-                    opacity: 0,
-                    y: 40,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    delay: index * 0.15,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
+                <div
+                 
                   className="relative text-center"
                 >
 
@@ -1617,7 +1515,7 @@ Please share the final fare and booking confirmation.
                     <div className="hidden md:block absolute top-12 left-[70%] w-[60%] border-t-2 border-dashed border-primary/20" />
                   )}
 
-                </motion.div>
+                </div>
 
               ))}
 
@@ -1692,25 +1590,9 @@ Please share the final fare and booking confirmation.
               ].map(
                 (review, index) => (
 
-                  <motion.div
+                  <div
                     key={review.name}
-                    initial={{
-                      opacity: 0,
-                      y: 30,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    transition={{
-                      delay: index * 0.1,
-                    }}
-                    viewport={{
-                      once: true,
-                    }}
-                    whileHover={{
-                      y: -7,
-                    }}
+                
                     className="bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition"
                   >
 
@@ -1743,7 +1625,7 @@ Please share the final fare and booking confirmation.
 
                     </div>
 
-                  </motion.div>
+                  </div>
 
                 )
               )}
@@ -1786,19 +1668,8 @@ Please share the final fare and booking confirmation.
 
                   return (
 
-                    <motion.div
-                      key={faq.q}
-                      initial={{
-                        opacity: 0,
-                        y: 15,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
+                    <div
+                  
                       className={`rounded-2xl border overflow-hidden transition ${
                         isOpen
                           ? "border-primary shadow-lg"
@@ -1821,16 +1692,12 @@ Please share the final fare and booking confirmation.
                           {faq.q}
                         </span>
 
-                        <motion.span
-                          animate={{
-                            rotate: isOpen
-                              ? 180
-                              : 0,
-                          }}
+                        <span
+                       
                           className="text-primary"
                         >
                           <FaChevronDown />
-                        </motion.span>
+                        </span>
 
                       </button>
 
@@ -1839,35 +1706,21 @@ Please share the final fare and booking confirmation.
 
                         {isOpen && (
 
-                          <motion.div
-                            initial={{
-                              height: 0,
-                              opacity: 0,
-                            }}
-                            animate={{
-                              height: "auto",
-                              opacity: 1,
-                            }}
-                            exit={{
-                              height: 0,
-                              opacity: 0,
-                            }}
-                            transition={{
-                              duration: 0.25,
-                            }}
+                          <div
+                      
                           >
 
                             <div className="px-6 pb-6 text-gray-500 leading-relaxed">
                               {faq.a}
                             </div>
 
-                          </motion.div>
+                          </div>
 
                         )}
 
                       </AnimatePresence>
 
-                    </motion.div>
+                    </div>
 
                   );
                 }
@@ -1888,18 +1741,8 @@ Please share the final fare and booking confirmation.
 
           <div className="max-w-5xl mx-auto px-4">
 
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
+            <div
+              
               className="bg-white rounded-[35px] p-8 md:p-12 shadow-sm"
             >
 
@@ -1939,7 +1782,7 @@ Please share the final fare and booking confirmation.
 
               </div>
 
-            </motion.div>
+            </div>
 
           </div>
 
@@ -1952,18 +1795,8 @@ Please share the final fare and booking confirmation.
 
         <section className="py-24 px-4">
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              scale: 0.95,
-            }}
-            whileInView={{
-              opacity: 1,
-              scale: 1,
-            }}
-            viewport={{
-              once: true,
-            }}
+          <div
+        
             className="max-w-6xl mx-auto relative overflow-hidden rounded-[40px] bg-gray-950 p-10 md:p-16 text-center text-white"
           >
 
@@ -2021,7 +1854,7 @@ Please share the final fare and booking confirmation.
 
             </div>
 
-          </motion.div>
+          </div>
 
         </section>
 
@@ -2043,16 +1876,8 @@ Please share the final fare and booking confirmation.
 
           {isScrolled && (
 
-            <motion.div
-              initial={{
-                y: 100,
-              }}
-              animate={{
-                y: 0,
-              }}
-              exit={{
-                y: 100,
-              }}
+            <div
+            
               className="fixed bottom-0 left-0 right-0 z-50 p-3 md:hidden"
             >
 
@@ -2085,7 +1910,7 @@ Please share the final fare and booking confirmation.
 
               </div>
 
-            </motion.div>
+            </div>
 
           )}
 

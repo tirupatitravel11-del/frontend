@@ -28,15 +28,13 @@ type Props = {
 // ===============================
 async function getPackage(packageSlug: string) {
   try {
-    console.log("Package slug:", packageSlug);
+
 
     const apiUrl = `${process.env.apiUrl}/api/single-package/${packageSlug}`;
 
-    console.log("API URL:", apiUrl);
 
     const response = await axios.get(apiUrl);
 
-    console.log("FULL API RESPONSE:", response.data);
 
     // IMPORTANT:
     // API response:
@@ -66,13 +64,12 @@ export default async function PackageDetailsPage({ params }: Props) {
   // URL se params nikalna
   const { package: packageSlug, slug } = await params;
 
-  console.log("Destination slug:", slug);
-  console.log("Package slug:", packageSlug);
+
 
   // API CALL
   const packageData = await getPackage(packageSlug);
 
-  console.log("FINAL PACKAGE DATA:", packageData);
+
 
   // Agar package nahi mila
   if (!packageData) {

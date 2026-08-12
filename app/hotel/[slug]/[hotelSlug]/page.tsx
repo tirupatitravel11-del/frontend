@@ -75,8 +75,7 @@ export default function HotelDetailsPage() {
       try {
         setLoading(true);
 
-        console.log("CITY SLUG:", citySlug);
-        console.log("HOTEL SLUG:", hotelSlug);
+     
 
         const response = await axios.get(
           `${process.env.apiUrl}/api/hotel/${citySlug}`,
@@ -85,7 +84,7 @@ export default function HotelDetailsPage() {
           },
         );
 
-        console.log("HOTEL API RESPONSE:", response.data);
+   
 
         const hotels: Hotel[] = response.data?.hotels || [];
 
@@ -93,7 +92,6 @@ export default function HotelDetailsPage() {
           (item) => item.slug?.toLowerCase() === hotelSlug,
         );
 
-        console.log("FOUND HOTEL:", foundHotel);
 
         setHotel(foundHotel || null);
 

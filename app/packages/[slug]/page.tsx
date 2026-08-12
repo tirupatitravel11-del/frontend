@@ -33,17 +33,17 @@ type Props = {
 
 async function getData(slug: string) {
   try {
-    console.log("Sending slug to API:", slug);
+
 
     const apiUrl = `${process.env.apiUrl}/api/package/${slug}`;
 
-    console.log("FINAL API URL:", apiUrl);
+
 
     const response = await axios.get(apiUrl, {
       withCredentials: true,
     });
 
-    console.log("FULL API RESPONSE:", response.data);
+  
 
     return {
       city: response.data.city || null,
@@ -91,13 +91,11 @@ export default function PackageDetailsPage() {
   });
   useEffect(() => {
     const fetchPackages = async () => {
-      console.log("CALLING API...");
+
 
       const result = await getData(slug);
 
-      console.log("CITY:", result.city);
-      console.log("PACKAGES:", result.packages);
-      console.log("PAGINATION:", result.pagination);
+
 
       setCity(result.city);
       setPackages(result.packages);
@@ -117,13 +115,13 @@ export default function PackageDetailsPage() {
   //   notFound();
   // }
 
-  console.log(packages, "hotesl hai");
+
   // const filteredPackages = useMemo(() => {
   //   let result = [...packages];
 
   //   return result;
   // }, [packages]);
-  console.log(packages, "sdfgjkh");
+
   return (
     <section
       id="packages-section"
@@ -274,7 +272,7 @@ export default function PackageDetailsPage() {
                 onClick={() => {
                   if (pagination.hasPreviousPage) {
                     // API call yahan karna hai
-                    console.log("Go to page:", pagination.currentPage - 1);
+               
                   }
                 }}
                 disabled={!pagination.hasPreviousPage}
@@ -305,7 +303,7 @@ export default function PackageDetailsPage() {
                 onClick={() => {
                   if (pagination.hasNextPage) {
                     // API call yahan karna hai
-                    console.log("Go to page:", pagination.currentPage + 1);
+         
                   }
                 }}
                 disabled={!pagination.hasNextPage}
