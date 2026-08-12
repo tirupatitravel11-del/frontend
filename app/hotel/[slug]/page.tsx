@@ -19,7 +19,7 @@ type PageProps = {
 
 async function getData(slug: string) {
   try {
-    console.log("Sending slug to API:", slug);
+  
 
     const response = await axios.get(
       `${process.env.apiUrl}/api/hotel/${slug}`,
@@ -28,7 +28,7 @@ async function getData(slug: string) {
       },
     );
 
-    console.log("API RESPONSE:", response.data);
+  
 
     return response.data.hotels || [];
   } catch (error) {
@@ -61,7 +61,7 @@ export default function HotelCityPage() {
     const fetchHotels = async () => {
       const result = await getData(slug);
 
-      console.log("HOTELS FROM API:", result);
+
 
       setHotels(result);
     };
@@ -78,7 +78,7 @@ export default function HotelCityPage() {
         : [...prev, filter],
     );
   };
-  console.log(hotels, "hotesl hai");
+
   const filteredHotels = useMemo(() => {
     let result = [...hotels];
 

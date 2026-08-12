@@ -21,7 +21,7 @@ type PageProps = {
 
 async function getData(slug: string) {
   try {
-    console.log("Sending slug to API:", slug);
+
 
     const response = await axios.post(
       `${process.env.apiUrl}/api/get-page`,
@@ -33,7 +33,7 @@ async function getData(slug: string) {
       },
     );
 
-    console.log("API RESPONSE:", response.data);
+
 
     return response.data.data;
   } catch (error) {

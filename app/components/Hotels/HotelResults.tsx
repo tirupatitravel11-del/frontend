@@ -30,7 +30,7 @@ export default function HotelResults({
   sort,
   setSort,
 }: HotelResultsProps) {
-console.log(hotels, "dsfdfgdfg")
+
 
   return (
     <section>

@@ -57,11 +57,12 @@ interface FareDetailsProps {
 }
 
 export default function FareDetails({
+  fares,
   to,
   from,
   title,
   subtitle = "Transparent, fixed pricing — the fare you see is the fare you pay. No surge pricing, no hidden charges.",
-}: FareDetailsProps) {
+}: any) {
   return (
     <section className="bg-white py-14">
       <div className="mx-auto max-w-7xl px-6">
