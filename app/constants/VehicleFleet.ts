@@ -1,14 +1,14 @@
 export const vehicleFleet = [
-   {
-  id: 1,
-  category: "HATCHBACK",
-  name: "Swift",
-  image: "/swift.avif",
-  seating: "4+1 Seats",
-  features: ["Fuel Efficient", "Budget Friendly"],
-  buttonText: "Book Swift",
-  slug: "swift-cab",
-},
+  {
+    id: 1,
+    category: "HATCHBACK",
+    name: "Swift",
+    image: "/swift.avif",
+    seating: "4+1 Seats",
+    features: ["Fuel Efficient", "Budget Friendly"],
+    buttonText: "Book Swift",
+    slug: "swift-cab",
+  },
   {
     id: 2,
     category: "SEDAN",
@@ -31,15 +31,15 @@ export const vehicleFleet = [
     slug: "ertiga-cab",
   },
   {
-  id: 4,
-  category: "SUV",
-  name: "Creta",
-  image: "/Creta.avif",
-  seating: "6+1 Seats",
-  features: ["Powerful SUV", "Spacious Interior"],
-  buttonText: "Book Creta",
-  slug: "Creta-cab",
-},
+    id: 4,
+    category: "SUV",
+    name: "Creta",
+    image: "/Creta.avif",
+    seating: "6+1 Seats",
+    features: ["Powerful SUV", "Spacious Interior"],
+    buttonText: "Book Creta",
+    slug: "Creta-cab",
+  },
 
   {
     id: 5,
@@ -51,7 +51,4 @@ export const vehicleFleet = [
     buttonText: "Book Innova",
     slug: "innova-crysta-cab",
   },
-
-
-
 ];

@@ -7,12 +7,7 @@ const WHATSAPP_NUMBER = "916390008503";
 
 type TripType = "one-way" | "round-trip";
 
-const SEDAN_MODELS = [
-  "Swift Dzire",
-  "Honda Amaze",
-  "Hyundai Aura",
-  "Toyota Etios",
-];
+const SEDAN_MODELS = ["Swift Dzire", "Honda Amaze", "Toyota Etios"];
 
 interface SedanHeroProps {
   from: string;
@@ -60,7 +55,7 @@ Date: ${date}`;
         {/* Left: Content */}
         <div>
           <span className="inline-block rounded-full bg-gold/10 border border-gold/30 px-4 py-1 text-xs font-bold uppercase tracking-widest text-gold mb-4">
-            🚘 Sedan Cabs Available
+            Sedan Cabs Available
           </span>
 
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
@@ -94,35 +89,6 @@ Date: ${date}`;
               <p className="text-xs text-slate-500 mt-1">Starting Fare</p>
             </div>
           </div>
-
-          {/* Highlights */}
-          <ul className="mt-8 space-y-3 text-[15px] text-slate-700">
-            <li className="flex items-start gap-3">
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">
-                ✓
-              </span>
-              <strong>Top Models:</strong> Swift Dzire, Honda Amaze, Hyundai
-              Aura
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">
-                ✓
-              </span>
-              <strong>Comfort First:</strong> Spacious legroom & AC cooling
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">
-                ✓
-              </span>
-              <strong>Fixed Fare:</strong> No hidden charges or meter anxiety
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">
-                ✓
-              </span>
-              <strong>24×7 Support:</strong> Book anytime, travel anytime
-            </li>
-          </ul>
 
           {/* CTA Buttons */}
           <div className="mt-9 flex flex-wrap gap-4">
