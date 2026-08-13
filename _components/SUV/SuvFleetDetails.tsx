@@ -35,7 +35,7 @@ const SUVS: SuvModel[] = [
     tagline: "Compact SUV with Premium Features",
     image: "/Creta.avif",
     fuel: "Diesel / Petrol",
-    transmission: "Automatic / Manual",
+    transmission: "Manual",
     seats: 5,
     bags: 3,
     oneWayFare: 2400,
@@ -69,19 +69,20 @@ const SUVS: SuvModel[] = [
 
 export default function SuvFleetDetails() {
   return (
-    <section className="bg-white py-16">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-white py-10 sm:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+
         {/* ===== Header ===== */}
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
+        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
             Our Fleet
           </p>
 
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
             Choose Your Preferred SUV Model
           </h2>
 
-          <p className="mt-4 text-base leading-7 text-slate-600">
+          <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
             From the economical Ertiga to the luxurious Innova Hycross — every
             SUV is air-conditioned, sanitized and driven by verified
             professionals.
@@ -89,7 +90,7 @@ export default function SuvFleetDetails() {
         </div>
 
         {/* ===== Fleet Grid ===== */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {SUVS.map((suv) => (
             <article
               key={suv.name}
@@ -101,52 +102,64 @@ export default function SuvFleetDetails() {
             >
               {/* ===== Badge ===== */}
               {suv.badge && (
-                <span className="absolute right-4 top-4 z-10 rounded-full bg-gold px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-md">
+                <span className="absolute right-3 top-3 z-10 rounded-full bg-gold px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-md sm:right-4 sm:top-4 sm:px-3 sm:text-[11px]">
                   {suv.badge}
                 </span>
               )}
 
-              {/* ===== Image Area (controlled by const only) ===== */}
-              <div className="h-40 w-full overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
+              {/* ===== Image Area ===== */}
+              <div className="h-36 w-full overflow-hidden bg-white sm:h-40">
                 {suv.image ? (
                   <img
                     src={suv.image}
                     alt={`${suv.name} SUV taxi for Noida to Delhi`}
-                    className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-contain p-3 transition-transform duration-500 group-hover:scale-105 sm:p-4"
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center">
                     <Car
-                      size={64}
-                      className="text-slate-300 transition-transform duration-500 group-hover:scale-110"
+                      size={56}
+                      className="text-slate-300 transition-transform duration-500 group-hover:scale-110 sm:size-16"
                     />
                   </div>
                 )}
               </div>
 
               {/* ===== Content ===== */}
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="text-lg font-bold text-slate-900">{suv.name}</h3>
+              <div className="flex flex-1 flex-col p-4 sm:p-5">
+                <h3 className="text-base font-bold text-slate-900 sm:text-lg">
+                  {suv.name}
+                </h3>
+
                 <p className="mt-1 text-sm font-medium text-gold">
                   {suv.tagline}
                 </p>
 
                 {/* ===== Specs Grid ===== */}
-                <div className="mt-4 grid grid-cols-2 gap-3">
-                  <div className="flex items-center gap-2 text-sm text-slate-600">
-                    <Users size={16} className="shrink-0 text-gold" />
+                <div className="mt-4 grid grid-cols-2 gap-2.5 sm:gap-3">
+                  <div className="flex items-center gap-2 text-xs text-slate-600 sm:text-sm">
+                    <Users size={15} className="shrink-0 text-gold sm:size-4" />
                     <span>{suv.seats} Seats</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-600">
-                    <Luggage size={16} className="shrink-0 text-gold" />
+
+                  <div className="flex items-center gap-2 text-xs text-slate-600 sm:text-sm">
+                    <Luggage
+                      size={15}
+                      className="shrink-0 text-gold sm:size-4"
+                    />
                     <span>{suv.bags} Bags</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-600">
-                    <Fuel size={16} className="shrink-0 text-gold" />
+
+                  <div className="flex items-center gap-2 text-xs text-slate-600 sm:text-sm">
+                    <Fuel size={15} className="shrink-0 text-gold sm:size-4" />
                     <span>{suv.fuel}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-600">
-                    <Settings size={16} className="shrink-0 text-gold" />
+
+                  <div className="flex items-center gap-2 text-xs text-slate-600 sm:text-sm">
+                    <Settings
+                      size={15}
+                      className="shrink-0 text-gold sm:size-4"
+                    />
                     <span>{suv.transmission}</span>
                   </div>
                 </div>
@@ -157,14 +170,21 @@ export default function SuvFleetDetails() {
                 {/* ===== Pricing ===== */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-slate-500">One-Way</span>
-                    <span className="text-lg font-bold text-slate-900">
+                    <span className="text-xs text-slate-500 sm:text-sm">
+                      One-Way
+                    </span>
+
+                    <span className="text-base font-bold text-slate-900 sm:text-lg">
                       ₹{suv.oneWayFare.toLocaleString("en-IN")}
                     </span>
                   </div>
+
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-slate-500">Round Trip</span>
-                    <span className="text-lg font-bold text-gold">
+                    <span className="text-xs text-slate-500 sm:text-sm">
+                      Round Trip
+                    </span>
+
+                    <span className="text-base font-bold text-gold sm:text-lg">
                       ₹{suv.roundTripFare.toLocaleString("en-IN")}
                     </span>
                   </div>
@@ -173,7 +193,7 @@ export default function SuvFleetDetails() {
                 {/* ===== CTA ===== */}
                 <a
                   href={`tel:${PHONE_NUMBER}`}
-                  className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-gold/10 py-3 text-sm font-bold text-gold transition-all duration-300 hover:bg-gold hover:text-white"
+                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gold/10 py-3 text-sm font-bold text-gold transition-all duration-300 hover:bg-gold hover:text-white"
                 >
                   Book {suv.name.split(" ").pop()}
                   <span className="text-lg leading-none">→</span>
@@ -184,7 +204,7 @@ export default function SuvFleetDetails() {
         </div>
 
         {/* ===== Bottom Note ===== */}
-        <p className="mt-10 text-center text-sm text-slate-500">
+        <p className="mt-8 text-center text-xs leading-6 text-slate-500 sm:mt-10 sm:text-sm">
           * Fares include fuel, driver allowance, and AC. Tolls, parking, and
           state taxes are billed at actuals.
         </p>

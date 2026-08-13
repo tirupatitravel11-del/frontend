@@ -48,53 +48,61 @@ Date: ${date}`;
   return (
     <section className="relative overflow-hidden bg-white">
       {/* Decorative Gold Glow */}
-      <div className="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
+      <div className="pointer-events-none absolute -top-32 right-0 h-72 w-72 rounded-full bg-gold/10 blur-3xl sm:h-96 sm:w-96" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-56 w-56 rounded-full bg-gold/5 blur-3xl sm:h-72 sm:w-72" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-16 lg:grid-cols-2 lg:py-24">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:gap-14 sm:px-6 sm:py-16 lg:grid-cols-2 lg:py-24">
         {/* Left: Content */}
         <div>
-          <span className="inline-block rounded-full bg-gold/10 border border-gold/30 px-4 py-1 text-xs font-bold uppercase tracking-widest text-gold mb-4">
+          <span className="mb-4 inline-block rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-gold sm:px-4 sm:text-xs">
             Sedan Cabs Available
           </span>
 
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
             {from} → {to} Cab Service
           </p>
 
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:leading-tight">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:leading-tight">
             {from} to {to} <span className="text-gold">Sedan Taxi</span> Service
             at Fixed Fares
           </h1>
 
-          <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
+          <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7">
             Travel in comfort with our premium Sedans. Perfect for families and
             business travel with extra legroom and space for 3 suitcases.
           </p>
 
           {/* Sedan Specs */}
-          <div className="mt-8 grid grid-cols-3 gap-4">
-            <div className="rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm">
-              <p className="text-2xl font-bold text-gold">4</p>
-              <p className="text-xs text-slate-500 mt-1">Seats</p>
+          <div className="mt-6 grid grid-cols-3 gap-2 sm:mt-8 sm:gap-4">
+            <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
+              <p className="text-xl font-bold text-gold sm:text-2xl">4</p>
+              <p className="mt-1 text-[11px] text-slate-500 sm:text-xs">
+                Seats
+              </p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm">
-              <p className="text-2xl font-bold text-gold">3</p>
-              <p className="text-xs text-slate-500 mt-1">Large Bags</p>
+
+            <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
+              <p className="text-xl font-bold text-gold sm:text-2xl">3</p>
+              <p className="mt-1 text-[11px] text-slate-500 sm:text-xs">
+                Large Bags
+              </p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm">
-              <p className="text-2xl font-bold text-gold">
+
+            <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
+              <p className="text-lg font-bold text-gold sm:text-2xl">
                 ₹{startingFare.toLocaleString("en-IN")}
               </p>
-              <p className="text-xs text-slate-500 mt-1">Starting Fare</p>
+              <p className="mt-1 text-[11px] text-slate-500 sm:text-xs">
+                Starting Fare
+              </p>
             </div>
           </div>
 
           {/* CTA Buttons */}
-          <div className="mt-9 flex flex-wrap gap-4">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-4">
             <a
               href={`tel:${PHONE_NUMBER}`}
-              className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg sm:w-auto"
             >
               Call for Sedan
             </a>
@@ -103,7 +111,7 @@ Date: ${date}`;
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-gold transition-all duration-300 hover:bg-gold hover:text-white"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-gold transition-all duration-300 hover:bg-gold hover:text-white sm:w-auto"
             >
               WhatsApp Us
             </a>
@@ -111,23 +119,23 @@ Date: ${date}`;
         </div>
 
         {/* Right: Booking Card */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl sm:p-8">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xl sm:p-8">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
             Book Your Sedan
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+          <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
             Instant Cab Confirmation
           </h2>
 
           {/* Trip Type Toggle */}
-          <div className="mt-5 grid grid-cols-2 rounded-xl border border-slate-200 p-1">
+          <div className="mt-4 grid grid-cols-2 rounded-xl border border-slate-200 p-1 sm:mt-5">
             {(["one-way", "round-trip"] as TripType[]).map((type) => (
               <button
                 key={type}
                 type="button"
                 onClick={() => setTripType(type)}
-                className={`rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 ${
+                className={`rounded-lg py-2.5 text-xs font-semibold transition-all duration-300 sm:text-sm ${
                   tripType === type
                     ? "bg-gold text-white shadow-sm"
                     : "text-slate-600 hover:bg-slate-100"
@@ -139,7 +147,7 @@ Date: ${date}`;
           </div>
 
           {/* Form */}
-          <form onSubmit={handleBook} className="mt-5 space-y-4">
+          <form onSubmit={handleBook} className="mt-4 space-y-4 sm:mt-5">
             {/* Model Selection */}
             <div>
               <label className="mb-1.5 block text-sm font-semibold text-slate-700">

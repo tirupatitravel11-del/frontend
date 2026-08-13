@@ -11,48 +11,53 @@ type Faq = {
 
 const FAQS: Faq[] = [
   {
-    question: "What is the sedan fare from Noida to Delhi?",
+    question: "What is the SUV taxi fare from Noida to Delhi?",
     answer:
-      "The one-way sedan fare from Noida to Delhi starts at ₹1,599 and round-trip at ₹2,699. This is a fixed, all-inclusive base fare covering fuel, driver allowance and AC for up to 40 km and 4 hours. Tolls and parking are billed at actuals.",
+      "The one-way SUV fare from Noida to Delhi starts at ₹1,800 for the Ertiga, ₹2,200 for the Innova and ₹2,800 for the Innova Crysta. Round-trip fares are ₹3,300, ₹4,000 and ₹5,000 respectively. These are fixed, all-inclusive base fares covering fuel, driver allowance and AC.",
   },
   {
-    question: "How much luggage fits in a sedan?",
+    question: "How many passengers can travel in an SUV?",
     answer:
-      "Our sedans comfortably fit 3 large suitcases plus cabin bags. The Swift Dzire has a 378-litre boot, the Hyundai Aura 402 litres, and the Honda Amaze leads with 420 litres — making sedans the perfect choice for airport drops.",
+      "The Ertiga and Innova comfortably seat 6 passengers, while the Innova Crysta and Hycross accommodate 6–7 passengers. All models offer ample legroom and space for 4–5 large suitcases, making them ideal for group travel.",
   },
   {
-    question: "Which sedan models do you provide?",
+    question: "Which SUV models do you provide?",
     answer:
-      "We provide Maruti Swift Dzire, Honda Amaze and Hyundai Aura — all air-conditioned, sanitized and well-maintained. You can request a specific model while booking, subject to availability.",
+      "We provide Maruti Suzuki Ertiga, Toyota Innova, Innova Crysta and Innova Hycross — all air-conditioned, sanitized and well-maintained. You can request a specific model while booking, subject to availability.",
   },
   {
-    question: "Is the sedan fare per person or per car?",
+    question: "How much luggage fits in an SUV?",
     answer:
-      "Per car. Every sedan is a private cab for you and your group — up to 4 passengers. The fare stays the same whether 1 person or 4 people travel, so it's excellent value for families.",
+      "Our SUVs offer generous boot space: Ertiga fits 3 large bags, Innova fits 4 bags, while Innova Crysta and Hycross accommodate 5 large suitcases. This is perfect for airport trips, weddings and outstation journeys with heavy luggage.",
   },
   {
-    question: "Is a sedan suitable for Noida to IGI Airport drops?",
+    question: "Is an SUV suitable for outstation trips from Noida?",
     answer:
-      "Absolutely. A sedan fits 4 passengers plus 3 large bags, which covers most airport trips. We recommend booking at least 3 hours before your flight departure, and our drivers track terminal entry routes for T1, T2 and T3.",
+      "Absolutely. SUVs are the most popular choice for outstation trips to Agra, Jaipur, Haridwar and beyond. The high ride height, stable suspension and spacious interiors make long highway journeys comfortable for the whole group.",
   },
   {
-    question: "What if more than 4 people are travelling?",
+    question: "Can I book an SUV for airport drops from Noida?",
     answer:
-      "For 5 or more passengers, we recommend upgrading to an SUV like the Ertiga or Innova Crysta, which seats 6–7 comfortably. Call us and we'll suggest the right cab for your group size and luggage.",
+      "Yes. SUVs are ideal for airport transfers with groups or heavy luggage. You get one comfortable cab instead of splitting into multiple vehicles. We recommend booking at least 3 hours before your flight departure.",
   },
   {
-    question: "Are sedans available at night for Noida to Delhi trips?",
+    question: "What's the difference between Ertiga, Innova and Crysta?",
     answer:
-      "Yes, our sedans are available 24×7, including early morning airport drops and late night returns. A flat night charge of ₹200 applies for trips between 10 PM and 6 AM.",
+      "The Ertiga is the most economical 6-seater. The Innova offers more space and comfort at a mid-range price. The Innova Crysta and Hycross are premium options with superior interiors, more luggage space and additional features — perfect for VIP travel and special occasions.",
   },
   {
-    question: "Can I cancel or reschedule my sedan booking?",
+    question: "Are SUVs available at night for Noida to Delhi trips?",
+    answer:
+      "Yes, our SUVs are available 24×7, including early morning airport drops and late night returns. A flat night charge of ₹200 applies for trips between 10 PM and 6 AM.",
+  },
+  {
+    question: "Can I cancel or reschedule my SUV booking?",
     answer:
       "Yes. Cancellation is free up to 2 hours before pickup, and rescheduling is always free with a simple call or WhatsApp message. Since there's no advance payment, you never lose money.",
   },
 ];
 
-export default function SedanFaq() {
+export default function SuvFaq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
@@ -74,7 +79,7 @@ export default function SedanFaq() {
   };
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16">
+    <section className="bg-slate-50 py-10 sm:py-16">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
@@ -85,15 +90,15 @@ export default function SedanFaq() {
         {/* ===== Header ===== */}
         <div className="mb-8 text-center sm:mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
-            Sedan FAQs
+            SUV FAQs
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            Sedan Taxi Questions, Answered
+            SUV Taxi Questions, Answered
           </h2>
 
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
-            Everything riders ask us about booking a sedan from Noida to Delhi.
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
+            Everything riders ask us about booking an SUV from Noida to Delhi.
           </p>
         </div>
 
@@ -105,7 +110,7 @@ export default function SedanFaq() {
             return (
               <div
                 key={faq.question}
-                className={`overflow-hidden rounded-xl border bg-white shadow-sm transition-all duration-300 sm:rounded-2xl ${
+                className={`overflow-hidden rounded-2xl border bg-white shadow-sm transition-all duration-300 ${
                   isOpen ? "border-gold/40" : "border-slate-200"
                 }`}
               >
@@ -115,7 +120,7 @@ export default function SedanFaq() {
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-3 px-4 py-4 text-left sm:gap-4 sm:px-6 sm:py-5"
                 >
-                  <span className="min-w-0 text-sm font-semibold leading-6 text-slate-900 sm:text-base">
+                  <span className="text-sm font-semibold leading-6 text-slate-900 sm:text-base">
                     {faq.question}
                   </span>
 
