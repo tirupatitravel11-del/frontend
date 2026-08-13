@@ -45,48 +45,48 @@ export default function AirportSpotlight({
   travelTime = "50–70 minutes",
 }: AirportSpotlightProps) {
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-16 lg:py-20">
+    <section className="relative overflow-hidden bg-slate-50 py-12 sm:py-16 lg:py-20">
       {/* Decorative glow */}
-      <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 right-0 h-64 w-64 rounded-full bg-gold/10 blur-3xl sm:h-96 sm:w-96" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-2">
         {/* ===== Left: Content ===== */}
-        <div>
-          <p className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-gold">
-            <Plane size={18} /> Airport Transfers
+        <div className="min-w-0">
+          <p className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
+            <Plane size={18} className="shrink-0" /> Airport Transfers
           </p>
 
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:leading-tight">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:leading-tight">
             {from} to {airportName} by Sedan —{" "}
             <span className="text-gold">Never Miss a Flight</span>
           </h2>
 
-          <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
+          <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7">
             The {distance} ride from {from} to {airportName} takes around{" "}
             {travelTime}. Our sedans are the most booked choice for flyers —
             spacious boot, strong AC and on-time discipline.
           </p>
 
           {/* ===== Checklist ===== */}
-          <ul className="mt-8 space-y-4">
+          <ul className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
             {AIRPORT_POINTS.map((point) => (
               <li
                 key={point}
-                className="flex items-start gap-3 text-[15px] leading-7 text-slate-700"
+                className="flex items-start gap-3 text-sm leading-6 text-slate-700 sm:text-[15px] sm:leading-7"
               >
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">
                   ✓
                 </span>
-                {point}
+                <span>{point}</span>
               </li>
             ))}
           </ul>
 
           {/* ===== CTAs ===== */}
-          <div className="mt-9 flex flex-wrap gap-4">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-4">
             <a
               href={`tel:${PHONE_NUMBER}`}
-              className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg sm:w-auto sm:px-7"
             >
               <Plane size={16} /> Book Airport Drop
             </a>
@@ -95,7 +95,7 @@ export default function AirportSpotlight({
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-gold bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-gold transition-all duration-300 hover:bg-gold hover:text-white"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold bg-white px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-gold transition-all duration-300 hover:bg-gold hover:text-white sm:w-auto sm:px-7"
             >
               WhatsApp Flight Details
             </a>
@@ -103,36 +103,39 @@ export default function AirportSpotlight({
         </div>
 
         {/* ===== Right: Pickup Guide Card ===== */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-gold">
+        <div className="w-full rounded-2xl border border-slate-200 bg-white p-5 shadow-xl sm:p-8">
+          <p className="text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
             Recommended Pickup Guide
           </p>
 
-          <h3 className="mt-2 text-xl font-bold text-slate-900">
+          <h3 className="mt-2 text-xl font-bold text-slate-900 sm:text-2xl">
             We Plan Your Pickup Around Your Flight
           </h3>
 
           {/* ===== Timeline ===== */}
-          <div className="mt-8 space-y-0">
+          <div className="mt-6 space-y-0 sm:mt-8">
             {TIMELINE.map((item, index) => (
               <div key={item.label}>
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-3 sm:gap-4">
                   <div className="flex flex-col items-center">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold text-white">
-                      <Clock size={18} strokeWidth={2} />
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold text-white sm:h-10 sm:w-10">
+                      <Clock size={17} strokeWidth={2} />
                     </span>
+
                     {index < TIMELINE.length - 1 && (
                       <span className="my-1 h-8 w-0.5 bg-gold/30" />
                     )}
                   </div>
 
-                  <div className="pb-6">
-                    <p className="text-xs font-bold uppercase tracking-widest text-gold">
+                  <div className="min-w-0 pb-6">
+                    <p className="text-[11px] font-bold uppercase tracking-widest text-gold sm:text-xs">
                       {item.time}
                     </p>
-                    <p className="mt-1 font-semibold text-slate-900">
+
+                    <p className="mt-1 text-sm font-semibold text-slate-900 sm:text-base">
                       {item.label}
                     </p>
+
                     <p className="mt-1 text-sm leading-6 text-slate-600">
                       {item.detail}
                     </p>
@@ -143,17 +146,21 @@ export default function AirportSpotlight({
           </div>
 
           {/* ===== Example Strip ===== */}
-          <div className="rounded-xl bg-gold/10 p-5">
+          <div className="rounded-xl bg-gold/10 p-4 sm:p-5">
             <p className="text-sm leading-6 text-slate-700">
-              ✈️ <strong className="text-gold">Example:</strong> Flight at 10:00
-              AM (domestic)? Your sedan reaches your door at 6:45 AM for a 7:00
-              AM pickup.
+              ✈️ <strong className="text-gold">Example:</strong> Flight at
+              10:00 AM (domestic)? Your sedan reaches your door at 6:45 AM for
+              a 7:00 AM pickup.
             </p>
           </div>
 
           {/* ===== Luggage + Fee Note ===== */}
-          <div className="mt-6 flex items-start gap-3 text-sm leading-6 text-slate-600">
-            <Luggage size={18} className="mt-1 shrink-0 text-gold" />
+          <div className="mt-5 flex items-start gap-3 text-sm leading-6 text-slate-600 sm:mt-6">
+            <Luggage
+              size={18}
+              className="mt-1 shrink-0 text-gold"
+            />
+
             <p>
               Airport entry fee is billed at actuals. Everything else is
               included in your fixed fare.
