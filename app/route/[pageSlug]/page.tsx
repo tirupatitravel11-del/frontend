@@ -8,6 +8,7 @@ import TaxiFarePage from "@/_components/route/pages/TaxiFarePage";
 import OneWayTaxiPage from "@/_components/route/pages/OneWayTaxiPage";
 import SedanTaxiPage from "@/_components/route/pages/SedanTaxiPage";
 import { getRoutePage } from "@/app/lib/api/route";
+import SUVTaxiPage from "@/_components/route/pages/SUVTaxiPage";
 
 export default async function Page({
   params,
@@ -35,10 +36,16 @@ console.log(data,"fjd");
 
   case "sedan-taxi":
     return <SedanTaxiPage data={data} />;
-  case "tempo-traveller":
-    return <TempoTravellerPage data={data} />;
+
+
+  case "suv-taxi":
+    
+    return <SUVTaxiPage data={data}/>;
 
   default:
+    console.log("Unmatched pageType fell through to 404:", data?.page?.pageType);
     notFound();
 }
 }
+  // case "tempo-traveller":
+  //   return <TempoTravellerPage data={data} />;
