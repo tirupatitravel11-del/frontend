@@ -44,15 +44,13 @@ const FEATURES: Feature[] = [
 ];
 
 interface WhyChooseUsProps {
-  from: string;
-  to: string;
+
   title?: string;
   subtitle?: string;
 }
 
 export default function WhyChooseUs({
-  from,
-  to,
+  
   title ,
   subtitle = "Thousands of riders trust us for daily travel, airport drops and outstation trips between Noida and Delhi.",
 }: WhyChooseUsProps) {
@@ -66,7 +64,7 @@ export default function WhyChooseUs({
           </p>
 
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-           Why Book Your {from} to {to} Taxi With Us?
+           Why Book Your Urbania With Us?
           </h2>
 
           <p className="mt-4 text-base leading-7 text-slate-600">{subtitle}</p>
