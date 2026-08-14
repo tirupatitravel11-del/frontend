@@ -359,344 +359,518 @@ const routePages: Record<string, any> = {
     popularRoutes: [],
   },
   "noida-to-delhi-suv-taxi": {
-  page: {
-    _id: "page-002",
-    pageType: "suv-taxi",
-    slug: "noida-to-delhi-suv-taxi",
-    h1: "Noida to Delhi SUV Taxi",
-    metaTitle: "Noida to Delhi SUV Taxi | Book Ertiga, Innova & Crysta",
-    metaDescription:
-      "Book a spacious SUV taxi from Noida to Delhi at fixed fares. Choose from Ertiga, Innova, Innova Crysta & Hycross — AC cabs with experienced drivers.",
-    faqs: [
-      {
-        _id: "faq-suv-001",
-        question: "What is the SUV taxi fare from Noida to Delhi?",
-        answer:
-          "SUV fares start at ₹1,800 one-way for the Ertiga, ₹2,200 for the Innova and ₹2,800 for the Innova Crysta. Round-trip and premium models are priced accordingly.",
-      },
-      {
-        _id: "faq-suv-002",
-        question: "How many passengers can travel in an SUV?",
-        answer:
-          "The Ertiga and Innova comfortably seat 6 passengers, while the Innova Crysta and Hycross accommodate 6–7 passengers with luggage.",
-      },
-      {
-        _id: "faq-suv-003",
-        question: "Which SUV models are available from Noida to Delhi?",
-        answer:
-          "You can choose from the Maruti Suzuki Ertiga, Toyota Innova, Innova Crysta and Innova Hycross — all air-conditioned with ample luggage space.",
-      },
-    ],
-  },
-
-  route: {
-    _id: "route-001",
-    fromCity: "Noida",
-    toCity: "Delhi",
-    slug: "noida-to-delhi",
-    distance: 25,
-    duration: "45 min - 1.5 hrs",
-  },
-
-  vehicles: [
-    {
-      _id: "vehicle-002",
-      name: "Ertiga",
-      slug: "ertiga",
-      brand: "Maruti Suzuki",
-      cabType: "SUV",
-      passengerCapacity: 6,
-      luggageCapacity: 3,
-      image: "/images/cars/ertiga.png",
-      airCondition: true,
-      fuelType: "Petrol",
-      transmission: "Manual",
+    page: {
+      _id: "page-002",
+      pageType: "suv-taxi",
+      slug: "noida-to-delhi-suv-taxi",
+      h1: "Noida to Delhi SUV Taxi",
+      metaTitle: "Noida to Delhi SUV Taxi | Book Ertiga, Innova & Crysta",
+      metaDescription:
+        "Book a spacious SUV taxi from Noida to Delhi at fixed fares. Choose from Ertiga, Innova, Innova Crysta & Hycross — AC cabs with experienced drivers.",
+      faqs: [
+        {
+          _id: "faq-suv-001",
+          question: "What is the SUV taxi fare from Noida to Delhi?",
+          answer:
+            "SUV fares start at ₹1,800 one-way for the Ertiga, ₹2,200 for the Innova and ₹2,800 for the Innova Crysta. Round-trip and premium models are priced accordingly.",
+        },
+        {
+          _id: "faq-suv-002",
+          question: "How many passengers can travel in an SUV?",
+          answer:
+            "The Ertiga and Innova comfortably seat 6 passengers, while the Innova Crysta and Hycross accommodate 6–7 passengers with luggage.",
+        },
+        {
+          _id: "faq-suv-003",
+          question: "Which SUV models are available from Noida to Delhi?",
+          answer:
+            "You can choose from the Maruti Suzuki Ertiga, Toyota Innova, Innova Crysta and Innova Hycross — all air-conditioned with ample luggage space.",
+        },
+      ],
     },
 
-    {
-      _id: "vehicle-003",
-      name: "Innova",
-      slug: "innova",
-      brand: "Toyota",
-      cabType: "SUV",
-      passengerCapacity: 6,
-      luggageCapacity: 4,
-      image: "/images/cars/innova.png",
-      airCondition: true,
-      fuelType: "Diesel",
-      transmission: "Manual",
-    },
-
-    {
-      _id: "vehicle-004",
-      name: "Innova Crysta",
-      slug: "innova-crysta",
-      brand: "Toyota",
-      cabType: "Premium SUV",
-      passengerCapacity: 6,
-      luggageCapacity: 5,
-      image: "/images/cars/innova-crysta.png",
-      airCondition: true,
-      fuelType: "Diesel",
-      transmission: "Manual",
-    },
-
-    {
-      _id: "vehicle-005",
-      name: "Innova Hycross",
-      slug: "innova-hycross",
-      brand: "Toyota",
-      cabType: "Premium SUV",
-      passengerCapacity: 7,
-      luggageCapacity: 5,
-      image: "/images/cars/innova-hycross.png",
-      airCondition: true,
-      fuelType: "Petrol",
-      transmission: "Automatic",
-    },
-  ],
-
-  fares: [
-    {
-      _id: "fare-002",
-      vehicleId: "vehicle-002",
-      vehicleName: "Ertiga",
-      oneWayPrice: 1800,
-      roundTripPrice: 3300,
-    },
-
-    {
-      _id: "fare-003",
-      vehicleId: "vehicle-003",
-      vehicleName: "Innova",
-      oneWayPrice: 2200,
-      roundTripPrice: 4000,
-    },
-
-    {
-      _id: "fare-004",
-      vehicleId: "vehicle-004",
-      vehicleName: "Innova Crysta",
-      oneWayPrice: 2800,
-      roundTripPrice: 5000,
-    },
-
-    {
-      _id: "fare-005",
-      vehicleId: "vehicle-005",
-      vehicleName: "Innova Hycross",
-      oneWayPrice: 3200,
-      roundTripPrice: 5800,
-    },
-  ],
-
-  popularRoutes: [
-    {
-      _id: "popular-001",
+    route: {
+      _id: "route-001",
       fromCity: "Noida",
       toCity: "Delhi",
       slug: "noida-to-delhi",
+      distance: 25,
+      duration: "45 min - 1.5 hrs",
     },
 
-    {
-      _id: "popular-002",
-      fromCity: "Noida",
-      toCity: "Agra",
-      slug: "noida-to-agra",
-    },
-
-    {
-      _id: "popular-003",
-      fromCity: "Noida",
-      toCity: "Jaipur",
-      slug: "noida-to-jaipur",
-    },
-
-    {
-      _id: "popular-004",
-      fromCity: "Noida",
-      toCity: "Haridwar",
-      slug: "noida-to-haridwar",
-    },
-  ],
-},
-"noida-to-delhi-tempo-traveller": {
-  page: {
-    _id: "page-003",
-    pageType: "tempo-traveller",
-    slug: "noida-to-delhi-tempo-traveller",
-    h1: "Noida to Delhi Tempo Traveller",
-    metaTitle:
-      "Noida to Delhi Tempo Traveller | 9, 12, 16, 20 Seater",
-    metaDescription:
-      "Book a comfortable Tempo Traveller from Noida to Delhi for family trips, group travel and corporate journeys. Choose from 9, 12, 16 and 20 seater Tempo Travellers with AC and experienced drivers.",
-
-    faqs: [
+    vehicles: [
       {
-        _id: "faq-tempo-001",
-        question: "What is the Tempo Traveller fare from Noida to Delhi?",
-        answer:
-          "Tempo Traveller fares from Noida to Delhi start at ₹3,500 for a 9-seater. 12, 16 and 20-seater Tempo Travellers are available at different prices based on vehicle size and travel requirements.",
+        _id: "vehicle-002",
+        name: "Ertiga",
+        slug: "ertiga",
+        brand: "Maruti Suzuki",
+        cabType: "SUV",
+        passengerCapacity: 6,
+        luggageCapacity: 3,
+        image: "/images/cars/ertiga.png",
+        airCondition: true,
+        fuelType: "Petrol",
+        transmission: "Manual",
       },
 
       {
-        _id: "faq-tempo-002",
-        question: "How many passengers can travel in a Tempo Traveller?",
-        answer:
-          "You can choose from 9, 12, 16 and 20-seater Tempo Travellers depending on the size of your group. All vehicles offer comfortable seating and sufficient luggage space.",
+        _id: "vehicle-003",
+        name: "Innova",
+        slug: "innova",
+        brand: "Toyota",
+        cabType: "SUV",
+        passengerCapacity: 6,
+        luggageCapacity: 4,
+        image: "/images/cars/innova.png",
+        airCondition: true,
+        fuelType: "Diesel",
+        transmission: "Manual",
       },
 
       {
-        _id: "faq-tempo-003",
-        question: "Which Tempo Traveller is available from Noida to Delhi?",
-        answer:
-          "We provide 9, 12, 16 and 20-seater Tempo Travellers from Noida to Delhi. AC and comfortable vehicles are available with experienced drivers.",
+        _id: "vehicle-004",
+        name: "Innova Crysta",
+        slug: "innova-crysta",
+        brand: "Toyota",
+        cabType: "Premium SUV",
+        passengerCapacity: 6,
+        luggageCapacity: 5,
+        image: "/images/cars/innova-crysta.png",
+        airCondition: true,
+        fuelType: "Diesel",
+        transmission: "Manual",
       },
 
       {
-        _id: "faq-tempo-004",
-        question: "Can I book a Tempo Traveller for a one-way trip from Noida to Delhi?",
-        answer:
-          "Yes, you can book a Tempo Traveller for a one-way trip from Noida to Delhi. Round-trip and full-day options are also available for group travel.",
+        _id: "vehicle-005",
+        name: "Innova Hycross",
+        slug: "innova-hycross",
+        brand: "Toyota",
+        cabType: "Premium SUV",
+        passengerCapacity: 7,
+        luggageCapacity: 5,
+        image: "/images/cars/innova-hycross.png",
+        airCondition: true,
+        fuelType: "Petrol",
+        transmission: "Automatic",
+      },
+    ],
+
+    fares: [
+      {
+        _id: "fare-002",
+        vehicleId: "vehicle-002",
+        vehicleName: "Ertiga",
+        oneWayPrice: 1800,
+        roundTripPrice: 3300,
+      },
+
+      {
+        _id: "fare-003",
+        vehicleId: "vehicle-003",
+        vehicleName: "Innova",
+        oneWayPrice: 2200,
+        roundTripPrice: 4000,
+      },
+
+      {
+        _id: "fare-004",
+        vehicleId: "vehicle-004",
+        vehicleName: "Innova Crysta",
+        oneWayPrice: 2800,
+        roundTripPrice: 5000,
+      },
+
+      {
+        _id: "fare-005",
+        vehicleId: "vehicle-005",
+        vehicleName: "Innova Hycross",
+        oneWayPrice: 3200,
+        roundTripPrice: 5800,
+      },
+    ],
+
+    popularRoutes: [
+      {
+        _id: "popular-001",
+        fromCity: "Noida",
+        toCity: "Delhi",
+        slug: "noida-to-delhi",
+      },
+
+      {
+        _id: "popular-002",
+        fromCity: "Noida",
+        toCity: "Agra",
+        slug: "noida-to-agra",
+      },
+
+      {
+        _id: "popular-003",
+        fromCity: "Noida",
+        toCity: "Jaipur",
+        slug: "noida-to-jaipur",
+      },
+
+      {
+        _id: "popular-004",
+        fromCity: "Noida",
+        toCity: "Haridwar",
+        slug: "noida-to-haridwar",
       },
     ],
   },
+  "noida-to-delhi-tempo-traveller": {
+    page: {
+      _id: "page-003",
+      pageType: "tempo-traveller",
+      slug: "noida-to-delhi-tempo-traveller",
+      h1: "Noida to Delhi Tempo Traveller",
+      metaTitle: "Noida to Delhi Tempo Traveller | 9, 12, 16, 20 Seater",
+      metaDescription:
+        "Book a comfortable Tempo Traveller from Noida to Delhi for family trips, group travel and corporate journeys. Choose from 9, 12, 16 and 20 seater Tempo Travellers with AC and experienced drivers.",
 
-  route: {
-    _id: "route-001",
-    fromCity: "Noida",
-    toCity: "Delhi",
-    slug: "noida-to-delhi",
-    distance: 25,
-    duration: "45 min - 1.5 hrs",
-  },
+      faqs: [
+        {
+          _id: "faq-tempo-001",
+          question: "What is the Tempo Traveller fare from Noida to Delhi?",
+          answer:
+            "Tempo Traveller fares from Noida to Delhi start at ₹3,500 for a 9-seater. 12, 16 and 20-seater Tempo Travellers are available at different prices based on vehicle size and travel requirements.",
+        },
 
-  vehicles: [
-    {
-      _id: "vehicle-006",
-      name: "9 Seater Tempo Traveller",
-      slug: "9-seater-tempo-traveller",
-      brand: "Force",
-      cabType: "Tempo Traveller",
-      passengerCapacity: 9,
-      luggageCapacity: 4,
-      image: "/images/tempo-traveller/9-seater.png",
-      airCondition: true,
-      fuelType: "Diesel",
-      transmission: "Manual",
+        {
+          _id: "faq-tempo-002",
+          question: "How many passengers can travel in a Tempo Traveller?",
+          answer:
+            "You can choose from 9, 12, 16 and 20-seater Tempo Travellers depending on the size of your group. All vehicles offer comfortable seating and sufficient luggage space.",
+        },
+
+        {
+          _id: "faq-tempo-003",
+          question: "Which Tempo Traveller is available from Noida to Delhi?",
+          answer:
+            "We provide 9, 12, 16 and 20-seater Tempo Travellers from Noida to Delhi. AC and comfortable vehicles are available with experienced drivers.",
+        },
+
+        {
+          _id: "faq-tempo-004",
+          question:
+            "Can I book a Tempo Traveller for a one-way trip from Noida to Delhi?",
+          answer:
+            "Yes, you can book a Tempo Traveller for a one-way trip from Noida to Delhi. Round-trip and full-day options are also available for group travel.",
+        },
+      ],
     },
 
-    {
-      _id: "vehicle-007",
-      name: "12 Seater Tempo Traveller",
-      slug: "12-seater-tempo-traveller",
-      brand: "Force",
-      cabType: "Tempo Traveller",
-      passengerCapacity: 12,
-      luggageCapacity: 6,
-      image: "/images/tempo-traveller/12-seater.png",
-      airCondition: true,
-      fuelType: "Diesel",
-      transmission: "Manual",
-    },
-
-    {
-      _id: "vehicle-008",
-      name: "16 Seater Tempo Traveller",
-      slug: "16-seater-tempo-traveller",
-      brand: "Force",
-      cabType: "Tempo Traveller",
-      passengerCapacity: 16,
-      luggageCapacity: 8,
-      image: "/images/tempo-traveller/16-seater.png",
-      airCondition: true,
-      fuelType: "Diesel",
-      transmission: "Manual",
-    },
-
-    {
-      _id: "vehicle-009",
-      name: "20 Seater Tempo Traveller",
-      slug: "20-seater-tempo-traveller",
-      brand: "Force",
-      cabType: "Tempo Traveller",
-      passengerCapacity: 20,
-      luggageCapacity: 10,
-      image: "/images/tempo-traveller/20-seater.png",
-      airCondition: true,
-      fuelType: "Diesel",
-      transmission: "Manual",
-    },
-  ],
-
-  fares: [
-    {
-      _id: "fare-006",
-      vehicleId: "vehicle-006",
-      vehicleName: "9 Seater Tempo Traveller",
-      oneWayPrice: 3500,
-      roundTripPrice: 6500,
-    },
-
-    {
-      _id: "fare-007",
-      vehicleId: "vehicle-007",
-      vehicleName: "12 Seater Tempo Traveller",
-      oneWayPrice: 4200,
-      roundTripPrice: 7800,
-    },
-
-    {
-      _id: "fare-008",
-      vehicleId: "vehicle-008",
-      vehicleName: "16 Seater Tempo Traveller",
-      oneWayPrice: 5200,
-      roundTripPrice: 9500,
-    },
-
-    {
-      _id: "fare-009",
-      vehicleId: "vehicle-009",
-      vehicleName: "20 Seater Tempo Traveller",
-      oneWayPrice: 6500,
-      roundTripPrice: 11500,
-    },
-  ],
-
-  popularRoutes: [
-    {
-      _id: "popular-001",
+    route: {
+      _id: "route-001",
       fromCity: "Noida",
       toCity: "Delhi",
       slug: "noida-to-delhi",
+      distance: 25,
+      duration: "45 min - 1.5 hrs",
     },
 
-    {
-      _id: "popular-002",
-      fromCity: "Noida",
-      toCity: "Agra",
-      slug: "noida-to-agra",
+    vehicles: [
+      {
+        _id: "vehicle-006",
+        name: "9 Seater Tempo Traveller",
+        slug: "9-seater-tempo-traveller",
+        brand: "Force",
+        cabType: "Tempo Traveller",
+        passengerCapacity: 9,
+        luggageCapacity: 4,
+        image: "/images/tempo-traveller/9-seater.png",
+        airCondition: true,
+        fuelType: "Diesel",
+        transmission: "Manual",
+      },
+
+      {
+        _id: "vehicle-007",
+        name: "12 Seater Tempo Traveller",
+        slug: "12-seater-tempo-traveller",
+        brand: "Force",
+        cabType: "Tempo Traveller",
+        passengerCapacity: 12,
+        luggageCapacity: 6,
+        image: "/images/tempo-traveller/12-seater.png",
+        airCondition: true,
+        fuelType: "Diesel",
+        transmission: "Manual",
+      },
+
+      {
+        _id: "vehicle-008",
+        name: "16 Seater Tempo Traveller",
+        slug: "16-seater-tempo-traveller",
+        brand: "Force",
+        cabType: "Tempo Traveller",
+        passengerCapacity: 16,
+        luggageCapacity: 8,
+        image: "/images/tempo-traveller/16-seater.png",
+        airCondition: true,
+        fuelType: "Diesel",
+        transmission: "Manual",
+      },
+
+      {
+        _id: "vehicle-009",
+        name: "20 Seater Tempo Traveller",
+        slug: "20-seater-tempo-traveller",
+        brand: "Force",
+        cabType: "Tempo Traveller",
+        passengerCapacity: 20,
+        luggageCapacity: 10,
+        image: "/images/tempo-traveller/20-seater.png",
+        airCondition: true,
+        fuelType: "Diesel",
+        transmission: "Manual",
+      },
+    ],
+
+    fares: [
+      {
+        _id: "fare-006",
+        vehicleId: "vehicle-006",
+        vehicleName: "9 Seater Tempo Traveller",
+        oneWayPrice: 3500,
+        roundTripPrice: 6500,
+      },
+
+      {
+        _id: "fare-007",
+        vehicleId: "vehicle-007",
+        vehicleName: "12 Seater Tempo Traveller",
+        oneWayPrice: 4200,
+        roundTripPrice: 7800,
+      },
+
+      {
+        _id: "fare-008",
+        vehicleId: "vehicle-008",
+        vehicleName: "16 Seater Tempo Traveller",
+        oneWayPrice: 5200,
+        roundTripPrice: 9500,
+      },
+
+      {
+        _id: "fare-009",
+        vehicleId: "vehicle-009",
+        vehicleName: "20 Seater Tempo Traveller",
+        oneWayPrice: 6500,
+        roundTripPrice: 11500,
+      },
+    ],
+
+    popularRoutes: [
+      {
+        _id: "popular-001",
+        fromCity: "Noida",
+        toCity: "Delhi",
+        slug: "noida-to-delhi",
+      },
+
+      {
+        _id: "popular-002",
+        fromCity: "Noida",
+        toCity: "Agra",
+        slug: "noida-to-agra",
+      },
+
+      {
+        _id: "popular-003",
+        fromCity: "Noida",
+        toCity: "Jaipur",
+        slug: "noida-to-jaipur",
+      },
+
+      {
+        _id: "popular-004",
+        fromCity: "Noida",
+        toCity: "Haridwar",
+        slug: "noida-to-haridwar",
+      },
+    ],
+  },
+  "noida-to-delhi-urbania-rental": {
+    page: {
+      _id: "page-urbania-003",
+      pageType: "urbania-rental",
+      slug: "noida-to-delhi-urbania-rental",
+      h1: "Noida to Delhi Force Urbania Rental",
+      metaTitle:
+        "Noida to Delhi Force Urbania Rental | 9, 12, 13, 14 Seater Luxury Van",
+      metaDescription:
+        "Book a luxurious Force Urbania from Noida to Delhi for family trips, corporate travel and weddings. Choose from 9, 12, 13 and 14-seater Urbania vans with pushback seats, AC and experienced drivers.",
+
+      faqs: [
+        {
+          _id: "faq-urbania-001",
+          question:
+            "What is the Force Urbania rental fare from Noida to Delhi?",
+          answer:
+            "Force Urbania rental fares from Noida to Delhi start at ₹3,500 for a 9-seater. 12, 13 and 14-seater luxury vans are available at different prices based on vehicle size and travel requirements.",
+        },
+
+        {
+          _id: "faq-urbania-002",
+          question: "How many passengers can travel in a Force Urbania?",
+          answer:
+            "You can choose from 9, 12, 13 and 14-seater Force Urbania vans depending on the size of your group. All vehicles offer premium pushback seating, individual AC vents and sufficient luggage space.",
+        },
+
+        {
+          _id: "faq-urbania-003",
+          question:
+            "Which Force Urbania models are available from Noida to Delhi?",
+          answer:
+            "We provide 9, 12, 13 and 14-seater Force Urbania luxury vans from Noida to Delhi. All vehicles are well-maintained, fully air-conditioned and come with experienced drivers.",
+        },
+
+        {
+          _id: "faq-urbania-004",
+          question:
+            "Can I book a Force Urbania for a one-way trip from Noida to Delhi?",
+          answer:
+            "Yes, you can book a Force Urbania for a one-way trip from Noida to Delhi. Round-trip, multi-day and outstation options are also available for corporate events, weddings and group travel.",
+        },
+      ],
     },
 
-    {
-      _id: "popular-003",
+    route: {
+      _id: "route-001",
       fromCity: "Noida",
-      toCity: "Jaipur",
-      slug: "noida-to-jaipur",
+      toCity: "Delhi",
+      slug: "noida-to-delhi",
+      distance: 25,
+      duration: "45 min - 1.5 hrs",
     },
 
-    {
-      _id: "popular-004",
-      fromCity: "Noida",
-      toCity: "Haridwar",
-      slug: "noida-to-haridwar",
-    },
-  ],
-},
+    vehicles: [
+      {
+        _id: "vehicle-urbania-001",
+        name: "9 Seater Force Urbania",
+        slug: "9-seater-force-urbania",
+        brand: "Force",
+        cabType: "Luxury Van",
+        passengerCapacity: 9,
+        luggageCapacity: 5,
+        image: "/images/urbania/9-seater.png",
+        airCondition: true,
+        fuelType: "Diesel",
+        transmission: "Manual",
+      },
+
+      {
+        _id: "vehicle-urbania-002",
+        name: "12 Seater Force Urbania",
+        slug: "12-seater-force-urbania",
+        brand: "Force",
+        cabType: "Luxury Van",
+        passengerCapacity: 12,
+        luggageCapacity: 7,
+        image: "/images/urbania/12-seater.png",
+        airCondition: true,
+        fuelType: "Diesel",
+        transmission: "Manual",
+      },
+
+      {
+        _id: "vehicle-urbania-003",
+        name: "13 Seater Force Urbania",
+        slug: "13-seater-force-urbania",
+        brand: "Force",
+        cabType: "Luxury Van",
+        passengerCapacity: 13,
+        luggageCapacity: 8,
+        image: "/images/urbania/13-seater.png",
+        airCondition: true,
+        fuelType: "Diesel",
+        transmission: "Manual",
+      },
+
+      {
+        _id: "vehicle-urbania-004",
+        name: "14 Seater Force Urbania",
+        slug: "14-seater-force-urbania",
+        brand: "Force",
+        cabType: "Luxury Van",
+        passengerCapacity: 14,
+        luggageCapacity: 9,
+        image: "/images/urbania/14-seater.png",
+        airCondition: true,
+        fuelType: "Diesel",
+        transmission: "Manual",
+      },
+    ],
+
+    fares: [
+      {
+        _id: "fare-urbania-001",
+        vehicleId: "vehicle-urbania-001",
+        vehicleName: "9 Seater Force Urbania",
+        oneWayPrice: 3500,
+        roundTripPrice: 6500,
+      },
+
+      {
+        _id: "fare-urbania-002",
+        vehicleId: "vehicle-urbania-002",
+        vehicleName: "12 Seater Force Urbania",
+        oneWayPrice: 4500,
+        roundTripPrice: 8500,
+      },
+
+      {
+        _id: "fare-urbania-003",
+        vehicleId: "vehicle-urbania-003",
+        vehicleName: "13 Seater Force Urbania",
+        oneWayPrice: 5000,
+        roundTripPrice: 9000,
+      },
+
+      {
+        _id: "fare-urbania-004",
+        vehicleId: "vehicle-urbania-004",
+        vehicleName: "14 Seater Force Urbania",
+        oneWayPrice: 5500,
+        roundTripPrice: 10000,
+      },
+    ],
+
+    popularRoutes: [
+      {
+        _id: "popular-urbania-001",
+        fromCity: "Noida",
+        toCity: "Delhi",
+        slug: "noida-to-delhi",
+      },
+
+      {
+        _id: "popular-urbania-002",
+        fromCity: "Noida",
+        toCity: "Agra",
+        slug: "noida-to-agra",
+      },
+
+      {
+        _id: "popular-urbania-003",
+        fromCity: "Noida",
+        toCity: "Jaipur",
+        slug: "noida-to-jaipur",
+      },
+
+      {
+        _id: "popular-urbania-004",
+        fromCity: "Noida",
+        toCity: "Haridwar",
+        slug: "noida-to-haridwar",
+      },
+    ],
+  },
 };
 
-export async function getRoutePage(
-  slug: string
-): Promise<any | null> {
+export async function getRoutePage(slug: string): Promise<any | null> {
   return routePages[slug] || null;
 }
