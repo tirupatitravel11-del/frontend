@@ -11,29 +11,29 @@ type Faq = {
 
 const FAQS: Faq[] = [
   {
-    question: "What is the sedan fare from Noida to Delhi?",
+    question: "What is the starting fare for a sedan taxi?",
     answer:
-      "The one-way sedan fare from Noida to Delhi starts at ₹1,599 and round-trip at ₹2,699. This is a fixed, all-inclusive base fare covering fuel, driver allowance and AC for up to 40 km and 4 hours. Tolls and parking are billed at actuals.",
+      "The starting fare for a sedan taxi begins at ₹1,599 for one-way trips and ₹2,699 for round trips. Local packages are typically based on a 40 km and 4-hour limit. These are fixed, all-inclusive base fares covering fuel, driver allowance, and AC. Tolls and parking are billed at actuals.",
   },
   {
     question: "How much luggage fits in a sedan?",
     answer:
-      "Our sedans comfortably fit 3 large suitcases plus cabin bags. The Swift Dzire has a 378-litre boot, the Hyundai Aura 402 litres, and the Honda Amaze leads with 420 litres — making sedans the perfect choice for airport drops.",
+      "Our sedans comfortably fit 3 large suitcases plus cabin bags. The Swift Dzire has a 378-litre boot, the Hyundai Aura 402 litres, and the Honda Amaze leads with 420 litres — making sedans the perfect choice for airport drops and family trips.",
   },
   {
     question: "Which sedan models do you provide?",
     answer:
-      "We provide Maruti Swift Dzire, Honda Amaze and Hyundai Aura — all air-conditioned, sanitized and well-maintained. You can request a specific model while booking, subject to availability.",
+      "We provide Maruti Swift Dzire, Honda Amaze, and Hyundai Aura — all air-conditioned, sanitized, and well-maintained. You can request a specific model while booking, subject to availability.",
   },
   {
     question: "Is the sedan fare per person or per car?",
     answer:
-      "Per car. Every sedan is a private cab for you and your group — up to 4 passengers. The fare stays the same whether 1 person or 4 people travel, so it's excellent value for families.",
+      "Per car. Every sedan is a private cab for you and your group — up to 4 passengers. The fare stays the same whether 1 person or 4 people travel, so it's excellent value for families and couples.",
   },
   {
-    question: "Is a sedan suitable for Noida to IGI Airport drops?",
+    question: "Is a sedan suitable for airport transfers?",
     answer:
-      "Absolutely. A sedan fits 4 passengers plus 3 large bags, which covers most airport trips. We recommend booking at least 3 hours before your flight departure, and our drivers track terminal entry routes for T1, T2 and T3.",
+      "Absolutely. A sedan fits up to 4 passengers plus 3 large bags, which covers most airport trips. We recommend booking at least 3 hours before your flight departure, and our drivers are well-versed with airport terminal entry routes.",
   },
   {
     question: "What if more than 4 people are travelling?",
@@ -41,14 +41,14 @@ const FAQS: Faq[] = [
       "For 5 or more passengers, we recommend upgrading to an SUV like the Ertiga or Innova Crysta, which seats 6–7 comfortably. Call us and we'll suggest the right cab for your group size and luggage.",
   },
   {
-    question: "Are sedans available at night for Noida to Delhi trips?",
+    question: "Are sedans available at night for early morning or late-night trips?",
     answer:
-      "Yes, our sedans are available 24×7, including early morning airport drops and late night returns. A flat night charge of ₹200 applies for trips between 10 PM and 6 AM.",
+      "Yes, our sedans are available 24×7, including early morning airport drops and late-night outstation returns. A standard night charge applies for trips starting or ending between 10 PM and 6 AM.",
   },
   {
     question: "Can I cancel or reschedule my sedan booking?",
     answer:
-      "Yes. Cancellation is free up to 2 hours before pickup, and rescheduling is always free with a simple call or WhatsApp message. Since there's no advance payment, you never lose money.",
+      "Yes. Cancellation is free up to 2 hours before pickup, and rescheduling is always free with a simple call or WhatsApp message. Since there's no advance payment required, you never lose money.",
   },
 ];
 
