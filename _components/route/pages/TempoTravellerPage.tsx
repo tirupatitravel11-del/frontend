@@ -1,8 +1,12 @@
 import CabSelector from "@/_components/CabSelector";
-import FareDetails from "@/_components/FareDetails";
+
 import Hero from "@/_components/Hero";
 import HowToBook from "@/_components/Howtobook";
 import TaxiFaq from "@/_components/TaxiFaq";
+import FareDetails from "@/_components/tempotraveller/FareDetails";
+import TempoTravellerFaq from "@/_components/tempotraveller/TempoTravellerFaq";
+import TempoTravellerFleetDetails from "@/_components/tempotraveller/TempoTravellerFleetDetails";
+import TempoTravellerHero from "@/_components/tempotraveller/TempoTravellerHero";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 
 
@@ -15,25 +19,15 @@ export default function TempoTravellerPage({ data }: any) {
 
   return (
     <>
-    {/* <h1>sedan</h1>     */}
-      <Hero
-               to="noida"
-        from="delhi"
-        // title={page.h1}
-      />
-
-      <CabSelector
-        // vehicles={sedanVehicles}
-             to="noida"
-        from="delhi"
-      />
-
+    <TempoTravellerHero from="Noida" to="Delhi" startingFare={1599} />
+    <TempoTravellerFleetDetails />
+     
       <FareDetails
         // fares={data.fares}
         // vehicleType="Sedan"
            to="noida"
         from="delhi"
-        title="gdf"
+        title="Fare Details"
       />
 
       <WhyChooseUs        to="noida"
@@ -42,7 +36,7 @@ export default function TempoTravellerPage({ data }: any) {
       <HowToBook        to="noida"
         from="delhi" />
 
-      <TaxiFaq
+      <TempoTravellerFaq
         // faqs={page.faqs}
       />
     </>
