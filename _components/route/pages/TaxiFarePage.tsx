@@ -34,7 +34,7 @@ export default function TaxiFarePage({ data }: any) {
       <PopularRoutes
         routes={data.popularRoutes} from={""} to={""}      />
 
-      <WhyChooseUs from={""} to={""} />
+      <WhyChooseUs  />
 
       <TaxiFaq
         // faqs={page.faqs}

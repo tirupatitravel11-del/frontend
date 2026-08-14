@@ -133,35 +133,91 @@ const routePages: Record<string, any> = {
       },
     ],
 
-    popularRoutes: [
-      {
-        _id: "popular-001",
-        fromCity: "Noida",
-        toCity: "Delhi",
-        slug: "noida-to-delhi",
-      },
+    // popularRoutes: [
+    //   {
+    //     _id: "popular-001",
+    //     fromCity: "Noida",
+    //     toCity: "Delhi",
+    //     slug: "noida-to-delhi",
+    //   },
 
-      {
-        _id: "popular-002",
-        fromCity: "Noida",
-        toCity: "Agra",
-        slug: "noida-to-agra",
-      },
+    //   {
+    //     _id: "popular-002",
+    //     fromCity: "Noida",
+    //     toCity: "Agra",
+    //     slug: "noida-to-agra",
+    //   },
 
-      {
-        _id: "popular-003",
-        fromCity: "Noida",
-        toCity: "Jaipur",
-        slug: "noida-to-jaipur",
-      },
+    //   {
+    //     _id: "popular-003",
+    //     fromCity: "Noida",
+    //     toCity: "Jaipur",
+    //     slug: "noida-to-jaipur",
+    //   },
 
-      {
-        _id: "popular-004",
-        fromCity: "Noida",
-        toCity: "Haridwar",
-        slug: "noida-to-haridwar",
-      },
-    ],
+    //   {
+    //     _id: "popular-004",
+    //     fromCity: "Noida",
+    //     toCity: "Haridwar",
+    //     slug: "noida-to-haridwar",
+    //   },
+    // ],
+     popularRoutes : [
+  {
+    id: 1,
+    from: "Noida",
+    to: "Delhi",
+    distance: "25 km",
+    duration: "1 hrs",
+    image: "/popular_cab_route1.jpg",
+    popular: true,
+  },
+  {
+    id: 2,
+    from: "Noida",
+    to: "Agra",
+    distance: "200 km",
+    duration: "4 hrs",
+    image: "/popular_cab_route2.jpg",
+    popular: true,
+  },
+  {
+    id: 3,
+    from: "Noida",
+    to: "Jaipur",
+    distance: "280 km",
+    duration: "5 hrs",
+    image: "/popular_cab_route3.jpg",
+    popular: true,
+  },
+  {
+    id: 4,
+    from: "Noida",
+    to: "Haridwar",
+    distance: "220 km",
+    duration: "5 hrs",
+    image: "/popular_cab_route4.jpg",
+    popular: true,
+  },
+  {
+    id: 5,
+    from: "Noida",
+    to: "Mathura",
+    distance: "160 km",
+    duration: "3 hrs",
+    image: "/popular_cab_route5.jpg",
+    popular: true,
+  },
+  {
+    id: 6,
+    from: "Noida",
+    to: "Vrindavan",
+    distance: "165 km",
+    duration: "3 hrs",
+    image: "/popular_cab_route6.jpg",
+    popular: true,
+  },
+]
   },
 
   "noida-to-delhi-taxi-fare": {
@@ -869,6 +925,148 @@ const routePages: Record<string, any> = {
       },
     ],
   },
+  "noida-to-delhi-innova-crysta-taxi": {
+  page: {
+    _id: "page-008",
+    pageType: "innova-crysta-taxi",
+    slug: "noida-to-delhi-innova-crysta-taxi",
+
+    h1: "Noida to Delhi Innova Crysta Taxi",
+
+    metaTitle:
+      "Noida to Delhi Innova Crysta Taxi | Book Innova Crysta",
+
+    metaDescription:
+      "Book an Innova Crysta taxi from Noida to Delhi at affordable fares. Enjoy a comfortable, spacious and reliable ride.",
+
+    faqs: [
+      {
+        _id: "faq-innova-001",
+        question: "What is the fare for an Innova Crysta from Noida to Delhi?",
+        answer:
+          "The Innova Crysta taxi fare from Noida to Delhi starts from around ₹2,800 for a one-way trip. The final fare may vary depending on pickup location and trip requirements.",
+      },
+
+      {
+        _id: "faq-innova-002",
+        question: "How long does an Innova Crysta take from Noida to Delhi?",
+        answer:
+          "An Innova Crysta usually takes around 45 minutes to 1.5 hours from Noida to Delhi, depending on traffic and the exact pickup and drop location.",
+      },
+
+      {
+        _id: "faq-innova-003",
+        question: "How many passengers can travel in an Innova Crysta?",
+        answer:
+          "An Innova Crysta can comfortably accommodate up to 6 passengers along with luggage.",
+      },
+
+      {
+        _id: "faq-innova-004",
+        question: "Is Innova Crysta available for one-way travel from Noida to Delhi?",
+        answer:
+          "Yes, Innova Crysta is available for one-way taxi travel from Noida to Delhi.",
+      },
+    ],
+  },
+
+  route: {
+    _id: "route-001",
+    fromCity: "Noida",
+    toCity: "Delhi",
+    slug: "noida-to-delhi",
+    distance: 25,
+    duration: "45 min - 1.5 hrs",
+  },
+
+  vehicles: [
+    {
+      _id: "vehicle-004",
+      name: "Innova Crysta",
+      slug: "innova-crysta",
+      brand: "Toyota",
+      cabType: "Premium SUV",
+      passengerCapacity: 6,
+      luggageCapacity: 5,
+      image: "/images/cars/innova-crysta.png",
+      airCondition: true,
+      fuelType: "Diesel",
+      transmission: "Manual",
+    },
+  ],
+
+  fares: [
+    {
+      _id: "fare-004",
+      vehicleId: "vehicle-004",
+      vehicleName: "Innova Crysta",
+      oneWayPrice: 2800,
+      roundTripPrice: 5000,
+    },
+  ],
+
+  popularRoutes: [
+    {
+      id: 1,
+      from: "Noida",
+      to: "Delhi",
+      distance: "25 km",
+      duration: "1 hrs",
+      image: "/popular_cab_route1.jpg",
+      popular: true,
+    },
+
+    {
+      id: 2,
+      from: "Noida",
+      to: "Agra",
+      distance: "200 km",
+      duration: "4 hrs",
+      image: "/popular_cab_route2.jpg",
+      popular: true,
+    },
+
+    {
+      id: 3,
+      from: "Noida",
+      to: "Jaipur",
+      distance: "280 km",
+      duration: "5 hrs",
+      image: "/popular_cab_route3.jpg",
+      popular: true,
+    },
+
+    {
+      id: 4,
+      from: "Noida",
+      to: "Haridwar",
+      distance: "220 km",
+      duration: "5 hrs",
+      image: "/popular_cab_route4.jpg",
+      popular: true,
+    },
+
+    {
+      id: 5,
+      from: "Noida",
+      to: "Mathura",
+      distance: "160 km",
+      duration: "3 hrs",
+      image: "/popular_cab_route5.jpg",
+      popular: true,
+    },
+
+    {
+      id: 6,
+      from: "Noida",
+      to: "Vrindavan",
+      distance: "165 km",
+      duration: "3 hrs",
+      image: "/popular_cab_route6.jpg",
+      popular: true,
+    },
+  ],
+},
 };
 
 export async function getRoutePage(slug: string): Promise<any | null> {
