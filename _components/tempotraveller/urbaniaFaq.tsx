@@ -11,54 +11,53 @@ type Faq = {
 
 const FAQS: Faq[] = [
   {
-    question: "What is the starting fare for an SUV taxi?",
+    question: "What is the starting rental fare for a Force Urbania?",
     answer:
-      "The starting fare for an SUV taxi begins at ₹1,800 for the Ertiga, ₹2,200 for the Innova, and ₹2,800 for the Innova Crysta for local or one-way trips. Round-trip and outstation fares are calculated based on distance or as a fixed package. These are fixed, all-inclusive base fares covering fuel, driver allowance, and AC.",
+      "Force Urbania rental fares typically start from ₹3,500 for a 9-seater, ₹4,500 for a 12-seater, and ₹5,500 for a 17-seater for local full-day bookings. Outstation fares are calculated per kilometer or as a customized fixed package based on your route. All base fares include fuel, driver allowance, and AC.",
   },
   {
-    question: "How many passengers can travel in an SUV?",
+    question: "What makes the Force Urbania different from a Tempo Traveller?",
     answer:
-      "The Ertiga and Innova comfortably seat 6 passengers, while the Innova Crysta and Hycross accommodate 6–7 passengers. All models offer ample legroom and space for 4–5 large suitcases, making them ideal for family and group travel.",
+      "The Force Urbania is a premium luxury van built on a monocoque chassis, which provides car-like safety, superior stability, and a much smoother ride compared to traditional ladder-frame Tempo Travellers. It also features plush pushback seats, individual AC vents, and a quieter cabin for a first-class travel experience.",
   },
   {
-    question: "Which SUV models do you provide?",
+    question: "How many passengers can travel in your Urbania vans?",
     answer:
-      "We provide Maruti Suzuki Ertiga, Toyota Innova, Innova Crysta, and Innova Hycross — all air-conditioned, sanitized, and well-maintained. You can request a specific model while booking, subject to availability.",
+      "We offer multiple configurations to suit your group size: 9+1, 12+1, 13+1, 16+1, and 17+1 seaters. Whether it's a small family outing or a large wedding guest transfer, we have the right seating layout (1x1 or 2x1) for you.",
   },
   {
-    question: "How much luggage fits in an SUV?",
+    question: "Is there enough luggage space for a large group?",
     answer:
-      "Our SUVs offer generous boot space: Ertiga fits 3 large bags, Innova fits 4 bags, while Innova Crysta and Hycross accommodate 5 large suitcases. This is perfect for airport trips, weddings, and outstation journeys with heavy luggage.",
+      "Yes. Depending on the seating configuration, our Urbania vans can comfortably accommodate 5 to 9 large suitcases. The 1x1 seating layouts offer dedicated rear luggage space, making them perfect for airport transfers and multi-day outstation trips with heavy bags.",
   },
   {
-    question: "Is an SUV suitable for long outstation trips?",
+    question: "Are the Urbania vans fully air-conditioned?",
     answer:
-      "Absolutely. SUVs are the most popular choice for outstation trips across the country. The high ride height, stable suspension, and spacious interiors make long highway journeys comfortable for the whole group.",
+      "Absolutely. All our Force Urbania vans are equipped with powerful, dual-AC systems featuring individual overhead AC vents and reading lights for every single passenger, ensuring personalized comfort throughout the journey.",
   },
   {
-    question: "Can I book an SUV for airport transfers?",
+    question: "Can I book an Urbania for wedding functions or corporate events?",
     answer:
-      "Yes. SUVs are ideal for airport transfers with groups or heavy luggage. You get one comfortable cab instead of splitting into multiple vehicles. We recommend booking at least 3 hours before your flight departure.",
+      "Yes, Urbania is our most requested vehicle for weddings and corporate travel. Its premium interior, professional chauffeur, and reliable punctuality make it the perfect choice for shuttling VIP guests, family members, or corporate teams between venues and hotels.",
   },
   {
-    question: "What's the difference between Ertiga, Innova, and Crysta?",
+    question: "Is the Urbania suitable for long outstation highway trips?",
     answer:
-      "The Ertiga is the most economical 6-seater. The Innova offers more space and comfort at a mid-range price. The Innova Crysta and Hycross are premium options with superior interiors, more luggage space, and additional features — perfect for VIP travel and special occasions.",
+      "The Force Urbania is highly recommended for long highway journeys across the country. The superior suspension, high-back pushback recliner seats, and spacious legroom significantly reduce travel fatigue on long interstate drives or pilgrimage tours.",
   },
   {
-    question:
-      "Are SUVs available at night for early morning or late-night trips?",
+    question: "Are Urbania rentals available for local city sightseeing tours?",
     answer:
-      "Yes, our SUVs are available 24×7, including early morning airport drops and late-night outstation returns. A standard night charge applies for trips starting or ending between 10 PM and 6 AM.",
+      "Yes, we offer specialized local tour packages (usually 8 hours / 80 km). It’s an excellent way for large groups or joint families to explore the city comfortably together without the hassle of coordinating multiple cabs.",
   },
   {
-    question: "Can I cancel or reschedule my SUV booking?",
+    question: "Can I cancel or reschedule my Urbania booking?",
     answer:
-      "Yes. Cancellation is free up to 2 hours before pickup, and rescheduling is always free with a simple call or WhatsApp message. Since there's no advance payment required, you never lose money.",
+      "Yes. Cancellations are free up to 24 hours before the scheduled pickup time for outstation and local tours. Rescheduling is always free of charge, subject to vehicle availability. Just reach out to us via call or WhatsApp.",
   },
 ];
 
-export default function SuvFaq() {
+export default function UrbaniaFaq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
@@ -91,15 +90,16 @@ export default function SuvFaq() {
         {/* ===== Header ===== */}
         <div className="mb-8 text-center sm:mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
-            SUV FAQs
+            Urbania FAQs
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            SUV Taxi Questions, Answered
+            Force Urbania Rental Questions, Answered
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
-            Everything riders ask us about booking an SUV from Noida to Delhi.
+            Everything you need to know about booking a luxury Urbania van for
+            your next group journey.
           </p>
         </div>
 

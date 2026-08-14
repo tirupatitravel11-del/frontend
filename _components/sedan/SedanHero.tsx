@@ -55,7 +55,7 @@ Date: ${date}`;
         {/* Left: Content */}
         <div>
           <span className="mb-4 inline-block rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-gold sm:px-4 sm:text-xs">
-            Sedan Cabs Available
+            Sedan Available
           </span>
 
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">

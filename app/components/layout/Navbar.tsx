@@ -8,13 +8,40 @@ import { Menu, Phone, X } from "lucide-react";
 import MobileStickyBar from "../Home/MobileStickyBar";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Varanasi", href: "/varanasi" },
-  { label: "Allahabad", href: "/allahabad" },
-  { label: "Gaya", href: "/gaya" },
-  { label: "Ayodhya", href: "/ayodhya" },
-  { label: "Vindhyachal", href: "/vindhyachal" },
-  { label: "Lucknow", href: "/lucknow" },
+  {
+    label: "Destinations",
+    href: "/destinations",
+    dropdown: true,
+  },
+  {
+    label: "Cab",
+    href: "/cabs",
+    dropdown: true,
+  },
+  {
+    label: "Hotel",
+    href: "/hotel",
+    dropdown: true,
+  },
+  {
+    label: "Experiences",
+    href: "/experiences",
+    dropdown: true,
+  },
+  {
+    label: "Tour Package",
+    href: "/packages",
+    dropdown: true,
+  },
+  {
+    label: "Blog",
+    href: "/blog",
+  },
+  {
+    label: "Travel Guide",
+    href: "/travel-guide",
+    dropdown: true,
+  },
 ];
 
 export default function Navbar() {
