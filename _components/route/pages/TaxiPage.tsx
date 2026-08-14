@@ -8,43 +8,7 @@ import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
 
 
-// export default function TaxiPage({ data }: any) {
-//   const { route, page } = data;
 
-//   return (
-//     <>
-//       <Hero
-//        to="noida"
-//         from="delhi"
-//       />
-
-//       <CabSelector
-//        to="noida"
-//         from="delhi"
-//       />
-
-//       <FareDetails
-//         // fares={data.fares}
-//                 to="noida"
-//         from="delhi"
-//         title="gdf"
-//       />
-
-//       <PopularRoutes
-//               routes={data.popularRoutes} from={""} to={""}      />
-
-//       <Testimonials />
-
-//       <HowToBook from={""} to={""} />
-
-//       <WhyChooseUs from={""} to={""} />
-
-//       <TaxiFaq
-//         // faqs={page.faqs}
-//       />
-//     </>
-//   );
-// }
 
 export default function TaxiPage({ data }: any) {
   const {

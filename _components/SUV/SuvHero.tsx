@@ -46,7 +46,7 @@ Date: ${date}`;
 
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank"
+      "_blank",
     );
   };
 
@@ -57,11 +57,10 @@ Date: ${date}`;
       <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-10 sm:gap-14 sm:px-6 sm:py-16 lg:grid-cols-2 lg:py-24">
-
         {/* ===== Left: Content ===== */}
         <div>
           <span className="mb-4 inline-block rounded-full border border-gold/30 bg-gold/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-gold">
-            SUV Cabs Available
+            SUV Available
           </span>
 
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
@@ -69,8 +68,8 @@ Date: ${date}`;
           </p>
 
           <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:leading-tight">
-            {from} to {to}{" "}
-            <span className="text-gold">SUV Taxi</span> Service at Fixed Fares
+            {from} to {to} <span className="text-gold">SUV Taxi</span> Service
+            at Fixed Fares
           </h1>
 
           <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
@@ -155,7 +154,6 @@ Date: ${date}`;
 
           {/* Form */}
           <form onSubmit={handleBook} className="mt-5 space-y-4">
-
             {/* Model Selection */}
             <div>
               <label className="mb-1.5 block text-sm font-semibold text-slate-700">

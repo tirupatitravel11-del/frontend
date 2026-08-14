@@ -34,7 +34,7 @@ type CabOption = {
 const CABS: CabOption[] = [
   {
     model: "Swift Dzire",
-    image: "/dzire_white.png",
+    image: "/dezire_white.png",
     variant: "specific model",
     type: "SEDAN",
     seats: 4,
@@ -180,7 +180,7 @@ function FilterGroup({
 
 /* ---------- Main section ---------- */
 
-export default function CabSelector({ from, to,vehicles }: any) {
+export default function CabSelector({ from, to, vehicles }: any) {
   const [types, setTypes] = useState<string[]>([]);
   const [models, setModels] = useState<string[]>([]);
   const [fuels, setFuels] = useState<string[]>([]);
