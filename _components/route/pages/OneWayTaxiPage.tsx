@@ -39,7 +39,7 @@ export default function OneWayTaxiPage({ data }: any) {
 
       <HowToBook from={"Delhi"} to={"Noida"} />
 
-      <WhyChooseUs from={"Delhi"} to={"Noida"} />
+      <WhyChooseUs  />
 
       {/* <PopularRoutes routes={data.popularRoutes} from={"Delhi"} to={"Noida"}/> */}
 

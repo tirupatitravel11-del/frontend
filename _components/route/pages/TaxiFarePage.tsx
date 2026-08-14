@@ -22,7 +22,7 @@ export default function TaxiFarePage({ data }: any) {
         // showDetailedFare={true}
         to="noida"
         from="delhi"
-        title="gdf"
+        title="Fare Details"
       />
 
       <CabSelector
@@ -34,7 +34,7 @@ export default function TaxiFarePage({ data }: any) {
       <PopularRoutes
         routes={data.popularRoutes} from={""} to={""}      />
 
-      <WhyChooseUs from={""} to={""} />
+      <WhyChooseUs  />
 
       <TaxiFaq
         // faqs={page.faqs}

@@ -60,7 +60,7 @@ export default function SedanTaxiPage({ data }: any) {
          <AirportSpotlight/>
          <Testimonials />
                <HowToBook from="Lucknow" to="Delhi" />
-               <WhyChooseUs from="Lucknow" to="Delhi" />
+               <WhyChooseUs />
      
                <SedanFaq/>
     </>

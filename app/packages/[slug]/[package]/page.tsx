@@ -30,7 +30,7 @@ async function getPackage(packageSlug: string) {
   try {
 
 
-    const apiUrl = `${process.env.apiUrl}/api/single-package/${packageSlug}`;
+    const apiUrl = `${process.env.apiUrl}/api/package/${packageSlug}`;
 
 
     const response = await axios.get(apiUrl);
@@ -64,6 +64,7 @@ export default async function PackageDetailsPage({ params }: Props) {
   // URL se params nikalna
   const { package: packageSlug, slug } = await params;
 
+console.log(packageSlug,"df");
 
 
   // API CALL

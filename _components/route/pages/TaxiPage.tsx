@@ -3,6 +3,7 @@ import FareDetails from "@/_components/FareDetails";
 import Hero from "@/_components/Hero";
 import HowToBook from "@/_components/Howtobook";
 import PopularRoutes from "@/_components/PopularRoutes";
+// import PopularRoutes from "@/_components/PopularRoutes";
 import TaxiFaq from "@/_components/TaxiFaq";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
@@ -61,8 +62,8 @@ console.log(data,"dhsjh");
 
       {/* Why Choose Us */}
       <WhyChooseUs
-        from={route.fromCity}
-        to={route.toCity}
+        // from={route.fromCity}
+        // to={route.toCity}
       />
 
       {/* FAQ */}
