@@ -1,108 +1,148 @@
 const PHONE_NUMBER = "+916390008503";
 
+type ColumnKey = "sedan" | "suv" | "tempo" | "urbania";
+
+type FleetColumn = {
+  key: ColumnKey;
+  name: string;
+  highlight?: boolean;
+};
+
+const COLUMNS: FleetColumn[] = [
+  { key: "sedan", name: "Sedan" },
+  { key: "suv", name: "SUV", highlight: true },
+  { key: "tempo", name: "Tempo Traveller" },
+  { key: "urbania", name: "Force Urbania" },
+];
+
 type CompareRow = {
   feature: string;
-  hatchback: string;
-  sedan: string;
-  suv: string;
+  values: Record<ColumnKey, string>;
 };
 
 const ROWS: CompareRow[] = [
   {
     feature: "Seating Capacity",
-    hatchback: "4 passengers",
-    sedan: "4 passengers",
-    suv: "6–7 passengers",
+    values: {
+      sedan: "4 passengers",
+      suv: "6–7 passengers",
+      tempo: "9–20 passengers",
+      urbania: "9–17 passengers",
+    },
   },
   {
     feature: "Luggage Space",
-    hatchback: "1–2 small bags",
-    sedan: "3 large bags",
-    suv: "4–5 bags",
+    values: {
+      sedan: "3 large bags",
+      suv: "4–5 bags",
+      tempo: "4–10 bags",
+      urbania: "5–9 bags",
+    },
   },
   {
     feature: "Comfort Level",
-    hatchback: "Basic",
-    sedan: "Premium & quiet",
-    suv: "Spacious & high",
+    values: {
+      sedan: "Premium & quiet",
+      suv: "Spacious & high",
+      tempo: "Comfortable group ride",
+      urbania: "Luxury pushback seats",
+    },
   },
   {
     feature: "AC Performance",
-    hatchback: "Standard",
-    sedan: "Fast & powerful",
-    suv: "Powerful",
+    values: {
+      sedan: "Fast & powerful",
+      suv: "Powerful",
+      tempo: "Strong group cooling",
+      urbania: "Individual AC vents",
+    },
   },
   {
     feature: "Best For",
-    hatchback: "Budget solo trips",
-    sedan: "Family & business travel",
-    suv: "Groups & heavy luggage",
+    values: {
+      sedan: "Family & business travel",
+      suv: "Groups & heavy luggage",
+      tempo: "Large groups on a budget",
+      urbania: "Weddings, VIP & corporate",
+    },
   },
   {
-    feature: "One-Way Fare (Noida → Delhi)",
-    hatchback: "From ₹1,299",
-    sedan: "From ₹1,599",
-    suv: "From ₹2,299",
+    feature: "Starting One-Way Fare",
+    values: {
+      sedan: "From ₹1,599",
+      suv: "From ₹2,299",
+      tempo: "From ₹3,500",
+      urbania: "From ₹3,500",
+    },
   },
 ];
 
 const VERDICTS = [
   {
-    cab: "Choose Hatchback if…",
+    cab: "Choose Sedan if…",
     points: [
-      "You're travelling solo or as a couple",
-      "You're carrying only small bags",
-      "Budget is your top priority",
+      "You're travelling with up to 4 people",
+      "You're carrying 2–3 suitcases",
+      "You want the best comfort-to-price ratio",
     ],
     highlight: false,
   },
   {
-    cab: "Choose Sedan if…",
+    cab: "Choose SUV if…",
     points: [
-      "You're travelling with family or for work",
-      "You're carrying 2–3 suitcases",
-      "You want the best comfort-to-price ratio",
+      "You're travelling in a group of 5–7",
+      "You're carrying heavy or extra luggage",
+      "You prefer a high, commanding ride",
     ],
     highlight: true,
   },
   {
-    cab: "Choose SUV if…",
+    cab: "Choose Tempo Traveller if…",
     points: [
-      "You're travelling in a group of 5+",
-      "You're carrying heavy or extra luggage",
-      "You prefer a high, commanding ride",
+      "You're moving a large group on a budget",
+      "You need maximum seating capacity",
+      "It's for event, school or office shuttles",
+    ],
+    highlight: false,
+  },
+  {
+    cab: "Choose Urbania if…",
+    points: [
+      "You want a premium, luxury travel feel",
+      "You're hosting wedding guests or VIPs",
+      "You want pushback seats & personal AC vents",
     ],
     highlight: false,
   },
 ];
 
-export default function CabComparison() {
+export default function HelpMeChoose() {
   return (
     <section className="bg-slate-50 py-16">
       <div className="mx-auto max-w-7xl px-6">
         {/* ===== Header ===== */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
-            Compare &amp; Choose
+            Help Me Choose
           </p>
 
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            Sedan vs Hatchback vs SUV — Which One Should You Book?
+            Sedan vs SUV vs Tempo Traveller vs Urbania — Which One Should You Book?
           </h2>
 
           <p className="mt-4 text-base leading-7 text-slate-600">
-            A quick side-by-side comparison to help you pick the right cab for
-            your Noida to Delhi trip.
+            A quick side-by-side comparison to help you pick the right vehicle
+            for your group size, luggage and budget.
           </p>
         </div>
 
         {/* ===== Comparison Table ===== */}
         <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[720px] text-left text-sm">
+            <table className="w-full min-w-[900px] text-left text-sm">
               <caption className="sr-only">
-                Comparison of hatchback, sedan and SUV cabs for Noida to Delhi
-                trips
+                Comparison of Sedan, SUV, Tempo Traveller and Force Urbania for
+                your trip
               </caption>
 
               <thead>
@@ -110,18 +150,21 @@ export default function CabComparison() {
                   <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
                     Feature
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    Hatchback
-                  </th>
-                  <th className="relative bg-gold px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    Sedan
-                    <span className="ml-2 rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold normal-case tracking-normal">
-                      Recommended
-                    </span>
-                  </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    SUV
-                  </th>
+                  {COLUMNS.map((col) => (
+                    <th
+                      key={col.key}
+                      className={`px-6 py-4 text-xs font-bold uppercase tracking-widest ${
+                        col.highlight ? "relative bg-gold" : ""
+                      }`}
+                    >
+                      {col.name}
+                      {col.highlight && (
+                        <span className="ml-2 rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold normal-case tracking-normal">
+                          Recommended
+                        </span>
+                      )}
+                    </th>
+                  ))}
                 </tr>
               </thead>
 
@@ -131,13 +174,18 @@ export default function CabComparison() {
                     <td className="px-6 py-4 font-semibold text-slate-900">
                       {row.feature}
                     </td>
-                    <td className="px-6 py-4 text-slate-600">
-                      {row.hatchback}
-                    </td>
-                    <td className="bg-gold/5 px-6 py-4 font-semibold text-slate-900">
-                      {row.sedan}
-                    </td>
-                    <td className="px-6 py-4 text-slate-600">{row.suv}</td>
+                    {COLUMNS.map((col) => (
+                      <td
+                        key={col.key}
+                        className={`px-6 py-4 ${
+                          col.highlight
+                            ? "bg-gold/5 font-semibold text-slate-900"
+                            : "text-slate-600"
+                        }`}
+                      >
+                        {row.values[col.key]}
+                      </td>
+                    ))}
                   </tr>
                 ))}
               </tbody>
@@ -146,7 +194,7 @@ export default function CabComparison() {
         </div>
 
         {/* ===== Verdict Cards ===== */}
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {VERDICTS.map((verdict) => (
             <div
               key={verdict.cab}
@@ -189,7 +237,7 @@ export default function CabComparison() {
                   href={`tel:${PHONE_NUMBER}`}
                   className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3 text-sm font-bold uppercase tracking-wide text-white transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
                 >
-                  Book Your Sedan →
+                  Book Your SUV →
                 </a>
               )}
             </div>
@@ -198,9 +246,8 @@ export default function CabComparison() {
 
         {/* ===== Sales Note ===== */}
         <p className="mt-10 text-center text-sm leading-6 text-slate-600">
-          💡 <strong>Most riders choose the Sedan</strong> — for just ₹300 more
-          than a hatchback, you get a bigger boot, better legroom and a much
-          smoother ride.
+          💡 <strong>Still confused?</strong> Call us — our team will suggest the
+          perfect vehicle for your group size and luggage in under a minute.
         </p>
       </div>
     </section>

@@ -162,62 +162,62 @@ const routePages: Record<string, any> = {
     //     slug: "noida-to-haridwar",
     //   },
     // ],
-     popularRoutes : [
-  {
-    id: 1,
-    from: "Noida",
-    to: "Delhi",
-    distance: "25 km",
-    duration: "1 hrs",
-    image: "/popular_cab_route1.jpg",
-    popular: true,
-  },
-  {
-    id: 2,
-    from: "Noida",
-    to: "Agra",
-    distance: "200 km",
-    duration: "4 hrs",
-    image: "/popular_cab_route2.jpg",
-    popular: true,
-  },
-  {
-    id: 3,
-    from: "Noida",
-    to: "Jaipur",
-    distance: "280 km",
-    duration: "5 hrs",
-    image: "/popular_cab_route3.jpg",
-    popular: true,
-  },
-  {
-    id: 4,
-    from: "Noida",
-    to: "Haridwar",
-    distance: "220 km",
-    duration: "5 hrs",
-    image: "/popular_cab_route4.jpg",
-    popular: true,
-  },
-  {
-    id: 5,
-    from: "Noida",
-    to: "Mathura",
-    distance: "160 km",
-    duration: "3 hrs",
-    image: "/popular_cab_route5.jpg",
-    popular: true,
-  },
-  {
-    id: 6,
-    from: "Noida",
-    to: "Vrindavan",
-    distance: "165 km",
-    duration: "3 hrs",
-    image: "/popular_cab_route6.jpg",
-    popular: true,
-  },
-]
+    popularRoutes: [
+      {
+        id: 1,
+        from: "Noida",
+        to: "Delhi",
+        distance: "25 km",
+        duration: "1 hrs",
+        image: "/popular_cab_route1.jpg",
+        popular: true,
+      },
+      {
+        id: 2,
+        from: "Noida",
+        to: "Agra",
+        distance: "200 km",
+        duration: "4 hrs",
+        image: "/popular_cab_route2.jpg",
+        popular: true,
+      },
+      {
+        id: 3,
+        from: "Noida",
+        to: "Jaipur",
+        distance: "280 km",
+        duration: "5 hrs",
+        image: "/popular_cab_route3.jpg",
+        popular: true,
+      },
+      {
+        id: 4,
+        from: "Noida",
+        to: "Haridwar",
+        distance: "220 km",
+        duration: "5 hrs",
+        image: "/popular_cab_route4.jpg",
+        popular: true,
+      },
+      {
+        id: 5,
+        from: "Noida",
+        to: "Mathura",
+        distance: "160 km",
+        duration: "3 hrs",
+        image: "/popular_cab_route5.jpg",
+        popular: true,
+      },
+      {
+        id: 6,
+        from: "Noida",
+        to: "Vrindavan",
+        distance: "165 km",
+        duration: "3 hrs",
+        image: "/popular_cab_route6.jpg",
+        popular: true,
+      },
+    ],
   },
 
   "noida-to-delhi-taxi-fare": {
@@ -926,269 +926,319 @@ const routePages: Record<string, any> = {
     ],
   },
   "noida-to-delhi-innova-crysta-taxi": {
-  page: {
-    _id: "page-008",
-    pageType: "innova-crysta-taxi",
-    slug: "noida-to-delhi-innova-crysta-taxi",
+    page: {
+      _id: "page-008",
+      pageType: "innova-crysta-taxi",
+      slug: "noida-to-delhi-innova-crysta-taxi",
 
-    h1: "Noida to Delhi Innova Crysta Taxi",
+      h1: "Noida to Delhi Innova Crysta Taxi",
 
-    metaTitle:
-      "Noida to Delhi Innova Crysta Taxi | Book Innova Crysta",
+      metaTitle: "Noida to Delhi Innova Crysta Taxi | Book Innova Crysta",
 
-    metaDescription:
-      "Book an Innova Crysta taxi from Noida to Delhi at affordable fares. Enjoy a comfortable, spacious and reliable ride.",
+      metaDescription:
+        "Book an Innova Crysta taxi from Noida to Delhi at affordable fares. Enjoy a comfortable, spacious and reliable ride.",
 
-    faqs: [
+      faqs: [
+        {
+          _id: "faq-innova-001",
+          question:
+            "What is the fare for an Innova Crysta from Noida to Delhi?",
+          answer:
+            "The Innova Crysta taxi fare from Noida to Delhi starts from around ₹2,800 for a one-way trip. The final fare may vary depending on pickup location and trip requirements.",
+        },
+
+        {
+          _id: "faq-innova-002",
+          question: "How long does an Innova Crysta take from Noida to Delhi?",
+          answer:
+            "An Innova Crysta usually takes around 45 minutes to 1.5 hours from Noida to Delhi, depending on traffic and the exact pickup and drop location.",
+        },
+
+        {
+          _id: "faq-innova-003",
+          question: "How many passengers can travel in an Innova Crysta?",
+          answer:
+            "An Innova Crysta can comfortably accommodate up to 6 passengers along with luggage.",
+        },
+
+        {
+          _id: "faq-innova-004",
+          question:
+            "Is Innova Crysta available for one-way travel from Noida to Delhi?",
+          answer:
+            "Yes, Innova Crysta is available for one-way taxi travel from Noida to Delhi.",
+        },
+      ],
+    },
+
+    route: {
+      _id: "route-001",
+      fromCity: "Noida",
+      toCity: "Delhi",
+      slug: "noida-to-delhi",
+      distance: 25,
+      duration: "45 min - 1.5 hrs",
+    },
+
+    vehicles: [
       {
-        _id: "faq-innova-001",
-        question: "What is the fare for an Innova Crysta from Noida to Delhi?",
-        answer:
-          "The Innova Crysta taxi fare from Noida to Delhi starts from around ₹2,800 for a one-way trip. The final fare may vary depending on pickup location and trip requirements.",
+        _id: "vehicle-004",
+        name: "Innova Crysta",
+        slug: "innova-crysta",
+        brand: "Toyota",
+        cabType: "Premium SUV",
+        passengerCapacity: 6,
+        luggageCapacity: 5,
+        image: "/images/cars/innova-crysta.png",
+        airCondition: true,
+        fuelType: "Diesel",
+        transmission: "Manual",
+      },
+    ],
+
+    fares: [
+      {
+        _id: "fare-004",
+        vehicleId: "vehicle-004",
+        vehicleName: "Innova Crysta",
+        oneWayPrice: 2800,
+        roundTripPrice: 5000,
+      },
+    ],
+
+    popularRoutes: [
+      {
+        id: 1,
+        from: "Noida",
+        to: "Delhi",
+        distance: "25 km",
+        duration: "1 hrs",
+        image: "/popular_cab_route1.jpg",
+        popular: true,
       },
 
       {
-        _id: "faq-innova-002",
-        question: "How long does an Innova Crysta take from Noida to Delhi?",
-        answer:
-          "An Innova Crysta usually takes around 45 minutes to 1.5 hours from Noida to Delhi, depending on traffic and the exact pickup and drop location.",
+        id: 2,
+        from: "Noida",
+        to: "Agra",
+        distance: "200 km",
+        duration: "4 hrs",
+        image: "/popular_cab_route2.jpg",
+        popular: true,
       },
 
       {
-        _id: "faq-innova-003",
-        question: "How many passengers can travel in an Innova Crysta?",
-        answer:
-          "An Innova Crysta can comfortably accommodate up to 6 passengers along with luggage.",
+        id: 3,
+        from: "Noida",
+        to: "Jaipur",
+        distance: "280 km",
+        duration: "5 hrs",
+        image: "/popular_cab_route3.jpg",
+        popular: true,
       },
 
       {
-        _id: "faq-innova-004",
-        question: "Is Innova Crysta available for one-way travel from Noida to Delhi?",
-        answer:
-          "Yes, Innova Crysta is available for one-way taxi travel from Noida to Delhi.",
+        id: 4,
+        from: "Noida",
+        to: "Haridwar",
+        distance: "220 km",
+        duration: "5 hrs",
+        image: "/popular_cab_route4.jpg",
+        popular: true,
+      },
+
+      {
+        id: 5,
+        from: "Noida",
+        to: "Mathura",
+        distance: "160 km",
+        duration: "3 hrs",
+        image: "/popular_cab_route5.jpg",
+        popular: true,
+      },
+
+      {
+        id: 6,
+        from: "Noida",
+        to: "Vrindavan",
+        distance: "165 km",
+        duration: "3 hrs",
+        image: "/popular_cab_route6.jpg",
+        popular: true,
       },
     ],
   },
+  "noida-to-delhi-ertiga-taxi": {
+    page: {
+      _id: "page-005",
+      pageType: "ertiga-taxi",
+      slug: "noida-to-delhi-ertiga-taxi",
+      h1: "Noida to Delhi Ertiga Taxi",
+      metaTitle: "Noida to Delhi Ertiga Taxi | Book Ertiga Cab",
+      metaDescription:
+        "Book a comfortable Ertiga taxi from Noida to Delhi at affordable prices.",
+      faqs: [],
+    },
 
-  route: {
-    _id: "route-001",
-    fromCity: "Noida",
-    toCity: "Delhi",
-    slug: "noida-to-delhi",
-    distance: 25,
-    duration: "45 min - 1.5 hrs",
+    route: {
+      _id: "route-001",
+      fromCity: "Noida",
+      toCity: "Delhi",
+      slug: "noida-to-delhi",
+      distance: 25,
+      duration: "45 min - 1.5 hrs",
+    },
+
+    vehicles: [
+      {
+        _id: "vehicle-002",
+        name: "Maruti Ertiga",
+        slug: "maruti-ertiga",
+        brand: "Maruti Suzuki",
+        cabType: "Ertiga",
+        passengerCapacity: 6,
+        luggageCapacity: 3,
+        image: "/images/cars/maruti-ertiga.png",
+        airCondition: true,
+        fuelType: "Petrol",
+        transmission: "Manual",
+      },
+    ],
+
+    fares: [
+      {
+        _id: "fare-002",
+        vehicleId: "vehicle-002",
+        vehicleName: "Maruti Ertiga",
+        oneWayPrice: 1600,
+        roundTripPrice: 3000,
+      },
+    ],
+
+    popularRoutes: [],
   },
+  "noida-to-delhi-dzire-taxi": {
+    page: {
+      _id: "page-009",
+      pageType: "dzire-taxi",
+      slug: "noida-to-delhi-dzire-taxi",
 
-  vehicles: [
-    {
-      _id: "vehicle-004",
-      name: "Innova Crysta",
-      slug: "innova-crysta",
-      brand: "Toyota",
-      cabType: "Premium SUV",
-      passengerCapacity: 6,
-      luggageCapacity: 5,
-      image: "/images/cars/innova-crysta.png",
-      airCondition: true,
-      fuelType: "Diesel",
-      transmission: "Manual",
-    },
-  ],
+      h1: "Noida to Delhi Dzire Taxi",
 
-  fares: [
-    {
-      _id: "fare-004",
-      vehicleId: "vehicle-004",
-      vehicleName: "Innova Crysta",
-      oneWayPrice: 2800,
-      roundTripPrice: 5000,
-    },
-  ],
+      metaTitle: "Noida to Delhi Dzire Taxi | Book Swift Dzire Cab",
 
-  popularRoutes: [
-    {
-      id: 1,
-      from: "Noida",
-      to: "Delhi",
-      distance: "25 km",
-      duration: "1 hrs",
-      image: "/popular_cab_route1.jpg",
-      popular: true,
-    },
+      metaDescription:
+        "Book a Swift Dzire taxi from Noida to Delhi at an affordable fare. Comfortable AC cab for one-way, round-trip and airport travel.",
 
-    {
-      id: 2,
-      from: "Noida",
-      to: "Agra",
-      distance: "200 km",
-      duration: "4 hrs",
-      image: "/popular_cab_route2.jpg",
-      popular: true,
-    },
-
-    {
-      id: 3,
-      from: "Noida",
-      to: "Jaipur",
-      distance: "280 km",
-      duration: "5 hrs",
-      image: "/popular_cab_route3.jpg",
-      popular: true,
+      faqs: [
+        {
+          _id: "faq-dzire-001",
+          question: "What is the Dzire taxi fare from Noida to Delhi?",
+          answer:
+            "The one-way Dzire taxi fare from Noida to Delhi starts at around ₹1,599. The final fare may vary depending on the pickup location, trip type and travel requirements.",
+        },
+        {
+          _id: "faq-dzire-002",
+          question: "How many passengers can travel in a Dzire?",
+          answer:
+            "A Swift Dzire can comfortably accommodate up to 4 passengers with luggage and is suitable for families, couples and business travellers.",
+        },
+        {
+          _id: "faq-dzire-003",
+          question:
+            "Is Dzire available for one-way travel from Noida to Delhi?",
+          answer:
+            "Yes, Swift Dzire is available for one-way taxi travel from Noida to Delhi. You can book a private cab for your preferred pickup and drop location.",
+        },
+        {
+          _id: "faq-dzire-004",
+          question: "Can I book a Dzire from Noida to Delhi Airport?",
+          answer:
+            "Yes, you can book a Swift Dzire for airport transfers from Noida to Delhi. It is suitable for up to 4 passengers with moderate luggage.",
+        },
+        {
+          _id: "faq-dzire-005",
+          question: "Is Dzire taxi available 24x7?",
+          answer:
+            "Dzire taxis can be booked for early morning, daytime and late-night travel, subject to vehicle availability.",
+        },
+      ],
     },
 
-    {
-      id: 4,
-      from: "Noida",
-      to: "Haridwar",
-      distance: "220 km",
-      duration: "5 hrs",
-      image: "/popular_cab_route4.jpg",
-      popular: true,
+    route: {
+      _id: "route-001",
+      fromCity: "Noida",
+      toCity: "Delhi",
+      slug: "noida-to-delhi",
+      distance: 25,
+      duration: "45 min - 1.5 hrs",
     },
 
-    {
-      id: 5,
-      from: "Noida",
-      to: "Mathura",
-      distance: "160 km",
-      duration: "3 hrs",
-      image: "/popular_cab_route5.jpg",
-      popular: true,
-    },
-
-    {
-      id: 6,
-      from: "Noida",
-      to: "Vrindavan",
-      distance: "165 km",
-      duration: "3 hrs",
-      image: "/popular_cab_route6.jpg",
-      popular: true,
-    },
-  ],
-},
-"noida-to-delhi-dzire-taxi": {
-  page: {
-    _id: "page-009",
-    pageType: "dzire-taxi",
-    slug: "noida-to-delhi-dzire-taxi",
-
-    h1: "Noida to Delhi Dzire Taxi",
-
-    metaTitle:
-      "Noida to Delhi Dzire Taxi | Book Swift Dzire Cab",
-
-    metaDescription:
-      "Book a Swift Dzire taxi from Noida to Delhi at an affordable fare. Comfortable AC cab for one-way, round-trip and airport travel.",
-
-    faqs: [
+    vehicles: [
       {
-        _id: "faq-dzire-001",
-        question: "What is the Dzire taxi fare from Noida to Delhi?",
-        answer:
-          "The one-way Dzire taxi fare from Noida to Delhi starts at around ₹1,599. The final fare may vary depending on the pickup location, trip type and travel requirements.",
+        _id: "vehicle-001",
+        name: "Swift Dzire",
+        slug: "swift-dzire",
+        brand: "Maruti Suzuki",
+        cabType: "Sedan",
+        passengerCapacity: 4,
+        luggageCapacity: 3,
+        image: "/dezire_white.png",
+        airCondition: true,
+        fuelType: "CNG / Petrol",
+        transmission: "Manual",
+      },
+    ],
+
+    fares: [
+      {
+        _id: "fare-dzire-001",
+        vehicleId: "vehicle-001",
+        vehicleName: "Swift Dzire",
+        oneWayPrice: 1599,
+        roundTripPrice: 2699,
+      },
+    ],
+
+    popularRoutes: [
+      {
+        id: 1,
+        from: "Noida",
+        to: "Delhi",
+        distance: "25 km",
+        duration: "1 hr",
+        image: "/popular_cab_route1.jpg",
+        popular: true,
       },
       {
-        _id: "faq-dzire-002",
-        question: "How many passengers can travel in a Dzire?",
-        answer:
-          "A Swift Dzire can comfortably accommodate up to 4 passengers with luggage and is suitable for families, couples and business travellers.",
+        id: 2,
+        from: "Noida",
+        to: "Agra",
+        distance: "200 km",
+        duration: "4 hrs",
+        image: "/popular_cab_route2.jpg",
+        popular: true,
       },
       {
-        _id: "faq-dzire-003",
-        question: "Is Dzire available for one-way travel from Noida to Delhi?",
-        answer:
-          "Yes, Swift Dzire is available for one-way taxi travel from Noida to Delhi. You can book a private cab for your preferred pickup and drop location.",
+        id: 3,
+        from: "Noida",
+        to: "Jaipur",
+        distance: "280 km",
+        duration: "5 hrs",
+        image: "/popular_cab_route3.jpg",
+        popular: true,
       },
       {
-        _id: "faq-dzire-004",
-        question: "Can I book a Dzire from Noida to Delhi Airport?",
-        answer:
-          "Yes, you can book a Swift Dzire for airport transfers from Noida to Delhi. It is suitable for up to 4 passengers with moderate luggage.",
-      },
-      {
-        _id: "faq-dzire-005",
-        question: "Is Dzire taxi available 24x7?",
-        answer:
-          "Dzire taxis can be booked for early morning, daytime and late-night travel, subject to vehicle availability.",
+        id: 4,
+        from: "Noida",
+        to: "Haridwar",
+        distance: "220 km",
+        duration: "5 hrs",
+        image: "/popular_cab_route4.jpg",
+        popular: true,
       },
     ],
   },
-
-  route: {
-    _id: "route-001",
-    fromCity: "Noida",
-    toCity: "Delhi",
-    slug: "noida-to-delhi",
-    distance: 25,
-    duration: "45 min - 1.5 hrs",
-  },
-
-  vehicles: [
-    {
-      _id: "vehicle-001",
-      name: "Swift Dzire",
-      slug: "swift-dzire",
-      brand: "Maruti Suzuki",
-      cabType: "Sedan",
-      passengerCapacity: 4,
-      luggageCapacity: 3,
-      image: "/dezire_white.png",
-      airCondition: true,
-      fuelType: "CNG / Petrol",
-      transmission: "Manual",
-    },
-  ],
-
-  fares: [
-    {
-      _id: "fare-dzire-001",
-      vehicleId: "vehicle-001",
-      vehicleName: "Swift Dzire",
-      oneWayPrice: 1599,
-      roundTripPrice: 2699,
-    },
-  ],
-
-  popularRoutes: [
-    {
-      id: 1,
-      from: "Noida",
-      to: "Delhi",
-      distance: "25 km",
-      duration: "1 hr",
-      image: "/popular_cab_route1.jpg",
-      popular: true,
-    },
-    {
-      id: 2,
-      from: "Noida",
-      to: "Agra",
-      distance: "200 km",
-      duration: "4 hrs",
-      image: "/popular_cab_route2.jpg",
-      popular: true,
-    },
-    {
-      id: 3,
-      from: "Noida",
-      to: "Jaipur",
-      distance: "280 km",
-      duration: "5 hrs",
-      image: "/popular_cab_route3.jpg",
-      popular: true,
-    },
-    {
-      id: 4,
-      from: "Noida",
-      to: "Haridwar",
-      distance: "220 km",
-      duration: "5 hrs",
-      image: "/popular_cab_route4.jpg",
-      popular: true,
-    },
-  ],
-},
 };
 
 export async function getRoutePage(slug: string): Promise<any | null> {

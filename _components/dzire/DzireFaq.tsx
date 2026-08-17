@@ -29,7 +29,8 @@ const FAQS: Faq[] = [
   },
 
   {
-    question: "Is Swift Dzire available for one-way travel from Noida to Delhi?",
+    question:
+      "Is Swift Dzire available for one-way travel from Noida to Delhi?",
     answer:
       "Yes. You can book a private Swift Dzire for a one-way journey from Noida to Delhi. The cab can pick you up from your preferred location in Noida and drop you at your destination in Delhi.",
   },
@@ -144,9 +145,7 @@ export default function DzireFaq() {
               <div
                 key={faq.question}
                 className={`overflow-hidden rounded-xl border bg-white shadow-sm transition-all duration-300 sm:rounded-2xl ${
-                  isOpen
-                    ? "border-gold/40 shadow-md"
-                    : "border-slate-200"
+                  isOpen ? "border-gold/40 shadow-md" : "border-slate-200"
                 }`}
               >
                 {/* Question */}
