@@ -12,6 +12,7 @@ import SUVTaxiPage from "@/_components/route/pages/SUVTaxiPage";
 import TempoTravellerPage from "@/_components/route/pages/TempoTravellerPage";
 import UrbaniaRentalPage from "@/_components/route/pages/UrbaniaRentalPage";
 import InnovaCrystaTaxiPage from "@/_components/route/pages/InnovaCrystaTaxiPage";
+import ErtigaTaxiPage from "@/_components/route/pages/ErtigaTaxiPage";
 
 export default async function Page({
   params,
@@ -48,8 +49,12 @@ console.log(data,"fjd");
     return <TempoTravellerPage data={data} />;
   case "urbania-rental":
     return <UrbaniaRentalPage data={data} />;  
-    case "innova-crysta-taxi":
+  case "innova-crysta-taxi":
   return <InnovaCrystaTaxiPage data={data} />;
+    
+  case "ertiga-taxi":
+  return <ErtigaTaxiPage data={data} />;
+  
   default:
     console.log("Unmatched pageType fell through to 404:", data?.page?.pageType);
     notFound();
