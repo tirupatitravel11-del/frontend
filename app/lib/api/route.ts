@@ -1067,6 +1067,128 @@ const routePages: Record<string, any> = {
     },
   ],
 },
+"noida-to-delhi-dzire-taxi": {
+  page: {
+    _id: "page-009",
+    pageType: "dzire-taxi",
+    slug: "noida-to-delhi-dzire-taxi",
+
+    h1: "Noida to Delhi Dzire Taxi",
+
+    metaTitle:
+      "Noida to Delhi Dzire Taxi | Book Swift Dzire Cab",
+
+    metaDescription:
+      "Book a Swift Dzire taxi from Noida to Delhi at an affordable fare. Comfortable AC cab for one-way, round-trip and airport travel.",
+
+    faqs: [
+      {
+        _id: "faq-dzire-001",
+        question: "What is the Dzire taxi fare from Noida to Delhi?",
+        answer:
+          "The one-way Dzire taxi fare from Noida to Delhi starts at around ₹1,599. The final fare may vary depending on the pickup location, trip type and travel requirements.",
+      },
+      {
+        _id: "faq-dzire-002",
+        question: "How many passengers can travel in a Dzire?",
+        answer:
+          "A Swift Dzire can comfortably accommodate up to 4 passengers with luggage and is suitable for families, couples and business travellers.",
+      },
+      {
+        _id: "faq-dzire-003",
+        question: "Is Dzire available for one-way travel from Noida to Delhi?",
+        answer:
+          "Yes, Swift Dzire is available for one-way taxi travel from Noida to Delhi. You can book a private cab for your preferred pickup and drop location.",
+      },
+      {
+        _id: "faq-dzire-004",
+        question: "Can I book a Dzire from Noida to Delhi Airport?",
+        answer:
+          "Yes, you can book a Swift Dzire for airport transfers from Noida to Delhi. It is suitable for up to 4 passengers with moderate luggage.",
+      },
+      {
+        _id: "faq-dzire-005",
+        question: "Is Dzire taxi available 24x7?",
+        answer:
+          "Dzire taxis can be booked for early morning, daytime and late-night travel, subject to vehicle availability.",
+      },
+    ],
+  },
+
+  route: {
+    _id: "route-001",
+    fromCity: "Noida",
+    toCity: "Delhi",
+    slug: "noida-to-delhi",
+    distance: 25,
+    duration: "45 min - 1.5 hrs",
+  },
+
+  vehicles: [
+    {
+      _id: "vehicle-001",
+      name: "Swift Dzire",
+      slug: "swift-dzire",
+      brand: "Maruti Suzuki",
+      cabType: "Sedan",
+      passengerCapacity: 4,
+      luggageCapacity: 3,
+      image: "/dezire_white.png",
+      airCondition: true,
+      fuelType: "CNG / Petrol",
+      transmission: "Manual",
+    },
+  ],
+
+  fares: [
+    {
+      _id: "fare-dzire-001",
+      vehicleId: "vehicle-001",
+      vehicleName: "Swift Dzire",
+      oneWayPrice: 1599,
+      roundTripPrice: 2699,
+    },
+  ],
+
+  popularRoutes: [
+    {
+      id: 1,
+      from: "Noida",
+      to: "Delhi",
+      distance: "25 km",
+      duration: "1 hr",
+      image: "/popular_cab_route1.jpg",
+      popular: true,
+    },
+    {
+      id: 2,
+      from: "Noida",
+      to: "Agra",
+      distance: "200 km",
+      duration: "4 hrs",
+      image: "/popular_cab_route2.jpg",
+      popular: true,
+    },
+    {
+      id: 3,
+      from: "Noida",
+      to: "Jaipur",
+      distance: "280 km",
+      duration: "5 hrs",
+      image: "/popular_cab_route3.jpg",
+      popular: true,
+    },
+    {
+      id: 4,
+      from: "Noida",
+      to: "Haridwar",
+      distance: "220 km",
+      duration: "5 hrs",
+      image: "/popular_cab_route4.jpg",
+      popular: true,
+    },
+  ],
+},
 };
 
 export async function getRoutePage(slug: string): Promise<any | null> {

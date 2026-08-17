@@ -1,0 +1,28 @@
+import DzireFaq from "@/_components/dzire/DzireFaq";
+import DzireFitGuide from "@/_components/dzire/DzireFitGuide";
+import DzireFleetDetails from "@/_components/dzire/DzireFleetDetails";
+import DzireHero from "@/_components/dzire/DzireHero";
+import HowToBook from "@/_components/Howtobook";
+import SedanFitGuide from "@/_components/sedan/SedanFitGuide";
+import SedanFleetDetails from "@/_components/sedan/SedanFleetDetails";
+import WhyChooseUs from "@/_components/WhyChooseUs";
+import Testimonials from "@/app/components/Home/Testimonials";
+
+export default function DzireTaxiPage({ data }: any) {
+  const { route } = data;
+
+  return (
+    <>
+      <DzireHero from={route.fromCity} to={route.toCity} startingFare={1599} />
+
+      <DzireFleetDetails />
+
+      <DzireFitGuide />
+      <Testimonials />
+      <HowToBook from="Lucknow" to="Delhi" />
+      <WhyChooseUs />
+
+      <DzireFaq />
+    </>
+  );
+}
