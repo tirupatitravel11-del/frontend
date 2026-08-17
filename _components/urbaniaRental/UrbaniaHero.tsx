@@ -54,11 +54,11 @@ Date: ${date}`;
     <section className="relative overflow-hidden bg-white">
       {/* Background Image - Luxury Van Interior/Exterior */}
       <div className="absolute inset-0 z-0">
-        <img
+        {/* <img
           src="/urbania/urbania.png" // Luxury van interior
           alt="Force Urbania Luxury Van Interior"
           className="h-full w-full object-cover"
-        />
+        /> */}
         {/* Light overlay to maintain text readability */}
         <div className="absolute inset-0 bg-white/85" />
       </div>

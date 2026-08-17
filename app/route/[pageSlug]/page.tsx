@@ -48,7 +48,7 @@ console.log(data,"fjd");
     return <TempoTravellerPage data={data} />;
   case "urbania-rental":
     return <UrbaniaRentalPage data={data} />;  
-    case "innova-crysta-taxi":
+  case "innova-crysta-taxi":
   return <InnovaCrystaTaxiPage data={data} />;
   default:
     console.log("Unmatched pageType fell through to 404:", data?.page?.pageType);
