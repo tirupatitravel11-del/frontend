@@ -18,7 +18,7 @@ export default function UrbaniaRentalPage({ data }: any) {
       <UrbaniaVariants />
       <UrbaniaFareTable />
       <UrbaniaUseCases />
-      <WhyChooseUs from={"Noida"} to={"Delhi"} />
+      <WhyChooseUs />
       <UrbaniaFaq />
     </>
   );

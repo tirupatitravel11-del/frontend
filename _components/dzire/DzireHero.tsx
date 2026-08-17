@@ -7,21 +7,21 @@ const WHATSAPP_NUMBER = "916390008503";
 
 type TripType = "one-way" | "round-trip";
 
-const SEDAN_MODELS = ["Swift Dzire", "Honda Amaze", "Toyota Etios"];
+const DZIRE_MODELS = ["Maruti Suzuki Swift Dzire"];
 
-interface SedanHeroProps {
+interface DzireHeroProps {
   from: string;
   to: string;
   startingFare?: number;
 }
 
-export default function SedanHero({
+export default function DzireHero({
   from,
   to,
   startingFare = 1599,
-}: SedanHeroProps) {
+}: DzireHeroProps) {
   const [tripType, setTripType] = useState<TripType>("one-way");
-  const [model, setModel] = useState(SEDAN_MODELS[0]);
+  const [model, setModel] = useState(DZIRE_MODELS[0]);
   const [date, setDate] = useState("");
   const [pickup, setPickup] = useState(from);
   const [drop, setDrop] = useState(to);
@@ -31,7 +31,7 @@ export default function SedanHero({
   const handleBook = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const message = `Hello, I want to book a SEDAN taxi.
+    const message = `Hello, I want to book a Swift Dzire taxi.
 
 Trip: ${tripType === "one-way" ? "One Way" : "Round Trip"}
 Car Model: ${model}
@@ -49,64 +49,84 @@ Date: ${date}`;
     <section className="relative overflow-hidden bg-white">
       {/* Decorative Gold Glow */}
       <div className="pointer-events-none absolute -top-32 right-0 h-72 w-72 rounded-full bg-gold/10 blur-3xl sm:h-96 sm:w-96" />
+
       <div className="pointer-events-none absolute bottom-0 left-0 h-56 w-56 rounded-full bg-gold/5 blur-3xl sm:h-72 sm:w-72" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:gap-14 sm:px-6 sm:py-16 lg:grid-cols-2 lg:py-24">
-        {/* Left: Content */}
+        {/* ================= LEFT CONTENT ================= */}
         <div>
+          {/* Badge */}
           <span className="mb-4 inline-block rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-gold sm:px-4 sm:text-xs">
-            Sedan Available
+            Swift Dzire Available
           </span>
 
+          {/* Route Label */}
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
-            {from} → {to} Sedan Service
+            {from} → {to} Swift Dzire Service
           </p>
 
+          {/* H1 */}
           <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:leading-tight">
-            {from} to {to} <span className="text-gold">Sedan Taxi</span> Service
-            at Fixed Fares
+            {from} to {to}{" "}
+            <span className="text-gold">Dzire Taxi</span> Service at
+            Affordable Fares
           </h1>
 
+          {/* Description */}
           <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7">
-            Travel in comfort with our premium Sedans. Perfect for families and
-            business travel with extra legroom and space for 3 suitcases.
+            Book a comfortable and reliable Maruti Suzuki Swift Dzire from{" "}
+            {from} to {to}. Ideal for families, couples, business travel and
+            airport transfers with comfortable seating, spacious boot space
+            and powerful AC.
           </p>
 
-          {/* Sedan Specs */}
+          {/* ================= DZIRE SPECS ================= */}
           <div className="mt-6 grid grid-cols-3 gap-2 sm:mt-8 sm:gap-4">
+            {/* Seats */}
             <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
-              <p className="text-xl font-bold text-gold sm:text-2xl">4</p>
+              <p className="text-xl font-bold text-gold sm:text-2xl">
+                4
+              </p>
+
               <p className="mt-1 text-[11px] text-slate-500 sm:text-xs">
                 Seats
               </p>
             </div>
 
+            {/* Bags */}
             <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
-              <p className="text-xl font-bold text-gold sm:text-2xl">3</p>
+              <p className="text-xl font-bold text-gold sm:text-2xl">
+                3
+              </p>
+
               <p className="mt-1 text-[11px] text-slate-500 sm:text-xs">
                 Large Bags
               </p>
             </div>
 
+            {/* Fare */}
             <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
               <p className="text-lg font-bold text-gold sm:text-2xl">
                 ₹{startingFare.toLocaleString("en-IN")}
               </p>
+
               <p className="mt-1 text-[11px] text-slate-500 sm:text-xs">
                 Starting Fare
               </p>
             </div>
           </div>
 
-          {/* CTA Buttons */}
+          {/* ================= CTA BUTTONS ================= */}
           <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-4">
+            {/* Call */}
             <a
               href={`tel:${PHONE_NUMBER}`}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg sm:w-auto"
             >
-              Call for Sedan
+              Call for Dzire
             </a>
 
+            {/* WhatsApp */}
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
@@ -118,17 +138,19 @@ Date: ${date}`;
           </div>
         </div>
 
-        {/* Right: Booking Card */}
+        {/* ================= RIGHT BOOKING CARD ================= */}
         <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xl sm:p-8">
+          {/* Card Label */}
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
-            Book Your Sedan
+            Book Your Swift Dzire
           </p>
 
+          {/* Card Heading */}
           <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
             Instant Cab Confirmation
           </h2>
 
-          {/* Trip Type Toggle */}
+          {/* ================= TRIP TYPE ================= */}
           <div className="mt-4 grid grid-cols-2 rounded-xl border border-slate-200 p-1 sm:mt-5">
             {(["one-way", "round-trip"] as TripType[]).map((type) => (
               <button
@@ -146,12 +168,12 @@ Date: ${date}`;
             ))}
           </div>
 
-          {/* Form */}
+          {/* ================= FORM ================= */}
           <form onSubmit={handleBook} className="mt-4 space-y-4 sm:mt-5">
-            {/* Model Selection */}
+            {/* Vehicle */}
             <div>
               <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                Select Sedan Model
+                Select Car Model
               </label>
 
               <select
@@ -159,7 +181,7 @@ Date: ${date}`;
                 onChange={(e) => setModel(e.target.value)}
                 className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
               >
-                {SEDAN_MODELS.map((m) => (
+                {DZIRE_MODELS.map((m) => (
                   <option key={m} value={m}>
                     {m}
                   </option>
@@ -167,7 +189,9 @@ Date: ${date}`;
               </select>
             </div>
 
+            {/* Pickup & Drop */}
             <div className="grid gap-4 sm:grid-cols-2">
+              {/* Pickup */}
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-slate-700">
                   Pickup Location
@@ -183,6 +207,7 @@ Date: ${date}`;
                 />
               </div>
 
+              {/* Drop */}
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-slate-700">
                   Drop Location
@@ -199,6 +224,7 @@ Date: ${date}`;
               </div>
             </div>
 
+            {/* Travel Date */}
             <div>
               <label className="mb-1.5 block text-sm font-semibold text-slate-700">
                 Travel Date
@@ -214,11 +240,13 @@ Date: ${date}`;
               />
             </div>
 
+            {/* Submit */}
             <button
               type="submit"
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
             >
-              Book Sedan Now
+              Book Dzire Now
+
               <span className="text-lg leading-none">→</span>
             </button>
           </form>
