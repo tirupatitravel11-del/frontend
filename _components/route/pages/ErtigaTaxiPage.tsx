@@ -56,30 +56,23 @@ export default function ErtigaTaxiPage({ data }: any) {
 
   return (
     <>
-      <ErtigaTaxiHero from="Noida" to="Delhi" startingFare={1299} />
+      <ErtigaTaxiHero
+        from={route.fromCity}
+        to={route.toCity}
+        startingFare={1299}
+      />
       <ErtigaStorySection />
       <VehicleComparison />
-      <PopularRoutes from="Noida" to="Delhi" routes={NOIDA_DELHI_ROUTES} />
+      <PopularRoutes
+        routes={data.popularRoutes}
+        from={route.fromCity}
+        to={route.toCity}
+      />
       <ErtigaAdvantage />
       <Testimonials />
       <HowToBook from="Noida" to="Delhi" />
       <WhyChooseUs />
       <ErtigaFaq />
-
-      {/* <SedanHero from="Noida" to="Delhi" startingFare={1599} />
-      <SedanFleetDetails />
-      <SedanFitGuide />
-      <PopularRoutes
-        from="Lucknow"
-        to="Ayodhya"
-        routes={LUCKNOW_AYODHYA_ROUTES}
-      />
-      <AirportSpotlight />
-      <Testimonials />
-      <HowToBook from="Lucknow" to="Delhi" />
-      <WhyChooseUs />
-
-      <SedanFaq /> */}
     </>
   );
 }

@@ -60,7 +60,7 @@ Date: ${date}`;
           </span>
 
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
-            {from} → {to} Honda Amaze Service
+            {from} → {to} Honda Amaze Taxi
           </p>
 
           <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:leading-tight">
