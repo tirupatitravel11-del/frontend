@@ -1,6 +1,4 @@
-import CabSelector from "@/_components/CabSelector";
-import FareDetails from "@/_components/FareDetails";
-import Hero from "@/_components/Hero";
+
 import HowToBook from "@/_components/Howtobook";
 import FamilyLongDistanceSpotlight from "@/_components/InnovaCrysta/FamilyLongDistanceSpotlight";
 import InnovaCrystaFaq from "@/_components/InnovaCrysta/InnovaCrystaFaq";
@@ -8,12 +6,6 @@ import InnovaCrystaFitGuide from "@/_components/InnovaCrysta/InnovaCrystaFitGuid
 import InnovaCrystaHero from "@/_components/InnovaCrysta/InnovaCrystaHero";
 import InnovaFleetDetails from "@/_components/InnovaCrysta/InnovaFleetDetails";
 import PopularRoutes from "@/_components/PopularRoutes";
-import AirportSpotlight from "@/_components/sedan/AirportSpotlight";
-import SedanFaq from "@/_components/sedan/SedanFaq";
-import SedanFitGuide from "@/_components/sedan/SedanFitGuide";
-import SedanFleetDetails from "@/_components/sedan/SedanFleetDetails";
-import SedanHero from "@/_components/sedan/SedanHero";
-import TaxiFaq from "@/_components/TaxiFaq";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
 

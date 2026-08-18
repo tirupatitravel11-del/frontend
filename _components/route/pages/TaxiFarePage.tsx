@@ -5,40 +5,30 @@ import PopularRoutes from "@/_components/PopularRoutes";
 import TaxiFaq from "@/_components/TaxiFaq";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 
-
 export default function TaxiFarePage({ data }: any) {
   const { route, page } = data;
 
   return (
     <>
-      <Hero
-        from={route.fromCity}
-        to={route.toCity}
-        // title={page.h1}
-      />
+      <Hero from={route.fromCity} to={route.toCity} />
 
       <FareDetails
-        // fares={data.fares}
-        // showDetailedFare={true}
-        to="noida"
-        from="delhi"
+        from={route.fromCity}
+        to={route.toCity}
         title="Fare Details"
       />
 
-      <CabSelector
-        // vehicles={data.vehicles}
-              to="noida"
-        from="delhi"
-      />
+      <CabSelector from={route.fromCity} to={route.toCity} />
 
       <PopularRoutes
-        routes={data.popularRoutes} from={""} to={""}      />
-
-      <WhyChooseUs  />
-
-      <TaxiFaq
-        // faqs={page.faqs}
+        routes={data.popularRoutes}
+        from={route.fromCity}
+        to={route.toCity}
       />
+
+      <WhyChooseUs />
+
+      <TaxiFaq />
     </>
   );
 }

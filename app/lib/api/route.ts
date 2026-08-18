@@ -268,7 +268,80 @@ const routePages: Record<string, any> = {
       },
     ],
 
-    popularRoutes: [],
+popularRoutes: [
+  {
+    id: 1,
+    from: "Noida",
+    to: "Delhi",
+    distance: "25 km",
+    duration: "45 min–1.5 hr",
+    image: "/popular_cab_route1.jpg",
+    popular: true,
+  },
+  {
+    id: 2,
+    from: "Noida",
+    to: "Delhi Airport",
+    distance: "35 km",
+    duration: "1–2 hr",
+    image: "/popular_cab_route2.jpg",
+    popular: true,
+  },
+  {
+    id: 3,
+    from: "Noida",
+    to: "New Delhi Railway Station",
+    distance: "30 km",
+    duration: "1–1.5 hr",
+    image: "/popular_cab_route3.jpg",
+    popular: true,
+  },
+  {
+    id: 4,
+    from: "Noida",
+    to: "Agra",
+    distance: "200 km",
+    duration: "4–5 hr",
+    image: "/popular_cab_route4.jpg",
+    popular: true,
+  },
+  {
+    id: 5,
+    from: "Noida",
+    to: "Jaipur",
+    distance: "280 km",
+    duration: "5–6 hr",
+    image: "/popular_cab_route5.jpg",
+    popular: true,
+  },
+  {
+    id: 6,
+    from: "Noida",
+    to: "Haridwar",
+    distance: "220 km",
+    duration: "5–6 hr",
+    image: "/popular_cab_route6.jpg",
+    popular: true,
+  },
+  {
+    id: 7,
+    from: "Noida",
+    to: "Mathura",
+    distance: "160 km",
+    duration: "3–4 hr",
+    image: "/popular_cab_route7.jpg",
+    popular: true,
+  },
+  {
+    id: 8,
+    from: "Noida",
+    to: "Vrindavan",
+    distance: "165 km",
+    duration: "3–4 hr",
+    image: "/popular_cab_route8.jpg",
+    popular: true,
+  },
+]
   },
 
   "noida-to-delhi-one-way-taxi": {
@@ -412,7 +485,80 @@ const routePages: Record<string, any> = {
       },
     ],
 
-    popularRoutes: [],
+popularRoutes: [
+  {
+    id: 1,
+    from: "Noida",
+    to: "Delhi",
+    distance: "25 km",
+    duration: "45 min–1.5 hr",
+    image: "/popular_cab_route1.jpg",
+    popular: true,
+  },
+  {
+    id: 2,
+    from: "Noida",
+    to: "New Delhi Railway Station",
+    distance: "30 km",
+    duration: "1–1.5 hr",
+    image: "/popular_cab_route2.jpg",
+    popular: true,
+  },
+  {
+    id: 3,
+    from: "Noida",
+    to: "Delhi Airport",
+    distance: "35 km",
+    duration: "1–2 hr",
+    image: "/popular_cab_route3.jpg",
+    popular: true,
+  },
+  {
+    id: 4,
+    from: "Noida",
+    to: "Gurgaon",
+    distance: "55 km",
+    duration: "1.5–2.5 hr",
+    image: "/popular_cab_route4.jpg",
+    popular: true,
+  },
+  {
+    id: 5,
+    from: "Noida",
+    to: "Agra",
+    distance: "200 km",
+    duration: "4–5 hr",
+    image: "/popular_cab_route5.jpg",
+    popular: true,
+  },
+  {
+    id: 6,
+    from: "Noida",
+    to: "Jaipur",
+    distance: "280 km",
+    duration: "5–6 hr",
+    image: "/popular_cab_route6.jpg",
+    popular: true,
+  },
+  {
+    id: 7,
+    from: "Noida",
+    to: "Haridwar",
+    distance: "220 km",
+    duration: "5–6 hr",
+    image: "/popular_cab_route7.jpg",
+    popular: true,
+  },
+  {
+    id: 8,
+    from: "Noida",
+    to: "Mathura",
+    distance: "160 km",
+    duration: "3–4 hr",
+    image: "/popular_cab_route8.jpg",
+    popular: true,
+  },
+]
   },
   "noida-to-delhi-suv-taxi": {
     page: {
@@ -1115,7 +1261,80 @@ const routePages: Record<string, any> = {
       },
     ],
 
-    popularRoutes: [],
+   popularRoutes: [
+  {
+    id: 1,
+    from: "Noida",
+    to: "Delhi",
+    distance: "25 km",
+    duration: "45 min–1.5 hr",
+    image: "/popular_cab_route1.jpg",
+    popular: true,
+  },
+  {
+    id: 2,
+    from: "Noida",
+    to: "Delhi Airport",
+    distance: "35 km",
+    duration: "1–2 hr",
+    image: "/popular_cab_route2.jpg",
+    popular: true,
+  },
+  {
+    id: 3,
+    from: "Noida",
+    to: "New Delhi Railway Station",
+    distance: "30 km",
+    duration: "1–1.5 hr",
+    image: "/popular_cab_route3.jpg",
+    popular: true,
+  },
+  {
+    id: 4,
+    from: "Noida",
+    to: "Agra",
+    distance: "200 km",
+    duration: "4–5 hr",
+    image: "/popular_cab_route4.jpg",
+    popular: true,
+  },
+  {
+    id: 5,
+    from: "Noida",
+    to: "Jaipur",
+    distance: "280 km",
+    duration: "5–6 hr",
+    image: "/popular_cab_route5.jpg",
+    popular: true,
+  },
+  {
+    id: 6,
+    from: "Noida",
+    to: "Haridwar",
+    distance: "220 km",
+    duration: "5–6 hr",
+    image: "/popular_cab_route6.jpg",
+    popular: true,
+  },
+  {
+    id: 7,
+    from: "Noida",
+    to: "Mathura",
+    distance: "160 km",
+    duration: "3–4 hr",
+    image: "/popular_cab_route7.jpg",
+    popular: true,
+  },
+  {
+    id: 8,
+    from: "Noida",
+    to: "Vrindavan",
+    distance: "165 km",
+    duration: "3–4 hr",
+    image: "/popular_cab_route8.jpg",
+    popular: true,
+  },
+]
   },
   "noida-to-delhi-dzire-taxi": {
     page: {
@@ -1410,8 +1629,416 @@ const routePages: Record<string, any> = {
       },
     ],
 
-    popularRoutes: [],
+popularRoutes: [
+  {
+    id: 1,
+    from: "Noida",
+    to: "Delhi",
+    distance: "25 km",
+    duration: "45 min–1.5 hr",
+    image: "/popular_cab_route1.jpg",
+    popular: true,
   },
+  {
+    id: 2,
+    from: "Noida",
+    to: "Delhi Airport",
+    distance: "35 km",
+    duration: "1–2 hr",
+    image: "/popular_cab_route2.jpg",
+    popular: true,
+  },
+  {
+    id: 3,
+    from: "Noida",
+    to: "New Delhi Railway Station",
+    distance: "30 km",
+    duration: "1–1.5 hr",
+    image: "/popular_cab_route3.jpg",
+    popular: true,
+  },
+  {
+    id: 4,
+    from: "Noida",
+    to: "Agra",
+    distance: "200 km",
+    duration: "4–5 hr",
+    image: "/popular_cab_route4.jpg",
+    popular: true,
+  },
+  {
+    id: 5,
+    from: "Noida",
+    to: "Jaipur",
+    distance: "280 km",
+    duration: "5–6 hr",
+    image: "/popular_cab_route5.jpg",
+    popular: true,
+  },
+  {
+    id: 6,
+    from: "Noida",
+    to: "Haridwar",
+    distance: "220 km",
+    duration: "5–6 hr",
+    image: "/popular_cab_route6.jpg",
+    popular: true,
+  },
+  {
+    id: 7,
+    from: "Noida",
+    to: "Mathura",
+    distance: "160 km",
+    duration: "3–4 hr",
+    image: "/popular_cab_route7.jpg",
+    popular: true,
+  },
+  {
+    id: 8,
+    from: "Noida",
+    to: "Vrindavan",
+    distance: "165 km",
+    duration: "3–4 hr",
+    image: "/popular_cab_route8.jpg",
+    popular: true,
+  },
+]
+  },
+  "noida-to-delhi-amaze-taxi": {
+  page: {
+    _id: "page-amaze-001",
+    pageType: "amaze-taxi",
+    slug: "noida-to-delhi-amaze-taxi",
+    h1: "Noida to Delhi Amaze Taxi",
+    metaTitle: "Noida to Delhi Amaze Taxi | Honda Amaze Cab",
+    metaDescription:
+      "Book a Honda Amaze taxi from Noida to Delhi at affordable fares. Comfortable 5-seater cab for family, business and airport travel.",
+    faqs: [],
+  },
+
+  route: {
+    _id: "route-001",
+    fromCity: "Noida",
+    toCity: "Delhi",
+    slug: "noida-to-delhi",
+    distance: 25,
+    duration: "45 min - 1.5 hrs",
+  },
+
+  vehicles: [
+    {
+      _id: "vehicle-amaze-001",
+      name: "Honda Amaze",
+      slug: "honda-amaze",
+      brand: "Honda",
+      cabType: "Sedan",
+      passengerCapacity: 5,
+      luggageCapacity: 3,
+      image: "/amaze.webp",
+      airCondition: true,
+      fuelType: "Petrol",
+      transmission: "Manual / CVT",
+    },
+  ],
+
+  fares: [
+    {
+      _id: "fare-amaze-001",
+      vehicleId: "vehicle-amaze-001",
+      vehicleName: "Honda Amaze",
+      oneWayPrice: 1649,
+      roundTripPrice: 2749,
+    },
+  ],
+
+popularRoutes: [
+  {
+    id: 1,
+    from: "Noida",
+    to: "Delhi",
+    distance: "25 km",
+    duration: "45 min–1.5 hr",
+    image: "/popular_cab_route1.jpg",
+    popular: true,
+  },
+  {
+    id: 2,
+    from: "Noida",
+    to: "Delhi Airport",
+    distance: "35 km",
+    duration: "1–2 hr",
+    image: "/popular_cab_route2.jpg",
+    popular: true,
+  },
+  {
+    id: 3,
+    from: "Noida",
+    to: "New Delhi Railway Station",
+    distance: "30 km",
+    duration: "1–1.5 hr",
+    image: "/popular_cab_route3.jpg",
+    popular: true,
+  },
+  {
+    id: 4,
+    from: "Noida",
+    to: "Agra",
+    distance: "200 km",
+    duration: "4–5 hr",
+    image: "/popular_cab_route4.jpg",
+    popular: true,
+  },
+  {
+    id: 5,
+    from: "Noida",
+    to: "Jaipur",
+    distance: "280 km",
+    duration: "5–6 hr",
+    image: "/popular_cab_route5.jpg",
+    popular: true,
+  },
+  {
+    id: 6,
+    from: "Noida",
+    to: "Haridwar",
+    distance: "220 km",
+    duration: "5–6 hr",
+    image: "/popular_cab_route6.jpg",
+    popular: true,
+  },
+  {
+    id: 7,
+    from: "Noida",
+    to: "Mathura",
+    distance: "160 km",
+    duration: "3–4 hr",
+    image: "/popular_cab_route7.jpg",
+    popular: true,
+  },
+  {
+    id: 8,
+    from: "Noida",
+    to: "Vrindavan",
+    distance: "165 km",
+    duration: "3–4 hr",
+    image: "/popular_cab_route8.jpg",
+    popular: true,
+  },
+]
+},
+"noida-to-delhi-distance-travel-time": {
+  page: {
+    _id: "page-distance-001",
+    pageType: "distance-travel-time",
+    slug: "noida-to-delhi-distance-travel-time",
+
+    h1: "Noida to Delhi Distance & Travel Time",
+
+    metaTitle:
+      "Noida to Delhi Distance & Travel Time | Taxi Route",
+
+    metaDescription:
+      "Check Noida to Delhi distance, estimated travel time, traffic conditions and best travel timings. Plan your Noida to Delhi taxi journey easily.",
+
+    faqs: [
+      {
+        _id: "faq-distance-001",
+        question: "What is the distance from Noida to Delhi?",
+        answer:
+          "The approximate road distance from Noida to Delhi is around 25 km. The actual distance can vary depending on your pickup location in Noida and destination in Delhi.",
+      },
+
+      {
+        _id: "faq-distance-002",
+        question: "How much time does it take from Noida to Delhi?",
+        answer:
+          "A taxi from Noida to Delhi usually takes around 45 minutes to 1.5 hours. Travel time depends on traffic, pickup location and destination.",
+      },
+
+      {
+        _id: "faq-distance-003",
+        question: "What is the best time to travel from Noida to Delhi?",
+        answer:
+          "Early morning and late evening generally have lighter traffic. During morning and evening peak hours, you should keep additional travel time because traffic can increase the journey duration.",
+      },
+
+      {
+        _id: "faq-distance-004",
+        question: "Is Noida to Delhi available by taxi?",
+        answer:
+          "Yes. Private taxis are available from Noida to different locations in Delhi. You can choose a Sedan, SUV, Ertiga, Innova Crysta or other available vehicle according to your passenger and luggage requirements.",
+      },
+
+      {
+        _id: "faq-distance-005",
+        question: "Can I book a taxi from Noida to Delhi Airport?",
+        answer:
+          "Yes. You can book a private taxi from Noida to Delhi Airport. The travel time depends on the pickup location, airport terminal and traffic conditions.",
+      },
+    ],
+  },
+
+  route: {
+    _id: "route-001",
+    fromCity: "Noida",
+    toCity: "Delhi",
+    slug: "noida-to-delhi",
+    distance: 25,
+    duration: "45 min - 1.5 hrs",
+  },
+
+  vehicles: [
+    {
+      _id: "vehicle-001",
+      name: "Swift Dzire",
+      slug: "swift-dzire",
+      brand: "Maruti Suzuki",
+      cabType: "Sedan",
+      passengerCapacity: 4,
+      luggageCapacity: 3,
+      image: "/dezire_white.png",
+      airCondition: true,
+      fuelType: "CNG / Petrol",
+      transmission: "Manual",
+    },
+
+    {
+      _id: "vehicle-002",
+      name: "Ertiga",
+      slug: "ertiga",
+      brand: "Maruti Suzuki",
+      cabType: "SUV",
+      passengerCapacity: 6,
+      luggageCapacity: 3,
+      image: "/ertiga.png",
+      airCondition: true,
+      fuelType: "Petrol",
+      transmission: "Manual",
+    },
+
+    {
+      _id: "vehicle-003",
+      name: "Innova Crysta",
+      slug: "innova-crysta",
+      brand: "Toyota",
+      cabType: "Premium SUV",
+      passengerCapacity: 6,
+      luggageCapacity: 5,
+      image: "/images/cars/innova-crysta.png",
+      airCondition: true,
+      fuelType: "Diesel",
+      transmission: "Manual",
+    },
+  ],
+
+  fares: [
+    {
+      _id: "fare-distance-001",
+      vehicleId: "vehicle-001",
+      vehicleName: "Swift Dzire",
+      oneWayPrice: 1599,
+      roundTripPrice: 2699,
+    },
+
+    {
+      _id: "fare-distance-002",
+      vehicleId: "vehicle-002",
+      vehicleName: "Ertiga",
+      oneWayPrice: 1800,
+      roundTripPrice: 3300,
+    },
+
+    {
+      _id: "fare-distance-003",
+      vehicleId: "vehicle-003",
+      vehicleName: "Innova Crysta",
+      oneWayPrice: 2800,
+      roundTripPrice: 5000,
+    },
+  ],
+
+  popularRoutes: [
+    {
+      id: 1,
+      from: "Noida",
+      to: "Delhi",
+      distance: "25 km",
+      duration: "45 min–1.5 hr",
+      image: "/popular_cab_route1.jpg",
+      popular: true,
+    },
+
+    {
+      id: 2,
+      from: "Noida",
+      to: "Delhi Airport",
+      distance: "35 km",
+      duration: "1–2 hr",
+      image: "/popular_cab_route2.jpg",
+      popular: true,
+    },
+
+    {
+      id: 3,
+      from: "Noida",
+      to: "New Delhi Railway Station",
+      distance: "30 km",
+      duration: "1–1.5 hr",
+      image: "/popular_cab_route3.jpg",
+      popular: true,
+    },
+
+    {
+      id: 4,
+      from: "Noida",
+      to: "Agra",
+      distance: "200 km",
+      duration: "4–5 hr",
+      image: "/popular_cab_route4.jpg",
+      popular: true,
+    },
+
+    {
+      id: 5,
+      from: "Noida",
+      to: "Jaipur",
+      distance: "280 km",
+      duration: "5–6 hr",
+      image: "/popular_cab_route5.jpg",
+      popular: true,
+    },
+
+    {
+      id: 6,
+      from: "Noida",
+      to: "Haridwar",
+      distance: "220 km",
+      duration: "5–6 hr",
+      image: "/popular_cab_route6.jpg",
+      popular: true,
+    },
+
+    {
+      id: 7,
+      from: "Noida",
+      to: "Mathura",
+      distance: "160 km",
+      duration: "3–4 hr",
+      image: "/popular_cab_route7.jpg",
+      popular: true,
+    },
+
+    {
+      id: 8,
+      from: "Noida",
+      to: "Vrindavan",
+      distance: "165 km",
+      duration: "3–4 hr",
+      image: "/popular_cab_route8.jpg",
+      popular: true,
+    },
+  ],
+},
 };
 
 export async function getRoutePage(slug: string): Promise<any | null> {
