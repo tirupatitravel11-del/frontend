@@ -27,7 +27,8 @@ export default function ErtigaTaxiPage({ data }: any) {
       />
       <EtiosAirport />
       <Testimonials />
-      <HowToBook from={"Noida"} to={"Delhi"} />
+      <HowToBook  from={route.fromCity}
+        to={route.toCity} />
       <EtiosFaq />
     </>
   );
