@@ -14,14 +14,11 @@ export default function DzireTaxiPage({ data }: any) {
   return (
     <>
       <DzireHero from={route.fromCity} to={route.toCity} startingFare={1599} />
-
       <DzireFleetDetails />
-
       <DzireFitGuide />
       <Testimonials />
-      <HowToBook from="Lucknow" to="Delhi" />
+      <HowToBook from={route.fromCity} to={route.toCity} />
       <WhyChooseUs />
-
       <DzireFaq />
     </>
   );

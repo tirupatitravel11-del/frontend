@@ -51,53 +51,7 @@ const FAQS: Faq[] = [
       "We recommend booking at least 3–4 hours in advance. For early morning airport drops, book the previous night. Need a cab urgently? Call us — we often have a driver nearby who can reach you quickly.",
   },
 ];
-const FAQSOnway: Faq[] = [
-  {
-    question: "What is the one-way taxi fare from Noida to Delhi?",
-    answer:
-      "One-way taxi fares from Noida to Delhi start at ₹1,299 for a hatchback (WagonR, Swift), ₹1,599 for a sedan and ₹2,299 for an SUV. These are fixed one-way fares — you pay nothing for the driver's return journey. Tolls and parking are billed at actuals.",
-  },
-  {
-    question: "Do I have to pay for the driver's empty return trip?",
-    answer:
-      "No. That's the biggest advantage of our one-way cabs. Your fare covers only your journey from Noida to Delhi — the driver's return cost is on us, not you. This is why a one-way drop costs almost half of a round trip.",
-  },
-  {
-    question: "What is the difference between one-way and round trip?",
-    answer:
-      "With one-way, the driver drops you and leaves — you pay only for the drop. With round trip, the driver waits or comes back for you — you pay for both journeys. One-way is ideal for airport drops, shifting and open-ended plans; round trip is better if you're returning the same day.",
-  },
-  {
-    question: "Are tolls included in the one-way fare?",
-    answer:
-      "Tolls, parking and airport entry fees during your trip are billed at actuals and are not part of the fixed fare. Since it's a one-way trip, you never pay tolls for the return leg — another saving over round-trip bookings.",
-  },
-  {
-    question: "Can I make stops on the way during a one-way trip?",
-    answer:
-      "Yes. Short breaks for tea, food or washrooms are completely free. If you need a longer halt (more than 30–45 minutes), a small waiting charge applies — we'll always tell you before it's added.",
-  },
-  {
-    question: "Is a one-way cab suitable for airport drops from Noida?",
-    answer:
-      "Absolutely. One-way is the most booked option for IGI Airport drops — you pay only for the drop at Terminal 1, 2 or 3, starting at ₹1,499 for a hatchback. We recommend booking at least 3 hours before your flight departure.",
-  },
-  {
-    question: "Are one-way taxis available at night?",
-    answer:
-      "Yes, one-way drops run 24×7 — including early morning airport transfers and late night departures. A flat night charge of ₹200 applies for trips between 10 PM and 6 AM.",
-  },
-  {
-    question: "How do I pay for my one-way trip?",
-    answer:
-      "Pay after your drop is complete — by cash or UPI (Google Pay, PhonePe, Paytm). No advance payment is needed, and the fare stays fixed exactly as quoted at booking.",
-  },
-  {
-    question: "How early should I book a one-way taxi?",
-    answer:
-      "3–4 hours in advance is ideal. For early morning airport drops, book the previous night. In a hurry? Call us — we often have a driver nearby who can reach you quickly.",
-  },
-];
+
 interface TaxiFaqProps {
   title?: string;
   subtitle?: string;
