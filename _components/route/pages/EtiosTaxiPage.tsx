@@ -1,7 +1,7 @@
 import CabSelector from "@/_components/CabSelector";
 import ErtigaAdvantage from "@/_components/Ertiga/ErtigaAdvantage";
 import ErtigaFaq from "@/_components/Ertiga/ErtigaFaq";
-import ErtigaInteriorShowcase from "@/_components/Ertiga/ErtigaInteriorShowcase";
+
 import ErtigaStorySection from "@/_components/Ertiga/ErtigaStorySection";
 import ErtigaTaxiHero from "@/_components/Ertiga/ErtigaTaxiHero";
 

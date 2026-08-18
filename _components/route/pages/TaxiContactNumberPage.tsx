@@ -8,26 +8,14 @@ import TaxiFaq from "@/_components/TaxiFaq";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
 
-
-
-
 export default function TaxiPage({ data }: any) {
-  const {
-    route,
-    page,
-    vehicles,
-    fares,
-    popularRoutes,
-  } = data;
-console.log(data,"dhsjh");
+  const { route, page, vehicles, fares, popularRoutes } = data;
+  console.log(data, "dhsjh");
 
   return (
     <>
       {/* Hero */}
-      <Hero
-        from={route.fromCity}
-        to={route.toCity}
-      />
+      <Hero from={route.fromCity} to={route.toCity} />
 
       {/* Cab Selector */}
       <CabSelector
@@ -55,20 +43,16 @@ console.log(data,"dhsjh");
       <Testimonials />
 
       {/* How To Book */}
-      <HowToBook
-        from={route.fromCity}
-        to={route.toCity}
-      />
+      <HowToBook from={route.fromCity} to={route.toCity} />
 
       {/* Why Choose Us */}
       <WhyChooseUs
-       
+      // from={route.fromCity}
+      // to={route.toCity}
       />
 
       {/* FAQ */}
-      <TaxiFaq
-        faqs={page.faqs}
-      />
+      <TaxiFaq faqs={page.faqs} />
     </>
   );
 }
