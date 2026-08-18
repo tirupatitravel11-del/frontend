@@ -1239,6 +1239,179 @@ const routePages: Record<string, any> = {
       },
     ],
   },
+  "noida-to-delhi-etios-taxi": {
+    page: {
+      _id: "page-010",
+      pageType: "etios-taxi",
+      slug: "noida-to-delhi-etios-taxi",
+
+      h1: "Noida to Delhi Etios Taxi",
+
+      metaTitle: "Noida to Delhi Etios Taxi | Book Toyota Etios Cab",
+
+      metaDescription:
+        "Book a Toyota Etios taxi from Noida to Delhi at an affordable fare. Comfortable AC cab for one-way, round-trip and airport travel.",
+
+      faqs: [
+        {
+          _id: "faq-etios-001",
+          question: "What is the Etios taxi fare from Noida to Delhi?",
+          answer:
+            "The one-way Etios taxi fare from Noida to Delhi starts at around ₹1,699. The final fare may vary depending on the pickup location, trip type and travel requirements.",
+        },
+        {
+          _id: "faq-etios-002",
+          question: "How many passengers can travel in an Etios?",
+          answer:
+            "A Toyota Etios can comfortably accommodate up to 4 passengers with luggage and is suitable for families, couples and business travellers.",
+        },
+        {
+          _id: "faq-etios-003",
+          question:
+            "Is Etios available for one-way travel from Noida to Delhi?",
+          answer:
+            "Yes, Toyota Etios is available for one-way taxi travel from Noida to Delhi. You can book a private cab for your preferred pickup and drop location.",
+        },
+        {
+          _id: "faq-etios-004",
+          question: "Can I book an Etios from Noida to Delhi Airport?",
+          answer:
+            "Yes, you can book a Toyota Etios for airport transfers from Noida to Delhi. It is suitable for up to 4 passengers with moderate luggage.",
+        },
+        {
+          _id: "faq-etios-005",
+          question: "Is Etios taxi available 24x7?",
+          answer:
+            "Etios taxis can be booked for early morning, daytime and late-night travel, subject to vehicle availability.",
+        },
+      ],
+    },
+
+    route: {
+      _id: "route-001",
+      fromCity: "Noida",
+      toCity: "Delhi",
+      slug: "noida-to-delhi",
+      distance: 25,
+      duration: "45 min - 1.5 hrs",
+    },
+
+    vehicles: [
+      {
+        _id: "vehicle-002",
+        name: "Toyota Etios",
+        slug: "toyota-etios",
+        brand: "Toyota",
+        cabType: "Sedan",
+        passengerCapacity: 4,
+        luggageCapacity: 3,
+        image: "/etios.png",
+        airCondition: true,
+        fuelType: "Diesel / Petrol",
+        transmission: "Manual",
+      },
+    ],
+
+    fares: [
+      {
+        _id: "fare-etios-001",
+        vehicleId: "vehicle-002",
+        vehicleName: "Toyota Etios",
+        oneWayPrice: 1699,
+        roundTripPrice: 2799,
+      },
+    ],
+
+    popularRoutes: [
+      {
+        id: 1,
+        from: "Noida",
+        to: "Delhi",
+        distance: "25 km",
+        duration: "1 hr",
+        image: "/popular_cab_route1.jpg",
+        popular: true,
+      },
+      {
+        id: 2,
+        from: "Noida",
+        to: "Agra",
+        distance: "200 km",
+        duration: "4 hrs",
+        image: "/popular_cab_route2.jpg",
+        popular: true,
+      },
+      {
+        id: 3,
+        from: "Noida",
+        to: "Jaipur",
+        distance: "280 km",
+        duration: "5 hrs",
+        image: "/popular_cab_route3.jpg",
+        popular: true,
+      },
+      {
+        id: 4,
+        from: "Noida",
+        to: "Haridwar",
+        distance: "220 km",
+        duration: "5 hrs",
+        image: "/popular_cab_route4.jpg",
+        popular: true,
+      },
+    ],
+  },
+  "noida-to-delhi-taxi-contact-number": {
+    page: {
+      _id: "page-003",
+      pageType: "taxi-contact-number",
+      slug: "noida-to-delhi-taxi-contact-number",
+      h1: "Noida to Delhi Taxi Contact Number",
+      metaTitle: "Noida to Delhi Taxi Contact Number | Book Cab",
+      metaDescription:
+        "Get the Noida to Delhi taxi contact number to book a cab, check fares, confirm availability and get assistance for your journey.",
+      faqs: [],
+    },
+
+    route: {
+      _id: "route-001",
+      fromCity: "Noida",
+      toCity: "Delhi",
+      slug: "noida-to-delhi",
+      distance: 25,
+      duration: "45 min - 1.5 hrs",
+    },
+
+    vehicles: [],
+
+    fares: [
+      {
+        _id: "fare-001",
+        vehicleId: "vehicle-001",
+        vehicleName: "Swift Dzire",
+        oneWayPrice: 1200,
+        roundTripPrice: 2200,
+      },
+
+      {
+        _id: "fare-002",
+        vehicleId: "vehicle-002",
+        vehicleName: "Ertiga",
+        oneWayPrice: 1800,
+        roundTripPrice: 3300,
+      },
+
+      {
+        _id: "fare-003",
+        vehicleId: "vehicle-003",
+        vehicleName: "Innova",
+        oneWayPrice: 2200,
+        roundTripPrice: 4000,
+      },
+    ],
+
+    popularRoutes: [],
+  },
 };
 
 export async function getRoutePage(slug: string): Promise<any | null> {
