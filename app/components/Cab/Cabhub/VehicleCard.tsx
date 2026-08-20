@@ -17,6 +17,8 @@ interface VehicleCardProps {
   features: string[];
   buttonText: string;
   slug: string;
+  linkPrefix?: string; // NEW: defaults to "/cabs/"
+  phone?: string; // NEW: optional phone override
 }
 
 export default function VehicleCard({
@@ -27,6 +29,8 @@ export default function VehicleCard({
   features,
   buttonText,
   slug,
+  linkPrefix = "/cabs/", // Default for backward compatibility
+  phone = "8448445504",
 }: VehicleCardProps) {
   return (
     <div className="group overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
@@ -97,8 +101,8 @@ export default function VehicleCard({
 
         {/* Book Button */}
         <Link
-          href={`/cabs/${slug}`}
-          className="mt-7 flex items-center justify-center gap-2 rounded-2xl bg-gold px-5 py-4 font-semibold text-white shadow-md transition "
+          href={`${linkPrefix}${slug}`}
+          className="mt-7 flex items-center justify-center gap-2 rounded-2xl bg-gold px-5 py-4 font-semibold text-white shadow-md transition"
         >
           {buttonText}
           <ArrowRight size={20} />
@@ -106,10 +110,10 @@ export default function VehicleCard({
 
         {/* Call Button */}
         <a
-          href="tel:8448445504"
+          href={`tel:${phone}`}
           className="mt-4 block rounded-2xl border border-gold px-5 py-4 text-center font-semibold text-stone-900 transition hover:bg-gold hover:text-white"
         >
-          Call 8448445504
+          Call
         </a>
       </div>
     </div>

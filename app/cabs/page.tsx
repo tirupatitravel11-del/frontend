@@ -57,7 +57,7 @@ export default function CabsPage() {
           </div>
         </div>
 
-        <TrustPoints />
+        {/* <TrustPoints /> */}
       </section>
 
       {/* Dynamic Unique Intro */}
