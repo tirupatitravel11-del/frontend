@@ -62,6 +62,9 @@ Please share the detailed quote.`;
             <Star className="h-3 w-3 fill-current" />
             Wedding Favourite • Most Booked
           </div>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
+            {from} → {to} Group Travel
+          </p>
 
           <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:leading-tight">
             20 Seater Luxury Tempo Traveller{" "}

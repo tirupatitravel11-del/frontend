@@ -1,5 +1,6 @@
-
+import TwentyFourDetails from "@/_components/24seatTempo/TwentyFourDetails";
 import TwentyFourSeaterGroupBenefits from "@/_components/24seatTempo/TwentyFourSeaterGroupBenefits";
+import TwentyFourSeaterSeating from "@/_components/24seatTempo/TwentyFourSeaterSeating";
 import TwentyFourSeaterTempoDetails from "@/_components/24seatTempo/TwentyFourSeaterTempoDetails";
 import TwentyFourSeaterTempoFaq from "@/_components/24seatTempo/TwentyFourSeaterTempoFaq";
 import TwentyFourSeaterTempoFare from "@/_components/24seatTempo/TwentyFourSeaterTempoFare";
@@ -22,9 +23,12 @@ export default function TwentyFourSeaterTempoTravellerPage({
         startingFare={data.fares?.[0]?.oneWayPrice || 7500}
       />
 
+      <TwentyFourDetails />
+      <TwentyFourSeaterSeating/>
+
       <TwentyFourSeaterTempoDetails />
 
-      <TwentyFourSeaterGroupBenefits />
+      {/* <TwentyFourSeaterGroupBenefits /> */}
 
       <TwentyFourSeaterTempoFare
         from={route.fromCity}
@@ -39,8 +43,7 @@ export default function TwentyFourSeaterTempoTravellerPage({
         to={route.toCity}
       />
 
-      <WhyChooseUs
-      />
+      <WhyChooseUs />
 
       <TwentyFourSeaterTempoFaq />
     </>

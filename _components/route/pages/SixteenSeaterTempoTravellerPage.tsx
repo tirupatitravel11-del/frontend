@@ -1,5 +1,7 @@
-
+import SeaterDetails from "@/_components/12seatTempo/Seater12Seating";
+import SixteenSeaterDetails from "@/_components/16seatTempo/SixteenSeaterDetails";
 import SixteenSeaterGroupBenefits from "@/_components/16seatTempo/SixteenSeaterGroupBenefits";
+import SixteenSeaterSeating from "@/_components/16seatTempo/SixteenSeaterSeating";
 import SixteenSeaterTempoDetails from "@/_components/16seatTempo/SixteenSeaterTempoDetails";
 import SixteenSeaterTempoFaq from "@/_components/16seatTempo/SixteenSeaterTempoFaq";
 import SixteenSeaterTempoFare from "@/_components/16seatTempo/SixteenSeaterTempoFare";
@@ -21,10 +23,13 @@ export default function SixteenSeaterTempoTravellerPage({
         to={route.toCity}
         startingFare={data.fares?.[0]?.oneWayPrice || 5500}
       />
+      <SixteenSeaterDetails />
+      {/* <SeaterDetails /> */}
 
+      <SixteenSeaterSeating />
       <SixteenSeaterTempoDetails />
 
-      <SixteenSeaterGroupBenefits />
+      {/* <SixteenSeaterGroupBenefits /> */}
 
       <SixteenSeaterTempoFare
         from={route.fromCity}
@@ -39,8 +44,7 @@ export default function SixteenSeaterTempoTravellerPage({
         to={route.toCity}
       />
 
-      <WhyChooseUs
-      />
+      <WhyChooseUs />
 
       <SixteenSeaterTempoFaq />
     </>
