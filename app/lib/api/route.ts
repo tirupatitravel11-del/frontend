@@ -2039,6 +2039,513 @@ popularRoutes: [
     },
   ],
 },
+"noida-to-delhi-12-seater-tempo-traveller": {
+  page: {
+    _id: "page-12-seater-001",
+    pageType: "12-seater-tempo-traveller",
+    slug: "noida-to-delhi-12-seater-tempo-traveller",
+
+    h1: "Noida to Delhi 12 Seater Tempo Traveller",
+
+    metaTitle:
+      "Noida to Delhi 12 Seater Tempo Traveller | Book Now",
+
+    metaDescription:
+      "Book a 12 seater Tempo Traveller from Noida to Delhi for family trips, group travel, corporate outings and events. Comfortable seating, AC and spacious luggage capacity.",
+
+    faqs: [
+      {
+        _id: "faq-12-seater-001",
+        question:
+          "What is the fare for a 12 seater Tempo Traveller from Noida to Delhi?",
+        answer:
+          "The fare for a 12 seater Tempo Traveller from Noida to Delhi depends on the travel date, pickup location, drop location and trip type. Contact us for the latest fixed fare.",
+      },
+
+      {
+        _id: "faq-12-seater-002",
+        question:
+          "How many people can travel in a 12 seater Tempo Traveller?",
+        answer:
+          "A 12 seater Tempo Traveller is suitable for a group of up to 12 passengers. It is a convenient option for families, friends, corporate groups and small tour groups.",
+      },
+
+      {
+        _id: "faq-12-seater-003",
+        question:
+          "Is the 12 seater Tempo Traveller available for one way travel?",
+        answer:
+          "Yes. A 12 seater Tempo Traveller can be booked for one way travel from Noida to Delhi, subject to vehicle availability.",
+      },
+
+      {
+        _id: "faq-12-seater-004",
+        question:
+          "Is the 12 seater Tempo Traveller air conditioned?",
+        answer:
+          "Yes. Our 12 seater Tempo Travellers are available with air conditioning and comfortable seating for group travel.",
+      },
+
+      {
+        _id: "faq-12-seater-005",
+        question:
+          "Can I book a 12 seater Tempo Traveller for a family trip?",
+        answer:
+          "Yes. A 12 seater Tempo Traveller is an excellent choice for family trips because the entire group can travel together in one comfortable vehicle.",
+      },
+
+      {
+        _id: "faq-12-seater-006",
+        question:
+          "Can I book a 12 seater Tempo Traveller from Noida to Delhi Airport?",
+        answer:
+          "Yes. You can book a 12 seater Tempo Traveller for group airport transfers from Noida to Delhi Airport. The vehicle provides enough seating for larger groups and their luggage.",
+      },
+    ],
+  },
+
+  route: {
+    _id: "route-001",
+    fromCity: "Noida",
+    toCity: "Delhi",
+    slug: "noida-to-delhi",
+    distance: 25,
+    duration: "45 min - 1.5 hrs",
+  },
+
+  vehicles: [
+    {
+      _id: "vehicle-12-seater-001",
+      name: "12 Seater Tempo Traveller",
+      slug: "12-seater-tempo-traveller",
+      brand: "Force",
+      cabType: "Tempo Traveller",
+      passengerCapacity: 12,
+      luggageCapacity: 8,
+      image: "/images/tempo-traveller/12-seater.png",
+      airCondition: true,
+      fuelType: "Diesel",
+      transmission: "Manual",
+    },
+  ],
+
+  fares: [
+    {
+      _id: "fare-12-seater-001",
+      vehicleId: "vehicle-12-seater-001",
+      vehicleName: "12 Seater Tempo Traveller",
+      oneWayPrice: 4500,
+      roundTripPrice: 7500,
+    },
+  ],
+
+  popularRoutes: [
+    {
+      id: 1,
+      from: "Noida",
+      to: "Delhi",
+      distance: "25 km",
+      duration: "45 min–1.5 hr",
+      image: "/popular_cab_route1.jpg",
+      popular: true,
+    },
+
+    {
+      id: 2,
+      from: "Noida",
+      to: "Delhi Airport",
+      distance: "35 km",
+      duration: "1–2 hr",
+      image: "/popular_cab_route2.jpg",
+      popular: true,
+    },
+
+    {
+      id: 3,
+      from: "Noida",
+      to: "Agra",
+      distance: "200 km",
+      duration: "4–5 hr",
+      image: "/popular_cab_route3.jpg",
+      popular: true,
+    },
+
+    {
+      id: 4,
+      from: "Noida",
+      to: "Mathura",
+      distance: "160 km",
+      duration: "3–4 hr",
+      image: "/popular_cab_route4.jpg",
+      popular: true,
+    },
+
+    {
+      id: 5,
+      from: "Noida",
+      to: "Vrindavan",
+      distance: "165 km",
+      duration: "3–4 hr",
+      image: "/popular_cab_route5.jpg",
+      popular: true,
+    },
+
+    {
+      id: 6,
+      from: "Noida",
+      to: "Jaipur",
+      distance: "280 km",
+      duration: "5–6 hr",
+      image: "/popular_cab_route6.jpg",
+      popular: true,
+    },
+
+    {
+      id: 7,
+      from: "Noida",
+      to: "Haridwar",
+      distance: "220 km",
+      duration: "5–6 hr",
+      image: "/popular_cab_route7.jpg",
+      popular: true,
+    },
+
+    {
+      id: 8,
+      from: "Noida",
+      to: "Rishikesh",
+      distance: "250 km",
+      duration: "5–6 hr",
+      image: "/popular_cab_route8.jpg",
+      popular: true,
+    },
+  ],
+},"noida-to-delhi-16-seater-tempo-traveller": {
+  page: {
+    _id: "page-16-seater-001",
+    pageType: "16-seater-tempo-traveller",
+    slug: "noida-to-delhi-16-seater-tempo-traveller",
+
+    h1: "Noida to Delhi 16 Seater Tempo Traveller",
+
+    metaTitle:
+      "Noida to Delhi 16 Seater Tempo Traveller | Book Tempo Traveller",
+
+    metaDescription:
+      "Book a 16 seater Tempo Traveller from Noida to Delhi for family trips, corporate outings, weddings, airport transfers and group travel. Comfortable AC seating with spacious luggage capacity.",
+
+    faqs: [
+      {
+        _id: "faq-16-seater-001",
+        question:
+          "What is the fare for a 16 seater Tempo Traveller from Noida to Delhi?",
+        answer:
+          "The fare for a 16 seater Tempo Traveller from Noida to Delhi depends on the travel date, pickup and drop location, trip duration and vehicle type. Contact us for the latest fare.",
+      },
+
+      {
+        _id: "faq-16-seater-002",
+        question:
+          "How many passengers can travel in a 16 seater Tempo Traveller?",
+        answer:
+          "A 16 seater Tempo Traveller is designed for up to 16 passengers, making it suitable for medium-sized families, corporate teams, wedding groups and group tours.",
+      },
+
+      {
+        _id: "faq-16-seater-003",
+        question:
+          "Is the 16 seater Tempo Traveller suitable for family trips?",
+        answer:
+          "Yes. A 16 seater Tempo Traveller is a convenient option for extended families and groups who want to travel together in one private vehicle.",
+      },
+
+      {
+        _id: "faq-16-seater-004",
+        question:
+          "Is the 16 seater Tempo Traveller air conditioned?",
+        answer:
+          "Yes. AC 16 seater Tempo Travellers are available for comfortable travel. Vehicle amenities may vary depending on the selected vehicle.",
+      },
+
+      {
+        _id: "faq-16-seater-005",
+        question:
+          "Can I book a 16 seater Tempo Traveller for Delhi Airport?",
+        answer:
+          "Yes. A 16 seater Tempo Traveller can be booked for group airport transfers between Noida and Delhi Airport.",
+      },
+
+      {
+        _id: "faq-16-seater-006",
+        question:
+          "Can I book a 16 seater Tempo Traveller for an outstation trip?",
+        answer:
+          "Yes. The 16 seater Tempo Traveller is suitable for outstation group trips to destinations such as Agra, Jaipur, Haridwar, Rishikesh and other cities.",
+      },
+
+      {
+        _id: "faq-16-seater-007",
+        question:
+          "Does the 16 seater Tempo Traveller have luggage space?",
+        answer:
+          "Yes. 16 seater Tempo Travellers generally provide dedicated luggage space. The actual luggage capacity depends on the vehicle configuration.",
+      },
+
+      {
+        _id: "faq-16-seater-008",
+        question:
+          "Is the fare per person or for the complete vehicle?",
+        answer:
+          "The booking is generally for the complete private vehicle rather than per passenger. Final pricing depends on the route, duration and booking requirements.",
+      },
+    ],
+  },
+
+  route: {
+    _id: "route-001",
+    fromCity: "Noida",
+    toCity: "Delhi",
+    slug: "noida-to-delhi",
+    distance: 25,
+    duration: "45 min - 1.5 hrs",
+  },
+
+  vehicles: [
+    {
+      _id: "vehicle-16-seater-001",
+      name: "16 Seater Tempo Traveller",
+      slug: "16-seater-tempo-traveller",
+      brand: "Force",
+      cabType: "Tempo Traveller",
+      passengerCapacity: 16,
+      luggageCapacity: 10,
+      image: "/images/tempo-traveller/16-seater.png",
+      airCondition: true,
+      fuelType: "Diesel",
+      transmission: "Manual",
+    },
+  ],
+
+  fares: [
+    {
+      _id: "fare-16-seater-001",
+      vehicleId: "vehicle-16-seater-001",
+      vehicleName: "16 Seater Tempo Traveller",
+      oneWayPrice: 5500,
+      roundTripPrice: 9000,
+    },
+  ],
+
+  popularRoutes: [
+    {
+      id: 1,
+      from: "Noida",
+      to: "Delhi",
+      distance: "25 km",
+      duration: "45 min–1.5 hr",
+      image: "/popular_cab_route1.jpg",
+      popular: true,
+    },
+
+    {
+      id: 2,
+      from: "Noida",
+      to: "Delhi Airport",
+      distance: "35 km",
+      duration: "1–2 hr",
+      image: "/popular_cab_route2.jpg",
+      popular: true,
+    },
+
+    {
+      id: 3,
+      from: "Noida",
+      to: "Agra",
+      distance: "200 km",
+      duration: "4–5 hr",
+      image: "/popular_cab_route3.jpg",
+      popular: true,
+    },
+
+    {
+      id: 4,
+      from: "Noida",
+      to: "Jaipur",
+      distance: "280 km",
+      duration: "5–6 hr",
+      image: "/popular_cab_route4.jpg",
+      popular: true,
+    },
+
+    {
+      id: 5,
+      from: "Noida",
+      to: "Haridwar",
+      distance: "220 km",
+      duration: "5–6 hr",
+      image: "/popular_cab_route5.jpg",
+      popular: true,
+    },
+
+    {
+      id: 6,
+      from: "Noida",
+      to: "Rishikesh",
+      distance: "250 km",
+      duration: "5–6 hr",
+      image: "/popular_cab_route6.jpg",
+      popular: true,
+    },
+
+    {
+      id: 7,
+      from: "Noida",
+      to: "Mathura",
+      distance: "160 km",
+      duration: "3–4 hr",
+      image: "/popular_cab_route7.jpg",
+      popular: true,
+    },
+
+    {
+      id: 8,
+      from: "Noida",
+      to: "Vrindavan",
+      distance: "165 km",
+      duration: "3–4 hr",
+      image: "/popular_cab_route8.jpg",
+      popular: true,
+    },
+  ],
+},
+"noida-to-delhi-24-seater-tempo-traveller": {
+  page: {
+    _id: "page-24-seater-001",
+    pageType: "24-seater-tempo-traveller",
+    slug: "noida-to-delhi-24-seater-tempo-traveller",
+
+    h1: "Noida to Delhi 24 Seater Tempo Traveller",
+
+    metaTitle:
+      "Noida to Delhi 24 Seater Tempo Traveller | Book Tempo Traveller",
+
+    metaDescription:
+      "Book a 24 seater Tempo Traveller from Noida to Delhi for family trips, weddings, corporate events, religious tours and group travel.",
+
+    faqs: [],
+  },
+
+  route: {
+    _id: "route-001",
+    fromCity: "Noida",
+    toCity: "Delhi",
+    slug: "noida-to-delhi",
+    distance: 25,
+    duration: "45 min - 1.5 hrs",
+  },
+
+  vehicles: [
+    {
+      _id: "vehicle-24-seater-001",
+      name: "24 Seater Tempo Traveller",
+      slug: "24-seater-tempo-traveller",
+      brand: "Force",
+      cabType: "Tempo Traveller",
+      passengerCapacity: 24,
+      luggageCapacity: 15,
+      image: "/images/tempo-traveller/24-seater.png",
+      airCondition: true,
+      fuelType: "Diesel",
+      transmission: "Manual",
+    },
+  ],
+
+  fares: [
+    {
+      _id: "fare-24-seater-001",
+      vehicleId: "vehicle-24-seater-001",
+      vehicleName: "24 Seater Tempo Traveller",
+      oneWayPrice: 7500,
+      roundTripPrice: 12000,
+    },
+  ],
+
+  popularRoutes: [
+    {
+      id: 1,
+      from: "Noida",
+      to: "Delhi",
+      distance: "25 km",
+      duration: "45 min–1.5 hr",
+      image: "/popular_cab_route1.jpg",
+      popular: true,
+    },
+    {
+      id: 2,
+      from: "Noida",
+      to: "Delhi Airport",
+      distance: "35 km",
+      duration: "1–2 hr",
+      image: "/popular_cab_route2.jpg",
+      popular: true,
+    },
+    {
+      id: 3,
+      from: "Noida",
+      to: "Agra",
+      distance: "200 km",
+      duration: "4–5 hr",
+      image: "/popular_cab_route3.jpg",
+      popular: true,
+    },
+    {
+      id: 4,
+      from: "Noida",
+      to: "Jaipur",
+      distance: "280 km",
+      duration: "5–6 hr",
+      image: "/popular_cab_route4.jpg",
+      popular: true,
+    },
+    {
+      id: 5,
+      from: "Noida",
+      to: "Haridwar",
+      distance: "220 km",
+      duration: "5–6 hr",
+      image: "/popular_cab_route5.jpg",
+      popular: true,
+    },
+    {
+      id: 6,
+      from: "Noida",
+      to: "Rishikesh",
+      distance: "250 km",
+      duration: "5–6 hr",
+      image: "/popular_cab_route6.jpg",
+      popular: true,
+    },
+    {
+      id: 7,
+      from: "Noida",
+      to: "Mathura",
+      distance: "160 km",
+      duration: "3–4 hr",
+      image: "/popular_cab_route7.jpg",
+      popular: true,
+    },
+    {
+      id: 8,
+      from: "Noida",
+      to: "Vrindavan",
+      distance: "165 km",
+      duration: "3–4 hr",
+      image: "/popular_cab_route8.jpg",
+      popular: true,
+    },
+  ],
+},
+
 };
 
 export async function getRoutePage(slug: string): Promise<any | null> {
