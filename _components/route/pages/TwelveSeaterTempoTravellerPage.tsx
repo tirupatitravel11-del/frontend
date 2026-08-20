@@ -1,5 +1,8 @@
-
 import GroupTravelBenefits from "@/_components/12seatTempo/GroupTravelBenefits";
+import Seater12Details from "@/_components/12seatTempo/Seater12Details";
+import TwelveSeaterSeating from "@/_components/12seatTempo/Seater12Seating";
+import SeaterDetails from "@/_components/12seatTempo/Seater12Seating";
+import Seater12Seating from "@/_components/12seatTempo/Seater12Seating";
 import TempoTravellerDetails from "@/_components/12seatTempo/TempoTravellerDetails";
 import TempoTravellerFare from "@/_components/12seatTempo/TempoTravellerFare";
 import TwelveSeaterTempoHero from "@/_components/12seatTempo/TwelveSeaterTempoHero";
@@ -15,26 +18,26 @@ export default function TempoTravellerPage({ data }: any) {
   const { route, page } = data;
   return (
     <>
-<TwelveSeaterTempoHero
-  from={route.fromCity}
-  to={route.toCity}
-/>
+      <TwelveSeaterTempoHero from={route.fromCity} to={route.toCity} />
+      {/* <SeaterDetails/> */}
+      <TwelveSeaterSeating />
+      {/* <Seater12Seating/> */}
 
-<TempoTravellerDetails />
+      <TempoTravellerDetails />
 
-<GroupTravelBenefits />
+      <GroupTravelBenefits />
 
-<TempoTravellerFare />
+      <TempoTravellerFare />
 
-<PopularRoutes
-  routes={data.popularRoutes}
-  from={route.fromCity}
-  to={route.toCity}
-/>
+      <PopularRoutes
+        routes={data.popularRoutes}
+        from={route.fromCity}
+        to={route.toCity}
+      />
 
-<WhyChooseUs/>
+      <WhyChooseUs />
 
-<TempoTravellerFaq />
+      <TempoTravellerFaq />
     </>
   );
 }
