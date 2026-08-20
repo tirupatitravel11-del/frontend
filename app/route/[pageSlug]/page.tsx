@@ -16,6 +16,8 @@ import EtiosTaxiPage from "@/_components/route/pages/EtiosTaxiPage";
 import TaxiContactNumberPage from "@/_components/route/pages/TaxiContactNumberPage";
 import AmazeTaxiPage from "@/_components/route/pages/AmazeTaxiPage";
 import DistanceAndTravelPage from "@/_components/route/pages/DistanceAndTravelPage";
+import LuxuryTempoTravellerPage from "@/_components/route/pages/LuxuryTempoTravellerPage";
+import Seater20TempoTravellerPage from "@/_components/route/pages/Seater20TempoTravellerPage";
 import TwelveSeaterTempoTravellerPage from "@/_components/route/pages/TwelveSeaterTempoTravellerPage";
 import SixteenSeaterTempoTravellerPage from "@/_components/route/pages/SixteenSeaterTempoTravellerPage";
 import TwentyFourSeaterTempoTravellerPage from "@/_components/route/pages/TwentyFourSeaterTempoTravellerPage";
@@ -65,16 +67,21 @@ export default async function Page({
       return <EtiosTaxiPage data={data} />;
     case "taxi-contact-number":
       return <TaxiContactNumberPage data={data} />;
-case "amaze-taxi":
-  return <AmazeTaxiPage data={data} />;
-case "distance-travel-time":
-  return <DistanceAndTravelPage data={data} />;
-  case "12-seater-tempo-traveller":
-  return <TwelveSeaterTempoTravellerPage data={data} />;
-  case "16-seater-tempo-traveller":
-  return <SixteenSeaterTempoTravellerPage data={data} />;
-  case "24-seater-tempo-traveller":
-  return <TwentyFourSeaterTempoTravellerPage data={data} />;
+    case "amaze-taxi":
+      return <AmazeTaxiPage data={data} />;
+    case "distance-travel-time":
+      return <DistanceAndTravelPage data={data} />;
+
+    case "luxury-tempo-traveller":
+      return <LuxuryTempoTravellerPage data={data} />;
+    case "20-seater-tempo-traveller":
+      return <Seater20TempoTravellerPage data={data} />;
+    case "12-seater-tempo-traveller":
+      return <TwelveSeaterTempoTravellerPage data={data} />;
+    case "16-seater-tempo-traveller":
+      return <SixteenSeaterTempoTravellerPage data={data} />;
+    case "24-seater-tempo-traveller":
+      return <TwentyFourSeaterTempoTravellerPage data={data} />;
     default:
       console.log(
         "Unmatched pageType fell through to 404:",
