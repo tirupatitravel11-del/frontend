@@ -1,6 +1,4 @@
 import { notFound } from "next/navigation";
-
-// import { getRoutePage } from "@/lib/api/route";
 import TaxiPage from "@/_components/route/pages/TaxiPage";
 import TaxiFarePage from "@/_components/route/pages/TaxiFarePage";
 import OneWayTaxiPage from "@/_components/route/pages/OneWayTaxiPage";
@@ -39,16 +37,12 @@ export default async function Page({
   switch (data.page.pageType) {
     case "taxi":
       return <TaxiPage data={data} />;
-
     case "taxi-fare":
       return <TaxiFarePage data={data} />;
-
     case "one-way-taxi":
       return <OneWayTaxiPage data={data} />;
-
     case "sedan-taxi":
       return <SedanTaxiPage data={data} />;
-
     case "suv-taxi":
       return <SUVTaxiPage data={data} />;
     case "tempo-traveller":
@@ -57,10 +51,8 @@ export default async function Page({
       return <UrbaniaRentalPage data={data} />;
     case "innova-crysta-taxi":
       return <InnovaCrystaTaxiPage data={data} />;
-
     case "ertiga-taxi":
       return <ErtigaTaxiPage data={data} />;
-
     case "dzire-taxi":
       return <DzireTaxiPage data={data} />;
     case "etios-taxi":
@@ -71,7 +63,6 @@ export default async function Page({
       return <AmazeTaxiPage data={data} />;
     case "distance-travel-time":
       return <DistanceAndTravelPage data={data} />;
-
     case "luxury-tempo-traveller":
       return <LuxuryTempoTravellerPage data={data} />;
     case "20-seater-tempo-traveller":

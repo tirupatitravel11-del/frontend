@@ -14,12 +14,30 @@ const services = [
 ];
 
 const quickLinks = [
-  "Home",
-  "About Us",
-  "Packages",
-  "Contact Us",
-  "Privacy Policy",
-  "Terms & Conditions",
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "About Us",
+    href: "/about",
+  },
+  {
+    label: "Packages",
+    href: "/packages",
+  },
+  {
+    label: "Contact Us",
+    href: "/contact",
+  },
+  {
+    label: "Privacy Policy",
+    href: "/privacy-policy",
+  },
+  {
+    label: "Terms & Conditions",
+    href: "/terms-and-conditions",
+  },
 ];
 
 export default function Footer() {
@@ -83,26 +101,25 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Links */}
+       {/* Links */}
+<div>
+  <h3 className="mb-6 text-xl font-bold uppercase text-gold">
+    Quick Links
+  </h3>
 
-          <div>
-            <h3 className="mb-6 text-xl font-bold uppercase text-gold">
-              Quick Links
-            </h3>
-
-            <ul className="space-y-4">
-              {quickLinks.map((item) => (
-                <li key={item}>
-                  <Link
-                    href="/"
-                    className="text-stone-300 transition hover:text-gold"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+  <ul className="space-y-4">
+    {quickLinks.map((item) => (
+      <li key={item.href}>
+        <Link
+          href={item.href}
+          className="text-stone-300 transition hover:text-gold"
+        >
+          {item.label}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
 
           {/* Contact */}
 
