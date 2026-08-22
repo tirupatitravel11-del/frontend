@@ -12,19 +12,19 @@ export type Vehicle = {
   transmission: string;
   perKm: number;
 };
-export function findVehicleFromSlug(
-  pageSlug: string,
-): Vehicle | null {
-  const sortedVehicles = [...VEHICLES].sort(
-    (a, b) => b.slug.length - a.slug.length,
-  );
+// export function findVehicleFromSlug(
+//   pageSlug: string,
+// ): Vehicle | null {
+//   const sortedVehicles = [...VEHICLES].sort(
+//     (a, b) => b.slug.length - a.slug.length,
+//   );
 
-  const vehicle = sortedVehicles.find((vehicle) =>
-    pageSlug.endsWith(`-${vehicle.slug}-taxi`),
-  );
+//   const vehicle = sortedVehicles.find((vehicle) =>
+//     pageSlug.endsWith(`-${vehicle.slug}-taxi`),
+//   );
 
-  return vehicle || null;
-}
+//   return vehicle || null;
+// }
 export const VEHICLES: Vehicle[] = [
   // =========================
   // SEDAN
@@ -234,3 +234,47 @@ export const VEHICLES: Vehicle[] = [
   },
 ];
 
+export function findVehicleFromSlug(
+  pageSlug: string,
+): Vehicle | null {
+  const normalizedSlug = pageSlug
+    .toLowerCase()
+    .replace(/^\/|\/$/g, "");
+
+  // Longest slug first
+  const sortedVehicles = [...VEHICLES].sort(
+    (a, b) => b.slug.length - a.slug.length,
+  );
+
+  for (const vehicle of sortedVehicles) {
+    const taxiSuffix = `-${vehicle.slug}-taxi`;
+
+    // Example:
+    // noida-to-delhi-dzire-taxi
+    if (normalizedSlug.endsWith(taxiSuffix)) {
+      return vehicle;
+    }
+
+    // Tempo Traveller type URLs
+    // noida-to-delhi-tempo-traveller
+    if (
+      normalizedSlug.endsWith(
+        `-${vehicle.slug}`,
+      )
+    ) {
+      return vehicle;
+    }
+
+    // Urbania:
+    // noida-to-delhi-urbania-rental
+    if (
+      normalizedSlug.endsWith(
+        `-${vehicle.pageType}`,
+      )
+    ) {
+      return vehicle;
+    }
+  }
+
+  return null;
+}

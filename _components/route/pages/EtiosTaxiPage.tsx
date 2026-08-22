@@ -17,7 +17,7 @@ export default function ErtigaTaxiPage({ data }: any) {
 
   return (
     <>
-      <EtiosHero from={route.fromCity} to={route.toCity} startingFare={1649} />
+      <EtiosHero from={route.fromCity} to={route.toCity} fare={data.fares[0]} />
       <EtiosStorySection />
       <EtiosComparison />
       <PopularRoutes
