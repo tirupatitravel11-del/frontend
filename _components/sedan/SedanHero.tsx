@@ -8,18 +8,37 @@ const WHATSAPP_NUMBER = "916390008503";
 type TripType = "one-way" | "round-trip";
 
 const SEDAN_MODELS = ["Swift Dzire", "Honda Amaze", "Toyota Etios"];
-
+export type Vehicle = {
+  slug: string;
+  name: string;
+  pageType: string;
+  brand: string;
+  cabType: string;
+  passengerCapacity: number;
+  luggageCapacity: number;
+  image: string;
+  airCondition: boolean;
+  fuelType: string;
+  transmission: string;
+  perKm: number;
+};
 interface SedanHeroProps {
   from: string;
   to: string;
   startingFare?: number;
+  vehicle:Vehicle
+  fare:any
 }
 
 export default function SedanHero({
   from,
   to,
   startingFare = 1599,
+  vehicle,
+  fare
 }: SedanHeroProps) {
+  console.log(fare,"sss");
+  
   const [tripType, setTripType] = useState<TripType>("one-way");
   const [model, setModel] = useState(SEDAN_MODELS[0]);
   const [date, setDate] = useState("");
@@ -90,7 +109,7 @@ Date: ${date}`;
 
             <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
               <p className="text-lg font-bold text-gold sm:text-2xl">
-                ₹{startingFare.toLocaleString("en-IN")}
+                ₹{fare.oneWayPrice.toLocaleString("en-IN")}
               </p>
               <p className="mt-1 text-[11px] text-slate-500 sm:text-xs">
                 Starting Fare
