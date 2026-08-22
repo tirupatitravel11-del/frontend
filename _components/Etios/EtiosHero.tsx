@@ -13,12 +13,14 @@ interface EtiosHeroProps {
   from: string;
   to: string;
   startingFare?: number;
+  fare:any
 }
 
 export default function EtiosHero({
   from,
   to,
   startingFare = 1599,
+  fare
 }: EtiosHeroProps) {
   const [tripType, setTripType] = useState<TripType>("one-way");
   const [model, setModel] = useState(ETIOS_MODELS[0]);
@@ -101,7 +103,7 @@ Date: ${date}`;
             {/* Fare */}
             <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
               <p className="text-lg font-bold text-gold sm:text-2xl">
-                ₹{startingFare.toLocaleString("en-IN")}
+                ₹{fare.oneWayPrice.toLocaleString("en-IN")}
               </p>
 
               <p className="mt-1 text-[11px] text-slate-500 sm:text-xs">

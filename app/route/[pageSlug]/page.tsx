@@ -28,7 +28,7 @@ export default async function Page({
   const { pageSlug } = await params;
 
   const data = await getRoutePage(pageSlug);
-  console.log(data, "fjd");
+  console.log(data, "fjddddd");
 
   if (!data) {
     notFound();

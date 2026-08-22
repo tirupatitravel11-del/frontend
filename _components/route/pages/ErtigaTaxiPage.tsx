@@ -57,9 +57,9 @@ export default function ErtigaTaxiPage({ data }: any) {
   return (
     <>
       <ErtigaTaxiHero
-        from={route.fromCity}
-        to={route.toCity}
-        startingFare={1299}
+       from={data.route.fromCity}
+        to={data.route.toCity}
+        fare={data.fares[0]}
       />
       <ErtigaStorySection />
       <VehicleComparison />
