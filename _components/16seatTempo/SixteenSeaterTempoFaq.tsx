@@ -2,65 +2,57 @@
 
 import { useState } from "react";
 
-const FAQS = [
+interface SixteenFaqProps {
+  from: string;
+  to: string;
+}
+
+
+
+export default function SixteenSeaterTempoFaq({
+  from,
+  to,
+}: SixteenFaqProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+ const FAQS = [
   {
-    question:
-      "What is the fare for a 16 seater Tempo Traveller from Noida to Delhi?",
-    answer:
-      "The 16 seater Tempo Traveller one-way fare from Noida to Delhi starts from ₹5,500. The final fare depends on the travel date, pickup location, drop location and trip requirements.",
+    question: `What is the fare for a 16 seater Tempo Traveller from ${from} to ${to}?`,
+    answer: `The 16 seater Tempo Traveller one-way fare from ${from} to ${to} starts from ₹5,500. The final fare depends on the travel date, pickup location, drop location and trip requirements.`,
   },
   {
-    question:
-      "How many passengers can travel in a 16 seater Tempo Traveller?",
-    answer:
-      "A 16 seater Tempo Traveller is designed for up to 16 passengers and is suitable for family groups, corporate teams, wedding groups and tours.",
+    question: `How many passengers can travel in a 16 seater Tempo Traveller from ${from} to ${to}?`,
+    answer: `A 16 seater Tempo Traveller is designed for up to 16 passengers and is suitable for family groups, corporate teams, wedding groups and tours travelling from ${from} to ${to}.`,
   },
   {
-    question:
-      "Is the 16 seater Tempo Traveller air conditioned?",
-    answer:
-      "Yes. AC 16 seater Tempo Travellers are available for comfortable group travel. Exact vehicle features can vary depending on the vehicle assigned.",
+    question: `Is the 16 seater Tempo Traveller air conditioned for travel from ${from} to ${to}?`,
+    answer: `Yes. AC 16 seater Tempo Travellers are available for comfortable group travel from ${from} to ${to}. Exact vehicle features can vary depending on the vehicle assigned.`,
   },
   {
-    question:
-      "Can I book a 16 seater Tempo Traveller for one-way travel?",
-    answer:
-      "Yes. You can book a private 16 seater Tempo Traveller for a one-way journey from Noida to Delhi, subject to availability.",
+    question: `Can I book a 16 seater Tempo Traveller for one-way travel from ${from} to ${to}?`,
+    answer: `Yes. You can book a private 16 seater Tempo Traveller for a one-way journey from ${from} to ${to}, subject to availability.`,
   },
   {
-    question:
-      "Is a 16 seater Tempo Traveller good for family trips?",
-    answer:
-      "Yes. It is a convenient option for large families because everyone can travel together in one private vehicle.",
+    question: `Is a 16 seater Tempo Traveller good for family trips from ${from} to ${to}?`,
+    answer: `Yes. It is a convenient option for large families travelling from ${from} to ${to} because everyone can travel together in one private vehicle.`,
   },
   {
-    question:
-      "Can I book a 16 seater Tempo Traveller for Delhi Airport?",
-    answer:
-      "Yes. You can book a 16 seater Tempo Traveller for group airport transfers between Noida and Delhi Airport.",
+    question: `Can I book a 16 seater Tempo Traveller from ${from} to ${to} Airport?`,
+    answer: `Yes. You can book a 16 seater Tempo Traveller for group airport transfers from ${from} to ${to} Airport, subject to vehicle availability and trip requirements.`,
   },
   {
-    question:
-      "Can I use the 16 seater Tempo Traveller for outstation trips?",
-    answer:
-      "Yes. It is suitable for destinations such as Agra, Jaipur, Haridwar, Rishikesh and other outstation destinations.",
+    question: `Can I use the 16 seater Tempo Traveller for outstation trips from ${from} to ${to}?`,
+    answer: `Yes. A 16 seater Tempo Traveller is suitable for outstation group travel from ${from} to ${to} and other destinations such as Agra, Jaipur, Haridwar and Rishikesh.`,
   },
   {
-    question:
-      "Does the 16 seater Tempo Traveller have luggage space?",
-    answer:
-      "Yes. The vehicle provides luggage space, although the exact luggage capacity depends on the specific vehicle configuration and the amount of passenger luggage.",
+    question: `Does the 16 seater Tempo Traveller have luggage space for travel from ${from} to ${to}?`,
+    answer: `Yes. The vehicle provides luggage space for passengers travelling from ${from} to ${to}, although the exact luggage capacity depends on the specific vehicle configuration and the amount of passenger luggage.`,
   },
   {
-    question:
-      "Is the Tempo Traveller fare per person?",
-    answer:
-      "The booking is generally charged for the complete private vehicle rather than per passenger. Final pricing depends on the route and trip requirements.",
+    question: `Is the 16 seater Tempo Traveller fare from ${from} to ${to} charged per person?`,
+    answer: `The booking is generally charged for the complete private vehicle rather than per passenger. Final pricing for travel from ${from} to ${to} depends on the route and trip requirements.`,
   },
 ];
-
-export default function SixteenSeaterTempoFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -91,7 +83,7 @@ export default function SixteenSeaterTempoFaq() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">
-            Noida to Delhi 16 Seater Tempo Traveller FAQs
+            {from} to {to} 16 Seater Tempo Traveller FAQs
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">

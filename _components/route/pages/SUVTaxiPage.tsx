@@ -26,7 +26,8 @@ export default function SUVTaxiPage({ data }: any) {
       <Testimonials />
       <HowToBook from={route.fromCity} to={route.toCity} />
       <WhyChooseUs />
-      <SuvFaq />
+      <SuvFaq from={data.route.fromCity}
+        to={data.route.toCity}/>
     </>
   );
 }

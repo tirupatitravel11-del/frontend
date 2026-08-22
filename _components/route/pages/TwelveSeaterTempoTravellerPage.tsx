@@ -37,7 +37,8 @@ export default function TempoTravellerPage({ data }: any) {
 
       <WhyChooseUs />
 
-      <TempoTravellerFaq />
+      <TempoTravellerFaq from={data.route.fromCity}
+        to={data.route.toCity}/>
     </>
   );
 }
