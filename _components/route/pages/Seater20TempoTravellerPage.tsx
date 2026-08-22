@@ -93,7 +93,8 @@ export default function Seater20TempoTravellerPage({ data }: any) {
       <TwentySeaterSeating />
       <WhyChooseUs />
       <Testimonials />
-      <TwentySeaterFaq />
+      <TwentySeaterFaq from={data.route.fromCity}
+        to={data.route.toCity}/>
       {/* <LuxuryTempoHero from="Noida" to="Delhi" />
       <LuxuryTempoTravellerCitySection />
       <LuxuryFleetDetails />
