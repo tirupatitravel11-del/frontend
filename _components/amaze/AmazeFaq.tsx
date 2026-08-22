@@ -3,63 +3,69 @@
 import { useState } from "react";
 
 const PHONE_NUMBER = "+916390008503";
+interface AmazeFaqProps {
+  from: string;
+  to: string;
+}
 
+
+export default function AmazeFaq({
+  from,
+  to,
+}: AmazeFaqProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 const FAQS = [
   {
-    question: "What is the Honda Amaze taxi fare from Noida to Delhi?",
+    question: `What is the Honda Amaze taxi fare from ${from} to ${to}?`,
     answer:
-      "The one-way Honda Amaze taxi fare from Noida to Delhi starts at ₹1,649 and the round-trip fare starts at ₹2,749. The final fare may vary depending on the pickup location, trip type and travel requirements.",
+      `The one-way Honda Amaze taxi fare from ${from} to ${to} starts at ₹1,649 and the round-trip fare starts at ₹2,749. The final fare may vary depending on the pickup location, trip type and travel requirements.`,
   },
   {
-    question: "How many passengers can travel in a Honda Amaze?",
+    question: `How many passengers can travel in a Honda Amaze?`,
     answer:
-      "Honda Amaze is a 5-seater sedan and is suitable for families, couples and small groups travelling from Noida to Delhi.",
+      `Honda Amaze is a 5-seater sedan and is suitable for families, couples and small groups travelling from ${from} to ${to}.`,
   },
   {
-    question: "How much luggage can fit in a Honda Amaze?",
+    question: `How much luggage can fit in a Honda Amaze?`,
     answer:
-      "The current Honda Amaze has around 416 litres of boot space, making it suitable for several suitcases and cabin bags. Actual luggage capacity depends on the size and shape of the bags.",
+      `The current Honda Amaze has around 416 litres of boot space, making it suitable for several suitcases and cabin bags. Actual luggage capacity depends on the size and shape of the bags.`,
   },
   {
-    question: "Is Honda Amaze available for one-way travel from Noida to Delhi?",
+    question: `Is Honda Amaze available for one-way travel from ${from} to ${to}?`,
     answer:
-      "Yes. You can book a private Honda Amaze for a one-way journey from Noida to Delhi with pickup from your preferred location.",
+      `Yes. You can book a private Honda Amaze for a one-way journey from ${from} to ${to} with pickup from your preferred location.`,
   },
   {
-    question: "Can I book a Honda Amaze from Noida to Delhi Airport?",
+    question: `Can I book a Honda Amaze from ${from} to ${to} Airport?`,
     answer:
-      "Yes. Honda Amaze is suitable for Noida to Delhi airport transfers, especially for families and travellers carrying moderate luggage.",
+      `Yes. Honda Amaze is suitable for ${from} to ${to} airport transfers, especially for families and travellers carrying moderate luggage.`,
   },
   {
-    question: "Is Honda Amaze suitable for family travel?",
+    question: `Is Honda Amaze suitable for family travel?`,
     answer:
-      "Yes. Honda Amaze is a practical family taxi because it provides five seats, air conditioning and generous boot space for luggage.",
+      `Yes. Honda Amaze is a practical family taxi because it provides five seats, air conditioning and generous boot space for luggage.`,
   },
   {
-    question: "Is the Honda Amaze taxi fare per person or per car?",
+    question: `Is the Honda Amaze taxi fare per person or per car?`,
     answer:
-      "The taxi fare is charged per private car rather than per person. The same base fare applies whether one passenger or a full group travels within the vehicle's seating capacity.",
+      `The taxi fare is charged per private car rather than per person. The same base fare applies whether one passenger or a full group travels within the vehicle's seating capacity.`,
   },
   {
-    question: "Is Honda Amaze available 24x7 from Noida to Delhi?",
+    question: `Is Honda Amaze available 24x7 from ${from} to ${to}?`,
     answer:
-      "Honda Amaze taxis can be booked for early morning, daytime and late-night travel, subject to vehicle availability.",
+      `Honda Amaze taxis can be booked for early morning, daytime and late-night travel, subject to vehicle availability.`,
   },
   {
-    question: "What if more than 5 people are travelling?",
+    question: `What if more than 5 people are travelling?`,
     answer:
-      "For groups larger than 5 passengers, we recommend choosing an Ertiga, Innova Crysta or Tempo Traveller depending on the number of passengers and luggage.",
+      `For groups larger than 5 passengers, we recommend choosing an Ertiga, Innova Crysta or Tempo Traveller depending on the number of passengers and luggage.`,
   },
   {
-    question: "Can I request Honda Amaze specifically while booking?",
+    question: `Can I request Honda Amaze specifically while booking?`,
     answer:
-      "Yes. You can request a Honda Amaze while booking your Noida to Delhi taxi. Vehicle allocation is subject to availability at the time of travel.",
+      `Yes. You can request a Honda Amaze while booking your ${from} to ${to} taxi. Vehicle allocation is subject to availability at the time of travel.`,
   },
 ];
-
-export default function AmazeFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -89,12 +95,12 @@ export default function AmazeFaq() {
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            Noida to Delhi Amaze Taxi Questions, Answered
+            {from} to {to} Amaze Taxi Questions, Answered
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
             Everything you need to know about booking a Honda Amaze taxi from
-            Noida to Delhi.
+            {from} to {to}.
           </p>
         </div>
 
@@ -158,7 +164,7 @@ export default function AmazeFaq() {
 
         <div className="mt-8 text-center">
           <p className="text-sm text-slate-600">
-            Need a Honda Amaze for your Noida to Delhi journey?
+            Need a Honda Amaze for your {from} to {to} journey?
           </p>
 
           <a

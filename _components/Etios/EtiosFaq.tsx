@@ -4,67 +4,61 @@ import { useState } from "react";
 
 const PHONE_NUMBER = "+916390008503";
 
-type Faq = {
-  question: string;
-  answer: string;
-};
+interface EtiosFaqProps {
+  from: string;
+  to: string;
+}
 
-const FAQS: Faq[] = [
-  {
-    question: "What is the Etios taxi fare from Noida to Delhi?",
-    answer:
-      "The one-way Etios fare from Noida to Delhi starts at ₹1,699, while the round-trip fare starts at ₹3,100. The fare may vary depending on the pickup location, travel option and vehicle availability. Tolls, parking and applicable taxes are billed at actuals.",
-  },
-  {
-    question: "How many passengers can travel in an Etios?",
-    answer:
-      "An Etios can comfortably accommodate up to 4 passengers along with their luggage. It is an ideal choice for couples, small families, business travel and airport transfers where a spacious sedan experience is preferred over a compact hatchback.",
-  },
-  {
-    question: "How much luggage can fit in an Etios?",
-    answer:
-      "The Etios features a massive 595-litre boot — one of the largest in its segment — and can comfortably accommodate 3–4 large suitcases along with cabin bags. It is a far better option than most sedans when you are travelling with heavy luggage.",
-  },
-  {
-    question: "Is Etios available for Noida to Delhi one-way trips?",
-    answer:
-      "Yes. Etios taxis are available for one-way trips from Noida to Delhi. You can book a private Etios and travel directly from your pickup location to your destination at a very economical fare.",
-  },
-  {
-    question: "Is Etios suitable for family trips?",
-    answer:
-      "Yes, the Etios is an excellent choice for small family travel. It provides comfortable seating for up to 4 members, a spacious rear cabin, a powerful AC and class-leading luggage space — all at a sedan-friendly fare.",
-  },
-  {
-    question: "Can I book an Etios from Noida to Delhi Airport?",
-    answer:
-      "Yes. You can book an Etios for Noida to Delhi airport transfers. Thanks to its huge 595-litre boot, it is especially suitable for travellers carrying multiple suitcases. We recommend scheduling your pickup well in advance of your flight.",
-  },
-  {
-    question: "What is the difference between an Etios and a Swift Dzire?",
-    answer:
-      "Both are reliable sedans for up to 4 passengers, but the Etios offers a significantly larger boot (595 litres vs ~378 litres), more rear legroom, and Toyota's legendary long-distance reliability. For airport trips and outstation drives with heavy luggage, the Etios is generally the more practical choice.",
-  },
-  {
-    question: "Is Etios available 24x7 from Noida to Delhi?",
-    answer:
-      "Yes. Etios taxis can be booked for early morning, daytime and late-night travel, subject to vehicle availability. You can contact us to check availability for your preferred pickup time.",
-  },
-  {
-    question: "Can I request a specific Etios model?",
-    answer:
-      "Yes. You can request a standard Toyota Etios sedan or an Etios Cross while making your booking. Vehicle allocation is subject to availability at the time of booking.",
-  },
-  {
-    question: "Can I cancel or reschedule my Etios booking?",
-    answer:
-      "Yes. You can contact us to cancel or reschedule your booking. Cancellation and rescheduling terms may depend on how close the request is to the scheduled pickup time.",
-  },
-];
 
-export default function EtiosFaq() {
+
+export default function EtiosFaq({
+  from,
+  to,
+}: EtiosFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+const FAQS = [
+  {
+    question: `What is the Etios taxi fare from ${from} to ${to}?`,
+    answer: `The one-way Etios fare from ${from} to ${to} starts at ₹1,699, while the round-trip fare starts at ₹3,100. The fare may vary depending on the pickup location, travel option and vehicle availability. Tolls, parking and applicable taxes are billed at actuals.`,
+  },
+  {
+    question: `How many passengers can travel in an Etios from ${from} to ${to}?`,
+    answer: `An Etios can comfortably accommodate up to 4 passengers along with their luggage. It is an ideal choice for couples, small families, business travel and airport transfers from ${from} to ${to}, where a spacious sedan experience is preferred over a compact hatchback.`,
+  },
+  {
+    question: `How much luggage can fit in an Etios for travel from ${from} to ${to}?`,
+    answer: `The Etios features a massive 595-litre boot — one of the largest in its segment — and can comfortably accommodate 3–4 large suitcases along with cabin bags. It is a far better option than most sedans when you are travelling from ${from} to ${to} with heavy luggage.`,
+  },
+  {
+    question: `Is Etios available for ${from} to ${to} one-way trips?`,
+    answer: `Yes. Etios taxis are available for one-way trips from ${from} to ${to}. You can book a private Etios and travel directly from your pickup location to your destination at a very economical fare.`,
+  },
+  {
+    question: `Is Etios suitable for family trips from ${from} to ${to}?`,
+    answer: `Yes, the Etios is an excellent choice for small family travel from ${from} to ${to}. It provides comfortable seating for up to 4 members, a spacious rear cabin, a powerful AC and class-leading luggage space — all at a sedan-friendly fare.`,
+  },
+  {
+    question: `Can I book an Etios from ${from} to ${to} Airport?`,
+    answer: `Yes. You can book an Etios for ${from} to ${to} airport transfers. Thanks to its huge 595-litre boot, it is especially suitable for travellers carrying multiple suitcases. We recommend scheduling your pickup well in advance of your flight.`,
+  },
+  {
+    question: `What is the difference between an Etios and a Swift Dzire for travel from ${from} to ${to}?`,
+    answer: `Both are reliable sedans for up to 4 passengers, but the Etios offers a significantly larger boot of around 595 litres compared with around 378 litres in the Swift Dzire, along with more rear legroom. For airport trips and outstation drives from ${from} to ${to} with heavy luggage, the Etios is generally the more practical choice.`,
+  },
+  {
+    question: `Is Etios available 24x7 from ${from} to ${to}?`,
+    answer: `Yes. Etios taxis can be booked for early morning, daytime and late-night travel from ${from} to ${to}, subject to vehicle availability. You can contact us to check availability for your preferred pickup time.`,
+  },
+  {
+    question: `Can I request a specific Etios model for travel from ${from} to ${to}?`,
+    answer: `Yes. You can request a standard Toyota Etios sedan or an Etios Cross while making your booking for travel from ${from} to ${to}. Vehicle allocation is subject to availability at the time of booking.`,
+  },
+  {
+    question: `Can I cancel or reschedule my Etios booking from ${from} to ${to}?`,
+    answer: `Yes. You can contact us to cancel or reschedule your Etios booking from ${from} to ${to}. Cancellation and rescheduling terms may depend on how close the request is to the scheduled pickup time.`,
+  },
+];
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -101,12 +95,12 @@ export default function EtiosFaq() {
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            Noida to Delhi Etios Taxi Questions, Answered
+            {from} to {to} Etios Taxi Questions, Answered
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
             Everything you need to know about booking a Toyota Etios taxi from
-            Noida to Delhi for airport transfers, outstation trips and small
+            {from} to {to} for airport transfers, outstation trips and small
             family travel.
           </p>
         </div>

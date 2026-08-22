@@ -8,6 +8,8 @@ import SedanFleetDetails from "@/_components/sedan/SedanFleetDetails";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
 
+
+
 export default function DzireTaxiPage({ data }: any) {
   const { route } = data;
 
@@ -19,7 +21,8 @@ export default function DzireTaxiPage({ data }: any) {
       <Testimonials />
       <HowToBook from={route.fromCity} to={route.toCity} />
       <WhyChooseUs />
-      <DzireFaq />
+      <DzireFaq from={data.route.fromCity}
+        to={data.route.toCity} />
     </>
   );
 }

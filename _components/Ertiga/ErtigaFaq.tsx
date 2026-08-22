@@ -4,67 +4,61 @@ import { useState } from "react";
 
 const PHONE_NUMBER = "+916390008503";
 
-type Faq = {
-  question: string;
-  answer: string;
-};
+interface ErtigaFaqProps {
+  from: string;
+  to: string;
+}
 
-const FAQS: Faq[] = [
-  {
-    question: "What is the Ertiga taxi fare from Noida to Delhi?",
-    answer:
-      "The one-way Ertiga fare from Noida to Delhi starts at ₹1,800, while the round-trip fare starts at ₹3,300. The fare may vary depending on the pickup location, travel option and vehicle availability. Tolls, parking and applicable taxes are billed at actuals.",
-  },
-  {
-    question: "How many passengers can travel in an Ertiga?",
-    answer:
-      "An Ertiga can comfortably accommodate up to 6–7 passengers with luggage. It is an ideal choice for families, small groups, business travel and airport transfers where extra space and comfort are important without paying premium SUV fares.",
-  },
-  {
-    question: "How much luggage can fit in an Ertiga?",
-    answer:
-      "The Ertiga offers generous luggage space and can accommodate 3–4 large suitcases along with cabin bags. It is a much better option than a sedan when you are travelling with a family or carrying extra luggage.",
-  },
-  {
-    question: "Is Ertiga available for Noida to Delhi one-way trips?",
-    answer:
-      "Yes. Ertiga taxis are available for one-way trips from Noida to Delhi. You can book a private Ertiga for your family or group and travel directly from your pickup location to your destination.",
-  },
-  {
-    question: "Is Ertiga suitable for family trips?",
-    answer:
-      "Yes, the Ertiga is one of the most popular choices for family travel. It provides comfortable seating for 6–7 members, spacious interiors, powerful AC and enough luggage space for a family travelling together — all at an economical fare.",
-  },
-  {
-    question: "Can I book an Ertiga from Noida to Delhi Airport?",
-    answer:
-      "Yes. You can book an Ertiga for Noida to Delhi airport transfers. It is especially suitable for families and small groups travelling with multiple suitcases. We recommend scheduling your pickup well in advance of your flight.",
-  },
-  {
-    question: "What is the difference between a Sedan and Ertiga?",
-    answer:
-      "A Sedan is generally suitable for up to 4 passengers with moderate luggage, while an Ertiga offers seating for 6–7 passengers, better legroom and greater luggage capacity. For families or groups of 5–7 passengers, Ertiga is usually the more comfortable and practical option.",
-  },
-  {
-    question: "Is Ertiga available 24x7 from Noida to Delhi?",
-    answer:
-      "Yes. Ertiga taxis can be booked for early morning, daytime and late-night travel, subject to vehicle availability. You can contact us to check availability for your preferred pickup time.",
-  },
-  {
-    question: "Can I request a specific Ertiga model?",
-    answer:
-      "Yes. You can request an Ertiga while making your booking. Vehicle allocation is subject to availability at the time of booking.",
-  },
-  {
-    question: "Can I cancel or reschedule my Ertiga booking?",
-    answer:
-      "Yes. You can contact us to cancel or reschedule your booking. Cancellation and rescheduling terms may depend on how close the request is to the scheduled pickup time.",
-  },
-];
 
-export default function ErtigaFaq() {
+
+export default function ErtigaFaq({
+  from,
+  to,
+}: ErtigaFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+ const FAQS = [
+  {
+    question: `What is the Ertiga taxi fare from ${from} to ${to}?`,
+    answer: `The one-way Ertiga fare from ${from} to ${to} starts at ₹1,800, while the round-trip fare starts at ₹3,300. The fare may vary depending on the pickup location, travel option and vehicle availability. Tolls, parking and applicable taxes are billed at actuals.`,
+  },
+  {
+    question: `How many passengers can travel in an Ertiga from ${from} to ${to}?`,
+    answer: `An Ertiga can comfortably accommodate up to 6–7 passengers with luggage. It is an ideal choice for families, small groups, business travel and airport transfers from ${from} to ${to}, where extra space and comfort are important without paying premium SUV fares.`,
+  },
+  {
+    question: `How much luggage can fit in an Ertiga for travel from ${from} to ${to}?`,
+    answer: `The Ertiga offers generous luggage space and can accommodate 3–4 large suitcases along with cabin bags. It is a much better option than a sedan when you are travelling from ${from} to ${to} with a family or carrying extra luggage.`,
+  },
+  {
+    question: `Is Ertiga available for ${from} to ${to} one-way trips?`,
+    answer: `Yes. Ertiga taxis are available for one-way trips from ${from} to ${to}. You can book a private Ertiga for your family or group and travel directly from your pickup location to your destination.`,
+  },
+  {
+    question: `Is Ertiga suitable for family trips from ${from} to ${to}?`,
+    answer: `Yes, the Ertiga is one of the most popular choices for family travel from ${from} to ${to}. It provides comfortable seating for 6–7 members, spacious interiors, powerful AC and enough luggage space for a family travelling together — all at an economical fare.`,
+  },
+  {
+    question: `Can I book an Ertiga from ${from} to ${to} Airport?`,
+    answer: `Yes. You can book an Ertiga for ${from} to ${to} airport transfers. It is especially suitable for families and small groups travelling with multiple suitcases. We recommend scheduling your pickup well in advance of your flight.`,
+  },
+  {
+    question: `What is the difference between a Sedan and Ertiga for travel from ${from} to ${to}?`,
+    answer: `A Sedan is generally suitable for up to 4 passengers with moderate luggage, while an Ertiga offers seating for 6–7 passengers, better legroom and greater luggage capacity. For families or groups of 5–7 passengers travelling from ${from} to ${to}, Ertiga is usually the more comfortable and practical option.`,
+  },
+  {
+    question: `Is Ertiga available 24x7 from ${from} to ${to}?`,
+    answer: `Yes. Ertiga taxis can be booked for early morning, daytime and late-night travel from ${from} to ${to}, subject to vehicle availability. You can contact us to check availability for your preferred pickup time.`,
+  },
+  {
+    question: `Can I request a specific Ertiga model for travel from ${from} to ${to}?`,
+    answer: `Yes. You can request an Ertiga while making your booking for travel from ${from} to ${to}. Vehicle allocation is subject to availability at the time of booking.`,
+  },
+  {
+    question: `Can I cancel or reschedule my Ertiga booking from ${from} to ${to}?`,
+    answer: `Yes. You can contact us to cancel or reschedule your Ertiga booking from ${from} to ${to}. Cancellation and rescheduling terms may depend on how close the request is to the scheduled pickup time.`,
+  },
+];
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -101,12 +95,12 @@ export default function ErtigaFaq() {
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            Noida to Delhi Ertiga Taxi Questions, Answered
+            {from} to {to} Ertiga Taxi Questions, Answered
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
-            Everything you need to know about booking an Ertiga taxi from Noida
-            to Delhi for family trips, airport transfers and group travel.
+            Everything you need to know about booking an Ertiga taxi from {from}
+            to {to} for family trips, airport transfers and group travel.
           </p>
         </div>
 

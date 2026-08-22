@@ -95,7 +95,8 @@ export default function LuxuryTempoTravellerPage({ data }: any) {
       />
       <Testimonials />
       <WhyChooseUs />
-      <LuxuryTempoFaq />
+      <LuxuryTempoFaq from={data.route.fromCity}
+        to={data.route.toCity}/>
       {/* <TempoTravellerFleetDetails/> */}
       {/* <InnovaCrystaHero from="Noida" to="Delhi" startingFare={1599} />
       <InnovaFleetDetails />
