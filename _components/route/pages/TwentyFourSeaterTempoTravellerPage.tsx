@@ -6,6 +6,7 @@ import TwentyFourSeaterTempoFaq from "@/_components/24seatTempo/TwentyFourSeater
 import TwentyFourSeaterTempoFare from "@/_components/24seatTempo/TwentyFourSeaterTempoFare";
 import TwentyFourSeaterTempoHero from "@/_components/24seatTempo/TwentyFourSeaterTempoHero";
 import PopularRoutes from "@/_components/PopularRoutes";
+import TempoTravellerFaq from "@/_components/tempotraveller/TempoTravellerFaq";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 
 export default function TwentyFourSeaterTempoTravellerPage({
@@ -45,7 +46,10 @@ export default function TwentyFourSeaterTempoTravellerPage({
 
       <WhyChooseUs />
 
-      <TwentyFourSeaterTempoFaq />
+      <TempoTravellerFaq
+            from={data.route.fromCity}
+              to={data.route.toCity}
+            />
     </>
   );
 }

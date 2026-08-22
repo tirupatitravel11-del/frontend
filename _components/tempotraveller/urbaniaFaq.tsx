@@ -4,61 +4,56 @@ import { useState } from "react";
 
 const PHONE_NUMBER = "+916390008503";
 
-type Faq = {
-  question: string;
-  answer: string;
-};
+interface UrbaniaFaqProps {
+  from: string;
+  to: string;
+}
 
-const FAQS: Faq[] = [
+
+
+export default function UrbaniaFaq({
+  from,
+  to,
+}: UrbaniaFaqProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+const FAQS = [
   {
-    question: "What is the starting rental fare for a Force Urbania?",
-    answer:
-      "Force Urbania rental fares typically start from ₹3,500 for a 9-seater, ₹4,500 for a 12-seater, and ₹5,500 for a 17-seater for local full-day bookings. Outstation fares are calculated per kilometer or as a customized fixed package based on your route. All base fares include fuel, driver allowance, and AC.",
+    question: `What is the starting rental fare for a Force Urbania from ${from} to ${to}?`,
+    answer: `Force Urbania rental fares typically start from ₹3,500 for a 9-seater, ₹4,500 for a 12-seater, and ₹5,500 for a 17-seater for local full-day bookings. Outstation fares for ${from} to ${to} are calculated per kilometer or as a customized fixed package based on your route. All base fares include fuel, driver allowance and AC.`,
   },
   {
-    question: "What makes the Force Urbania different from a Tempo Traveller?",
-    answer:
-      "The Force Urbania is a premium luxury van built on a monocoque chassis, which provides car-like safety, superior stability, and a much smoother ride compared to traditional ladder-frame Tempo Travellers. It also features plush pushback seats, individual AC vents, and a quieter cabin for a first-class travel experience.",
+    question: `What makes the Force Urbania different from a Tempo Traveller for ${from} to ${to}?`,
+    answer: `The Force Urbania is a premium luxury van built on a monocoque chassis, providing car-like safety, superior stability and a smoother ride compared to traditional ladder-frame Tempo Travellers. It also features plush pushback seats, individual AC vents and a quieter cabin for a comfortable journey from ${from} to ${to}.`,
   },
   {
-    question: "How many passengers can travel in your Urbania vans?",
-    answer:
-      "We offer multiple configurations to suit your group size: 9+1, 12+1, 13+1, 16+1, and 17+1 seaters. Whether it's a small family outing or a large wedding guest transfer, we have the right seating layout (1x1 or 2x1) for you.",
+    question: `How many passengers can travel in a Force Urbania from ${from} to ${to}?`,
+    answer: `We offer multiple configurations to suit your group size, including 9+1, 12+1, 13+1, 16+1 and 17+1 seaters. Whether you are travelling with a small family or a large group from ${from} to ${to}, you can choose the seating layout that best suits your requirements.`,
   },
   {
-    question: "Is there enough luggage space for a large group?",
-    answer:
-      "Yes. Depending on the seating configuration, our Urbania vans can comfortably accommodate 5 to 9 large suitcases. The 1x1 seating layouts offer dedicated rear luggage space, making them perfect for airport transfers and multi-day outstation trips with heavy bags.",
+    question: `Is there enough luggage space in a Force Urbania for travel from ${from} to ${to}?`,
+    answer: `Yes. Depending on the seating configuration, our Urbania vans can comfortably accommodate multiple large suitcases. The 1x1 seating layouts offer dedicated rear luggage space, making them suitable for airport transfers and multi-day outstation trips from ${from} to ${to}.`,
   },
   {
-    question: "Are the Urbania vans fully air-conditioned?",
-    answer:
-      "Absolutely. All our Force Urbania vans are equipped with powerful, dual-AC systems featuring individual overhead AC vents and reading lights for every single passenger, ensuring personalized comfort throughout the journey.",
+    question: `Are the Force Urbania vans fully air-conditioned for travel from ${from} to ${to}?`,
+    answer: `Absolutely. All our Force Urbania vans are equipped with powerful AC systems featuring individual overhead AC vents and reading lights for passengers, ensuring comfortable travel throughout the journey from ${from} to ${to}.`,
   },
   {
-    question: "Can I book an Urbania for wedding functions or corporate events?",
-    answer:
-      "Yes, Urbania is our most requested vehicle for weddings and corporate travel. Its premium interior, professional chauffeur, and reliable punctuality make it the perfect choice for shuttling VIP guests, family members, or corporate teams between venues and hotels.",
+    question: `Can I book a Force Urbania from ${from} to ${to} for wedding functions or corporate events?`,
+    answer: `Yes. Force Urbania is a popular choice for weddings and corporate travel. Its premium interior, professional chauffeur and spacious seating make it suitable for transporting VIP guests, family members and corporate teams from ${from} to ${to}.`,
   },
   {
-    question: "Is the Urbania suitable for long outstation highway trips?",
-    answer:
-      "The Force Urbania is highly recommended for long highway journeys across the country. The superior suspension, high-back pushback recliner seats, and spacious legroom significantly reduce travel fatigue on long interstate drives or pilgrimage tours.",
+    question: `Is the Force Urbania suitable for long outstation trips from ${from} to ${to}?`,
+    answer: `Yes. The Force Urbania is well suited for long highway journeys from ${from} to ${to}. Its comfortable pushback recliner seats, spacious legroom and smooth ride make it a practical choice for long-distance travel, family vacations and pilgrimage tours.`,
   },
   {
-    question: "Are Urbania rentals available for local city sightseeing tours?",
-    answer:
-      "Yes, we offer specialized local tour packages (usually 8 hours / 80 km). It’s an excellent way for large groups or joint families to explore the city comfortably together without the hassle of coordinating multiple cabs.",
+    question: `Are Force Urbania rentals available for local sightseeing tours from ${from} to ${to}?`,
+    answer: `Yes. We offer local sightseeing and city tour packages for groups travelling from ${from} to ${to}. It is an excellent option for large families and groups who want to travel together comfortably instead of coordinating multiple cabs.`,
   },
   {
-    question: "Can I cancel or reschedule my Urbania booking?",
-    answer:
-      "Yes. Cancellations are free up to 24 hours before the scheduled pickup time for outstation and local tours. Rescheduling is always free of charge, subject to vehicle availability. Just reach out to us via call or WhatsApp.",
+    question: `Can I cancel or reschedule my Force Urbania booking from ${from} to ${to}?`,
+    answer: `Yes. You can contact us to cancel or reschedule your Force Urbania booking from ${from} to ${to}. Cancellation and rescheduling conditions may depend on how close the request is to the scheduled pickup time and vehicle availability.`,
   },
 ];
-
-export default function UrbaniaFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);

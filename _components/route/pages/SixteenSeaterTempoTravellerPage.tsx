@@ -46,7 +46,8 @@ export default function SixteenSeaterTempoTravellerPage({
 
       <WhyChooseUs />
 
-      <SixteenSeaterTempoFaq />
+      <SixteenSeaterTempoFaq from={data.route.fromCity}
+        to={data.route.toCity}/>
     </>
   );
 }
