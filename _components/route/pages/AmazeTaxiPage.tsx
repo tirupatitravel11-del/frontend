@@ -11,7 +11,10 @@ export default function AmazeTaxiPage({ data }: any) {
 
   return (
     <>
-      <AmazeHero from={route.fromCity} to={route.toCity} startingFare={1649} />
+      <AmazeHero  from={data.route.fromCity}
+        to={data.route.toCity}
+        // vehicle={data.vehicle}
+        fare={data.fares[0]} />
       <AmazeFleetDetails />
       <AmazeFitGuide />
       <Testimonials />

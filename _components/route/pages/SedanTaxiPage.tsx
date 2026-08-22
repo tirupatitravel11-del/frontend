@@ -36,6 +36,7 @@ const LUCKNOW_AYODHYA_ROUTES: any = [
   },
 ];
 
+
 export default function SedanTaxiPage({ data }: any) {
   const { route, page } = data;
 
@@ -45,7 +46,10 @@ export default function SedanTaxiPage({ data }: any) {
 
   return (
     <>
-      <SedanHero from={route.fromCity} to={route.toCity} startingFare={1599} />
+      <SedanHero        from={data.route.fromCity}
+        to={data.route.toCity}
+        vehicle={data.vehicle}
+        fare={data.fares[0]} />
       <SedanFleetDetails />
       <SedanFitGuide />
       <PopularRoutes

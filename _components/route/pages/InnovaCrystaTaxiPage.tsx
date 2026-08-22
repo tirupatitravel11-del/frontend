@@ -46,7 +46,10 @@ export default function InnovaCrystaTaxiPage({ data }: any) {
 
   return (
     <>
-    <InnovaCrystaHero from="Noida" to="Delhi" startingFare={1599} />
+    <InnovaCrystaHero  from={data.route.fromCity}
+        to={data.route.toCity}
+        // vehicle={data.vehicle}
+        fare={data.fares[0]} />
          <InnovaFleetDetails />
          <InnovaCrystaFitGuide />
          <PopularRoutes
