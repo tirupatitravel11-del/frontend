@@ -3,7 +3,9 @@
 import React, { useState } from "react";
 import { Car, MapPin, Users, Briefcase, Wind, ShieldCheck } from "lucide-react";
 
-export default function ErtigaTaxiHero({ from, to, startingFare = 2799 }: any) {
+export default function ErtigaTaxiHero({ from,
+  to,
+  fare}: any) {
   const [pickup, setPickup] = useState("");
   const [destination, setDestination] = useState("");
 
@@ -70,7 +72,7 @@ export default function ErtigaTaxiHero({ from, to, startingFare = 2799 }: any) {
           </div>
 
           <p className="mt-6 text-sm text-slate-500">
-            * Outstation fares starting from <b className="text-gold">₹14/km</b>
+            * Outstation fares starting from <b className="text-gold">₹{fare.oneWayPrice}</b>
             .
           </p>
         </div>
