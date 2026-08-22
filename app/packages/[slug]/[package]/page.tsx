@@ -28,29 +28,23 @@ type Props = {
 // ===============================
 async function getPackage(packageSlug: string) {
   try {
+    console.log("PACKAGE SLUG:", packageSlug);
 
+    const apiUrl = `${process.env.apiUrl}/api/package/single/${packageSlug}`;
 
-    const apiUrl = `${process.env.apiUrl}/api/package/${packageSlug}`;
-
+    console.log("PACKAGE API URL:", apiUrl);
 
     const response = await axios.get(apiUrl);
 
+    console.log("PACKAGE API RESPONSE:", response.data);
 
-    // IMPORTANT:
-    // API response:
-    // {
-    //   success: true,
-    //   message: "...",
-    //   data: {...}
-    // }
-
-    return response.data.data || null;
+    return response.data?.data || null;
   } catch (error) {
     console.error("PACKAGE API ERROR:", error);
 
     if (axios.isAxiosError(error)) {
-      console.error("Status:", error.response?.status);
-      console.error("Response:", error.response?.data);
+      console.error("STATUS:", error.response?.status);
+      console.error("RESPONSE:", error.response?.data);
     }
 
     return null;
@@ -61,18 +55,15 @@ async function getPackage(packageSlug: string) {
 // PAGE
 // ===============================
 export default async function PackageDetailsPage({ params }: Props) {
-  // URL se params nikalna
-  const { package: packageSlug, slug } = await params;
+  const { slug: citySlug, package: packageSlug } = await params;
 
-console.log(packageSlug,"df");
+  console.log("CITY SLUG:", citySlug);
+  console.log("PACKAGE SLUG:", packageSlug);
 
-
-  // API CALL
+  // package slug se exact package ka data
   const packageData = await getPackage(packageSlug);
 
-
-
-  // Agar package nahi mila
+  // package nahi mila
   if (!packageData) {
     notFound();
   }
@@ -88,237 +79,7 @@ console.log(packageSlug,"df");
     "border-cyan-200 bg-cyan-50 text-cyan-700",
   ];
   return (
-    // <main className="min-h-screen bg-stone-50 py-10">
-    //   <div className="mx-auto max-w-7xl px-6">
-
-    //     {/* ================= HEADER ================= */}
-
-    //     <section className="rounded-2xl bg-gold p-8 text-white md:p-10">
-    //       <p className="text-sm font-semibold uppercase tracking-wide">
-    //         {packageData.type || "Holiday Package"}
-    //       </p>
-
-    //       <h1 className="mt-3 text-4xl font-bold md:text-5xl">
-    //         {packageData.title}
-    //       </h1>
-
-    //       <div className="mt-6 flex flex-wrap gap-6">
-
-    //         {/* Duration */}
-    //         {packageData.duration && (
-    //           <div className="flex items-center gap-2">
-    //             <Clock3 className="h-5 w-5" />
-
-    //             <span>{packageData.duration}</span>
-    //           </div>
-    //         )}
-
-    //         {/* Group Size */}
-    //         {packageData.groupSize && (
-    //           <div className="flex items-center gap-2">
-    //             <Users className="h-5 w-5" />
-
-    //             <span>{packageData.groupSize}</span>
-    //           </div>
-    //         )}
-
-    //         {/* Location */}
-    //         {packageData.location && (
-    //           <div className="flex items-center gap-2">
-    //             <MapPin className="h-5 w-5" />
-
-    //             <span>{packageData.location}</span>
-    //           </div>
-    //         )}
-
-    //       </div>
-    //     </section>
-
-    //     {/* ================= CONTENT ================= */}
-
-    //     <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_340px]">
-
-    //       {/* LEFT SIDE */}
-    //       <div>
-
-    //         {/* IMAGE */}
-
-    //         {packageData.image && (
-    //           <img
-    //             src={packageData.image}
-    //             alt={packageData.title}
-    //             className="h-[450px] w-full rounded-2xl object-cover"
-    //           />
-    //         )}
-
-    //         {/* ABOUT */}
-
-    //         {packageData.description && (
-    //           <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm">
-    //             <h2 className="text-2xl font-bold text-stone-900">
-    //               About This Package
-    //             </h2>
-
-    //             <p className="mt-4 leading-8 text-stone-600">
-    //               {packageData.description}
-    //             </p>
-    //           </section>
-    //         )}
-
-    //         {/* SHORT DESCRIPTION */}
-
-    //         {packageData.shortDescription && (
-    //           <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm">
-    //             <h2 className="text-2xl font-bold text-stone-900">
-    //               About the Trip
-    //             </h2>
-
-    //             <p className="mt-4 leading-8 text-stone-600">
-    //               {packageData.shortDescription}
-    //             </p>
-    //           </section>
-    //         )}
-
-    //         {/* HIGHLIGHTS */}
-
-    //         {packageData.highlights &&
-    //           packageData.highlights.length > 0 && (
-    //             <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm">
-
-    //               <h2 className="text-2xl font-bold text-stone-900">
-    //                 Highlights
-    //               </h2>
-
-    //               <div className="mt-5 space-y-4">
-
-    //                 {packageData.highlights.map(
-    //                   (item: string) => (
-    //                     <div
-    //                       key={item}
-    //                       className="flex items-center gap-3"
-    //                     >
-    //                       <CheckCircle2 className="h-5 w-5 text-green-600" />
-
-    //                       <span className="text-stone-700">
-    //                         {item}
-    //                       </span>
-    //                     </div>
-    //                   ),
-    //                 )}
-
-    //               </div>
-    //             </section>
-    //           )}
-
-    //         {/* TAGS */}
-
-    //         {packageData.tags &&
-    //           packageData.tags.length > 0 && (
-    //             <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm">
-
-    //               <h2 className="text-2xl font-bold text-stone-900">
-    //                 Package Tags
-    //               </h2>
-
-    //               <div className="mt-5 flex flex-wrap gap-3">
-
-    //                 {packageData.tags.map(
-    //                   (tag: string) => (
-    //                     <span
-    //                       key={tag}
-    //                       className="rounded-full bg-orange-100 px-4 py-2 font-medium text-gold"
-    //                     >
-    //                       {tag}
-    //                     </span>
-    //                   ),
-    //                 )}
-
-    //               </div>
-
-    //             </section>
-    //           )}
-
-    //       </div>
-
-    //       {/* ================= SIDEBAR ================= */}
-
-    //       <aside>
-
-    //         <div className="sticky top-5 rounded-2xl bg-white p-6 shadow-sm">
-
-    //           <h3 className="text-xl font-bold text-stone-900">
-    //             Package Summary
-    //           </h3>
-
-    //           <div className="mt-6 space-y-5">
-
-    //             {packageData.duration && (
-    //               <div className="flex items-center gap-3 text-stone-700">
-    //                 <Calendar className="h-5 w-5 text-gold" />
-
-    //                 <span>
-    //                   {packageData.duration}
-    //                 </span>
-    //               </div>
-    //             )}
-
-    //             {packageData.groupSize && (
-    //               <div className="flex items-center gap-3 text-stone-700">
-    //                 <Users className="h-5 w-5 text-gold" />
-
-    //                 <span>
-    //                   {packageData.groupSize}
-    //                 </span>
-    //               </div>
-    //             )}
-
-    //             {packageData.location && (
-    //               <div className="flex items-center gap-3 text-stone-700">
-    //                 <MapPin className="h-5 w-5 text-gold" />
-
-    //                 <span>
-    //                   {packageData.location}
-    //                 </span>
-    //               </div>
-    //             )}
-
-    //           </div>
-
-    //           {/* PRICE */}
-
-    //           {packageData.price && (
-    //             <div className="mt-8 border-t border-stone-200 pt-6">
-
-    //               <p className="text-sm text-stone-500">
-    //                 Starting From
-    //               </p>
-
-    //               <p className="mt-2 text-4xl font-bold text-gold">
-    //                 ₹
-    //                 {Number(
-    //                   packageData.price,
-    //                 ).toLocaleString()}
-    //               </p>
-
-    //             </div>
-    //           )}
-
-    //           {/* BOOK BUTTON */}
-
-    //           <button
-    //             type="button"
-    //             className="mt-8 w-full rounded-xl bg-gold py-4 font-bold text-white transition hover:bg-[#c88912]"
-    //           >
-    //             Book Now
-    //           </button>
-
-    //         </div>
-
-    //       </aside>
-
-    //     </div>
-    //   </div>
-    // </main>
+ 
     <main className="bg-stone-100 py-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
