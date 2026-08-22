@@ -17,7 +17,8 @@ export default function UrbaniaRentalPage({ data }: any) {
       <UrbaniaFareTable />
       <UrbaniaUseCases />
       <WhyChooseUs />
-      <UrbaniaFaq />
+      <UrbaniaFaq from={data.route.fromCity}
+        to={data.route.toCity} />
     </>
   );
 }

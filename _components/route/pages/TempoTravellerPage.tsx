@@ -33,7 +33,8 @@ export default function TempoTravellerPage({ data }: any) {
       <HowToBook from={route.fromCity} to={route.toCity} />
 
       <TempoTravellerFaq
-      // faqs={page.faqs}
+      from={data.route.fromCity}
+        to={data.route.toCity}
       />
     </>
   );

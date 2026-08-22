@@ -62,7 +62,8 @@ export default function SedanTaxiPage({ data }: any) {
       <HowToBook from={route.fromCity} to={route.toCity} />
       <WhyChooseUs />
 
-      <SedanFaq />
+      <SedanFaq from={data.route.fromCity}
+        to={data.route.toCity}/>
     </>
   );
 }

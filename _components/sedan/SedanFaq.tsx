@@ -4,56 +4,53 @@ import { useState } from "react";
 
 const PHONE_NUMBER = "+916390008503";
 
-type Faq = {
-  question: string;
-  answer: string;
-};
+interface SedanFaqProps {
+  from: string;
+  to: string;
+}
 
-const FAQS: Faq[] = [
+
+
+export default function SedanFaq({
+  from,
+  to,
+}: SedanFaqProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+const FAQS = [
   {
-    question: "What is the starting fare for a sedan taxi?",
-    answer:
-      "The starting fare for a sedan taxi begins at ₹1,599 for one-way trips and ₹2,699 for round trips. Local packages are typically based on a 40 km and 4-hour limit. These are fixed, all-inclusive base fares covering fuel, driver allowance, and AC. Tolls and parking are billed at actuals.",
+    question: `What is the starting fare for a sedan taxi from ${from} to ${to}?`,
+    answer: `The starting fare for a sedan taxi from ${from} to ${to} begins at ₹1,599 for one-way trips and ₹2,699 for round trips. Local packages are typically based on a 40 km and 4-hour limit. These are fixed, all-inclusive base fares covering fuel, driver allowance and AC. Tolls and parking are billed at actuals.`,
   },
   {
-    question: "How much luggage fits in a sedan?",
-    answer:
-      "Our sedans comfortably fit 3 large suitcases plus cabin bags. The Swift Dzire has a 378-litre boot, the Hyundai Aura 402 litres, and the Honda Amaze leads with 420 litres — making sedans the perfect choice for airport drops and family trips.",
+    question: `How much luggage fits in a sedan for travel from ${from} to ${to}?`,
+    answer: `Our sedans can comfortably accommodate luggage along with passengers for travel from ${from} to ${to}. Actual luggage capacity depends on the sedan model and the size of your bags.`,
   },
   {
-    question: "Which sedan models do you provide?",
-    answer:
-      "We provide Maruti Swift Dzire, Honda Amaze, and Hyundai Aura — all air-conditioned, sanitized, and well-maintained. You can request a specific model while booking, subject to availability.",
+    question: `Which sedan models do you provide from ${from} to ${to}?`,
+    answer: `We provide sedan options such as Maruti Swift Dzire, Honda Amaze and other available models. Vehicles are air-conditioned and maintained for comfortable travel from ${from} to ${to}. You can request a specific model while booking, subject to availability.`,
   },
   {
-    question: "Is the sedan fare per person or per car?",
-    answer:
-      "Per car. Every sedan is a private cab for you and your group — up to 4 passengers. The fare stays the same whether 1 person or 4 people travel, so it's excellent value for families and couples.",
+    question: `Is the sedan fare from ${from} to ${to} per person or per car?`,
+    answer: `The sedan fare from ${from} to ${to} is charged per private car, not per person. A sedan can generally accommodate up to 4 passengers, and the fare is based on the vehicle booking rather than the number of passengers.`,
   },
   {
-    question: "Is a sedan suitable for airport transfers?",
-    answer:
-      "Absolutely. A sedan fits up to 4 passengers plus 3 large bags, which covers most airport trips. We recommend booking at least 3 hours before your flight departure, and our drivers are well-versed with airport terminal entry routes.",
+    question: `Is a sedan suitable for airport transfers from ${from} to ${to}?`,
+    answer: `Yes. A sedan is suitable for airport transfers from ${from} to ${to}, especially for up to 4 passengers travelling with moderate luggage. We recommend booking your airport taxi in advance to ensure vehicle availability.`,
   },
   {
-    question: "What if more than 4 people are travelling?",
-    answer:
-      "For 5 or more passengers, we recommend upgrading to an SUV like the Ertiga or Innova Crysta, which seats 6–7 comfortably. Call us and we'll suggest the right cab for your group size and luggage.",
+    question: `What if more than 4 people are travelling from ${from} to ${to}?`,
+    answer: `For groups of more than 4 passengers travelling from ${from} to ${to}, we recommend choosing a larger vehicle such as an Ertiga or Innova Crysta. These vehicles provide additional seating and luggage space for families and groups.`,
   },
   {
-    question: "Are sedans available at night for early morning or late-night trips?",
-    answer:
-      "Yes, our sedans are available 24×7, including early morning airport drops and late-night outstation returns. A standard night charge applies for trips starting or ending between 10 PM and 6 AM.",
+    question: `Are sedan taxis available at night from ${from} to ${to}?`,
+    answer: `Yes. Sedan taxis can be booked for early morning, daytime and late-night travel from ${from} to ${to}, subject to vehicle availability. Any applicable night charges will be communicated during booking.`,
   },
   {
-    question: "Can I cancel or reschedule my sedan booking?",
-    answer:
-      "Yes. Cancellation is free up to 2 hours before pickup, and rescheduling is always free with a simple call or WhatsApp message. Since there's no advance payment required, you never lose money.",
+    question: `Can I cancel or reschedule my sedan booking from ${from} to ${to}?`,
+    answer: `Yes. You can contact us to cancel or reschedule your sedan booking from ${from} to ${to}. Cancellation and rescheduling conditions may depend on how close the request is to the scheduled pickup time.`,
   },
 ];
-
-export default function SedanFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -93,7 +90,7 @@ export default function SedanFaq() {
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
-            Everything riders ask us about booking a sedan from Noida to Delhi.
+            Everything riders ask us about booking a sedan from {from} to {to}.
           </p>
         </div>
 

@@ -4,62 +4,58 @@ import { useState } from "react";
 
 const PHONE_NUMBER = "+916390008503";
 
-type Faq = {
-  question: string;
-  answer: string;
-};
 
-const FAQS: Faq[] = [
+interface SuvFaqProps {
+  from: string;
+  to: string;
+}
+
+
+
+export default function SuvFaq({
+  from,
+  to,
+}: SuvFaqProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+ const FAQS = [
   {
-    question: "What is the starting fare for an SUV taxi?",
-    answer:
-      "The starting fare for an SUV taxi begins at ₹1,800 for the Ertiga, ₹2,200 for the Innova, and ₹2,800 for the Innova Crysta for local or one-way trips. Round-trip and outstation fares are calculated based on distance or as a fixed package. These are fixed, all-inclusive base fares covering fuel, driver allowance, and AC.",
+    question: `What is the starting fare for an SUV taxi from ${from} to ${to}?`,
+    answer: `The starting fare for an SUV taxi begins at ₹1,800 for the Ertiga, ₹2,200 for the Innova, and ₹2,800 for the Innova Crysta for local or one-way trips from ${from} to ${to}. Round-trip and outstation fares are calculated based on distance or as a fixed package. These are fixed, all-inclusive base fares covering fuel, driver allowance and AC.`,
   },
   {
-    question: "How many passengers can travel in an SUV?",
-    answer:
-      "The Ertiga and Innova comfortably seat 6 passengers, while the Innova Crysta and Hycross accommodate 6–7 passengers. All models offer ample legroom and space for 4–5 large suitcases, making them ideal for family and group travel.",
+    question: `How many passengers can travel in an SUV from ${from} to ${to}?`,
+    answer: `The Ertiga and Innova comfortably seat 6 passengers, while the Innova Crysta and Hycross accommodate 6–7 passengers. All models offer ample legroom and space for luggage, making them ideal for family and group travel from ${from} to ${to}.`,
   },
   {
-    question: "Which SUV models do you provide?",
-    answer:
-      "We provide Maruti Suzuki Ertiga, Toyota Innova, Innova Crysta, and Innova Hycross — all air-conditioned, sanitized, and well-maintained. You can request a specific model while booking, subject to availability.",
+    question: `Which SUV models do you provide for travel from ${from} to ${to}?`,
+    answer: `We provide Maruti Suzuki Ertiga, Toyota Innova, Innova Crysta and Innova Hycross — all air-conditioned and maintained for comfortable travel. You can request a specific model while booking from ${from} to ${to}, subject to availability.`,
   },
   {
-    question: "How much luggage fits in an SUV?",
-    answer:
-      "Our SUVs offer generous boot space: Ertiga fits 3 large bags, Innova fits 4 bags, while Innova Crysta and Hycross accommodate 5 large suitcases. This is perfect for airport trips, weddings, and outstation journeys with heavy luggage.",
+    question: `How much luggage fits in an SUV for travel from ${from} to ${to}?`,
+    answer: `Our SUVs offer generous luggage space. Ertiga can accommodate around 3 large bags, Innova around 4 bags, while Innova Crysta and Hycross can accommodate approximately 5 large suitcases, depending on passenger count and luggage size.`,
   },
   {
-    question: "Is an SUV suitable for long outstation trips?",
-    answer:
-      "Absolutely. SUVs are the most popular choice for outstation trips across the country. The high ride height, stable suspension, and spacious interiors make long highway journeys comfortable for the whole group.",
+    question: `Is an SUV suitable for long outstation trips from ${from} to ${to}?`,
+    answer: `Absolutely. SUVs are a popular choice for outstation trips from ${from} to ${to}. Their higher ride height, stable suspension and spacious interiors make long highway journeys more comfortable for families and groups.`,
   },
   {
-    question: "Can I book an SUV for airport transfers?",
-    answer:
-      "Yes. SUVs are ideal for airport transfers with groups or heavy luggage. You get one comfortable cab instead of splitting into multiple vehicles. We recommend booking at least 3 hours before your flight departure.",
+    question: `Can I book an SUV for airport transfers from ${from} to ${to}?`,
+    answer: `Yes. SUVs are ideal for airport transfers from ${from} to ${to}, especially for groups or passengers travelling with heavy luggage. You can travel together in one comfortable vehicle instead of splitting into multiple cabs.`,
   },
   {
-    question: "What's the difference between Ertiga, Innova, and Crysta?",
-    answer:
-      "The Ertiga is the most economical 6-seater. The Innova offers more space and comfort at a mid-range price. The Innova Crysta and Hycross are premium options with superior interiors, more luggage space, and additional features — perfect for VIP travel and special occasions.",
+    question: `What's the difference between Ertiga, Innova and Crysta for travel from ${from} to ${to}?`,
+    answer: `The Ertiga is an economical option for up to 6 passengers. The Innova offers additional space and comfort, while the Innova Crysta and Hycross are premium options with enhanced interiors, luggage space and features. The right choice depends on your group size, luggage and travel requirements from ${from} to ${to}.`,
   },
   {
-    question:
-      "Are SUVs available at night for early morning or late-night trips?",
-    answer:
-      "Yes, our SUVs are available 24×7, including early morning airport drops and late-night outstation returns. A standard night charge applies for trips starting or ending between 10 PM and 6 AM.",
+    question: `Are SUVs available at night from ${from} to ${to}?`,
+    answer: `Yes. SUVs can be booked for early morning, daytime and late-night travel from ${from} to ${to}, subject to vehicle availability. Any applicable night charges will be communicated during booking.`,
   },
   {
-    question: "Can I cancel or reschedule my SUV booking?",
-    answer:
-      "Yes. Cancellation is free up to 2 hours before pickup, and rescheduling is always free with a simple call or WhatsApp message. Since there's no advance payment required, you never lose money.",
+    question: `Can I cancel or reschedule my SUV booking from ${from} to ${to}?`,
+    answer: `Yes. You can contact us to cancel or reschedule your SUV booking from ${from} to ${to}. Cancellation and rescheduling conditions may depend on how close the request is to the scheduled pickup time.`,
   },
 ];
-
-export default function SuvFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -99,7 +95,7 @@ export default function SuvFaq() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
-            Everything riders ask us about booking an SUV from Noida to Delhi.
+            Everything riders ask us about booking an SUV from {from} to {to}.
           </p>
         </div>
 
