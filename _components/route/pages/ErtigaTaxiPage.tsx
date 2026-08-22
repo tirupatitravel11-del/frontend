@@ -72,7 +72,8 @@ export default function ErtigaTaxiPage({ data }: any) {
       <Testimonials />
       <HowToBook from="Noida" to="Delhi" />
       <WhyChooseUs />
-      <ErtigaFaq />
+      <ErtigaFaq from={data.route.fromCity}
+        to={data.route.toCity}/>
     </>
   );
 }

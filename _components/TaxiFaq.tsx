@@ -9,48 +9,7 @@ type Faq = {
 
 const PHONE_NUMBER = "+916390008503";
 
-const FAQS: Faq[] = [
-  {
-    question: "What is the taxi fare from Noida to Delhi?",
-    answer:
-      "Taxi fares from Noida to Delhi start at ₹1,299 for a hatchback (WagonR, Swift) for a one-way trip. Sedans start at ₹1,599 and SUVs at ₹2,299. All fares are fixed and include fuel and driver allowance. Toll and parking charges are billed at actuals.",
-  },
-  {
-    question: "How much does a taxi from Noida to IGI Airport cost?",
-    answer:
-      "A taxi from Noida to IGI Airport (Terminal 1, 2 or 3) starts at ₹1,499 for a hatchback. The distance is around 30 km and travel time is 50–70 minutes depending on traffic. We recommend booking at least 3 hours before your flight departure.",
-  },
-  {
-    question: "Can I book a one-way taxi from Noida to Delhi?",
-    answer:
-      "Yes. We offer both one-way and round-trip bookings. With one-way, you pay only the fixed one-way fare — no return charges. If you're coming back the same day, a round trip is usually more economical.",
-  },
-  {
-    question: "Are toll and parking charges included in the fare?",
-    answer:
-      "No. Toll, parking and airport entry fees are not included and are charged at actuals. Everything else — fuel, driver allowance and AC — is included in the fixed fare.",
-  },
-  {
-    question: "Is taxi service available at night from Noida to Delhi?",
-    answer:
-      "Yes, we operate 24×7, including early morning airport drops and late night arrivals. A flat night charge of ₹200 applies for trips between 10 PM and 6 AM.",
-  },
-  {
-    question: "Do you cover all Noida sectors and Greater Noida?",
-    answer:
-      "Yes. We provide doorstep pickup from all sectors of Noida, Greater Noida and the Noida Expressway area, and drop anywhere in Delhi — including the airport, railway stations, hospitals and hotels.",
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer:
-      "You can pay by cash or UPI (Google Pay, PhonePe, Paytm) after your trip. A GST invoice can be provided on request for business travel.",
-  },
-  {
-    question: "How early should I book my taxi?",
-    answer:
-      "We recommend booking at least 3–4 hours in advance. For early morning airport drops, book the previous night. Need a cab urgently? Call us — we often have a driver nearby who can reach you quickly.",
-  },
-];
+
 
 interface TaxiFaqProps {
   title?: string;
@@ -58,12 +17,48 @@ interface TaxiFaqProps {
 }
 
 export default function TaxiFaq({
+  to,
+  from,
   title = "Frequently Asked Questions",
   subtitle = "Everything you need to know about booking a taxi from Noida to Delhi.",
   faqs
 }: any) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const FAQS: Faq[] = [
+  {
+    question: `What is the taxi fare from ${from} to ${to}?`,
+    answer: `Taxi fares from ${from} to ${to} start at ₹1,299 for a hatchback such as WagonR or Swift for a one-way trip. Sedans start at ₹1,599 and SUVs at ₹2,299. All fares are fixed and include fuel and driver allowance. Toll and parking charges are billed at actuals.`,
+  },
+  {
+    question: `How much does a taxi from ${from} to ${to} Airport cost?`,
+    answer: `A taxi from ${from} to ${to} Airport starts at ₹1,499 for a hatchback. The final fare and travel time may vary depending on the pickup location, destination, route and traffic conditions. We recommend booking your airport taxi well in advance of your flight departure.`,
+  },
+  {
+    question: `Can I book a one-way taxi from ${from} to ${to}?`,
+    answer: `Yes. We offer both one-way and round-trip taxi bookings from ${from} to ${to}. With a one-way trip, you pay only the applicable one-way fare without return charges. If you are returning the same day, a round trip may be a more economical option.`,
+  },
+  {
+    question: `Are toll and parking charges included in the taxi fare from ${from} to ${to}?`,
+    answer: `Toll, parking and applicable entry fees are generally not included in the base fare and are charged at actuals. Fuel, driver allowance and AC are included according to the selected booking and fare terms.`,
+  },
+  {
+    question: `Is taxi service available at night from ${from} to ${to}?`,
+    answer: `Yes, taxi service can be booked for early morning, daytime and late-night travel from ${from} to ${to}, subject to vehicle availability. Any applicable night charges will be communicated during booking.`,
+  },
+  {
+    question: `Do you provide doorstep pickup from ${from} to ${to}?`,
+    answer: `Yes. You can request pickup from your preferred location in ${from} and travel directly to your destination in ${to}. Pickup and drop availability may depend on the service area and booking requirements.`,
+  },
+  {
+    question: `What payment methods do you accept for a taxi from ${from} to ${to}?`,
+    answer: `You can generally pay by cash or UPI after your trip, depending on the booking arrangement. A GST invoice may also be available on request for eligible business travel bookings.`,
+  },
+  {
+    question: `How early should I book my taxi from ${from} to ${to}?`,
+    answer: `We recommend booking your taxi from ${from} to ${to} at least 3–4 hours in advance. For early morning travel, airport transfers, weekends or peak travel periods, booking earlier is recommended to ensure better vehicle availability.`,
+  },
+];
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };

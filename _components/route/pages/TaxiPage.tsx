@@ -68,7 +68,8 @@ console.log(data,"dhsjh");
 
       {/* FAQ */}
       <TaxiFaq
-        faqs={page.faqs}
+        from={data.route.fromCity}
+        to={data.route.toCity}
       />
     </>
   );

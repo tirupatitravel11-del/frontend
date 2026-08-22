@@ -29,7 +29,8 @@ export default function ErtigaTaxiPage({ data }: any) {
       <Testimonials />
       <HowToBook  from={route.fromCity}
         to={route.toCity} />
-      <EtiosFaq />
+      <EtiosFaq from={data.route.fromCity}
+        to={data.route.toCity} />
     </>
   );
 }

@@ -2,66 +2,61 @@
 
 import { useState } from "react";
 
-type Faq = {
-  question: string;
-  answer: string;
-};
+interface LuxuryFaqProps {
+  from: string;
+  to: string;
+}
 
-const FAQS: Faq[] = [
+
+
+export default function LuxuryTempoFaq({
+  from,
+  to,
+}: LuxuryFaqProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+const FAQS = [
   {
-    question: "What is the Luxury Tempo Traveller fare from Noida to Delhi?",
-    answer:
-      "Local day-tour fares start at ₹7,500 for the 12 seater, ₹8,500 for the 16 seater, ₹9,500 for the 20 seater and ₹11,000 for the 24 seater. Outstation trips are billed per km (₹30–₹38/km depending on the model). Tolls, parking and state taxes are billed at actuals.",
+    question: `What is the Luxury Tempo Traveller fare from ${from} to ${to}?`,
+    answer: `Local day-tour fares start at ₹7,500 for the 12 seater, ₹8,500 for the 16 seater, ₹9,500 for the 20 seater and ₹11,000 for the 24 seater. Outstation trips from ${from} to ${to} are billed per km at ₹30–₹38/km depending on the model. Tolls, parking and state taxes are billed at actuals.`,
   },
   {
-    question: "How many passengers can travel in a Luxury Tempo Traveller?",
-    answer:
-      "We offer 12, 16, 20 and 24 seater options, each with a +1 driver seat. Every model comes with Maharaja-style pusher seats, so each passenger gets a comfortable reclining seat with armrests — no cramped middle seats.",
+    question: `How many passengers can travel in a Luxury Tempo Traveller from ${from} to ${to}?`,
+    answer: `We offer 12, 16, 20 and 24 seater options for travel from ${from} to ${to}, each with a +1 driver seat. Every model comes with Maharaja-style pusher seats, so each passenger gets a comfortable reclining seat with armrests.`,
   },
   {
-    question: "What luxury features are included in the fare?",
-    answer:
-      "Every Luxury Tempo Traveller includes reclining Maharaja pusher seats, powerful AC with individual vents, LED TV, premium music system, a mic for announcements, USB charging points and ambient LED lighting — all included in your fare at no extra cost.",
+    question: `What luxury features are included in the Luxury Tempo Traveller from ${from} to ${to}?`,
+    answer: `Every Luxury Tempo Traveller includes reclining Maharaja pusher seats, powerful AC with individual vents, LED TV, premium music system, a mic for announcements, USB charging points and ambient LED lighting — all included in your fare at no extra cost.`,
   },
   {
-    question: "Is the Tempo Traveller suitable for weddings?",
-    answer:
-      "Yes. Our 20 and 24 seaters are the most booked vehicles for baraat and guest shuttles. We can also arrange decoration on request so the cab matches your wedding theme, and the driver stays with you for the full event schedule.",
+    question: `Is the Luxury Tempo Traveller suitable for weddings from ${from} to ${to}?`,
+    answer: `Yes. Our 20 and 24 seater Luxury Tempo Travellers are ideal for wedding groups, baraat and guest travel from ${from} to ${to}. We can also arrange decoration on request, and the driver stays with you according to your event schedule.`,
   },
   {
-    question: "Can we take it for hill trips like Manali, Shimla or Char Dham?",
-    answer:
-      "Yes. Our Tempo Travellers are powered for mountain roads and driven by experienced hill-route drivers. We handle all inter-state and hill permits for routes like Manali, Shimla, Nainital and Char Dham yatra, so you travel without any checkpoint delays.",
+    question: `Can I book a Luxury Tempo Traveller from ${from} to ${to} for hill trips?`,
+    answer: `Yes. Our Luxury Tempo Travellers can be booked for long-distance and hill journeys from ${from} to ${to}, subject to route requirements and vehicle availability. We can assist with travel planning and applicable permits for the journey.`,
   },
   {
-    question: "How much luggage can a Luxury Tempo Traveller carry?",
-    answer:
-      "Depending on the model, the rear boot comfortably holds 6–12 large suitcases along with cabin bags inside the cabin. The entire group travels together with all luggage in one vehicle — no support car needed.",
+    question: `How much luggage can a Luxury Tempo Traveller carry from ${from} to ${to}?`,
+    answer: `Depending on the model, the rear boot can comfortably hold approximately 6–12 large suitcases along with cabin bags. This makes it a convenient option for group travel from ${from} to ${to}, allowing passengers and luggage to travel together.`,
   },
   {
-    question: "Are tolls, parking and driver allowance included in the fare?",
-    answer:
-      "Your fare includes fuel, AC and driver allowance for the trip. Tolls, parking, inter-state taxes and hill permits are billed at actuals and shown transparently in your final bill — no hidden charges.",
+    question: `Are tolls, parking and driver allowance included in the fare from ${from} to ${to}?`,
+    answer: `Your fare generally includes fuel, AC and driver allowance for the trip. Tolls, parking, inter-state taxes and applicable permits may be charged separately at actuals and communicated during booking.`,
   },
   {
-    question: "What is the driver night allowance for multi-day trips?",
-    answer:
-      "For outstation trips that involve an overnight halt, a driver night allowance of ₹500–₹700 per day applies depending on the model. This is clearly communicated at the time of booking, so there are no surprises later.",
+    question: `What is the driver night allowance for multi-day trips from ${from} to ${to}?`,
+    answer: `For outstation trips from ${from} to ${to} that involve an overnight halt, a driver night allowance of ₹500–₹700 per day may apply depending on the vehicle model and trip requirements. The applicable charges are communicated at the time of booking.`,
   },
   {
-    question: "Can we play our own music or use the mic during the trip?",
-    answer:
-      "Absolutely. You can connect your phone to the music system via Bluetooth or USB, and the mic is available for tours, family games or announcements. Group travel should feel like a celebration — we encourage it.",
+    question: `Can we play our own music or use the mic during the trip from ${from} to ${to}?`,
+    answer: `Yes. You can connect your phone to the music system via Bluetooth or USB, and the mic can be used for tours, family games or announcements during your journey from ${from} to ${to}.`,
   },
   {
-    question: "How early should I book a Luxury Tempo Traveller?",
-    answer:
-      "For weekday trips, 24 hours in advance is usually enough. For weekends, wedding season and peak yatra season (May–July), we recommend booking 2–3 days early since luxury models get fully reserved quickly. You can call us 24×7 to check availability.",
+    question: `How early should I book a Luxury Tempo Traveller from ${from} to ${to}?`,
+    answer: `For weekday trips, booking at least 24 hours in advance is recommended. For weekends, wedding season and peak travel periods, booking 2–3 days or earlier is advisable because Luxury Tempo Traveller availability can be limited.`,
   },
 ];
-
-export default function LuxuryTempoFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -99,7 +94,7 @@ export default function LuxuryTempoFaq() {
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            Noida to Delhi Luxury Tempo Traveller Questions, Answered
+            {from} to {to} Luxury Tempo Traveller Questions, Answered
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">

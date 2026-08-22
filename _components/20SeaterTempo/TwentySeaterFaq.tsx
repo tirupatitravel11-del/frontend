@@ -2,66 +2,61 @@
 
 import { useState } from "react";
 
-type Faq = {
-  question: string;
-  answer: string;
-};
+interface TwentyFaqProps {
+  from: string;
+  to: string;
+}
 
-const FAQS: Faq[] = [
+
+
+export default function TwentySeaterFaq({
+  from,
+  to,
+}: TwentyFaqProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+const FAQS = [
   {
-    question: "What is the 20 Seater Tempo Traveller fare from Noida to Delhi?",
-    answer:
-      "The 20 Seater Luxury Tempo Traveller starts at ₹9,500 for local day tours and ₹35 per km for outstation trips. The fare includes fuel, AC and driver allowance. Tolls, parking and state taxes are billed at actuals. For weddings and multi-day events, we offer custom packages — call us for a quote.",
+    question: `What is the 20 Seater Tempo Traveller fare from ${from} to ${to}?`,
+    answer: `The 20 Seater Luxury Tempo Traveller starts at ₹9,500 for local day tours and ₹35 per km for outstation trips from ${from} to ${to}. The fare includes fuel, AC and driver allowance. Tolls, parking and applicable state taxes are billed at actuals. For weddings and multi-day events, custom packages may be available.`,
   },
   {
-    question: "How many passengers can travel in the 20 Seater Tempo Traveller?",
-    answer:
-      "The 20 Seater TT comfortably accommodates 20 passengers plus 1 driver (20+1 seating). It features a 2*2 seating layout with Maharaja-style pusher seats, so every passenger gets a spacious reclining seat with armrests — perfect for weddings, family reunions and large group travel.",
+    question: `How many passengers can travel in the 20 Seater Tempo Traveller from ${from} to ${to}?`,
+    answer: `The 20 Seater Tempo Traveller comfortably accommodates up to 20 passengers plus 1 driver. It features a spacious seating layout with Maharaja-style pusher seats, making it suitable for weddings, family reunions and large group travel from ${from} to ${to}.`,
   },
   {
-    question: "Is the 20 Seater suitable for wedding baraat and guest shuttles?",
-    answer:
-      "Absolutely. The 20 Seater is our most popular vehicle for wedding baraat, groom's processions and guest shuttles between venues. We can arrange decoration on request to match your wedding theme, and the driver stays with you for the full event schedule, including multiple stops and waiting time.",
+    question: `Is the 20 Seater Tempo Traveller suitable for wedding baraat and guest travel from ${from} to ${to}?`,
+    answer: `Yes. The 20 Seater Tempo Traveller is a suitable option for wedding baraat, groom's processions and guest travel from ${from} to ${to}. Decoration may also be available on request, depending on the booking requirements.`,
   },
   {
-    question: "What luxury features come with the 20 Seater Tempo Traveller?",
-    answer:
-      "The 20 Seater includes Maharaja reclining pusher seats with armrests, powerful dual AC with individual vents, a large LED TV, premium music system with Bluetooth, a mic for announcements, USB charging points at every seat, ambient LED lighting, and a spacious rear luggage boot that holds 10 large suitcases.",
+    question: `What luxury features come with the 20 Seater Tempo Traveller from ${from} to ${to}?`,
+    answer: `The 20 Seater Tempo Traveller includes Maharaja reclining pusher seats with armrests, powerful AC with individual vents, LED TV, a music system, USB charging points, ambient lighting and spacious luggage storage, making group travel from ${from} to ${to} more comfortable.`,
   },
   {
-    question: "How much luggage can the 20 Seater Tempo Traveller carry?",
-    answer:
-      "The 20 Seater has a large rear boot that comfortably holds 10 large suitcases, plus passengers can keep cabin bags inside the overhead racks and under seats. It is ideal for wedding parties carrying multiple outfits, families on long vacations, or corporate groups with equipment — no support vehicle needed.",
+    question: `How much luggage can the 20 Seater Tempo Traveller carry from ${from} to ${to}?`,
+    answer: `The 20 Seater Tempo Traveller has a spacious rear luggage area that can accommodate multiple large suitcases along with cabin bags. Actual luggage capacity may depend on the number of passengers and the size of the bags.`,
   },
   {
-    question: "Can we take the 20 Seater for hill trips like Manali or Char Dham?",
-    answer:
-      "Yes. The 20 Seater is powered for mountain roads and driven by experienced hill-route chauffeurs. We handle all inter-state permits and hill area permissions for routes like Manali, Shimla, Nainital, Kedarnath and Char Dham yatra, so your group travels smoothly through every checkpoint.",
+    question: `Can I book the 20 Seater Tempo Traveller from ${from} to ${to} for a hill trip?`,
+    answer: `Yes. The 20 Seater Tempo Traveller can be booked for long-distance and hill journeys from ${from} to ${to}, subject to route conditions, permits and vehicle availability.`,
   },
   {
-    question: "Are tolls, parking and driver allowance included in the fare?",
-    answer:
-      "Your base fare of ₹9,500 includes fuel, AC and driver allowance for local trips. For outstation journeys, tolls, parking fees, inter-state taxes and hill permits are billed at actuals and shown transparently in your final bill — no hidden charges. For weddings, we can offer all-inclusive packages.",
+    question: `Are tolls, parking and driver allowance included in the fare from ${from} to ${to}?`,
+    answer: `The fare generally includes fuel, AC and driver allowance according to the selected trip package. Tolls, parking fees, inter-state taxes and applicable permits may be charged separately at actuals and communicated during booking.`,
   },
   {
-    question: "What is the driver night allowance for multi-day wedding events?",
-    answer:
-      "For multi-day trips or wedding events that span overnight, a driver night allowance of ₹600 per day applies. This is clearly communicated at the time of booking so there are no surprises. For 3+ day wedding packages, we often bundle this into a single all-inclusive quote.",
+    question: `What is the driver night allowance for multi-day trips from ${from} to ${to}?`,
+    answer: `For multi-day trips or events involving an overnight stay, a driver night allowance may apply depending on the vehicle, trip duration and travel requirements. The applicable charges are communicated at the time of booking.`,
   },
   {
-    question: "Can we decorate the 20 Seater for a wedding baraat?",
-    answer:
-      "Yes. We offer wedding decoration packages including flower arrangements, ribbons, LED string lights and themed decorations on the exterior and interior of the 20 Seater. This service is available on request and can be arranged 24 hours before your pickup. Contact us to discuss your theme.",
+    question: `Can we decorate the 20 Seater Tempo Traveller for a wedding from ${from} to ${to}?`,
+    answer: `Yes. Wedding decoration for the 20 Seater Tempo Traveller may be available on request. Decoration options can include flowers, ribbons, lighting and themed arrangements depending on availability and your event requirements.`,
   },
   {
-    question: "How early should I book the 20 Seater Tempo Traveller?",
-    answer:
-      "Since the 20 Seater is our most in-demand vehicle for weddings and events, we recommend booking 3–5 days in advance during wedding season (October–March) and peak yatra season (May–July). For weekday trips in off-season, 24–48 hours is usually enough. Call us 24×7 to check availability.",
+    question: `How early should I book the 20 Seater Tempo Traveller from ${from} to ${to}?`,
+    answer: `For weddings, weekends, peak travel periods and special events, booking the 20 Seater Tempo Traveller several days in advance is recommended. For regular weekday travel from ${from} to ${to}, earlier booking helps ensure better vehicle availability.`,
   },
 ];
-
-export default function TwentySeaterFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);

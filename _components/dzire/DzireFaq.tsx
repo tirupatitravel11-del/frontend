@@ -4,89 +4,67 @@ import { useState } from "react";
 
 const PHONE_NUMBER = "+916390008503";
 
-type Faq = {
-  question: string;
-  answer: string;
-};
+interface DzireFaqProps {
+  from: string;
+  to: string;
+}
 
-const FAQS: Faq[] = [
+
+
+export default function DzireFaq({from,
+  to,
+}: DzireFaqProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+const FAQS = [
   {
-    question: "What is the Dzire taxi fare from Noida to Delhi?",
-    answer:
-      "The one-way Swift Dzire taxi fare from Noida to Delhi starts at ₹1,599, while the round-trip fare starts at ₹2,699. The final fare may vary depending on the pickup location, trip type and travel requirements. Tolls, parking and applicable taxes are billed at actuals.",
+    question: `What is the Dzire taxi fare from ${from} to ${to}?`,
+    answer: `The one-way Swift Dzire taxi fare from ${from} to ${to} starts at ₹1,599, while the round-trip fare starts at ₹2,699. The final fare may vary depending on the pickup location, trip type and travel requirements. Tolls, parking and applicable taxes are billed at actuals.`,
   },
-
   {
-    question: "How many passengers can travel in a Swift Dzire?",
-    answer:
-      "A Maruti Suzuki Swift Dzire can comfortably accommodate up to 4 passengers. It is a good choice for couples, families and small groups travelling from Noida to Delhi.",
+    question: `How many passengers can travel in a Swift Dzire from ${from} to ${to}?`,
+    answer: `A Maruti Suzuki Swift Dzire can comfortably accommodate up to 4 passengers. It is a good choice for couples, families and small groups travelling from ${from} to ${to}.`,
   },
-
   {
-    question: "How much luggage can fit in a Swift Dzire?",
-    answer:
-      "Swift Dzire offers a spacious boot of around 378 litres and can comfortably carry around 2–3 large suitcases along with smaller cabin bags, depending on the luggage size.",
+    question: `How much luggage can fit in a Swift Dzire for travel from ${from} to ${to}?`,
+    answer: `Swift Dzire offers a spacious boot of around 378 litres and can comfortably carry around 2–3 large suitcases along with smaller cabin bags, depending on the luggage size.`,
   },
-
   {
-    question:
-      "Is Swift Dzire available for one-way travel from Noida to Delhi?",
-    answer:
-      "Yes. You can book a private Swift Dzire for a one-way journey from Noida to Delhi. The cab can pick you up from your preferred location in Noida and drop you at your destination in Delhi.",
+    question: `Is Swift Dzire available for one-way travel from ${from} to ${to}?`,
+    answer: `Yes. You can book a private Swift Dzire for a one-way journey from ${from} to ${to}. The cab can pick you up from your preferred location in ${from} and drop you at your destination in ${to}.`,
   },
-
   {
-    question: "Can I book a Dzire from Noida to Delhi Airport?",
-    answer:
-      "Yes, Swift Dzire is suitable for Noida to Delhi airport transfers. It can accommodate up to 4 passengers with moderate luggage and is a practical choice for airport drops and pickups.",
+    question: `Can I book a Dzire from ${from} to ${to} Airport?`,
+    answer: `Yes, Swift Dzire is suitable for ${from} to ${to} airport transfers. It can accommodate up to 4 passengers with moderate luggage and is a practical choice for airport drops and pickups.`,
   },
-
   {
-    question: "Which Swift Dzire model do you provide?",
-    answer:
-      "We provide Maruti Suzuki Swift Dzire taxis that are air-conditioned, well-maintained and suitable for local, airport and outstation travel. Specific vehicle allocation is subject to availability.",
+    question: `Which Swift Dzire model do you provide for travel from ${from} to ${to}?`,
+    answer: `We provide Maruti Suzuki Swift Dzire taxis that are air-conditioned, well-maintained and suitable for local, airport and outstation travel from ${from} to ${to}. Specific vehicle allocation is subject to availability.`,
   },
-
   {
-    question: "Is the Dzire taxi fare per person or per car?",
-    answer:
-      "The fare is charged per private car, not per person. Whether 1 passenger or up to 4 passengers travel, the base fare remains the same for the booked Swift Dzire.",
+    question: `Is the Dzire taxi fare from ${from} to ${to} per person or per car?`,
+    answer: `The fare is charged per private car, not per person. Whether 1 passenger or up to 4 passengers travel from ${from} to ${to}, the base fare remains the same for the booked Swift Dzire.`,
   },
-
   {
-    question: "Is Swift Dzire available 24x7 from Noida to Delhi?",
-    answer:
-      "Swift Dzire taxis can be booked for early morning, daytime and late-night travel, subject to vehicle availability. Contact us to confirm your preferred pickup time.",
+    question: `Is Swift Dzire available 24x7 from ${from} to ${to}?`,
+    answer: `Swift Dzire taxis can be booked for early morning, daytime and late-night travel from ${from} to ${to}, subject to vehicle availability. Contact us to confirm your preferred pickup time.`,
   },
-
   {
-    question: "Is Swift Dzire suitable for family travel?",
-    answer:
-      "Yes. Swift Dzire is a practical option for small families travelling with up to 4 passengers. It offers comfortable seating, air conditioning and useful boot space for luggage.",
+    question: `Is Swift Dzire suitable for family travel from ${from} to ${to}?`,
+    answer: `Yes. Swift Dzire is a practical option for small families travelling from ${from} to ${to} with up to 4 passengers. It offers comfortable seating, air conditioning and useful boot space for luggage.`,
   },
-
   {
-    question: "What if more than 4 people are travelling?",
-    answer:
-      "If more than 4 passengers are travelling, we recommend choosing a larger vehicle such as Ertiga or Innova Crysta. These vehicles provide additional seating and luggage space for families and groups.",
+    question: `What if more than 4 people are travelling from ${from} to ${to}?`,
+    answer: `If more than 4 passengers are travelling from ${from} to ${to}, we recommend choosing a larger vehicle such as Ertiga or Innova Crysta. These vehicles provide additional seating and luggage space for families and groups.`,
   },
-
   {
-    question: "Can I request a Swift Dzire specifically while booking?",
-    answer:
-      "Yes. You can request a Swift Dzire while booking your Noida to Delhi taxi. Vehicle allocation depends on availability at the time of your journey.",
+    question: `Can I request a Swift Dzire specifically while booking from ${from} to ${to}?`,
+    answer: `Yes. You can request a Swift Dzire while booking your ${from} to ${to} taxi. Vehicle allocation depends on availability at the time of your journey.`,
   },
-
   {
-    question: "Can I cancel or reschedule my Dzire taxi booking?",
-    answer:
-      "Yes. You can contact us to cancel or reschedule your Swift Dzire booking. Cancellation and rescheduling conditions may depend on how close the request is to the scheduled pickup time.",
+    question: `Can I cancel or reschedule my Dzire taxi booking from ${from} to ${to}?`,
+    answer: `Yes. You can contact us to cancel or reschedule your Swift Dzire booking from ${from} to ${to}. Cancellation and rescheduling conditions may depend on how close the request is to the scheduled pickup time.`,
   },
 ];
-
-export default function DzireFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -125,12 +103,12 @@ export default function DzireFaq() {
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            Noida to Delhi Dzire Taxi Questions, Answered
+            {from} to {to} Dzire Taxi Questions, Answered
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
             Everything you need to know about booking a Swift Dzire taxi from
-            Noida to Delhi, including fares, luggage, passengers and airport
+            {from} to {to}, including fares, luggage, passengers and airport
             transfers.
           </p>
         </div>
@@ -198,7 +176,7 @@ export default function DzireFaq() {
 
         <div className="mt-8 text-center sm:mt-10">
           <p className="text-sm text-slate-600">
-            Need a Swift Dzire for your Noida to Delhi journey?
+            Need a Swift Dzire for your {from} to {to} journey?
           </p>
 
           <a

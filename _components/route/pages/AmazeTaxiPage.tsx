@@ -20,7 +20,8 @@ export default function AmazeTaxiPage({ data }: any) {
       <Testimonials />
       <HowToBook from={route.fromCity} to={route.toCity} />
       <WhyChooseUs />
-      <AmazeFaq />
+      <AmazeFaq from={data.route.fromCity}
+        to={data.route.toCity} />
     </>
   );
 }

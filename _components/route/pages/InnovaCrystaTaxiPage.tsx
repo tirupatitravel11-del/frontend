@@ -62,7 +62,8 @@ export default function InnovaCrystaTaxiPage({ data }: any) {
                <HowToBook from="Noida" to="Delhi" />
                <WhyChooseUs />
      
-               <InnovaCrystaFaq/>
+               <InnovaCrystaFaq from={data.route.fromCity}
+        to={data.route.toCity}/>
     </>
   );
 }
