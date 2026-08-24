@@ -62,7 +62,7 @@ export default function ErtigaTaxiPage({ data }: any) {
         fare={data.fares[0]}
       />
       <ErtigaStorySection />
-      <VehicleComparison />
+      <VehicleComparison fares={data.fares[0]} />
       <PopularRoutes
         routes={data.popularRoutes}
         from={route.fromCity}
