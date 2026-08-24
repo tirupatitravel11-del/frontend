@@ -20,6 +20,7 @@ export default function TaxiFarePage({ data }: any) {
         from={route.fromCity}
         to={route.toCity}
         title="Fare Details"
+        fares={data.fares}
       />
 
         <CabSelector

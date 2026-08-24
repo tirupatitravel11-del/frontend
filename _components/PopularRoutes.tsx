@@ -7,39 +7,12 @@ type TaxiRoute = {
   tag: string;
 };
 
-const LUCKNOW_AYODHYA_ROUTES: TaxiRoute[] = [
-  {
-    from: "Lucknow",
-    to: "Ayodhya Dham",
-    km: "135 km",
-    time: "2.5–3 hr",
-    fare: 2499,
-    tag: "Popular",
-  },
-  {
-    from: "Lucknow Airport",
-    to: "Ayodhya",
-    km: "150 km",
-    time: "3–3.5 hr",
-    fare: 2799,
-    tag: "Airport",
-  },
-  {
-    from: "Lucknow Railway Station",
-    to: "Ayodhya Dham",
-    km: "140 km",
-    time: "2.5–3 hr",
-    fare: 2599,
-    tag: "Railway",
-  },
-];
-
 const PHONE_NUMBER = "+916390008503";
 
 interface PopularRoutesProps {
   from: string;
   to: string;
-  routes: TaxiRoute[];
+  routes: any;
   title?: string;
   subtitle?: string;
 }
@@ -51,6 +24,7 @@ export default function PopularRoutes({
   title,
   subtitle = "Fixed fares for the most booked routes. Actual time may vary with traffic conditions.",
 }: PopularRoutesProps) {
+  console.log(from, to, routes, title, "sdfsdf");
   return (
     <section className="bg-slate-50 py-10 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -120,7 +94,7 @@ export default function PopularRoutes({
                 <div className="min-w-0">
                   <p className="text-xs text-slate-500">Starting fare</p>
 
-                  <p className="text-xl font-bold text-slate-900">1500</p>
+                  <p className="text-xl font-bold text-slate-900">₹{(parseFloat(route?.distance?.split(' ')[0]) * 1.6 * 10) + 500}</p>
                 </div>
 
                 <a
