@@ -6,30 +6,46 @@ import { Users, Star, ShieldCheck, Phone, MessageCircle } from "lucide-react";
 const PHONE_NUMBER = "+916390008503";
 const WHATSAPP_NUMBER = "916390008503";
 
-type SeaterType = "9-seater" | "12-seater" | "16-seater" | "20-seater" | "26-seater";
+type SeaterType = string;
 
-interface LuxuryTTHeroProps {
+interface LuxuryTempoHeroProps {
   from: string;
   to: string;
+  fares: {
+    slug: string;
+    vehicle: string;
+    seats: string;
+    oneWay: number;
+    roundTrip: number;
+    perKm: number;
+    image?: string;
+    popular?: boolean;
+  }[];
 }
+// const SEATER_OPTIONS = [
+//   { id: "9-seater", label: "9 Seater", fare: "₹4,500", capacity: "Small Groups" },
+//   { id: "12-seater", label: "12 Seater", fare: "₹5,000", capacity: "Most Popular" },
+//   { id: "16-seater", label: "16 Seater", fare: "₹6,000", capacity: "Group Tours" },
+//   { id: "20-seater", label: "20 Seater", fare: "₹7,500", capacity: "Weddings" },
+//   { id: "26-seater", label: "26 Seater", fare: "₹9,000", capacity: "Corporate" },
+// ];
 
-const SEATER_OPTIONS = [
-  { id: "9-seater", label: "9 Seater", fare: "₹4,500", capacity: "Small Groups" },
-  { id: "12-seater", label: "12 Seater", fare: "₹5,000", capacity: "Most Popular" },
-  { id: "16-seater", label: "16 Seater", fare: "₹6,000", capacity: "Group Tours" },
-  { id: "20-seater", label: "20 Seater", fare: "₹7,500", capacity: "Weddings" },
-  { id: "26-seater", label: "26 Seater", fare: "₹9,000", capacity: "Corporate" },
-];
-
-export default function LuxuryTempoHero({ from, to }: LuxuryTTHeroProps) {
-  const [selectedSeater, setSelectedSeater] = useState<SeaterType>("12-seater");
+export default function LuxuryTempoHero({ from, to ,fares}: LuxuryTempoHeroProps) {
+const [selectedSeater, setSelectedSeater] =
+  useState<SeaterType>(fares[0]?.slug || "");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [passengers, setPassengers] = useState("");
   const [travelDate, setTravelDate] = useState("");
 
   const today = new Date().toISOString().split("T")[0];
-
+const SEATER_OPTIONS = fares.map((fare:any) => ({
+  id: fare.slug,
+  label: fare.vehicle,
+  fare: `₹${fare.oneWay.toLocaleString("en-IN")}`,
+  roundTrip: `₹${fare.roundTrip.toLocaleString("en-IN")}`,
+  perKm: fare.perKm,
+}));
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -88,7 +104,7 @@ Please share the detailed quote.`;
               Choose Your Seater Capacity:
             </p>
             <div className="flex flex-wrap gap-2">
-              {SEATER_OPTIONS.map((option) => (
+              {SEATER_OPTIONS.map((option:any) => (
                 <button
                   key={option.id}
                   type="button"
@@ -226,8 +242,8 @@ Please share the detailed quote.`;
               <p className="text-sm text-slate-700">
                 <ShieldCheck className="inline h-4 w-4 mr-1.5 text-gold" />
                 <strong className="text-gold">Selected:</strong>{" "}
-                {SEATER_OPTIONS.find(opt => opt.id === selectedSeater)?.label} — 
-                Starting from {SEATER_OPTIONS.find(opt => opt.id === selectedSeater)?.fare}
+                {SEATER_OPTIONS.find((opt:any) => opt.id === selectedSeater)?.label} — 
+                Starting from {SEATER_OPTIONS.find((opt:any) => opt.id === selectedSeater)?.fare}
               </p>
             </div>
 

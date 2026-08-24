@@ -15,6 +15,8 @@ import PopularRoutes from "@/_components/PopularRoutes";
 import TaxiFaq from "@/_components/TaxiFaq";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
+import { calculateFare } from "@/app/lib/api/route-data/route-generator";
+import { VEHICLES } from "@/app/lib/api/route-data/vehicles";
 
 const NOIDA_DELHI_ROUTES: any = [
   {
@@ -77,14 +79,36 @@ const TEMPO_FARES = [
 
 export default function LuxuryTempoTravellerPage({ data }: any) {
   const { route, page } = data;
-
-  const sedanVehicles = data.vehicles.filter(
-    (vehicle: any) => vehicle.cabType === "Sedan",
+  const tempoVehicles = VEHICLES.filter(
+    (vehicle) =>
+      vehicle.cabType === "Tempo Traveller" ||
+      vehicle.cabType === "Luxury Tempo Traveller"
   );
 
+  // Route distance ke according fare
+const tempoFares = tempoVehicles.map((vehicle) => ({
+  slug: vehicle.slug,
+  vehicle: vehicle.name,
+  seats: `${vehicle.passengerCapacity}+1`,
+  oneWay: calculateFare(
+    route.distance,
+    false,
+    vehicle.perKm
+  ),
+  roundTrip: calculateFare(
+    route.distance,
+    true,
+    vehicle.perKm
+  ),
+  perKm: vehicle.perKm,
+  image: vehicle.image,
+  popular: vehicle.slug === "12-seater-tempo-traveller",
+}));
   return (
     <>
-      <LuxuryTempoHero from="Noida" to="Delhi" />
+      <LuxuryTempoHero   from={route.fromCity}
+  to={route.toCity}
+  fares={tempoFares}/>
       <LuxuryTempoTravellerCitySection />
       <LuxuryFleetDetails />
       <LuxuryFareTable

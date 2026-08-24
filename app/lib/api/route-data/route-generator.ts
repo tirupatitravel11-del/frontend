@@ -82,20 +82,32 @@ import { VEHICLES, Vehicle } from "./vehicles";
 // FARE
 // ========================================
 
+// export function calculateFare(
+//   distance: number,
+//   roundTrip = false,
+// ) {
+//   const totalKm = roundTrip
+//     ? distance * 2
+//     : distance;
+
+//   return Math.round(
+//     totalKm * 1.5 * 10 + 500,
+//   );
+// }
+
 export function calculateFare(
   distance: number,
   roundTrip = false,
+  perKm = 15,
 ) {
   const totalKm = roundTrip
     ? distance * 2
     : distance;
 
   return Math.round(
-    totalKm * 1.5 * 10 + 500,
+    totalKm * perKm + 500
   );
 }
-
-
 // ========================================
 // VEHICLE
 // ========================================
