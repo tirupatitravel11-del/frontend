@@ -25,8 +25,9 @@ console.log(data,"dhsjh");
     <>
       {/* Hero */}
       <Hero
-        from={route.fromCity}
-        to={route.toCity}
+       from={data.route.fromCity}
+        to={data.route.toCity}
+        fare={data.fares[0]}
       />
 
       {/* Cab Selector */}

@@ -18,9 +18,10 @@ const WHATSAPP_NUMBER = "916390008503";
 interface TwentySeaterHeroProps {
   from: string;
   to: string;
+  fare:any
 }
 
-export default function TwentySeaterHero({ from, to }: TwentySeaterHeroProps) {
+export default function TwentySeaterHero({ from, to,fare }: TwentySeaterHeroProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [passengers, setPassengers] = useState("");
@@ -114,7 +115,7 @@ Please share the detailed quote.`;
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
                   Starting Fare
                 </p>
-                <p className="text-2xl font-black text-gold">₹9,500</p>
+                <p className="text-2xl font-black text-gold">₹{fare.oneWayPrice.toLocaleString("en-IN")}</p>
                 <p className="text-xs text-slate-500">
                   Local day tour • ₹35/km outstation
                 </p>
@@ -222,7 +223,7 @@ Please share the detailed quote.`;
               <p className="text-sm text-slate-700">
                 <ShieldCheck className="inline h-4 w-4 mr-1.5 text-gold" />
                 <strong className="text-gold">Selected:</strong> 20 Seater Tempo
-                Traveller — Starting from ₹9,500
+                Traveller — Starting from ₹{fare.oneWayPrice.toLocaleString("en-IN")}
               </p>
             </div>
 
