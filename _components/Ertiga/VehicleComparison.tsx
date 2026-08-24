@@ -29,7 +29,7 @@ const ALTERNATIVES = [
   },
 ];
 
-export default function VehicleComparison() {
+export default function VehicleComparison({ fares }: any) {
   return (
     <section className="bg-slate-100 py-16">
       <div className="mx-auto max-w-7xl px-6">
@@ -89,7 +89,7 @@ export default function VehicleComparison() {
             </p>
 
             <p className="mt-6 flex items-baseline gap-2">
-              <span className="text-xl font-black">₹1,800</span>
+              <span className="text-xl font-black">₹{fares.oneWayPrice}</span>
               <span className="text-sm text-white/90">one-way (Ertiga)</span>
             </p>
 
@@ -139,7 +139,7 @@ export default function VehicleComparison() {
                   <h4 className="text-lg font-bold text-slate-900">
                     Go with a {alt.name} if…
                   </h4>
-                  <p className="text-xs font-semibold text-gold">{alt.fare}</p>
+                 
                 </div>
               </div>
 
