@@ -16,12 +16,14 @@ interface TwentyFourSeaterTempoHeroProps {
   from: string;
   to: string;
   startingFare?: number;
+  fare:any
 }
 
 export default function TwentyFourSeaterTempoHero({
   from,
   to,
   startingFare = 7500,
+  fare
 }: TwentyFourSeaterTempoHeroProps) {
   const [date, setDate] = useState("");
   const [pickup, setPickup] = useState(from);
@@ -106,7 +108,7 @@ Vehicle: 24 Seater Tempo Traveller`;
 
             <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
               <p className="text-lg font-bold text-gold sm:text-2xl">
-                ₹{startingFare.toLocaleString("en-IN")}
+                ₹{fare.oneWayPrice.toLocaleString("en-IN")}
               </p>
 
               <p className="mt-1 text-[11px] text-slate-500 sm:text-xs">

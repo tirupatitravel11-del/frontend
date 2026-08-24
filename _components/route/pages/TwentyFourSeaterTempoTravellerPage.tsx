@@ -19,9 +19,9 @@ export default function TwentyFourSeaterTempoTravellerPage({
   return (
     <>
       <TwentyFourSeaterTempoHero
-        from={route.fromCity}
+  from={route.fromCity}
         to={route.toCity}
-        startingFare={data.fares?.[0]?.oneWayPrice || 7500}
+       fare={data.fares[0]} 
       />
 
       <TwentyFourDetails />

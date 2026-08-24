@@ -10,9 +10,10 @@ type TripType = "one-way" | "round-trip";
 interface HeroProps {
   from: string;
   to: string;
+  fare:any
 }
 
-export default function Hero({ from, to }: HeroProps) {
+export default function Hero({ from, to ,fare}: HeroProps) {
   const [tripType, setTripType] = useState<TripType>("one-way");
 
   const [date, setDate] = useState("");
