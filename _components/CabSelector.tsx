@@ -11,6 +11,13 @@ type FuelType = "CNG" | "DIESEL" | "ELECTRIC" | "PETROL";
 interface CabSelectorProps {
   from: string;
   to: string;
+  vehicles: any[];
+  fares: {
+    vehicleId: string;
+    vehicleName: string;
+    oneWayPrice: number;
+    roundTripPrice: number;
+  }[];
 }
 
 type CabOption = {
@@ -28,114 +35,115 @@ type CabOption = {
   fuelNote: string;
   cancellation: string;
   price: number;
+  roundTripPrice: number;
   taxes: number;
 };
 
-const CABS: CabOption[] = [
-  {
-    model: "Swift Dzire",
-    image: "/dezire_white.png",
-    variant: "specific model",
-    type: "SEDAN",
-    seats: 4,
-    rating: 4.2,
-    ratingsCount: 479,
-    tagline: "Economical spacious car",
-    extraKm: "₹18.0/km after 40 kms",
-    extraTime: "₹166.0 per hr after 4hr",
-    fuel: "CNG",
-    fuelNote: "CNG with refill breaks",
-    cancellation: "Free till 6 hours of departure",
-    price: 1000,
-    taxes: 373,
-  },
-  {
-    model: "Honda Amaze",
-    image: "/Creta.avif",
-    variant: "specific model",
-    type: "SEDAN",
-    seats: 4,
-    rating: 4.3,
-    ratingsCount: 812,
-    tagline: "Comfortable compact sedan",
-    extraKm: "₹18.0/km after 40 kms",
-    extraTime: "₹166.0 per hr after 4hr",
-    fuel: "PETROL",
-    fuelNote: "Petrol",
-    cancellation: "Free till 6 hours of departure",
-    price: 1099,
-    taxes: 373,
-  },
-  {
-    model: "Maruti Suzuki Ertiga",
-    image: "/ertiga_white.jpg",
-    variant: "specific model",
-    type: "SUV",
-    seats: 6,
-    rating: 4.2,
-    ratingsCount: 257,
-    tagline: "Economical large car",
-    extraKm: "₹27.0/km after 40 kms",
-    extraTime: "₹262.0 per hr after 4hr",
-    fuel: "CNG",
-    fuelNote: "CNG with refill breaks",
-    cancellation: "Free till 6 hours of departure",
-    price: 1301,
-    taxes: 373,
-  },
-  {
-    model: "Swift",
-    image: "/swift.avif",
-    variant: "or similar",
-    type: "HATCHBACK",
-    seats: 4,
-    rating: 4.4,
-    ratingsCount: 15322,
-    tagline: "Economical compact car",
-    extraKm: "₹20.0/km after 40 kms",
-    extraTime: "₹2.31 per min after 4hr",
-    fuel: "CNG",
-    fuelNote: "CNG with refill breaks",
-    cancellation: "Free till 1 hour of departure",
-    price: 1317,
-    taxes: 95,
-  },
+// const CABS: CabOption[] = [
+//   {
+//     model: "Swift Dzire",
+//     image: "/dezire_white.png",
+//     variant: "specific model",
+//     type: "SEDAN",
+//     seats: 4,
+//     rating: 4.2,
+//     ratingsCount: 479,
+//     tagline: "Economical spacious car",
+//     extraKm: "₹18.0/km after 40 kms",
+//     extraTime: "₹166.0 per hr after 4hr",
+//     fuel: "CNG",
+//     fuelNote: "CNG with refill breaks",
+//     cancellation: "Free till 6 hours of departure",
+//     price: 1000,
+//     taxes: 373,
+//   },
+//   {
+//     model: "Honda Amaze",
+//     image: "/Creta.avif",
+//     variant: "specific model",
+//     type: "SEDAN",
+//     seats: 4,
+//     rating: 4.3,
+//     ratingsCount: 812,
+//     tagline: "Comfortable compact sedan",
+//     extraKm: "₹18.0/km after 40 kms",
+//     extraTime: "₹166.0 per hr after 4hr",
+//     fuel: "PETROL",
+//     fuelNote: "Petrol",
+//     cancellation: "Free till 6 hours of departure",
+//     price: 1099,
+//     taxes: 373,
+//   },
+//   {
+//     model: "Maruti Suzuki Ertiga",
+//     image: "/ertiga_white.jpg",
+//     variant: "specific model",
+//     type: "SUV",
+//     seats: 6,
+//     rating: 4.2,
+//     ratingsCount: 257,
+//     tagline: "Economical large car",
+//     extraKm: "₹27.0/km after 40 kms",
+//     extraTime: "₹262.0 per hr after 4hr",
+//     fuel: "CNG",
+//     fuelNote: "CNG with refill breaks",
+//     cancellation: "Free till 6 hours of departure",
+//     price: 1301,
+//     taxes: 373,
+//   },
+//   {
+//     model: "Swift",
+//     image: "/swift.avif",
+//     variant: "or similar",
+//     type: "HATCHBACK",
+//     seats: 4,
+//     rating: 4.4,
+//     ratingsCount: 15322,
+//     tagline: "Economical compact car",
+//     extraKm: "₹20.0/km after 40 kms",
+//     extraTime: "₹2.31 per min after 4hr",
+//     fuel: "CNG",
+//     fuelNote: "CNG with refill breaks",
+//     cancellation: "Free till 1 hour of departure",
+//     price: 1317,
+//     taxes: 95,
+//   },
 
-  {
-    model: "Toyota Innova",
-    image: "/innova.avif",
-    variant: "specific model",
-    type: "SUV",
-    seats: 7,
-    rating: 4.3,
-    ratingsCount: 640,
-    tagline: "Spacious family SUV",
-    extraKm: "₹30.0/km after 40 kms",
-    extraTime: "₹300.0 per hr after 4hr",
-    fuel: "DIESEL",
-    fuelNote: "Diesel",
-    cancellation: "Free till 6 hours of departure",
-    price: 2199,
-    taxes: 373,
-  },
-  {
-    model: "Innova Crysta",
-    image: "/innova.avif",
-    variant: "specific model",
-    type: "SUV",
-    seats: 7,
-    rating: 4.5,
-    ratingsCount: 1024,
-    tagline: "Premium comfort SUV",
-    extraKm: "₹32.0/km after 40 kms",
-    extraTime: "₹320.0 per hr after 4hr",
-    fuel: "DIESEL",
-    fuelNote: "Diesel",
-    cancellation: "Free till 6 hours of departure",
-    price: 2899,
-    taxes: 373,
-  },
-];
+//   {
+//     model: "Toyota Innova",
+//     image: "/innova.avif",
+//     variant: "specific model",
+//     type: "SUV",
+//     seats: 7,
+//     rating: 4.3,
+//     ratingsCount: 640,
+//     tagline: "Spacious family SUV",
+//     extraKm: "₹30.0/km after 40 kms",
+//     extraTime: "₹300.0 per hr after 4hr",
+//     fuel: "DIESEL",
+//     fuelNote: "Diesel",
+//     cancellation: "Free till 6 hours of departure",
+//     price: 2199,
+//     taxes: 373,
+//   },
+//   {
+//     model: "Innova Crysta",
+//     image: "/innova.avif",
+//     variant: "specific model",
+//     type: "SUV",
+//     seats: 7,
+//     rating: 4.5,
+//     ratingsCount: 1024,
+//     tagline: "Premium comfort SUV",
+//     extraKm: "₹32.0/km after 40 kms",
+//     extraTime: "₹320.0 per hr after 4hr",
+//     fuel: "DIESEL",
+//     fuelNote: "Diesel",
+//     cancellation: "Free till 6 hours of departure",
+//     price: 2899,
+//     taxes: 373,
+//   },
+// ];
 
 /* ---------- Filter checkbox group ---------- */
 
@@ -180,11 +188,66 @@ function FilterGroup({
 
 /* ---------- Main section ---------- */
 
-export default function CabSelector({ from, to, vehicles }: any) {
+export default function CabSelector({
+  from,
+  to,
+  vehicles,
+  fares,
+}: CabSelectorProps) {
   const [types, setTypes] = useState<string[]>([]);
   const [models, setModels] = useState<string[]>([]);
   const [fuels, setFuels] = useState<string[]>([]);
+const cabs: CabOption[] = vehicles.map((vehicle) => {
+  const fare = fares.find(
+    (item) => item.vehicleId === vehicle.slug
+  );
 
+  return {
+    model: vehicle.name,
+    image: vehicle.image,
+
+    variant: "specific model",
+
+    type:
+      vehicle.cabType === "SUV" ||
+      vehicle.cabType === "Premium SUV"
+        ? "SUV"
+        : vehicle.cabType === "Sedan"
+        ? "SEDAN"
+        : "HATCHBACK",
+
+    seats: vehicle.passengerCapacity,
+
+    // temporary/static UI data
+    rating: 4.5,
+    ratingsCount: 100,
+
+    tagline: `${vehicle.name} comfortable taxi service`,
+
+    extraKm: `₹${vehicle.perKm}/km after included distance`,
+
+    extraTime: "As per booking",
+
+    fuel:
+      vehicle.fuelType.includes("CNG")
+        ? "CNG"
+        : vehicle.fuelType.includes("Diesel")
+        ? "DIESEL"
+        : vehicle.fuelType.includes("Electric")
+        ? "ELECTRIC"
+        : "PETROL",
+
+    fuelNote: vehicle.fuelType,
+
+    cancellation: "Free till 6 hours of departure",
+
+    price: fare?.oneWayPrice ?? 0,
+
+    roundTripPrice: fare?.roundTripPrice ?? 0,
+
+    taxes: 0,
+  };
+});
   const toggle = (
     list: string[],
     set: (v: string[]) => void,
@@ -195,29 +258,35 @@ export default function CabSelector({ from, to, vehicles }: any) {
     );
   };
 
-  const filteredCabs = useMemo(
-    () =>
-      CABS.filter(
-        (cab) =>
-          (types.length === 0 || types.includes(cab.type)) &&
-          (models.length === 0 || models.includes(cab.model)) &&
-          (fuels.length === 0 || fuels.includes(cab.fuel)),
-      ),
-    [types, models, fuels],
+ const filteredCabs = useMemo(
+  () =>
+    cabs.filter(
+      (cab) =>
+        (types.length === 0 || types.includes(cab.type)) &&
+        (models.length === 0 || models.includes(cab.model)) &&
+        (fuels.length === 0 || fuels.includes(cab.fuel)),
+    ),
+  [cabs, types, models, fuels],
+);
+const countBy = (key: "type" | "model" | "fuel") => {
+  const map = new Map<string, number>();
+
+  cabs.forEach((cab) =>
+    map.set(
+      cab[key],
+      (map.get(cab[key]) || 0) + 1
+    )
   );
 
-  const countBy = (key: "type" | "model" | "fuel") => {
-    const map = new Map<string, number>();
-    CABS.forEach((cab) => map.set(cab[key], (map.get(cab[key]) || 0) + 1));
-    return [...map.entries()].map(([label, count]) => ({ label, count }));
-  };
-
-  const resetFilters = () => {
-    setTypes([]);
-    setModels([]);
-    setFuels([]);
-  };
-
+  return [...map.entries()].map(
+    ([label, count]) => ({ label, count })
+  );
+}
+const resetFilters = () => {
+  setTypes([]);
+  setModels([]);
+  setFuels([]);
+};
   return (
     <section className="bg-white py-14">
       <div className="mx-auto max-w-7xl px-6">
@@ -387,9 +456,23 @@ export default function CabSelector({ from, to, vehicles }: any) {
                     {/* ===== Price & Book ===== */}
                     <div className="flex shrink-0 flex-row items-center justify-between gap-4 md:flex-col md:items-end">
                       <div className="text-right">
-                        <p className="text-2xl font-bold text-stone-900">
-                          ₹ {cab.price.toLocaleString("en-IN")}
-                        </p>
+                        <div className="text-right">
+  <p className="text-sm text-stone-500">
+    One Way
+  </p>
+
+  <p className="text-2xl font-bold text-stone-900">
+    ₹ {cab.price.toLocaleString("en-IN")}
+  </p>
+
+  <p className="mt-1 text-sm font-semibold text-gold">
+    Round Trip ₹ {cab.roundTripPrice.toLocaleString("en-IN")}
+  </p>
+
+  <p className="mt-1 text-xs text-stone-500">
+    + ₹{cab.taxes} (Taxes & Charges)
+  </p>
+</div>
                         <p className="mt-1 text-xs text-stone-500">
                           + ₹{cab.taxes} (Taxes &amp; Charges)
                         </p>
