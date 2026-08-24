@@ -33,8 +33,9 @@ console.log(data,"dhsjh");
       {/* Cab Selector */}
       <CabSelector
         from={route.fromCity}
-        to={route.toCity}
-        vehicles={vehicles}
+  to={route.toCity}
+  vehicles={vehicles}
+  fares={fares}
       />
 
       {/* Fare Details */}

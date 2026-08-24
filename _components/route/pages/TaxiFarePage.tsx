@@ -6,11 +6,15 @@ import TaxiFaq from "@/_components/TaxiFaq";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 
 export default function TaxiFarePage({ data }: any) {
-  const { route, page } = data;
+  const { route, page,    vehicles,
+    fares,
+    popularRoutes, } = data;
 
   return (
     <>
-      <Hero from={route.fromCity} to={route.toCity} />
+      <Hero   from={data.route.fromCity}
+        to={data.route.toCity}
+        fare={data.fares[0]}  />
 
       <FareDetails
         from={route.fromCity}
@@ -19,7 +23,12 @@ export default function TaxiFarePage({ data }: any) {
         fares={data.fares}
       />
 
-      <CabSelector from={route.fromCity} to={route.toCity} />
+        <CabSelector
+             from={route.fromCity}
+       to={route.toCity}
+       vehicles={vehicles}
+       fares={fares}
+           />
 
       <PopularRoutes
         routes={data.popularRoutes}
