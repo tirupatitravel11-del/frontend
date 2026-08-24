@@ -15,7 +15,7 @@ export default function SUVTaxiPage({ data }: any) {
   return (
     <>
       <SuvHero from={route.fromCity} to={route.toCity} startingFare={2299} />
-      <SuvFleetDetails />
+      <SuvFleetDetails fares={data.fares[0]} />
       <SuvFitGuide />
       <PopularRoutes
         routes={data.popularRoutes}

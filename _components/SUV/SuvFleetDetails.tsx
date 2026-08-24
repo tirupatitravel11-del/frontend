@@ -67,7 +67,7 @@ const SUVS: SuvModel[] = [
   },
 ];
 
-export default function SuvFleetDetails() {
+export default function SuvFleetDetails({ fares }: any) {
   return (
     <section className="bg-white py-10 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -175,7 +175,7 @@ export default function SuvFleetDetails() {
                     </span>
 
                     <span className="text-base font-bold text-slate-900 sm:text-lg">
-                      ₹{suv.oneWayFare.toLocaleString("en-IN")}
+                      ₹{fares.oneWayPrice.toLocaleString("en-IN")}
                     </span>
                   </div>
 

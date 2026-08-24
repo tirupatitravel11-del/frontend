@@ -33,7 +33,7 @@ const ALTERNATIVES = [
   },
 ];
 
-export default function SedanFitGuide() {
+export default function SedanFitGuide({ fares }: any) {
   return (
     <section className="bg-slate-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -93,9 +93,9 @@ export default function SedanFitGuide() {
             </p>
 
             <p className="mt-5 text-2xl font-bold sm:mt-6 sm:text-3xl">
-              ₹1,599{" "}
+              ₹{fares[0].oneWayPrice}
               <span className="text-sm font-medium text-white/80 sm:text-base">
-                one-way
+                {" "}one-way
               </span>
             </p>
 
@@ -137,9 +137,7 @@ export default function SedanFitGuide() {
                         {alt.cab}
                       </h4>
 
-                      <p className="mt-0.5 text-sm font-medium text-gold">
-                        {alt.fare}
-                      </p>
+                      
                     </div>
                   </div>
 
