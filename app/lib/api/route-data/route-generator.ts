@@ -79,6 +79,45 @@ import { VEHICLES, Vehicle } from "./vehicles";
 
 
 // ========================================
+// GENERIC PAGE TYPES
+// ========================================
+
+export type GenericPageType =
+  | "taxi"
+  | "taxi-fare"
+  | "one-way-taxi"
+  | "suv-taxi"
+  | "taxi-contact-number"
+  | "distance-travel-time";
+
+export const GENERIC_PAGE_TYPES = [
+  {
+    pageType: "taxi" as GenericPageType,
+    suffix: "-taxi",
+  },
+  {
+    pageType: "taxi-fare" as GenericPageType,
+    suffix: "-taxi-fare",
+  },
+  {
+    pageType: "one-way-taxi" as GenericPageType,
+    suffix: "-one-way-taxi",
+  },
+  {
+    pageType: "suv-taxi" as GenericPageType,
+    suffix: "-suv-taxi",
+  },
+  {
+    pageType: "taxi-contact-number" as GenericPageType,
+    suffix: "-taxi-contact-number",
+  },
+  {
+    pageType: "distance-travel-time" as GenericPageType,
+    suffix: "-distance-travel-time",
+  },
+];
+
+// ========================================
 // FARE
 // ========================================
 
@@ -95,18 +134,37 @@ import { VEHICLES, Vehicle } from "./vehicles";
 //   );
 // }
 
+// export function calculateFare(
+//   distance: number,
+//   roundTrip = false,
+//   perKm = 15,
+// ) {
+//   console.log(distance,roundTrip,parKm);
+  
+//   const totalKm = roundTrip
+//     ? distance * 2
+//     : distance;
+
+//   return Math.round(
+//     totalKm * perKm + 500
+//   );
+// }
 export function calculateFare(
   distance: number,
-  roundTrip = false,
-  perKm = 15,
+  perKm: number,
 ) {
-  const totalKm = roundTrip
-    ? distance * 2
-    : distance;
-
-  return Math.round(
-    totalKm * perKm + 500
+  const oneWayFare = Math.round(
+    (distance * perKm * 1.5) + 500
   );
+
+  const roundTripFare = Math.round(
+    (distance * 2 * perKm * 1.5) + 500
+  );
+
+  return {
+    oneWayFare,
+    roundTripFare,
+  };
 }
 // ========================================
 // VEHICLE
@@ -205,4 +263,36 @@ export function generatePopularRoutes(
       popular: true,
       slug: route.slug,
     }));
+}
+
+export function findGenericRouteFromSlug(
+  pageSlug: string,
+  pageType: GenericPageType,
+): Route | null {
+  const normalizedSlug = pageSlug
+    .toLowerCase()
+    .replace(/^\/|\/$/g, "");
+
+  const pageConfig = GENERIC_PAGE_TYPES.find(
+    (item) => item.pageType === pageType,
+  );
+
+  if (!pageConfig) {
+    return null;
+  }
+
+  if (!normalizedSlug.endsWith(pageConfig.suffix)) {
+    return null;
+  }
+
+  const routeSlug = normalizedSlug.slice(
+    0,
+    -pageConfig.suffix.length,
+  );
+
+  return (
+    ROUTES.find(
+      (route) => route.slug === routeSlug,
+    ) || null
+  );
 }

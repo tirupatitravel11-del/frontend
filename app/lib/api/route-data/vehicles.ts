@@ -41,7 +41,7 @@ export const VEHICLES: Vehicle[] = [
     airCondition: true,
     fuelType: "Petrol / CNG",
     transmission: "Manual",
-    perKm: 15,
+    perKm: 10,
   },
 
   {
@@ -56,7 +56,7 @@ export const VEHICLES: Vehicle[] = [
     airCondition: true,
     fuelType: "CNG / Petrol",
     transmission: "Manual",
-    perKm: 15,
+    perKm: 10,
   },
 
   {
@@ -71,7 +71,7 @@ export const VEHICLES: Vehicle[] = [
     airCondition: true,
     fuelType: "Petrol",
     transmission: "Manual / CVT",
-    perKm: 15,
+    perKm: 10,
   },
 
   {
@@ -86,7 +86,7 @@ export const VEHICLES: Vehicle[] = [
     airCondition: true,
     fuelType: "Diesel / Petrol",
     transmission: "Manual",
-    perKm: 15,
+    perKm: 10,
   },
 
   // =========================
@@ -104,7 +104,7 @@ export const VEHICLES: Vehicle[] = [
     airCondition: true,
     fuelType: "Petrol / CNG",
     transmission: "Manual",
-    perKm: 15,
+    perKm: 13,
   },
 
   {
@@ -119,7 +119,7 @@ export const VEHICLES: Vehicle[] = [
     airCondition: true,
     fuelType: "Diesel",
     transmission: "Manual",
-    perKm: 18,
+    perKm: 16,
   },
 
   // =========================
@@ -152,7 +152,7 @@ export const VEHICLES: Vehicle[] = [
     airCondition: true,
     fuelType: "Diesel",
     transmission: "Manual",
-    perKm: 25,
+    perKm: 22,
   },
 
   {
@@ -197,7 +197,7 @@ export const VEHICLES: Vehicle[] = [
     airCondition: true,
     fuelType: "Diesel",
     transmission: "Manual",
-    perKm: 25,
+    perKm: 22,
   },
 
   {
@@ -212,7 +212,7 @@ export const VEHICLES: Vehicle[] = [
     airCondition: true,
     fuelType: "Diesel",
     transmission: "Manual",
-    perKm: 28,
+    perKm: 23,
   },
 
   // =========================

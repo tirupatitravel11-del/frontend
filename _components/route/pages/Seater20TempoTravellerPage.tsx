@@ -88,36 +88,15 @@ export default function Seater20TempoTravellerPage({ data }: any) {
 
   return (
     <>
-      <TwentySeaterHero from="Noida" to="Delhi" />
+      <TwentySeaterHero   from={route.fromCity}
+        to={route.toCity}
+       fare={data.fares[0]} />
       <TwentySeaterStorySection />
       <TwentySeaterSeating />
       <WhyChooseUs />
       <Testimonials />
       <TwentySeaterFaq from={data.route.fromCity}
         to={data.route.toCity}/>
-      {/* <LuxuryTempoHero from="Noida" to="Delhi" />
-      <LuxuryTempoTravellerCitySection />
-      <LuxuryFleetDetails />
-      <LuxuryFareTable
-        from={route.fromCity}
-        to={route.toCity}
-        title={page.h1}
-        fares={TEMPO_FARES}
-      />
-      <Testimonials />
-      <WhyChooseUs />
-      <LuxuryTempoFaq /> */}
-      {/* <TempoTravellerFleetDetails/> */}
-      {/* <InnovaCrystaHero from="Noida" to="Delhi" startingFare={1599} />
-      <InnovaFleetDetails />
-      <InnovaCrystaFitGuide />
-      <PopularRoutes from="Noida" to="Delhi" routes={NOIDA_DELHI_ROUTES} />
-      <FamilyLongDistanceSpotlight />
-      <Testimonials />
-      <HowToBook from="Noida" to="Delhi" />
-      <WhyChooseUs />
-
-      <InnovaCrystaFaq /> */}
     </>
   );
 }

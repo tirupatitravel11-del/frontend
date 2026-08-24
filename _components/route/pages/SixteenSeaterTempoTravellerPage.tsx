@@ -21,7 +21,7 @@ export default function SixteenSeaterTempoTravellerPage({
       <SixteenSeaterTempoHero
         from={route.fromCity}
         to={route.toCity}
-        startingFare={data.fares?.[0]?.oneWayPrice || 5500}
+       fare={data.fares[0]} 
       />
       <SixteenSeaterDetails />
       {/* <SeaterDetails /> */}
