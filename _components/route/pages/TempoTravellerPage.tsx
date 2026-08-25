@@ -26,6 +26,7 @@ export default function TempoTravellerPage({ data }: any) {
         from={route.fromCity}
         to={route.toCity}
         title="Fare Details"
+         fares={data.fares}
       />
 
       <WhyChooseUs />
