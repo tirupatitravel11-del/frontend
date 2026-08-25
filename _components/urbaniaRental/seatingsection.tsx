@@ -173,7 +173,7 @@ export default function UrbaniaFleetDetails() {
                 <div className="my-4 border-t border-slate-200 sm:my-5" />
 
                 {/* ===== Pricing ===== */}
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <div className="flex items-center justify-between gap-3">
                     <span className="text-xs text-slate-500 sm:text-sm">
                       Local Tour Fare
@@ -184,16 +184,8 @@ export default function UrbaniaFleetDetails() {
                     </span>
                   </div>
 
-                  {/* <div className="flex items-center justify-between gap-3">
-                    <span className="text-xs text-slate-500 sm:text-sm">
-                      Fare Per Km
-                    </span>
-
-                    <span className="text-base font-bold text-gold sm:text-lg">
-                      ₹{van.perKmFare}
-                    </span>
-                  </div> */}
-                </div>
+                 
+                </div> */}
 
                 {/* ===== CTA ===== */}
                 <a

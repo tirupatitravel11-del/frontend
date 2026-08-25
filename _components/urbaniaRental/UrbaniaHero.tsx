@@ -14,17 +14,11 @@ const URBANIA_MODELS = [
   "Force Urbania 14 Seater",
 ];
 
-interface UrbaniaHeroProps {
-  from: string;
-  to: string;
-  startingFare?: number;
-}
 
-export default function UrbaniaHero({
-  from,
+
+export default function UrbaniaHero({ from,
   to,
-  startingFare = 3499,
-}: UrbaniaHeroProps) {
+  fare}: any) {
   const [tripType, setTripType] = useState<TripType>("one-way");
   const [model, setModel] = useState(URBANIA_MODELS[0]);
   const [date, setDate] = useState("");
@@ -107,7 +101,7 @@ Date: ${date}`;
 
             <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
               <p className="text-xl font-bold text-gold sm:text-2xl">
-                ₹{startingFare.toLocaleString("en-IN")}
+                ₹{fare.oneWayPrice.toLocaleString("en-IN")}
               </p>
               <p className="mt-1 text-[11px] text-slate-500 sm:text-xs">
                 Starting Fare
