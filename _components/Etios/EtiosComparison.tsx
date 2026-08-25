@@ -138,7 +138,7 @@ export default function EtiosComparison({fares}: any) {
                   <h4 className="text-lg font-bold text-slate-900">
                     Go with a {alt.name} if…
                   </h4>
-                  <p className="text-xs font-semibold text-gold">{alt.fare}</p>
+                  {/* <p className="text-xs font-semibold text-gold">{alt.fare}</p> */}
                 </div>
               </div>
 

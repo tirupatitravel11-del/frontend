@@ -31,23 +31,13 @@ const INNOVA_MODELS: InnovaModel[] = [
     popular: true,
   },
 
-  {
-    name: "Toyota Innova",
-    tagline: "Reliable & Comfortable Family Car",
-    image: "/innova.avif",
-    fuel: "Diesel",
-    bootSpace: "300+ Liters",
-    seats: 6,
-    bags: 4,
-    oneWayFare: 2200,
-    roundTripFare: 4000,
-  },
+
 ];
 
-export default function InnovaFleetDetails() {
+export default function InnovaFleetDetails({fares}: any) {
   return (
     <section className="bg-white py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 justify-center items-center">
         {/* ===== Header ===== */}
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
@@ -66,7 +56,7 @@ export default function InnovaFleetDetails() {
         </div>
 
         {/* ===== Fleet Grid ===== */}
-        <div className="mx-auto grid max-w-5xl gap-5 sm:gap-8 md:grid-cols-2">
+        <div className="mx-auto justify-center items-center  max-w-xl gap-5 sm:gap-8 md:grid-cols-2">
           {INNOVA_MODELS.map((car) => (
             <article
               key={car.name}
@@ -157,7 +147,7 @@ export default function InnovaFleetDetails() {
                     </span>
 
                     <span className="text-base font-bold text-slate-900 sm:text-lg">
-                      ₹{car.oneWayFare.toLocaleString("en-IN")}
+                      ₹{fares.oneWayPrice.toLocaleString("en-IN")}
                     </span>
                   </div>
 
@@ -168,7 +158,7 @@ export default function InnovaFleetDetails() {
                     </span>
 
                     <span className="text-base font-bold text-gold sm:text-lg">
-                      ₹{car.roundTripFare.toLocaleString("en-IN")}
+                      ₹{fares.roundTripPrice.toLocaleString("en-IN")}
                     </span>
                   </div>
                 </div>

@@ -20,7 +20,7 @@ const ALTERNATIVES = [
       "You're carrying only small bags",
       "Your main priority is the lowest fare",
     ],
-    fare: "From ₹1,299 one-way",
+    
   },
   {
     icon: CarFront,
@@ -30,7 +30,7 @@ const ALTERNATIVES = [
       "You're carrying heavy or extra luggage",
       "You want more cabin space and a higher seating position",
     ],
-    fare: "From ₹1,799 one-way",
+ 
   },
   {
     icon: Users,
@@ -40,11 +40,11 @@ const ALTERNATIVES = [
       "You need more than 7 seats",
       "You want everyone to travel together",
     ],
-    fare: "Contact for group fare",
+
   },
 ];
 
-export default function AmazeFitGuide() {
+export default function AmazeFitGuide({fares}: any) {
   return (
     <section className="bg-slate-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -110,9 +110,9 @@ export default function AmazeFitGuide() {
             </p>
 
             <p className="mt-5 text-2xl font-bold sm:text-3xl">
-              ₹1,649{" "}
+              ₹{fares.oneWayPrice.toLocaleString("en-IN")}
               <span className="text-sm font-medium text-white/80">
-                one-way
+                {" "}one-way
               </span>
             </p>
 
@@ -154,9 +154,9 @@ export default function AmazeFitGuide() {
                         {alt.cab}
                       </h4>
 
-                      <p className="mt-0.5 text-sm font-medium text-gold">
-                        {alt.fare}
-                      </p>
+                      {/* <p className="mt-0.5 text-sm font-medium text-gold">
+                        {alt.fare} 
+                      </p> */}
                     </div>
                   </div>
 

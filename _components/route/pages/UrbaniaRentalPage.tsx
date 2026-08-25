@@ -15,8 +15,8 @@ export default function UrbaniaRentalPage({ data }: any) {
         to={data.route.toCity}
         fare={data.fares[0]}/>
       <UrbaniaCompanySection />
-      {/* <UrbaniaVariants /> */}
-      <UrbaniaFareTable />
+      <UrbaniaVariants />
+      {/* <UrbaniaFareTable /> */}
       <UrbaniaUseCases />
       <WhyChooseUs />
       <UrbaniaFaq from={data.route.fromCity}

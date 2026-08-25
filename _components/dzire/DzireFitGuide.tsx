@@ -157,9 +157,9 @@ export default function DzireFitGuide({ fares }: any) {
                         {alt.cab}
                       </h4>
 
-                      <p className="mt-0.5 text-sm font-medium text-gold">
+                      {/* <p className="mt-0.5 text-sm font-medium text-gold">
                         {alt.fare}
-                      </p>
+                      </p> */}
                     </div>
                   </div>
 

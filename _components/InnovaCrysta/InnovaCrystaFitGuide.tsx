@@ -20,7 +20,6 @@ const ALTERNATIVES = [
       "You're carrying 2–3 suitcases",
       "You want a comfortable ride at a lower fare",
     ],
-    fare: "From ₹1,599 one-way",
   },
   {
     icon: CarFront,
@@ -30,11 +29,10 @@ const ALTERNATIVES = [
       "You're travelling as a large family or group",
       "You need maximum seating and luggage space",
     ],
-    fare: "Contact for group fare",
   },
 ];
 
-export default function InnovaCrystaFitGuide() {
+export default function InnovaCrystaFitGuide({ fares }: any) {
   return (
     <section className="bg-slate-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -102,8 +100,9 @@ export default function InnovaCrystaFitGuide() {
             </p>
 
             <p className="mt-5 text-2xl font-bold sm:mt-6 sm:text-3xl">
-              ₹2,800{" "}
+              ₹{fares.oneWayPrice}
               <span className="text-sm font-medium text-white/80 sm:text-base">
+                {" "}
                 one-way
               </span>
             </p>
@@ -147,9 +146,9 @@ export default function InnovaCrystaFitGuide() {
                         {alt.cab}
                       </h4>
 
-                      <p className="mt-0.5 text-sm font-medium text-gold">
+                      {/* <p className="mt-0.5 text-sm font-medium text-gold">
                         {alt.fare}
-                      </p>
+                      </p> */}
                     </div>
                   </div>
 
