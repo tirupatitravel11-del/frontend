@@ -50,7 +50,7 @@ export default function HotelFiltersLeft({
           {(showMore
             ? popularFilters
             : popularFilters.slice(0, 5)
-          ).map((filter) => (
+          ).map((filter:any) => (
             <label
               key={filter.name}
               className="flex cursor-pointer items-center gap-3 py-1.5 text-[16px] leading-6 text-stone-700"
@@ -64,7 +64,7 @@ export default function HotelFiltersLeft({
 
               <span className="flex-1">{filter.name}</span>
 
-              {filter.count !== undefined && (
+              {filter?.count !== undefined && (
                 <span className="text-[14px] text-stone-400">
                   ({filter.count})
                 </span>

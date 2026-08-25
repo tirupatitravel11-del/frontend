@@ -25,6 +25,7 @@ export default function ContactPage({ data }: any) {
         from={route.fromCity}
         to={route.toCity}
         vehicles={vehicles}
+        fares={fares}
       />
       {/* <HelpGrid/> */}
 
