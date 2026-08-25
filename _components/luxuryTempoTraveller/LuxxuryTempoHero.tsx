@@ -11,16 +11,7 @@ type SeaterType = string;
 interface LuxuryTempoHeroProps {
   from: string;
   to: string;
-  fares: {
-    slug: string;
-    vehicle: string;
-    seats: string;
-    oneWay: number;
-    roundTrip: number;
-    perKm: number;
-    image?: string;
-    popular?: boolean;
-  }[];
+  fares: any[];
 }
 // const SEATER_OPTIONS = [
 //   { id: "9-seater", label: "9 Seater", fare: "₹4,500", capacity: "Small Groups" },

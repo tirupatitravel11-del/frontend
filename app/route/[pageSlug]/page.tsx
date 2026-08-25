@@ -3,7 +3,7 @@ import TaxiPage from "@/_components/route/pages/TaxiPage";
 import TaxiFarePage from "@/_components/route/pages/TaxiFarePage";
 import OneWayTaxiPage from "@/_components/route/pages/OneWayTaxiPage";
 import SedanTaxiPage from "@/_components/route/pages/SedanTaxiPage";
-import { getRoutePage } from "@/app/lib/api/route";
+import { getRoutePage } from "@/app/lib/api/route-page";
 import SUVTaxiPage from "@/_components/route/pages/SUVTaxiPage";
 import TempoTravellerPage from "@/_components/route/pages/TempoTravellerPage";
 import UrbaniaRentalPage from "@/_components/route/pages/UrbaniaRentalPage";

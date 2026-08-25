@@ -9,12 +9,14 @@ interface OneWayHeroProps {
   from: string;
   to: string;
   startingFare?: number;
+  fare:any
 }
 
 export default function OneWayHero({
   from,
   to,
   startingFare = 1299,
+  fare
 }: OneWayHeroProps) {
   const [date, setDate] = useState("");
   const [pickup, setPickup] = useState(from);
@@ -92,15 +94,15 @@ Date: ${date}`;
                 Avg. Savings
               </p>
             </div>
-            <div>
+            {/* <div>
               <p className="text-2xl font-bold text-gold">₹0</p>
               <p className="text-xs uppercase tracking-widest text-slate-500">
                 Return Charge
               </p>
-            </div>
+            </div> */}
             <div>
               <p className="text-2xl font-bold text-slate-900">
-                ₹{startingFare.toLocaleString("en-IN")}
+                ₹{fare.oneWayPrice.toLocaleString("en-IN")}
               </p>
               <p className="text-xs uppercase tracking-widest text-slate-500">
                 Starting Fare
