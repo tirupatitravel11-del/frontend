@@ -15,25 +15,24 @@ interface DistanceTravelTimeProps {
   distance?: string;
   travelTime?: string;
 }
-
 const TRAVEL_TIMES = [
   {
     title: "Normal Traffic",
     time: "45–60 min",
     description:
-      "Light to moderate traffic conditions में journey usually this range में complete हो सकती है.",
+      "Under light to moderate traffic conditions, the journey can usually be completed within this time range.",
   },
   {
     title: "Peak Traffic",
     time: "1–1.5 hrs",
     description:
-      "Morning and evening peak hours में traffic के कारण travel time बढ़ सकता है.",
+      "Travel time may increase due to traffic during morning and evening peak hours.",
   },
   {
     title: "Late Night / Early Morning",
     time: "35–50 min",
     description:
-      "Low traffic के कारण early morning और late night journey comparatively faster हो सकती है.",
+      "Due to low traffic, the journey can be comparatively faster during early morning and late night hours.",
   },
 ];
 

@@ -1,4 +1,3 @@
-
 import HowToBook from "@/_components/Howtobook";
 import FamilyLongDistanceSpotlight from "@/_components/InnovaCrysta/FamilyLongDistanceSpotlight";
 import InnovaCrystaFaq from "@/_components/InnovaCrysta/InnovaCrystaFaq";
@@ -8,7 +7,6 @@ import InnovaFleetDetails from "@/_components/InnovaCrysta/InnovaFleetDetails";
 import PopularRoutes from "@/_components/PopularRoutes";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
-
 
 const NOIDA_DELHI_ROUTES: any = [
   {
@@ -41,29 +39,29 @@ export default function InnovaCrystaTaxiPage({ data }: any) {
   const { route, page } = data;
 
   const sedanVehicles = data.vehicles.filter(
-    (vehicle: any) => vehicle.cabType === "Sedan"
+    (vehicle: any) => vehicle.cabType === "Sedan",
   );
 
   return (
     <>
-    <InnovaCrystaHero  from={data.route.fromCity}
+      <InnovaCrystaHero
+        from={data.route.fromCity}
         to={data.route.toCity}
         // vehicle={data.vehicle}
-        fare={data.fares[0]} />
-         <InnovaFleetDetails />
-         <InnovaCrystaFitGuide />
-         <PopularRoutes
-           from="Noida"
-           to="Delhi"
-           routes={NOIDA_DELHI_ROUTES}
-         />
-         <FamilyLongDistanceSpotlight/>
-         <Testimonials />
-               <HowToBook from="Noida" to="Delhi" />
-               <WhyChooseUs />
-     
-               <InnovaCrystaFaq from={data.route.fromCity}
-        to={data.route.toCity}/>
+        fare={data.fares[0]}
+      />
+      <InnovaFleetDetails fares={data.fares[0]} />
+      <PopularRoutes
+        routes={data.popularRoutes}
+        from={route.fromCity}
+        to={route.toCity}
+      />
+      <FamilyLongDistanceSpotlight />
+      <Testimonials />
+      <HowToBook from="Noida" to="Delhi" />
+      <WhyChooseUs />
+
+      <InnovaCrystaFaq from={data.route.fromCity} to={data.route.toCity} />
     </>
   );
 }

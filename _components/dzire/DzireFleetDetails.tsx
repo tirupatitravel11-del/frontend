@@ -32,7 +32,7 @@ const DZIRE_FLEET: DzireModel[] = [
   },
 ];
 
-export default function DzireFleetDetails() {
+export default function DzireFleetDetails({fares}: any) {
   return (
     <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -145,7 +145,7 @@ export default function DzireFleetDetails() {
                     </span>
 
                     <span className="text-base font-bold text-slate-900 sm:text-lg">
-                      ₹{car.oneWayFare.toLocaleString("en-IN")}
+                      ₹{fares.oneWayPrice.toLocaleString("en-IN")}
                     </span>
                   </div>
 
@@ -156,7 +156,7 @@ export default function DzireFleetDetails() {
                     </span>
 
                     <span className="text-base font-bold text-gold sm:text-lg">
-                      ₹{car.roundTripFare.toLocaleString("en-IN")}
+                      ₹{fares.roundTripPrice.toLocaleString("en-IN")}
                     </span>
                   </div>
                 </div>

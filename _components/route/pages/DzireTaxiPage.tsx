@@ -18,8 +18,8 @@ export default function DzireTaxiPage({ data }: any) {
       <DzireHero from={data.route.fromCity}
         to={data.route.toCity}
         fare={data.fares[0]} />
-      <DzireFleetDetails />
-      <DzireFitGuide />
+      <DzireFleetDetails fares={data.fares[0]}/>
+      <DzireFitGuide fares={data.fares[0]}/>
       <Testimonials />
       <HowToBook from={route.fromCity} to={route.toCity} />
       <WhyChooseUs />

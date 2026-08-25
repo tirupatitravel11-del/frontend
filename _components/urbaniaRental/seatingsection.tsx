@@ -16,35 +16,11 @@ type UrbaniaModel = {
   popular?: boolean;
 };
 
+// Only keeping the 12 and 17 Seater models
 const URBANIAS: UrbaniaModel[] = [
   {
-    name: "9 Seater Urbania",
-    tagline: "Perfect for Small Groups",
-    image: "/urbania/urbania-9-seater.png",
-    fuel: "Diesel",
-    seats: "9+1",
-    seatingPlan: "1*1",
-    bags: 5,
-    localTourFare: 8500,
-    perKmFare: 35,
-    badge: "Most Popular",
-    popular: true,
-  },
-  {
-    name: "9 Seater Maharaja Urbania",
-    tagline: "Luxury Recliner Experience",
-    image: "/urbania/urbania-9-seater-maharaja.png",
-    fuel: "Diesel",
-    seats: "9+1",
-    seatingPlan: "1*1",
-    bags: 5,
-    localTourFare: 11000,
-    perKmFare: 45,
-    badge: "Luxury",
-  },
-  {
     name: "12 Seater Urbania",
-    tagline: "Ideal for Family Trips",
+    tagline: "Family trips, small corporate teams, airport pickups",
     image: "/urbania/urbania-12-seater.png",
     fuel: "Diesel",
     seats: "12+1",
@@ -54,30 +30,8 @@ const URBANIAS: UrbaniaModel[] = [
     perKmFare: 35,
   },
   {
-    name: "13 Seater Urbania",
-    tagline: "Comfort for Mid-Size Groups",
-    image: "/urbania/urbania-13-seater.png",
-    fuel: "Diesel",
-    seats: "13+1",
-    seatingPlan: "2*1",
-    bags: 7,
-    localTourFare: 8500,
-    perKmFare: 35,
-  },
-  {
-    name: "16 Seater Urbania",
-    tagline: "Best for Large Groups",
-    image: "/urbania/urbania-16-seater.png",
-    fuel: "Diesel",
-    seats: "16+1",
-    seatingPlan: "2*1",
-    bags: 8,
-    localTourFare: 9000,
-    perKmFare: 37,
-  },
-  {
     name: "17 Seater Urbania",
-    tagline: "Maximum Space & Comfort",
+    tagline: "Wedding parties, large corporate groups, full day tours",
     image: "/urbania/urbania-17-seater.png",
     fuel: "Diesel",
     seats: "17+1",
@@ -109,8 +63,8 @@ export default function UrbaniaFleetDetails() {
           </p>
         </div>
 
-        {/* ===== Fleet Grid ===== */}
-        <div className="grid gap-5 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* ===== Fleet Grid (Changed to max 2 columns since we only have 2 items) ===== */}
+        <div className="mx-auto grid max-w-4xl gap-5 sm:gap-8 md:grid-cols-2">
           {URBANIAS.map((van) => (
             <article
               key={van.name}
@@ -171,29 +125,6 @@ export default function UrbaniaFleetDetails() {
 
                 {/* ===== Divider ===== */}
                 <div className="my-4 border-t border-slate-200 sm:my-5" />
-
-                {/* ===== Pricing ===== */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="text-xs text-slate-500 sm:text-sm">
-                      Local Tour Fare
-                    </span>
-
-                    <span className="text-base font-bold text-slate-900 sm:text-lg">
-                      ₹{van.localTourFare.toLocaleString("en-IN")}
-                    </span>
-                  </div>
-
-                  {/* <div className="flex items-center justify-between gap-3">
-                    <span className="text-xs text-slate-500 sm:text-sm">
-                      Fare Per Km
-                    </span>
-
-                    <span className="text-base font-bold text-gold sm:text-lg">
-                      ₹{van.perKmFare}
-                    </span>
-                  </div> */}
-                </div>
 
                 {/* ===== CTA ===== */}
                 <a

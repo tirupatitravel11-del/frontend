@@ -11,7 +11,7 @@ const ETIOS_POINTS = [
 const ALTERNATIVES = [
   {
     name: "Swift Dzire",
-    fare: "From ₹1,599 one-way",
+    
     points: [
       "You're travelling light with 2–3 suitcases max",
       "You want a stylish sedan at the lowest fare",
@@ -20,7 +20,7 @@ const ALTERNATIVES = [
   },
   {
     name: "Maruti Ertiga",
-    fare: "From ₹1,800 one-way",
+    
     points: [
       "You're travelling with 5–7 people in one vehicle",
       "You need genuine 3-row seating for family or group outings",
@@ -29,7 +29,7 @@ const ALTERNATIVES = [
   },
 ];
 
-export default function EtiosComparison() {
+export default function EtiosComparison({fares}: any) {
   return (
     <section className="bg-slate-100 py-16">
       <div className="mx-auto max-w-7xl px-6">
@@ -88,7 +88,7 @@ export default function EtiosComparison() {
             </p>
 
             <p className="mt-6 flex items-baseline gap-2">
-              <span className="text-xl font-black">₹1,699</span>
+              <span className="text-xl font-black">₹{fares.oneWayPrice}</span>
               <span className="text-sm text-white/90">one-way (Etios)</span>
             </p>
 
@@ -138,7 +138,7 @@ export default function EtiosComparison() {
                   <h4 className="text-lg font-bold text-slate-900">
                     Go with a {alt.name} if…
                   </h4>
-                  <p className="text-xs font-semibold text-gold">{alt.fare}</p>
+                  {/* <p className="text-xs font-semibold text-gold">{alt.fare}</p> */}
                 </div>
               </div>
 
