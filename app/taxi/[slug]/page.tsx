@@ -155,8 +155,7 @@ export default async function TaxiDetailPage({
         from="Your Pickup Location"
         to="Your Destination"
         title={`${vehicle.name} Fare Details`}
-        subtitle="Get clear one-way and round-trip pricing with verified drivers and no hidden booking fees."
-      />
+        subtitle="Get clear one-way and round-trip pricing with verified drivers and no hidden booking fees." fares={[]}      />
     
       <BookingProcess />
       <WhyBookWithUs />

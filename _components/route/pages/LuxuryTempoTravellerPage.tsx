@@ -18,32 +18,7 @@ import Testimonials from "@/app/components/Home/Testimonials";
 import { calculateFare } from "@/app/lib/api/route-data/route-generator";
 import { VEHICLES } from "@/app/lib/api/route-data/vehicles";
 
-const NOIDA_DELHI_ROUTES: any = [
-  {
-    from: "Noida",
-    to: "Delhi",
-    km: "25 km",
-    time: "45 min–1.5 hr",
-    fare: 1200,
-    tag: "Popular",
-  },
-  {
-    from: "Noida",
-    to: "New Delhi Railway Station",
-    km: "30 km",
-    time: "1–1.5 hr",
-    fare: 1299,
-    tag: "Railway",
-  },
-  {
-    from: "Noida",
-    to: "Delhi Airport",
-    km: "35 km",
-    time: "1–2 hr",
-    fare: 1499,
-    tag: "Airport",
-  },
-];
+
 
 const TEMPO_FARES = [
   {
@@ -78,7 +53,7 @@ const TEMPO_FARES = [
 ];
 
 export default function LuxuryTempoTravellerPage({ data }: any) {
-  const { route, page } = data;
+  const { route, page,vehicles,fares } = data;
   const tempoVehicles = VEHICLES.filter(
     (vehicle) =>
       vehicle.cabType === "Tempo Traveller" ||
@@ -104,18 +79,27 @@ const tempoFares = tempoVehicles.map((vehicle) => ({
   image: vehicle.image,
   popular: vehicle.slug === "12-seater-tempo-traveller",
 }));
+const luxuryTableFares = tempoFares.map((fare) => ({
+  vehicle: fare.vehicle,
+  seats: fare.seats,
+  oneWay: fare.oneWay.oneWayFare,
+  roundTrip: fare.roundTrip.roundTripFare,
+  perKm: fare.perKm,
+  popular: fare.popular,
+}));
   return (
     <>
       <LuxuryTempoHero   from={route.fromCity}
   to={route.toCity}
   fares={tempoFares}/>
       <LuxuryTempoTravellerCitySection />
-      <LuxuryFleetDetails />
+      <LuxuryFleetDetails    fares={tempoFares}
+  vehicles={tempoVehicles} />
       <LuxuryFareTable
         from={route.fromCity}
         to={route.toCity}
         title={page.h1}
-        fares={TEMPO_FARES}
+        fares={luxuryTableFares}
       />
       <Testimonials />
       <WhyChooseUs />
