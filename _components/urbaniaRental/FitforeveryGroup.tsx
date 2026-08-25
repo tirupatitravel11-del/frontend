@@ -84,7 +84,7 @@ export default function UrbaniaUseCases() {
                 {/* Heading */}
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gold/10 text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-white">
-                    <Icon size={22} strokeWidth={2} />
+                    <Icon size={22}  />
                   </div>
 
                   <div className="min-w-0">

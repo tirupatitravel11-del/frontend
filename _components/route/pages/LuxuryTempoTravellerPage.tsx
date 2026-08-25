@@ -92,12 +92,12 @@ const tempoFares = tempoVehicles.map((vehicle) => ({
   seats: `${vehicle.passengerCapacity}+1`,
   oneWay: calculateFare(
     route.distance,
-    false,
+    
     vehicle.perKm
   ),
   roundTrip: calculateFare(
     route.distance,
-    true,
+   
     vehicle.perKm
   ),
   perKm: vehicle.perKm,

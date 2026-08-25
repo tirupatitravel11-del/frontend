@@ -45,7 +45,7 @@ export default function PopularRoutes({
 
         {/* ===== Route Cards ===== */}
         <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-          {routes.map((route) => (
+          {routes.map((route:any) => (
             <article
               key={`${route.from}-${route.to}`}
               className="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-6"
