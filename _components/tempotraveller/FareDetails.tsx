@@ -6,51 +6,66 @@ type FareRow = {
   popular?: boolean;
 };
 
-const FARES: FareRow[] = [
-  {
-    cab: "9 Seater Tempo Traveller",
-    oneWay: 3500,
-    roundTrip: 6500,
-    extraKm: 25,
-    popular: true,
-  },
-  {
-    cab: "12 Seater Tempo Traveller",
-    oneWay: 4200,
-    roundTrip: 7800,
-    extraKm: 28,
-  },
-  {
-    cab: "16 Seater Tempo Traveller",
-    oneWay: 5200,
-    roundTrip: 9500,
-    extraKm: 32,
-  },
-  {
-    cab: "20 Seater Tempo Traveller",
-    oneWay: 6500,
-    roundTrip: 11500,
-    extraKm: 35,
-  },
-];
+// const FARES: FareRow[] = [
+//   {
+//     cab: "Hatchback (WagonR, Swift)",
+//     oneWay: 1299,
+//     roundTrip: 2199,
+//     extraKm: 12,
+//   },
+//   {
+//     cab: "Sedan (Dzire, Amaze)",
+//     oneWay: 1599,
+//     roundTrip: 2699,
+//     extraKm: 14,
+//     popular: true,
+//   },
+//   {
+//     cab: "SUV (Ertiga, Carens)",
+//     oneWay: 2299,
+//     roundTrip: 3899,
+//     extraKm: 17,
+//   },
+//   {
+//     cab: "Innova Crysta",
+//     oneWay: 2999,
+//     roundTrip: 4999,
+//     extraKm: 20,
+//   },
+// ];
 
 const INCLUDED = [
   "Fuel & driver allowance",
-  "AC Tempo Traveller",
+  "AC in all cabs",
   "Pickup from any Noida sector",
-  "Experienced & professional driver",
-  "Comfortable push-back seats",
-  "Ample luggage space",
+  "On-time pickup guarantee",
+  "Free cancellation up to 2 hours before pickup",
 ];
 
 const EXTRAS = [
   "Tolls & parking charges (at actuals)",
-  "Night charges: ₹500 (10 PM – 6 AM)",
+  "Night charges: ₹200 (10 PM – 6 AM)",
   "Kilometres beyond package limit",
-  "State tax / permit charges (if applicable)",
+  "Airport entry fee (for airport drops)",
 ];
 
 interface FareDetailsProps {
+  from: string;
+  to: string;
+  title?: string;
+  subtitle?: string;
+}
+
+type Fare = {
+  _id: string;
+  vehicleId: string;
+  vehicleName: string;
+  oneWayPrice: number;
+  roundTripPrice: number;
+};
+
+interface FareDetailsProps {
+  fares: Fare[];
   from: string;
   to: string;
   title?: string;
@@ -62,8 +77,8 @@ export default function FareDetails({
   to,
   from,
   title,
-  subtitle = "Transparent, fixed Tempo Traveller pricing — the fare you see is the fare you pay. No surge pricing, no hidden charges.",
-}: any) {
+  subtitle = "Transparent, fixed pricing — the fare you see is the fare you pay. No surge pricing, no hidden charges.",
+}: FareDetailsProps) {
   return (
     <section className="bg-white py-14">
       <div className="mx-auto max-w-7xl px-6">
@@ -72,86 +87,61 @@ export default function FareDetails({
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
             Transparent Pricing
           </p>
-
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            {title || `${from} to ${to} Tempo Traveller Fare Details`}
+            {title || `${from} to ${to} Taxi Fare Details`}
           </h2>
 
-          <p className="mt-4 text-base leading-7 text-slate-600">
-            {subtitle}
-          </p>
+          <p className="mt-4 text-base leading-7 text-slate-600">{subtitle}</p>
         </div>
 
         {/* ===== Fare Table ===== */}
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[640px] text-left text-sm">
-              <caption className="sr-only">
-                {from} to {to} Tempo Traveller fares for one-way and round
-                trips by vehicle capacity
-              </caption>
+   <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <div className="overflow-x-auto">
+    <table className="w-full min-w-[640px] text-left text-sm">
+      <caption className="sr-only">
+        {from} to {to} taxi fares for one-way and round trips by cab type
+      </caption>
 
-              <thead>
-                <tr className="bg-slate-900 text-white">
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    Tempo Traveller
-                  </th>
+      <thead>
+        <tr className="bg-slate-900 text-white">
+          <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
+            Cab Type
+          </th>
 
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    One Way
-                  </th>
+          <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
+            One Way
+          </th>
 
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    Round Trip
-                  </th>
+          <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
+            Round Trip
+          </th>
+        </tr>
+      </thead>
+<tbody className="divide-y divide-slate-200">
+  {fares.map((row) => (
+    <tr
+      key={row._id}
+      className="transition-colors hover:bg-slate-50"
+    >
+      <td className="px-6 py-5">
+        <span className="font-semibold text-slate-900">
+          {row.vehicleName}
+        </span>
+      </td>
 
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    Extra ₹/km
-                  </th>
-                </tr>
-              </thead>
+      <td className="px-6 py-5 text-lg font-bold text-slate-900">
+        ₹{row.oneWayPrice.toLocaleString("en-IN")}
+      </td>
 
-              <tbody className="divide-y divide-slate-200">
-                {FARES.map((row) => (
-                  <tr
-                    key={row.cab}
-                    className={
-                      row.popular
-                        ? "bg-gold/5"
-                        : "transition-colors hover:bg-slate-50"
-                    }
-                  >
-                    <td className="px-6 py-5">
-                      <div className="flex items-center gap-3">
-                        <span className="font-semibold text-slate-900">
-                          {row.cab}
-                        </span>
-
-                        {row.popular && (
-                          <span className="rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-                            Popular
-                          </span>
-                        )}
-                      </div>
-                    </td>
-
-                    <td className="px-6 py-5 text-lg font-bold text-slate-900">
-                      ₹{row.oneWay.toLocaleString("en-IN")}
-                    </td>
-
-                    <td className="px-6 py-5 text-lg font-bold text-gold">
-                      ₹{row.roundTrip.toLocaleString("en-IN")}
-                    </td>
-
-                    <td className="px-6 py-5 text-slate-600">
-                      ₹{row.extraKm}/km
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <td className="px-6 py-5 text-lg font-bold text-gold">
+        ₹{row.roundTripPrice.toLocaleString("en-IN")}
+      </td>
+    </tr>
+  ))}
+</tbody>
+    </table>
+  </div>
+</div>
 
         {/* ===== Included vs Extras ===== */}
         <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -170,7 +160,6 @@ export default function FareDetails({
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold">
                     ✓
                   </span>
-
                   {item}
                 </li>
               ))}
@@ -190,7 +179,6 @@ export default function FareDetails({
                   className="flex items-start gap-3 text-[15px] leading-7 text-slate-600"
                 >
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
-
                   {item}
                 </li>
               ))}
@@ -200,9 +188,9 @@ export default function FareDetails({
 
         {/* ===== Disclaimer ===== */}
         <p className="mt-6 text-center text-xs leading-6 text-slate-500">
-          * Fares apply to standard {from}–{to} routes. Tolls, parking,
-          permits and applicable taxes are billed at actuals. Prices may vary
-          depending on travel date, vehicle availability and trip requirements.
+          * Fares apply to standard Noida–Delhi routes (up to 40 km). Tolls,
+          parking & airport entry fees are billed at actuals. Prices may vary
+          slightly during peak hours.
         </p>
       </div>
     </section>

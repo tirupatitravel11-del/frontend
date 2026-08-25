@@ -13,15 +13,11 @@ interface LuxuryTempoHeroProps {
   to: string;
   fares: any[];
 }
-// const SEATER_OPTIONS = [
-//   { id: "9-seater", label: "9 Seater", fare: "₹4,500", capacity: "Small Groups" },
-//   { id: "12-seater", label: "12 Seater", fare: "₹5,000", capacity: "Most Popular" },
-//   { id: "16-seater", label: "16 Seater", fare: "₹6,000", capacity: "Group Tours" },
-//   { id: "20-seater", label: "20 Seater", fare: "₹7,500", capacity: "Weddings" },
-//   { id: "26-seater", label: "26 Seater", fare: "₹9,000", capacity: "Corporate" },
-// ];
+
+
 
 export default function LuxuryTempoHero({ from, to ,fares}: LuxuryTempoHeroProps) {
+  console.log(fares,"ddd");
 const [selectedSeater, setSelectedSeater] =
   useState<SeaterType>(fares[0]?.slug || "");
   const [name, setName] = useState("");
@@ -30,11 +26,11 @@ const [selectedSeater, setSelectedSeater] =
   const [travelDate, setTravelDate] = useState("");
 
   const today = new Date().toISOString().split("T")[0];
-const SEATER_OPTIONS = fares.map((fare:any) => ({
+const SEATER_OPTIONS = fares.map((fare: any) => ({
   id: fare.slug,
   label: fare.vehicle,
-  fare: `₹${fare.oneWay.toLocaleString("en-IN")}`,
-  roundTrip: `₹${fare.roundTrip.toLocaleString("en-IN")}`,
+  fare: `₹${fare.oneWay.oneWayFare.toLocaleString("en-IN")}`,
+  roundTrip: `₹${fare.oneWay.roundTripFare.toLocaleString("en-IN")}`,
   perKm: fare.perKm,
 }));
   const handleWhatsAppSubmit = (e: React.FormEvent) => {

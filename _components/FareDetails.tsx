@@ -6,33 +6,33 @@ type FareRow = {
   popular?: boolean;
 };
 
-const FARES: FareRow[] = [
-  {
-    cab: "Hatchback (WagonR, Swift)",
-    oneWay: 1299,
-    roundTrip: 2199,
-    extraKm: 12,
-  },
-  {
-    cab: "Sedan (Dzire, Amaze)",
-    oneWay: 1599,
-    roundTrip: 2699,
-    extraKm: 14,
-    popular: true,
-  },
-  {
-    cab: "SUV (Ertiga, Carens)",
-    oneWay: 2299,
-    roundTrip: 3899,
-    extraKm: 17,
-  },
-  {
-    cab: "Innova Crysta",
-    oneWay: 2999,
-    roundTrip: 4999,
-    extraKm: 20,
-  },
-];
+// const FARES: FareRow[] = [
+//   {
+//     cab: "Hatchback (WagonR, Swift)",
+//     oneWay: 1299,
+//     roundTrip: 2199,
+//     extraKm: 12,
+//   },
+//   {
+//     cab: "Sedan (Dzire, Amaze)",
+//     oneWay: 1599,
+//     roundTrip: 2699,
+//     extraKm: 14,
+//     popular: true,
+//   },
+//   {
+//     cab: "SUV (Ertiga, Carens)",
+//     oneWay: 2299,
+//     roundTrip: 3899,
+//     extraKm: 17,
+//   },
+//   {
+//     cab: "Innova Crysta",
+//     oneWay: 2999,
+//     roundTrip: 4999,
+//     extraKm: 20,
+//   },
+// ];
 
 const INCLUDED = [
   "Fuel & driver allowance",
@@ -56,13 +56,29 @@ interface FareDetailsProps {
   subtitle?: string;
 }
 
+type Fare = {
+  _id: string;
+  vehicleId: string;
+  vehicleName: string;
+  oneWayPrice: number;
+  roundTripPrice: number;
+};
+
+interface FareDetailsProps {
+  fares: Fare[];
+  from: string;
+  to: string;
+  title?: string;
+  subtitle?: string;
+}
+
 export default function FareDetails({
   fares,
   to,
   from,
   title,
   subtitle = "Transparent, fixed pricing — the fare you see is the fare you pay. No surge pricing, no hidden charges.",
-}: any) {
+}: FareDetailsProps) {
   return (
     <section className="bg-white py-14">
       <div className="mx-auto max-w-7xl px-6">
@@ -79,72 +95,63 @@ export default function FareDetails({
         </div>
 
         {/* ===== Fare Table ===== */}
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[640px] text-left text-sm">
-              <caption className="sr-only">
-                {from} to {to} taxi fares for one-way and round trips by cab
-                type
-              </caption>
+   <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <div className="overflow-x-auto">
+    <table className="w-full min-w-[640px] text-left text-sm">
+      <caption className="sr-only">
+        {from} to {to} taxi fares for one-way and round trips by cab type
+      </caption>
 
-              <thead>
-                <tr className="bg-slate-900 text-white">
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    Cab Type
-                  </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    One Way
-                  </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    Round Trip
-                  </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    Extra ₹/km
-                  </th>
-                </tr>
-              </thead>
+      <thead>
+        <tr className="bg-slate-900 text-white">
+          <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
+            Cab Type
+          </th>
 
-              <tbody className="divide-y divide-slate-200">
-                {FARES.map((row) => (
-                  <tr
-                    key={row.cab}
-                    className={
-                      row.popular
-                        ? "bg-gold/5"
-                        : "transition-colors hover:bg-slate-50"
-                    }
-                  >
-                    <td className="px-6 py-5">
-                      <div className="flex items-center gap-3">
-                        <span className="font-semibold text-slate-900">
-                          {row.cab}
-                        </span>
+          <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
+            One Way
+          </th>
 
-                        {row.popular && (
-                          <span className="rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-                            Popular
-                          </span>
-                        )}
-                      </div>
-                    </td>
+          <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
+            Round Trip
+          </th>
+        </tr>
+      </thead>
 
-                    <td className="px-6 py-5 text-lg font-bold text-slate-900">
-                      ₹{row.oneWay.toLocaleString("en-IN")}
-                    </td>
+      <tbody className="divide-y divide-slate-200">
+        {fares.filter(
+    (fare) =>
+      [
+        "luxury-tempo-traveller",
+        "12-seater-tempo-traveller",
+        "16-seater-tempo-traveller",
+        "20-seater-tempo-traveller",
+        "24-seater-tempo-traveller",
+      ].includes(fare.vehicleId)
+  ).map((row) => (
+          <tr
+            key={row._id}
+            className="transition-colors hover:bg-slate-50"
+          >
+            <td className="px-6 py-5">
+              <span className="font-semibold text-slate-900">
+                {row.vehicleName}
+              </span>
+            </td>
 
-                    <td className="px-6 py-5 text-lg font-bold text-gold">
-                      ₹{row.roundTrip.toLocaleString("en-IN")}
-                    </td>
+            <td className="px-6 py-5 text-lg font-bold text-slate-900">
+              ₹{row.oneWayPrice.toLocaleString("en-IN")}
+            </td>
 
-                    <td className="px-6 py-5 text-slate-600">
-                      ₹{row.extraKm}/km
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+            <td className="px-6 py-5 text-lg font-bold text-gold">
+              ₹{row.roundTripPrice.toLocaleString("en-IN")}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
 
         {/* ===== Included vs Extras ===== */}
         <div className="mt-8 grid gap-6 md:grid-cols-2">
