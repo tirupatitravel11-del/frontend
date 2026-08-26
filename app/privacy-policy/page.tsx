@@ -204,7 +204,7 @@ const SECTIONS = [
   },
   {
     id: "children",
-    title: "10. Children&apos;s Privacy",
+    title: "10. Child Privacy",
     content: (
       <>
         <p className="leading-7">
@@ -244,21 +244,7 @@ const SECTIONS = [
           If you have any questions about this Privacy Policy or how 
           Tirupati Travels handles your information, please contact us.
         </p>
-        <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-          <p className="text-lg font-bold text-slate-900">
-            Tirupati Travels
-          </p>
-          <div className="mt-3 space-y-2 text-sm text-slate-600">
-            <p className="flex items-center gap-2">
-              <Phone size={16} className="text-gold" />
-              <span className="font-medium text-slate-900">+91 63900 08503</span>
-            </p>
-            <p className="flex items-center gap-2">
-              <Mail size={16} className="text-gold" />
-              <span>support@yourdomain.com</span>
-            </p>
-          </div>
-        </div>
+       
       </>
     ),
   },
@@ -313,9 +299,7 @@ export default function PrivacyPolicyPage() {
               services, and other travel-related services.
             </p>
 
-            <p className="mt-6 text-xs font-medium text-slate-500">
-              Last Updated: August 24, 2026
-            </p>
+            
           </div>
         </div>
       </section>

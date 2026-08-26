@@ -50,10 +50,7 @@ const TERMS_SECTIONS = [
           for a travel service or making a booking, you acknowledge that you
           have read, understood and agreed to these Terms & Conditions.
         </p>
-        <p className="mt-4 leading-7">
-          If you do not agree with any part of these terms, please do not use
-          our website or services.
-        </p>
+      
       </>
     ),
   },
@@ -771,13 +768,10 @@ export default function TermsAndConditionsPage() {
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
               Please read these terms carefully before using our website or
-              booking any taxi, cab or Tempo Traveller service with Tirupati
+              booking any taxi, cab or hotel or package  services with Tirupati
               Travels.
             </p>
 
-            <p className="mt-6 text-xs font-medium text-slate-500">
-              Last Updated: August 24, 2026
-            </p>
           </div>
         </div>
       </section>
