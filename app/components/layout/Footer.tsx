@@ -27,8 +27,8 @@ const quickLinks = [
     href: "/packages",
   },
   {
-    label: "Contact Us",
-    href: "/contact",
+    label: "ContactUs",
+    href: "/ContactUs",
   },
   {
     label: "Privacy Policy",

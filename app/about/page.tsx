@@ -103,7 +103,7 @@ export default function AboutPage() {
           {/* Subtitle */}
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300 sm:text-xl">
             A service helping individuals, families, businesses and groups find
-            convenient cab options for local and nearby travel.
+            convenient cab, travel, vacation options for local and nearby travel.
           </p>
         </div>
       </section>
@@ -363,43 +363,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* =====================================================
-          CTA SECTION
-      ===================================================== */}
-      <section className="bg-slate-950 py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-500/10 text-yellow-500">
-            <Heart size={28} />
-          </div>
 
-          <h2 className="mt-6 text-3xl font-bold text-white sm:text-4xl">
-            Ready to Plan Your Journey?
-          </h2>
-
-          <p className="mt-4 text-base leading-relaxed text-slate-300">
-            Explore convenient travel options including cab bookings,
-            comfortable hotel stays, travel packages and memorable boat
-            experiences with Tirupati Travel.
-          </p>
-
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href={`tel:${PHONE_NUMBER}`}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-yellow-500 px-8 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-yellow-600 hover:shadow-lg"
-            >
-              <Phone size={17} />
-              Call Now
-            </a>
-
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-slate-600 px-8 py-4 text-sm font-bold uppercase tracking-wide text-slate-300 transition-all duration-300 hover:border-yellow-500 hover:bg-yellow-500 hover:text-white"
-            >
-              Contact Us
-            </a>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
