@@ -14,7 +14,7 @@ export default function TwentyFourSeaterTempoTravellerPage({
 }: {
   data: any;
 }) {
-  const { route } = data;
+  const { route,page } = data;
 
   return (
     <>
@@ -42,6 +42,7 @@ export default function TwentyFourSeaterTempoTravellerPage({
         routes={data.popularRoutes}
         from={route.fromCity}
         to={route.toCity}
+        pagetype={page.pageType}
       />
 
       <WhyChooseUs />

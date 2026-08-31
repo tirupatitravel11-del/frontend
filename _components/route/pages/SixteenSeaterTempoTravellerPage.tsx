@@ -14,7 +14,7 @@ export default function SixteenSeaterTempoTravellerPage({
 }: {
   data: any;
 }) {
-  const { route } = data;
+  const { route,page } = data;
 
   return (
     <>
@@ -42,6 +42,7 @@ export default function SixteenSeaterTempoTravellerPage({
         routes={data.popularRoutes}
         from={route.fromCity}
         to={route.toCity}
+        pagetype={page.pageType}
       />
 
       <WhyChooseUs />

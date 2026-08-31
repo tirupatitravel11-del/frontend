@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import TaxiPage from "@/_components/route/pages/TaxiPage";
 import TaxiFarePage from "@/_components/route/pages/TaxiFarePage";
 import OneWayTaxiPage from "@/_components/route/pages/OneWayTaxiPage";
@@ -19,7 +20,30 @@ import Seater20TempoTravellerPage from "@/_components/route/pages/Seater20TempoT
 import TwelveSeaterTempoTravellerPage from "@/_components/route/pages/TwelveSeaterTempoTravellerPage";
 import SixteenSeaterTempoTravellerPage from "@/_components/route/pages/SixteenSeaterTempoTravellerPage";
 import TwentyFourSeaterTempoTravellerPage from "@/_components/route/pages/TwentyFourSeaterTempoTravellerPage";
+type PageProps = {
+  params: Promise<{
+    pageSlug: string;
+  }>;
+};
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { pageSlug } = await params;
 
+  const data = await getRoutePage(pageSlug);
+
+  if (!data) {
+    return {
+      title: "Page Not Found",
+      description: "The requested page was not found.",
+    };
+  }
+
+  return {
+    title: data.page.metaTitle,
+    description: data.page.metaDescription,
+  };
+}
 export default async function Page({
   params,
 }: {
