@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CalendarDays, ArrowRight } from "lucide-react";
 
 interface BlogCardProps {
+  id: number;
   title: string;
   category: string;
   image: string;
@@ -11,6 +12,7 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({
+  id,
   title,
   category,
   image,
@@ -43,7 +45,7 @@ export default function BlogCard({
         <p className="mt-4 flex-grow leading-7 text-stone-600">{description}</p>
 
         <Link
-          href="/blogs"
+          href={`/blogs/${id}`}
           className="mt-8 inline-flex items-center gap-2 font-semibold text-gold"
         >
           Read More
