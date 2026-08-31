@@ -31,6 +31,7 @@ export default function SedanTaxiPage({ data }: any) {
         routes={data.popularRoutes}
         from={route.fromCity}
         to={route.toCity}
+        pagetype={page.pageType}
       />
       <AirportSpotlight />
       <Testimonials />

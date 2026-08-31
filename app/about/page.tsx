@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Car,
   ShieldCheck,
@@ -9,11 +11,40 @@ import {
   Phone,
   Route,
   Star,
-  Award,
-  Heart,
 } from "lucide-react";
 
 const PHONE_NUMBER = "+916390008503";
+
+const LEADERSHIP_TEAM = [
+  {
+    name: "Neha Singh",
+    title: "Managing Director",
+    image: "/director-neha.jpg",
+    description:
+      "Our Managing Director contributes to the company through her 16+ years of experience in Human Resources and Strategy. With excellent leadership skills and innovative ideas, she oversees the management of four rapidly growing companies.",
+  },
+  {
+    name: "Kumar Sambhav",
+    title: "Director, Sales & Marketing",
+    image: "/kumar-sambhav.jpg",
+    description:
+      "Our sales & marketing director, the reason for our astonishing growth over the years ever since our early days. His keen marketing strategies and 15 years' worth of insights gave us that push to soar high in the mobility sector.",
+  },
+  {
+    name: "Dheena Sonal",
+    title: "Director, Operation",
+    image: "/dheena.png",
+    description:
+      "Our director, a visionary leader who is guiding the company with her strategic insights. She has given her unwavering dedication to the company and brought revolutionary innovations followed by great success.",
+  },
+  {
+    name: "Anupama Sinha",
+    title: "Director, Admin",
+    image: "/director-anupama.jpg",
+    description:
+      "Director and Head of Recruitment Department. Anupama Sinha brings her 15+ years of experience and expertise in travels and tourism. Through her guidance, Tirupati Travels has extended its services to 250+ cities and covering 1000+ routes.",
+  },
+];
 
 const STATS = [
   {
@@ -103,7 +134,8 @@ export default function AboutPage() {
           {/* Subtitle */}
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300 sm:text-xl">
             A service helping individuals, families, businesses and groups find
-            convenient cab, travel, vacation options for local and nearby travel.
+            convenient cab, travel, vacation options for local and nearby
+            travel.
           </p>
         </div>
       </section>
@@ -147,8 +179,8 @@ export default function AboutPage() {
               and customized travel packages to make your journey more
               convenient. Our packages can help travelers plan accommodation,
               sightseeing, local transportation and other travel experiences.
-              Boat services and related travel activities are also available for
-              destinations where applicable.
+              Boat services and related travel activities are also available
+              for destinations where applicable.
             </p>
 
             <p>
@@ -273,6 +305,83 @@ export default function AboutPage() {
       </section>
 
       {/* =====================================================
+          LEADERSHIP TEAM
+      ===================================================== */}
+      <section className="border-t border-slate-100 bg-white py-12 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="inline-flex items-center rounded-full bg-yellow-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-yellow-700">
+              Leadership Team
+            </div>
+
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
+              Meet Our Leadership
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+              The experienced visionaries guiding our mission to provide
+              exceptional travel services across India.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {LEADERSHIP_TEAM.map((member, index) => (
+              <div
+                key={index}
+                className="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-yellow-500/40 hover:shadow-xl"
+              >
+                {/* Profile Image Container */}
+                <div className="relative mb-4 flex justify-center">
+                  {/* Decorative Ring */}
+                  <div className="pointer-events-none absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-yellow-500/20 transition-all duration-300 group-hover:scale-110 group-hover:border-yellow-500/40" />
+
+                  {/* Image Wrapper */}
+                  <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-white bg-slate-100 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:border-yellow-500 group-hover:shadow-xl">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="h-full w-full object-cover"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+
+                        target.onerror = null;
+
+                        const initials = member.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")
+                          .substring(0, 2);
+
+                        target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23eab308' width='100' height='100'/%3E%3Ctext x='50' y='58' font-family='Arial, sans-serif' font-size='40' font-weight='bold' fill='white' text-anchor='middle'%3E${initials}%3C/text%3E%3C/svg%3E`;
+                      }}
+                    />
+                  </div>
+                </div>
+
+                {/* Name */}
+                <h3 className="text-center text-lg font-bold text-slate-900">
+                  {member.name}
+                </h3>
+
+                {/* Title */}
+                <p className="mt-1.5 text-center text-xs font-semibold uppercase tracking-wide text-yellow-600">
+                  {member.title}
+                </p>
+
+                {/* Divider */}
+                <div className="mx-auto my-3 h-0.5 w-10 bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent" />
+
+                {/* Description */}
+                <p className="flex-1 text-center text-sm leading-6 text-slate-600">
+                  {member.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
           WHY CHOOSE US
       ===================================================== */}
       <section className="bg-white py-16 sm:py-20 lg:py-24">
@@ -339,9 +448,9 @@ export default function AboutPage() {
           <p className="mt-6 text-base leading-relaxed text-slate-600 sm:leading-8">
             At Tirupati Travel, we are committed to making your travel
             experience easier from planning to booking. Whether you need
-            transportation, accommodation, a complete travel package or a unique
-            travel experience, we aim to provide convenient options based on
-            your requirements.
+            transportation, accommodation, a complete travel package or a
+            unique travel experience, we aim to provide convenient options
+            based on your requirements.
           </p>
 
           <p className="mt-4 text-base leading-relaxed text-slate-600">
@@ -362,8 +471,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-
     </main>
   );
 }

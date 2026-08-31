@@ -21,6 +21,7 @@ export default function SUVTaxiPage({ data }: any) {
         routes={data.popularRoutes}
         from={route.fromCity}
         to={route.toCity}
+        pagetype={page.pageType}
       />
       <OutstationSpotlight />
       <Testimonials />

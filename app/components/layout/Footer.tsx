@@ -28,7 +28,7 @@ const quickLinks = [
   },
   {
     label: "ContactUs",
-    href: "/ContactUs",
+    href: "/contact-us",
   },
   {
     label: "Privacy Policy",
@@ -101,25 +101,25 @@ export default function Footer() {
             </ul>
           </div>
 
-       {/* Links */}
-<div>
-  <h3 className="mb-6 text-xl font-bold uppercase text-gold">
-    Quick Links
-  </h3>
+          {/* Links */}
+          <div>
+            <h3 className="mb-6 text-xl font-bold uppercase text-gold">
+              Quick Links
+            </h3>
 
-  <ul className="space-y-4">
-    {quickLinks.map((item) => (
-      <li key={item.href}>
-        <Link
-          href={item.href}
-          className="text-stone-300 transition hover:text-gold"
-        >
-          {item.label}
-        </Link>
-      </li>
-    ))}
-  </ul>
-</div>
+            <ul className="space-y-4">
+              {quickLinks.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-stone-300 transition hover:text-gold"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Contact */}
 
