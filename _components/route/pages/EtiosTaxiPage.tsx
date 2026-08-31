@@ -24,6 +24,7 @@ export default function ErtigaTaxiPage({ data }: any) {
         routes={data.popularRoutes}
         from={route.fromCity}
         to={route.toCity}
+        pagetype={page.pageType}
       />
       <EtiosAirport />
       <Testimonials />

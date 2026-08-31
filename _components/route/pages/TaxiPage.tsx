@@ -51,6 +51,7 @@ console.log(data,"dhsjh");
         routes={popularRoutes}
         from={route.fromCity}
         to={route.toCity}
+        pagetype={page.pageType}
       />
 
       {/* Testimonials */}

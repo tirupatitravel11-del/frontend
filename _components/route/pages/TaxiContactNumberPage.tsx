@@ -42,6 +42,7 @@ export default function ContactPage({ data }: any) {
         routes={popularRoutes}
         from={route.fromCity}
         to={route.toCity}
+        pagetype={page.pageType}
       />
 
       {/* Testimonials */}

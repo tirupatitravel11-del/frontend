@@ -132,11 +132,11 @@ const roundTripPrice = fare.roundTripFare;
 
       h1: `${route.fromCity} to ${route.toCity} ${vehicle.name} Taxi`,
 
-      metaTitle:
-        `${route.fromCity} to ${route.toCity} ${vehicle.name} Taxi | Book Cab`,
+       metaTitle:
+        `${vehicle.name} on Rent in ${route.fromCity} @ ₹${vehicle.perKm}/KM – Book Now`,
 
       metaDescription:
-        `Book ${vehicle.name} taxi from ${route.fromCity} to ${route.toCity}. Comfortable, affordable and reliable private cab service.`,
+          `Hire a ${vehicle.name} in ${route.fromCity} for local trips, airport transfers and outstation travel. Get clean AC cars, experienced drivers and dependable taxi service.`,
 
       faqs: [],
     },
