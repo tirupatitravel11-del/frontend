@@ -1,5 +1,11 @@
-
-import { calculateFare, findGenericRouteFromSlug, findRouteFromSlug, findVehicleFromSlug, generatePopularRoutes, GenericPageType } from "./route-data/route-generator";
+import {
+  calculateFare,
+  findGenericRouteFromSlug,
+  findRouteFromSlug,
+  findVehicleFromSlug,
+  generatePopularRoutes,
+  GenericPageType,
+} from "./route-data/route-generator";
 import { VEHICLES } from "./route-data/vehicles";
 
 export function getRoutePage(pageSlug: string) {
@@ -17,27 +23,21 @@ export function getRoutePage(pageSlug: string) {
   ];
 
   for (const pageType of genericPages) {
-    const route = findGenericRouteFromSlug(
-      pageSlug,
-      pageType,
-    );
+    const route = findGenericRouteFromSlug(pageSlug, pageType);
 
     if (route) {
-     const fares = VEHICLES.map((vehicle) => {
-  const fare = calculateFare(
-    route.distance,
-    vehicle.perKm,
-  );
+      const fares = VEHICLES.map((vehicle) => {
+        const fare = calculateFare(route.distance, vehicle.perKm);
 
-  return {
-    _id: `fare-${route.slug}-${vehicle.slug}`,
-    vehicleId: vehicle.slug,
-    vehicleName: vehicle.name,
+        return {
+          _id: `fare-${route.slug}-${vehicle.slug}`,
+          vehicleId: vehicle.slug,
+          vehicleName: vehicle.name,
 
-    oneWayPrice: fare.oneWayFare,
-    roundTripPrice: fare.roundTripFare,
-  };
-});
+          oneWayPrice: fare.oneWayFare,
+          roundTripPrice: fare.roundTripFare,
+        };
+      });
 
       return {
         page: {
@@ -51,32 +51,30 @@ export function getRoutePage(pageSlug: string) {
             pageType === "taxi"
               ? "Taxi"
               : pageType === "taxi-fare"
-              ? "Taxi Fare"
-              : pageType === "one-way-taxi"
-              ? "One Way Taxi"
-              : pageType === "suv-taxi"
-              ? "SUV Taxi"
-              : pageType === "taxi-contact-number"
-              ? "Taxi Contact Number"
-              : "Distance & Travel Time"
+                ? "Taxi Fare"
+                : pageType === "one-way-taxi"
+                  ? "One Way Taxi"
+                  : pageType === "suv-taxi"
+                    ? "SUV Taxi"
+                    : pageType === "taxi-contact-number"
+                      ? "Taxi Contact Number"
+                      : "Distance & Travel Time"
           }`,
 
-          metaTitle: `${route.fromCity} to ${route.toCity} ${
+          metaTitle: `Tirupati Travel ${route.fromCity} to ${route.toCity} ${
             pageType === "taxi"
-              ? "Taxi"
+              ? "Premium Taxi Service – Book Now"
               : pageType === "taxi-fare"
-              ? "Taxi Fare"
-              : pageType === "one-way-taxi"
-              ? "One Way Taxi"
-              : pageType === "suv-taxi"
-              ? "SUV Taxi"
-              : pageType === "taxi-contact-number"
-              ? "Taxi Contact Number"
-              : "Distance & Travel Time"
+                ? "Taxi Fare & Charges – Check Fare"
+                : pageType === "one-way-taxi"
+                  ? "One Way Taxi Service – Book Now"
+                  : pageType === "suv-taxi"
+                    ? "SUV Taxi Service – Book Now"
+                    : pageType === "taxi-contact-number"
+                      ? "Taxi Contact Number – Call Now"
+                      : "Distance & Travel Time – Taxi Route"
           }`,
-
-          metaDescription:
-            `Book taxi from ${route.fromCity} to ${route.toCity}. Check fare, distance, travel time and available taxi options.`,
+          metaDescription: `Book a premium taxi from ${route.fromCity} to ${route.toCity} with Tirupati Travel. Get reliable taxi service, route distance, travel time and easy booking options.`,
 
           faqs: [],
         },
@@ -87,10 +85,7 @@ export function getRoutePage(pageSlug: string) {
 
         fares,
 
-        popularRoutes: generatePopularRoutes(
-          route.fromCity,
-          route.slug,
-        ),
+        popularRoutes: generatePopularRoutes(route.fromCity, route.slug),
       };
     }
   }
@@ -105,22 +100,16 @@ export function getRoutePage(pageSlug: string) {
     return null;
   }
 
-  const route = findRouteFromSlug(
-    pageSlug,
-    vehicle,
-  );
+  const route = findRouteFromSlug(pageSlug, vehicle);
 
   if (!route) {
     return null;
   }
 
-const fare = calculateFare(
-  route.distance,
-  vehicle.perKm,
-);
+  const fare = calculateFare(route.distance, vehicle.perKm);
 
-const oneWayPrice = fare.oneWayFare;
-const roundTripPrice = fare.roundTripFare;
+  const oneWayPrice = fare.oneWayFare;
+  const roundTripPrice = fare.roundTripFare;
 
   return {
     page: {
@@ -132,11 +121,9 @@ const roundTripPrice = fare.roundTripFare;
 
       h1: `${route.fromCity} to ${route.toCity} ${vehicle.name} Taxi`,
 
-       metaTitle:
-        `${vehicle.name} on Rent in ${route.fromCity} @ ₹${vehicle.perKm}/KM – Book Now`,
+      metaTitle: `${vehicle.name} on Rent in ${route.fromCity} @ ₹${vehicle.perKm}/KM – Book Now`,
 
-      metaDescription:
-          `Hire a ${vehicle.name} in ${route.fromCity} for local trips, airport transfers and outstation travel. Get clean AC cars, experienced drivers and dependable taxi service.`,
+      metaDescription: `Hire a ${vehicle.name} in ${route.fromCity} for local trips, airport transfers and outstation travel. Get clean AC cars, experienced drivers and dependable taxi service.`,
 
       faqs: [],
     },
@@ -159,9 +146,6 @@ const roundTripPrice = fare.roundTripFare;
       },
     ],
 
-    popularRoutes: generatePopularRoutes(
-      route.fromCity,
-      route.slug,
-    ),
+    popularRoutes: generatePopularRoutes(route.fromCity, route.slug),
   };
 }
