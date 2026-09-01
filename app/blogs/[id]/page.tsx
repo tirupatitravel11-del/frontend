@@ -43,10 +43,7 @@ export default async function BlogDetailsPage({
               {blog.category}
             </div>
 
-            <div className="flex items-center gap-2 text-sm text-stone-500">
-              <CalendarDays size={16} className="text-gold" />
-              {blog.date}
-            </div>
+          
 
             <h1 className="mt-5 text-3xl font-black leading-tight text-stone-900 md:text-5xl">
               {blog.title}
