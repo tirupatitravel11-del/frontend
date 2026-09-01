@@ -35,7 +35,7 @@ const navLinks = [
   },
   {
     label: "Blog",
-    href: "/blog",
+    href: "/blogs",
   },
   {
     label: "Travel Guide",
