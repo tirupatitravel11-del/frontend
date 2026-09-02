@@ -1,18 +1,55 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, MapPin, Mail, Clock, MessageCircle } from "lucide-react";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaPinterestP,
+  FaLinkedinIn,
+  FaYoutube,
+  FaXTwitter,
+} from "react-icons/fa6";
 import Logo from "../../../public/logo.jpg";
 
+// const services = [
+//   "Cab Booking",
+//   "Airport Transfer",
+//   "Outstation Cabs",
+//   "Local Sightseeing",
+//   "Tour Packages",
+//   "Hotel Booking",
+//   "Boat Ride",
+// ];
 const services = [
-  "Cab Booking",
-  "Airport Transfer",
-  "Outstation Cabs",
-  "Local Sightseeing",
-  "Tour Packages",
-  "Hotel Booking",
-  "Boat Ride",
+  {
+    label: "Cab Booking",
+    href: "/cabs",
+  },
+  {
+    label: "Airport Transfer",
+    href: "/airport-transfer",
+  },
+  {
+    label: "Outstation Cabs",
+    href: "/outstationCabs",
+  },
+  {
+    label: "Local Sightseeing",
+    href: "/local-sightseeing",
+  },
+  {
+    label: "Tour Packages",
+    href: "/packages",
+  },
+  {
+    label: "Hotel Booking",
+    href: "/hotel",
+  },
+  {
+    label: "Boat Ride",
+    href: "/boats",
+  },
 ];
-
 const quickLinks = [
   {
     label: "Home",
@@ -77,6 +114,72 @@ export default function Footer() {
                 <MessageCircle size={18} />
                 WhatsApp
               </a>
+
+              {/* Twitter/X */}
+              <a
+                href="https://x.com/tirupatitravel0"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tirupati Travel on Twitter"
+                className="flex items-center justify-center rounded-full border border-stone-500 p-3 transition hover:bg-black hover:border-black"
+              >
+                <FaXTwitter size={18} />
+              </a>
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/tirupatitravel1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tirupati Travel on Instagram"
+                className="flex items-center justify-center rounded-full border border-stone-500 p-3 transition hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-red-500 hover:to-purple-600 hover:border-transparent"
+              >
+                <FaInstagram size={18} />
+              </a>
+
+              {/* Pinterest */}
+              <a
+                href="https://www.pinterest.com/tirupatitravel/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tirupati Travel on Pinterest"
+                className="flex items-center justify-center rounded-full border border-stone-500 p-3 transition hover:bg-red-600 hover:border-red-600"
+              >
+                <FaPinterestP size={18} />
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/tirupati-travel/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tirupati Travel on LinkedIn"
+                className="flex items-center justify-center rounded-full border border-stone-500 p-3 transition hover:bg-blue-700 hover:border-blue-700"
+              >
+                <FaLinkedinIn size={18} />
+              </a>
+
+              {/* YouTube */}
+              <a
+                href="https://www.youtube.com/@tirupati-travel"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tirupati Travel on YouTube"
+                className="flex items-center justify-center rounded-full border border-stone-500 p-3 transition hover:bg-red-600 hover:border-red-600"
+              >
+                <FaYoutube size={18} />
+              </a>
+
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/tirupatitravel1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tirupati Travel on Facebook"
+                className="flex items-center justify-center rounded-full border border-stone-500 p-3 transition hover:bg-blue-700 hover:border-blue-700"
+              >
+                <FaFacebookF size={18} />
+              </a>
             </div>
           </div>
 
@@ -89,12 +192,12 @@ export default function Footer() {
 
             <ul className="space-y-4">
               {services.map((item) => (
-                <li key={item}>
+                <li key={item.href}>
                   <Link
-                    href="/"
+                    href={item.href}
                     className="text-stone-300 transition hover:text-gold"
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}
