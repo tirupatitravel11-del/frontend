@@ -37,11 +37,11 @@ const navLinks = [
     label: "Blog",
     href: "/blogs",
   },
-  {
-    label: "Travel Guide",
-    href: "/travel-guide",
-    dropdown: true,
-  },
+  // {
+  //   label: "Travel Guide",
+  //   href: "/travel-guide",
+  //   dropdown: true,
+  // },
 ];
 
 export default function Navbar() {
