@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { ROUTES } from "@/app/lib/api/route-data/-helper";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://tirupatitravel.in/";
+  const baseUrl =  "https://tirupatitravel.in/";
 
   // Route suffix variations
   const routeSuffixes = [
@@ -41,12 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    // {
-    //   url: `${baseUrl}/cabs`,
-    //   lastModified: new Date(),
-    //   changeFrequency: "weekly",
-    //   priority: 0.9,
-    // },
+    {
+      url: `${baseUrl}/cabs`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/taxi`,
       lastModified: new Date(),
