@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { ROUTES } from "@/app/lib/api/route-data/-helper";
+import { seoPageSlugs } from "@/app/data/seoPages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl =  "https://tirupatitravel.in/";
+  const baseUrl = "https://tirupatitravel.in/";
 
   // Route suffix variations
   const routeSuffixes = [
@@ -137,5 +138,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...staticPages, ...dynamicRoutePages];
+  const seoPages: MetadataRoute.Sitemap = seoPageSlugs.map((slug) => ({
+    url: `${baseUrl}/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...dynamicRoutePages, ...seoPages];
 }

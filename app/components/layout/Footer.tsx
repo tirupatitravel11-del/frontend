@@ -104,7 +104,7 @@ export default function Footer() {
                 className="flex items-center gap-2 rounded-full border border-stone-500 px-5 py-3 transition hover:bg-gold"
               >
                 <Phone size={18} />
-                +91 9876543210
+                
               </a>
 
               <a
@@ -112,7 +112,7 @@ export default function Footer() {
                 className="flex items-center gap-2 rounded-full border border-stone-500 px-5 py-3 transition hover:bg-green-600"
               >
                 <MessageCircle size={18} />
-                WhatsApp
+                
               </a>
 
               {/* Twitter/X */}
