@@ -49,77 +49,68 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src={Logo}
-            alt="Chiku Cabs Logo"
-            width={120}
-            height={100}
-            priority
-            className="rounded-full object-cover sm:h-12"
-          />
+  <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6">
+    {/* Logo - Made bigger */}
+    <Link href="/" className="flex items-center">
+      <Image
+        src={Logo}
+        alt="Chiku Cabs Logo"
+        width={150}
+        height={120}
+        priority
+        className="h-14 w-auto object-cover sm:h-16"
+      />
+    </Link>
+
+    <nav className="hidden items-center gap-6 lg:flex">
+      {navLinks.map((item) => (
+        <Link
+          key={item.label}
+          href={item.href}
+          className="font-medium hover:text-gold transition-colors"
+        >
+          {item.label}
         </Link>
+      ))}
+    </nav>
 
-        <nav className="hidden items-center gap-6 lg:flex">
-          {navLinks.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="font-medium hover:text-gold"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="flex">
-          <a
-            href="tel:+919876543210"
-            className="
-          flex
-          h-10
-          w-10
-          items-center
-          justify-center
-          rounded-full
-          bg-gold
-          text-white
-          shadow-xl
-          transition-all
-          duration-300
-          hover:scale-110
-          hover:shadow-2xl
-          lg:hidden
-        "
+    {/* Mobile Actions - Made bigger with better spacing */}
+    <div className="flex items-center gap-3">
+      <a
+        href="tel:+919876543210"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-gold text-white shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl lg:hidden"
+        aria-label="Call us"
+      >
+        <Phone size={24} />
+      </a>
+      
+      <button
+        className="rounded-lg p-3 text-stone-700 transition-colors hover:bg-stone-100 lg:hidden"
+        onClick={() => setOpen(!open)}
+        aria-label="Toggle menu"
+      >
+        {open ? <X size={28} /> : <Menu size={28} />}
+      </button>
+    </div>
+  </div>
+
+  {/* Mobile Menu Dropdown */}
+  {open && (
+    <div className="absolute left-0 top-full z-50 w-full border-t bg-white shadow-lg lg:hidden">
+      <div className="flex flex-col">
+        {navLinks.map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            onClick={() => setOpen(false)}
+            className="border-b border-stone-100 px-6 py-4 text-base font-medium text-stone-700 transition-colors hover:bg-orange-50 hover:text-gold"
           >
-            <Phone size={20} />
-          </a>
-          <button
-            className="rounded p-2 lg:hidden"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+            {item.label}
+          </Link>
+        ))}
       </div>
-
-      {open && (
-        <div className="absolute left-0 top-full z-50 w-full border-t bg-white shadow-md lg:hidden">
-          <div className="flex flex-col text ">
-            {navLinks.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className=" border-b px-6 py-4 hover:bg-orange-50"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </header>
+    </div>
+  )}
+</header>
   );
 }

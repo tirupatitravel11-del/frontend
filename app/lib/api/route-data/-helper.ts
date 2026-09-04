@@ -274,6 +274,114 @@ export type Route = {
     distance: 30,
     duration: "45 min - 1 hr",
   },
+  {
+    slug: "delhi-to-agra",
+    fromCity: "Delhi",
+    toCity: "Agra",
+    distance: 233,
+    duration: "3.5 hrs",
+    
+    
+  },
+  {
+    slug: "mumbai-to-pune",
+    fromCity: "Mumbai",
+    toCity: "Pune",
+    distance: 150,
+    duration: "3 hrs",
+ 
+  },
+  {
+    slug: "bengaluru-to-mysuru",
+    fromCity: "Bengaluru",
+    toCity: "Mysuru",
+    distance: 145,
+    duration: "3 hrs",
+
+  },
+  {
+    slug: "chennai-to-puducherry",
+    fromCity: "Chennai",
+    toCity: "Puducherry",
+    distance: 155,
+    duration: "3 hrs",
+   
+  },
+  {
+    slug: "jaipur-to-udaipur",
+    fromCity: "Jaipur",
+    toCity: "Udaipur",
+    distance: 395,
+    duration: "6.5 hrs",
+
+  },
+  {
+    slug: "kolkata-to-digha",
+    fromCity: "Kolkata",
+    toCity: "Digha",
+    distance: 185,
+    duration: "4 hrs",
+
+  },
+  {
+    slug: "hyderabad-to-srisailam",
+    fromCity: "Hyderabad",
+    toCity: "Srisailam",
+    distance: 215,
+    duration: "5 hrs",
+   
+  },
+  {
+    slug: "ahmedabad-to-statue-of-unity",
+    fromCity: "Ahmedabad",
+    toCity: "Statue of Unity",
+    distance: 200,
+    duration: "4 hrs",
+
+  },
+  {
+    slug: "dehradun-to-mussoorie",
+    fromCity: "Dehradun",
+    toCity: "Mussoorie",
+    distance: 35,
+    duration: "1 hr",
+
+  },
+  {
+    slug: "kochi-to-munnar",
+    fromCity: "Kochi",
+    toCity: "Munnar",
+    distance: 130,
+    duration: "4 hrs",
+ 
+  },
+    {
+    slug: "ayodhya-to-varanasi",
+    fromCity: "Ayodhya",
+    toCity: "Varanasi",
+    distance: 210,
+    duration: "4 - 5 hrs",
+  },
+  {
+    slug: "delhi-to-ayodhya",
+    fromCity: "Delhi",
+    toCity: "Ayodhya",
+    distance: 560,
+    duration: "9 - 10 hrs",
+  },
+  {
+    slug: "varanasi-to-gorakhpur",
+    fromCity: "Varanasi",
+    toCity: "Gorakhpur",
+    distance: 195,
+    duration: "4 - 4.5 hrs",
+  },
+  {
+    slug: "ayodhya-to-mathura",
+    fromCity: "Ayodhya",
+    toCity: "Mathura",
+    distance: 380,
+    duration: "7 - 8 hrs",
+  },
 ];
 
-// eee

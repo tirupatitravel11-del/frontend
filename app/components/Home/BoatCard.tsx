@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { MapPin, Star, ArrowRight } from "lucide-react";
 
 interface BoatCardProps {
   title: string;
+  slug: string;
   location: string;
   image: string;
   rating: number;
@@ -13,13 +15,15 @@ interface BoatCardProps {
 
 export default function BoatCard({
   title,
+  slug,
   location,
   image,
   rating,
   price,
 }: BoatCardProps) {
   return (
-    <div
+    <Link
+      href={`/boat/${slug}`}
       className="
         group
         flex
@@ -71,11 +75,11 @@ export default function BoatCard({
           </h2>
         </div>
 
-        <button className="mt-auto flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3 font-semibold text-white transition hover:opacity-90">
+        <span className="mt-auto flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3 font-semibold text-white transition hover:opacity-90">
           Book Boat Ride
           <ArrowRight size={18} />
-        </button>
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }

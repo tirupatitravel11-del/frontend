@@ -1,9 +1,16 @@
 "use client";
 
+import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import RouteCard from "./RouteCard";
 import { popularRoutes } from "../../constants/routes";
+
+// Helper function to generate URL-friendly slugs
+const generateRouteSlug = (from: string, to: string) => {
+  const format = (str: string) => str.toLowerCase().replace(/\s+/g, "-");
+  return `${format(from)}-to-${format(to)}-taxi`;
+};
 
 export default function PopularRoutes() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -34,15 +41,19 @@ export default function PopularRoutes() {
           {/* Navigation Buttons */}
           <div className="flex justify-center gap-4 md:flex md:justify-end">
             <button
+              type="button"
               onClick={() => emblaApi?.scrollPrev()}
               className="rounded-full border border-gold p-3 text-gold transition hover:bg-gold hover:text-white"
+              aria-label="Previous route"
             >
               <ChevronLeft size={24} />
             </button>
 
             <button
+              type="button"
               onClick={() => emblaApi?.scrollNext()}
               className="rounded-full border border-gold p-3 text-gold transition hover:bg-gold hover:text-white"
+              aria-label="Next route"
             >
               <ChevronRight size={24} />
             </button>
@@ -52,14 +63,20 @@ export default function PopularRoutes() {
         {/* Carousel */}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
-            {popularRoutes.map((route) => (
-              <div
-                key={route.id}
-                className="min-w-0 flex-[0_0_100%] px-2 sm:flex-[0_0_50%] sm:px-3 lg:flex-[0_0_33.333%]"
-              >
-                <RouteCard {...route} />
-              </div>
-            ))}
+            {popularRoutes.map((route) => {
+              const slug = generateRouteSlug(route.from, route.to);
+
+              return (
+                <Link
+                  key={route.id}
+                  href={`/route/${slug}`}
+                  className="min-w-0 flex-[0_0_100%] px-2 sm:flex-[0_0_50%] sm:px-3 lg:flex-[0_0_33.333%] block"
+                >
+                  {/* The entire card is now clickable */}
+                  <RouteCard {...route} />
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>

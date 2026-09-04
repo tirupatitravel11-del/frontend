@@ -32,12 +32,12 @@ export const services = [
     href: "/boats",
     image: "/services_boat.jpg",
   },
-  {
-    id: 5,
-    title: "Darshan",
-    description:
-      "Temple darshan and sightseeing tours with complete travel assistance.",
-    href: "/darshan",
-    image: "/services_darshan.jpg",
-  },
+  // {
+  //   id: 5,
+  //   title: "Darshan",
+  //   description:
+  //     "Temple darshan and sightseeing tours with complete travel assistance.",
+  //   href: "/darshan",
+  //   image: "/services_darshan.jpg",
+  // },
 ];
