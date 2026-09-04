@@ -8,6 +8,8 @@ const moreHotels = [
   {
     id: 101,
     name: "The Grand Mumbai",
+    slug: "the-grand-mumbai",
+    city: "mumbai",
     location: "Andheri West, Mumbai",
     image:
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
@@ -19,6 +21,8 @@ const moreHotels = [
   {
     id: 102,
     name: "Royal Heritage Haveli",
+    slug: "royal-heritage-haveli",
+    city: "jaipur",
     location: "Pink City, Jaipur",
     image:
       "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop",
@@ -30,6 +34,8 @@ const moreHotels = [
   {
     id: 103,
     name: "ITC Gardenia",
+    slug: "itc-gardenia",
+    city: "bangalore",
     location: "Richmond Town, Bangalore",
     image:
       "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&h=400&fit=crop",
@@ -41,6 +47,8 @@ const moreHotels = [
   {
     id: 104,
     name: "Taj Exotica",
+    slug: "taj-exotica",
+    city: "goa",
     location: "Benaulim, Goa",
     image:
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop",
@@ -52,6 +60,8 @@ const moreHotels = [
   {
     id: 105,
     name: "JW Marriott",
+    slug: "jw-marriott",
+    city: "pune",
     location: "Senapati Bapat Marg, Pune",
     image:
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop",
@@ -63,6 +73,8 @@ const moreHotels = [
   {
     id: 106,
     name: "The Leela Palace",
+    slug: "the-leela-palace",
+    city: "delhi",
     location: "Chanakyapuri, Delhi",
     image:
       "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop",
@@ -108,8 +120,9 @@ export default function MoreHotels() {
         {/* Hotels Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {moreHotels.map((hotel) => (
-            <div
+            <Link
               key={hotel.id}
+              href={`/hotel/${hotel.city}/${hotel.slug}`}
               className="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-lg"
             >
               {/* Image Container */}
@@ -165,13 +178,13 @@ export default function MoreHotels() {
                     </div>
                   </div>
 
-                  <button className="flex items-center gap-1.5 rounded-full bg-gold px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-gold/90">
+                  <span className="flex items-center gap-1.5 rounded-full bg-gold px-4 py-2 text-sm font-semibold text-white transition-all group-hover:bg-gold/90">
                     Book Now
                     <ArrowRight size={16} />
-                  </button>
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

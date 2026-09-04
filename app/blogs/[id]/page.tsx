@@ -19,13 +19,7 @@ export default async function BlogDetailsPage({
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900">
       <article className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-gold transition hover:text-amber-600"
-        >
-          <ArrowLeft size={16} />
-          Back to blogs
-        </Link>
+        
 
         <div className="overflow-hidden rounded-[28px] border border-stone-200 bg-white shadow-sm">
           <div className="relative h-[260px] w-full md:h-[420px]">

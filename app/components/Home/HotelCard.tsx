@@ -4,6 +4,8 @@ import { ArrowRight, MapPin, Star } from "lucide-react";
 
 interface HotelCardProps {
   name: string;
+  slug: string;
+  city: string;
   location: string;
   image: string;
   rating: number;
@@ -12,6 +14,8 @@ interface HotelCardProps {
 
 export default function HotelCard({
   name,
+  slug,
+  city,
   location,
   image,
   rating,
@@ -19,7 +23,7 @@ export default function HotelCard({
 }: HotelCardProps) {
   return (
     <Link
-      href="/hotels"
+      href={`/hotel/${city}/${slug}`}
       className="
         group
         block

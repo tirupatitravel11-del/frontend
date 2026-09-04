@@ -42,12 +42,7 @@ export default function HotelsPage() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <button
-                  type="button"
-                  className="rounded-full bg-gold px-8 py-4 font-bold text-white shadow-md transition hover:bg-[#c88912]"
-                >
-                  View Hotels
-                </button>
+         
 
                 <button
                   type="button"

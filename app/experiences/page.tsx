@@ -40,8 +40,8 @@ export default function ExperiencesPage() {
         </div>
       </section>
 
-    {/* <FeaturedPackages /> */}
-      <FeaturedExperiences />
+    <FeaturedPackages />
+      {/* <FeaturedExperiences /> */}
       <ExperienceCategories />
     
    
