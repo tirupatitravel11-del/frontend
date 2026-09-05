@@ -4,7 +4,7 @@ export default function HeroButtons() {
   return (
     <div className="mt-6 flex flex-wrap items-center justify-start gap-3 sm:mt-8 sm:gap-4">
       <Link
-        href="/cab"
+        href="/cabs"
         className="rounded-lg bg-orange-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-700 sm:px-6 sm:text-base"
       >
         Book Cab
@@ -18,7 +18,7 @@ export default function HeroButtons() {
       </Link>
 
       <Link
-        href="/hotels"
+        href="/hotel"
         className="rounded-lg border border-white px-4 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-black sm:px-6 sm:text-base"
       >
         Book Hotel

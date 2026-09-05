@@ -16,6 +16,8 @@ import {
   IndianRupee,
 } from "lucide-react";
 
+import { featuredPackages } from "@/app/constants/featuredPackages";
+
 type Props = {
   params: Promise<{
     slug: string;
@@ -24,31 +26,70 @@ type Props = {
 };
 
 // ===============================
+// HELPER: Safe Price Formatter
+// ===============================
+const formatPrice = (price: any): number => {
+  if (!price) return 0;
+  // Remove any non-numeric characters (like commas or "₹") and parse to float
+  const numericValue = parseFloat(String(price).replace(/[^0-9.-]+/g, ""));
+  return isNaN(numericValue) ? 0 : numericValue;
+};
+
+// ===============================
 // GET SINGLE PACKAGE
 // ===============================
 async function getPackage(packageSlug: string) {
   try {
-    console.log("PACKAGE SLUG:", packageSlug);
-
     const apiUrl = `${process.env.apiUrl}/api/package/single/${packageSlug}`;
-
-    console.log("PACKAGE API URL:", apiUrl);
-
     const response = await axios.get(apiUrl);
-
-    console.log("PACKAGE API RESPONSE:", response.data);
-
     return response.data?.data || null;
   } catch (error) {
     console.error("PACKAGE API ERROR:", error);
-
-    if (axios.isAxiosError(error)) {
-      console.error("STATUS:", error.response?.status);
-      console.error("RESPONSE:", error.response?.data);
-    }
-
     return null;
   }
+}
+
+function getFallbackPackage(citySlug: string, packageSlug: string) {
+  const featuredPackage = featuredPackages.find(
+    (item) => item.citySlug === citySlug && item.packageSlug === packageSlug,
+  );
+
+  if (!featuredPackage) return null;
+
+  const days = Number.parseInt(featuredPackage.duration, 10) || 1;
+  // Safely format the fallback price
+  const safePrice = formatPrice(featuredPackage.price);
+
+  return {
+    title: featuredPackage.title,
+    slug: packageSlug,
+    days,
+    featuredImage: featuredPackage.image,
+    startingPrice: safePrice, // Now guaranteed to be a valid number
+    pricingBasis: "Per Person",
+    maxGuests: 8,
+    tags: ["Sightseeing", "Family Friendly", "Private Trip"],
+    shortDescription: `Explore ${featuredPackage.title} with a comfortable itinerary, scenic destinations, and memorable experiences.`,
+    description: `Enjoy a carefully planned ${featuredPackage.title} package designed for a smooth and memorable journey.`,
+    inclusions: [],
+    exclusions: [],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival and Exploration",
+        activities: [
+          "Arrive at your destination and check in.",
+          "Begin exploring the highlights of the package.",
+        ],
+        overnight: citySlug,
+      },
+    ],
+    highlights: [
+      "Comfortable travel itinerary",
+      "Local sightseeing experiences",
+      "Dedicated trip support",
+    ],
+  };
 }
 
 // ===============================
@@ -57,16 +98,16 @@ async function getPackage(packageSlug: string) {
 export default async function PackageDetailsPage({ params }: Props) {
   const { slug: citySlug, package: packageSlug } = await params;
 
-  console.log("CITY SLUG:", citySlug);
-  console.log("PACKAGE SLUG:", packageSlug);
-
-  // package slug se exact package ka data
-  const packageData = await getPackage(packageSlug);
+  const packageData =
+    (await getPackage(packageSlug)) || getFallbackPackage(citySlug, packageSlug);
 
   // package nahi mila
   if (!packageData) {
     notFound();
   }
+
+  // Safely format the price from the API or fallback data for the UI
+  const displayPrice = formatPrice(packageData.startingPrice);
 
   const tagColors = [
     "border-pink-200 bg-pink-50 text-pink-600",
@@ -78,14 +119,13 @@ export default async function PackageDetailsPage({ params }: Props) {
     "border-lime-200 bg-lime-50 text-lime-700",
     "border-cyan-200 bg-cyan-50 text-cyan-700",
   ];
+
   return (
- 
     <main className="bg-stone-100 py-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
+        
         <div className="rounded-2xl bg-gold p-6 text-white">
-          {/* <p className="text-sm">{packageData.type}</p> */}
-
           <h1 className="mt-2 text-3xl font-bold">{packageData.title}</h1>
 
           <div className="mt-4 flex flex-wrap gap-4 text-sm">
@@ -96,7 +136,7 @@ export default async function PackageDetailsPage({ params }: Props) {
 
             <div className="flex items-center gap-2">
               <Users size={16} />
-              {/* {packageData.groupSize} */}2-8 people
+              2-8 people
             </div>
 
             <div className="flex items-center gap-2">
@@ -133,15 +173,6 @@ export default async function PackageDetailsPage({ params }: Props) {
               </p>
             </section>
 
-            {/* Itinerary Route Bar */}
-            {/* <div className="mt-5 flex items-center gap-3 rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-3">
-              <Route size={16} className="shrink-0 text-red-500" />
-              <p className="text-[13px] font-medium text-stone-700">
-                <span className="font-bold text-red-500">Itinerary:</span>{" "}
-                {packageData.route.join(", ")}
-              </p>
-            </div> */}
-
             {/* Quick Info Chips */}
             <div className="mt-3 flex flex-wrap gap-2">
               <span className="flex items-center gap-2 rounded-full border border-violet-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-stone-700 shadow-sm">
@@ -153,11 +184,6 @@ export default async function PackageDetailsPage({ params }: Props) {
                 <Users size={14} className="text-rose-500" />
                 Max {packageData.maxGuests} Guests
               </span>
-
-              <span className="flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-stone-700 shadow-sm">
-                <Users size={14} className="text-sky-500" />
-                Max {packageData.maxGuests} Seats
-              </span>
             </div>
 
             {/* Package Tags */}
@@ -165,7 +191,7 @@ export default async function PackageDetailsPage({ params }: Props) {
               <h2 className="text-xl font-bold text-stone-900">Package Tags</h2>
 
               <div className="mt-4 flex flex-wrap gap-2">
-                {packageData.tags.map((tag: any, index: any) => (
+                {packageData.tags.map((tag: string, index: number) => (
                   <span
                     key={tag}
                     className={`rounded-full border px-3 py-1.5 text-xs font-medium ${
@@ -190,7 +216,7 @@ export default async function PackageDetailsPage({ params }: Props) {
               </div>
 
               <div className="mt-5 space-y-4">
-                {packageData.itinerary.map((day: any, index: any) => (
+                {packageData.itinerary.map((day: any, index: number) => (
                   <details
                     key={day.day}
                     open={index === 0}
@@ -219,7 +245,7 @@ export default async function PackageDetailsPage({ params }: Props) {
 
                     <div className="border-t border-sky-100 bg-white px-5 py-4">
                       <ul className="space-y-2">
-                        {day.activities.map((activity: any) => (
+                        {day.activities.map((activity: string) => (
                           <li
                             key={activity}
                             className="flex items-start gap-3 text-[13px] leading-6 text-stone-600"
@@ -242,7 +268,7 @@ export default async function PackageDetailsPage({ params }: Props) {
             </section>
 
             {/* Inclusions / Exclusions */}
-            <div className="mt-6 grid gap-5 md:grid-cols-2">
+            {/* <div className="mt-6 grid gap-5 md:grid-cols-2">
               <section className="rounded-2xl border-2 border-emerald-400 bg-emerald-50/60 p-5">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 size={18} className="text-stone-900" />
@@ -252,7 +278,7 @@ export default async function PackageDetailsPage({ params }: Props) {
                 </div>
 
                 <ul className="mt-3">
-                  {packageData.inclusions.map((item: any) => (
+                  {packageData.inclusions.map((item: string) => (
                     <li
                       key={item}
                       className="flex items-center gap-3 border-b border-dashed border-emerald-300 py-2.5 text-[13px] font-medium text-stone-700 last:border-0"
@@ -273,7 +299,7 @@ export default async function PackageDetailsPage({ params }: Props) {
                 </div>
 
                 <ul className="mt-3">
-                  {packageData.exclusions.map((item: any) => (
+                  {packageData.exclusions.map((item: string) => (
                     <li
                       key={item}
                       className="flex items-center gap-3 border-b border-dashed border-red-300 py-2.5 text-[13px] font-medium text-stone-700 last:border-0"
@@ -284,14 +310,14 @@ export default async function PackageDetailsPage({ params }: Props) {
                   ))}
                 </ul>
               </section>
-            </div>
+            </div> */}
 
             {/* Highlights */}
             <section className="mt-6 rounded-2xl bg-white p-5 shadow">
               <h2 className="text-xl font-bold text-stone-900">Highlights</h2>
 
               <div className="mt-4 space-y-3">
-                {packageData.highlights.map((item: any) => (
+                {packageData.highlights.map((item: string) => (
                   <div
                     key={item}
                     className="flex items-center gap-3 text-sm text-stone-700"
@@ -317,7 +343,6 @@ export default async function PackageDetailsPage({ params }: Props) {
 
                 <div className="flex items-center gap-3">
                   <Users size={18} />
-                  {/* {packageData.groupSize} */}
                   2-8 people
                 </div>
 
@@ -332,9 +357,9 @@ export default async function PackageDetailsPage({ params }: Props) {
 
                 <div className="flex items-center gap-1">
                   <IndianRupee size={18} className="text-gold" />
-
+                  
                   <p className="text-3xl font-bold text-gold">
-                    {Number(packageData.startingPrice).toLocaleString("en-IN")}
+                    {displayPrice.toLocaleString("en-IN")}
                   </p>
                 </div>
               </div>

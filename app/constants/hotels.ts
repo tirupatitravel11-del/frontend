@@ -2,6 +2,8 @@ export const featuredHotels = [
   {
     id: 1,
     name: "The Grand Palace",
+    slug: "the-grand-palace",
+    city: "delhi",
     location: "New Delhi",
     image: "/GrandHotelNewDelhi.jpg",
     rating: 4.8,
@@ -10,6 +12,8 @@ export const featuredHotels = [
   {
     id: 2,
     name: "Royal Heritage",
+    slug: "royal-heritage",
+    city: "jaipur",
     location: "Jaipur",
     image: "/RoyalHeritageJaipur.jpg",
     rating: 4.7,
@@ -18,6 +22,8 @@ export const featuredHotels = [
   {
     id: 3,
     name: "Sea Breeze Resort",
+    slug: "sea-breeze-resort",
+    city: "goa",
     location: "Goa",
     image: "/SeaBreezeGoa.jpg",
     rating: 4.9,

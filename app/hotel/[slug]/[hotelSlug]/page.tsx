@@ -14,7 +14,8 @@ import {
   Coffee,
 } from "lucide-react";
 
-import HotelRooms from "@/app/components/Hotels/HotelRooms";
+// import HotelRooms from "@/app/components/Hotels/HotelRooms"; // Kept commented as in original
+import { featuredHotels } from "@/app/constants/hotels";
 
 interface Room {
   roomName: string;
@@ -36,13 +37,6 @@ interface Hotel {
   rooms: Room[];
 }
 
-interface SelectedRoom {
-  id: number;
-  name: string;
-  price: number;
-  taxes: number;
-}
-
 const fallbackAmenities = [
   "Free WiFi",
   "Restaurant",
@@ -54,6 +48,35 @@ const fallbackAmenities = [
   "Spa",
 ];
 
+function createFallbackHotel(citySlug: string, hotelSlug: string): Hotel {
+  const featuredHotel = featuredHotels.find(
+    (item) => item.city === citySlug && item.slug === hotelSlug,
+  );
+  const name =
+    featuredHotel?.name ||
+    hotelSlug
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
+  return {
+    _id: `static-${citySlug}-${hotelSlug}`,
+    name,
+    slug: hotelSlug,
+    city: citySlug,
+    address:
+      featuredHotel?.location ||
+      `${citySlug.charAt(0).toUpperCase()}${citySlug.slice(1)}, India`,
+    description: `${name} offers a comfortable stay in ${citySlug.charAt(0).toUpperCase()}${citySlug.slice(1)}, with convenient access to local attractions and essential guest facilities.`,
+    amenities: [],
+    images: featuredHotel ? [featuredHotel.image] : [],
+    starRating: featuredHotel?.rating || 4,
+    priceFrom: featuredHotel?.price || 0,
+    priceTo: featuredHotel?.price || 0,
+    rooms: [],
+  };
+}
+
 export default function HotelDetailsPage() {
   const params = useParams();
 
@@ -64,18 +87,12 @@ export default function HotelDetailsPage() {
   const [loading, setLoading] = useState(true);
   const [showAllAmenities, setShowAllAmenities] = useState(false);
 
-  const [selectedRoom, setSelectedRoom] = useState<SelectedRoom | null>(
-    null,
-  );
-
   useEffect(() => {
     if (!citySlug || !hotelSlug) return;
 
     const fetchHotel = async () => {
       try {
         setLoading(true);
-
-     
 
         const response = await axios.get(
           `${process.env.apiUrl}/api/hotel/${citySlug}`,
@@ -84,28 +101,13 @@ export default function HotelDetailsPage() {
           },
         );
 
-   
-
         const hotels: Hotel[] = response.data?.hotels || [];
 
         const foundHotel = hotels.find(
           (item) => item.slug?.toLowerCase() === hotelSlug,
         );
 
-
-        setHotel(foundHotel || null);
-
-        // Default room select
-        if (foundHotel?.rooms?.length) {
-          const firstRoom = foundHotel.rooms[0];
-
-          setSelectedRoom({
-            id: 1,
-            name: firstRoom.roomName,
-            price: firstRoom.price,
-            taxes: 0,
-          });
-        }
+        setHotel(foundHotel || createFallbackHotel(citySlug, hotelSlug));
       } catch (error) {
         console.error("GET HOTEL ERROR:", error);
 
@@ -114,7 +116,7 @@ export default function HotelDetailsPage() {
           console.error("Response:", error.response?.data);
         }
 
-        setHotel(null);
+        setHotel(createFallbackHotel(citySlug, hotelSlug));
       } finally {
         setLoading(false);
       }
@@ -122,10 +124,6 @@ export default function HotelDetailsPage() {
 
     fetchHotel();
   }, [citySlug, hotelSlug]);
-
-  const handleRoomSelect = (room: SelectedRoom) => {
-    setSelectedRoom(room);
-  };
 
   // -------------------------
   // LOADING
@@ -151,9 +149,7 @@ export default function HotelDetailsPage() {
     return (
       <main className="min-h-screen bg-stone-50 px-5 py-20">
         <div className="mx-auto max-w-7xl text-center">
-          <h1 className="text-3xl font-bold text-stone-900">
-            Hotel Not Found
-          </h1>
+          <h1 className="text-3xl font-bold text-stone-900">Hotel Not Found</h1>
 
           <p className="mt-2 text-stone-500">
             The hotel you are looking for does not exist.
@@ -168,10 +164,7 @@ export default function HotelDetailsPage() {
   // -------------------------
 
   const allAmenities = Array.from(
-    new Set([
-      ...(hotel.amenities || []),
-      ...fallbackAmenities,
-    ]),
+    new Set([...(hotel.amenities || []), ...fallbackAmenities]),
   );
 
   const hasMoreAmenities = allAmenities.length > 4;
@@ -270,9 +263,7 @@ export default function HotelDetailsPage() {
               <div className="mt-4">
                 <div
                   className={`flex flex-wrap gap-x-8 gap-y-4 ${
-                    showAllAmenities
-                      ? "max-h-48 overflow-y-auto pr-2"
-                      : ""
+                    showAllAmenities ? "max-h-48 overflow-y-auto pr-2" : ""
                   }`}
                 >
                   {visibleAmenities.map((amenity) => (
@@ -294,14 +285,10 @@ export default function HotelDetailsPage() {
                   <button
                     type="button"
                     aria-expanded={showAllAmenities}
-                    onClick={() =>
-                      setShowAllAmenities((prev) => !prev)
-                    }
+                    onClick={() => setShowAllAmenities((prev) => !prev)}
                     className="mt-5 font-semibold text-blue-600 hover:underline"
                   >
-                    {showAllAmenities
-                      ? "Show Less"
-                      : "More Details"}
+                    {showAllAmenities ? "Show Less" : "More Details"}
                   </button>
                 )}
               </div>
@@ -335,15 +322,10 @@ export default function HotelDetailsPage() {
               {/* LOCATION */}
 
               <section className="mt-8 border-t border-stone-200 pt-6">
-                <h2 className="text-lg font-bold text-stone-900">
-                  Location
-                </h2>
+                <h2 className="text-lg font-bold text-stone-900">Location</h2>
 
                 <div className="mt-3 flex items-start gap-3">
-                  <MapPin
-                    className="mt-1 text-gold"
-                    size={20}
-                  />
+                  <MapPin className="mt-1 text-gold" size={20} />
 
                   <div>
                     <p className="font-semibold text-stone-800">
@@ -351,8 +333,8 @@ export default function HotelDetailsPage() {
                     </p>
 
                     <p className="mt-1 text-sm text-stone-500">
-                      Convenient location with easy access to
-                      nearby attractions and transportation.
+                      Convenient location with easy access to nearby attractions
+                      and transportation.
                     </p>
                   </div>
                 </div>
@@ -363,38 +345,14 @@ export default function HotelDetailsPage() {
 
             <aside>
               <div className="sticky top-5 rounded-xl bg-white p-6 shadow-sm">
-                <p className="text-sm text-stone-500">
-                  Selected Room
-                </p>
-
-                <p className="mt-1 text-lg font-bold text-stone-900">
-                  {selectedRoom?.name || "Select a room"}
-                </p>
-
-                <div className="mt-5">
-                  <p className="text-sm text-stone-500">
-                    Starting from
-                  </p>
+                <div className="mt-2">
+                  <p className="text-sm text-stone-500">Starting from</p>
 
                   <p className="mt-1 text-3xl font-bold text-stone-900">
-                    ₹
-                    {(
-                      selectedRoom?.price ??
-                      hotel.priceFrom
-                    ).toLocaleString()}
+                    ₹{hotel.priceFrom.toLocaleString()}
                   </p>
 
-                  <p className="mt-1 text-sm text-stone-500">
-                    + ₹
-                    {(
-                      selectedRoom?.taxes ?? 0
-                    ).toLocaleString()}{" "}
-                    taxes & fees
-                  </p>
-
-                  <p className="mt-1 text-sm text-stone-500">
-                    Per Night
-                  </p>
+                  <p className="mt-1 text-sm text-stone-500">Per Night</p>
                 </div>
 
                 <button
@@ -413,12 +371,12 @@ export default function HotelDetailsPage() {
 
           {/* ================= ROOMS ================= */}
 
-          <div className="mt-8">
+          {/* <div className="mt-8">
             <HotelRooms
               rooms={hotel.rooms || []}
               onRoomSelect={handleRoomSelect}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </main>

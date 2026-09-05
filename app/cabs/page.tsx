@@ -1,4 +1,3 @@
-
 import CabFilters from "../components/Cab/Cabhub/CabFilters";
 import WhyBookWithUs from "../components/Cab/Cabhub/WhyTrustUs";
 import TrustPoints from "../components/Cab/Cabhub/TrustbelowForm";
@@ -9,11 +8,9 @@ import AboutLocation from "../components/Cab/Cabhub/AboutLocation";
 import LucknowFAQ from "../components/Cab/Cabhub/LucknowFAQ";
 import Testimonials from "../components/Home/Testimonials";
 import OutstationRoutes from "../components/Cab/Cabhub/OutstationRoute";
-
-
+import CabServices from "../components/Cab/Cabhub/CabServices";
 
 export default function CabsPage() {
-
   return (
     <main className="bg-stone-50">
       {/* Hero + Cab Filter */}
@@ -35,12 +32,7 @@ export default function CabsPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <button
-                type="button"
-                className="rounded-full bg-gold px-7 py-3.5 font-bold text-white shadow-md transition hover:bg-[#c88912]"
-              >
-                View Cab Fares
-              </button>
+            
 
               <button
                 type="button"
@@ -56,32 +48,13 @@ export default function CabsPage() {
             <CabFilters />
           </div>
         </div>
-
-        {/* <TrustPoints /> */}
       </section>
 
-      {/* Dynamic Unique Intro */}
-      {/* <UniqueIntro location={uniqueLocation} /> */}
-
-      {/* Vehicle Fleet */}
       <VehicleFleet />
+      <CabServices/>
 
-      {/* Fare Table */}
-      {/* <LucknowFareTable /> */}
-
-      {/* Dynamic About Location */}
-      {/* <AboutLocation location={aboutLocation} /> */}
-
-      {/* FAQ */}
-      {/* <LucknowFAQ /> */}
-
-      {/* Testimonials */}
       <Testimonials />
 
-      {/* Outstation Routes */}
-      {/* <OutstationRoutes /> */}
-
-      {/* Why Book With Us */}
       <WhyBookWithUs />
     </main>
   );

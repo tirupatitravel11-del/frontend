@@ -1,8 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, MapPin, Star } from "lucide-react";
 
 interface HotelCardProps {
   name: string;
+  slug: string;
+  city: string;
   location: string;
   image: string;
   rating: number;
@@ -11,13 +14,18 @@ interface HotelCardProps {
 
 export default function HotelsCard({
   name,
+  slug,
+  city,
   location,
   image,
   rating,
   price,
 }: HotelCardProps) {
   return (
-    <div className="group overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <Link
+      href={`/hotel/${city}/${slug}`}
+      className="group block overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+    >
       {/* Image */}
       <div className="relative h-64 w-full overflow-hidden">
         <Image
@@ -78,18 +86,15 @@ export default function HotelsCard({
           </div>
 
           {/* Book Button */}
-          <button
-            type="button"
-            className="flex shrink-0 items-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-bold text-white transition-all duration-300 hover:bg-[#c88912]"
-          >
+          <span className="flex shrink-0 items-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-bold text-white transition-all duration-300 group-hover:bg-[#c88912]">
             Book Now
             <ArrowRight
               size={17}
               className="transition-transform duration-300 group-hover:translate-x-1"
             />
-          </button>
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

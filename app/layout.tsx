@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   title: "Tirupati Travel | Taxi & Cab Booking Service in India",
   description:
     "Book affordable taxi and cab services with Tirupati Travel. One-way cabs, outstation taxis, airport transfers, sedan, SUV and tempo traveller booking at reliable fares.",
+    
 };
 
 export default function RootLayout({

@@ -1,41 +1,46 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 type BoatActivity = {
+  slug: string;
   title: string;
   description: string;
   image: string;
 };
 
-const PHONE_NUMBER = "+916390008503";
-
 const activities: BoatActivity[] = [
   {
+    slug: "sunrise-boat-ride",
     title: "Sunrise Boat Ride",
     description:
       "Begin your morning with a peaceful cruise across calm waters and beautiful sunrise views.",
     image: "/boats/Morning_boat_ride.jpg",
   },
   {
+    slug: "sunset-cruise",
     title: "Sunset Cruise",
     description:
       "Relax on the water as the day comes to an end with beautiful sunset views and a tranquil atmosphere.",
     image: "/boats/evening_boat_ride.jpg",
   },
   {
+    slug: "celebration-cruise",
     title: "Celebration Cruise",
     description:
       "Make special moments memorable with music, decorations, and your favorite people on board.",
     image: "/boats/birthday_boat.jpeg",
   },
   {
+    slug: "family-boat-experience",
     title: "Family Boat Experience",
     description:
       "Enjoy a relaxed ride with family and friends while taking in the views and spending quality time together.",
     image: "/boats/family_fun.jpg",
   },
   {
+    slug: "private-boat-experience",
     title: "Private Boat Experience",
     description:
       "Enjoy an exclusive cruise with your loved ones in privacy, comfort, and complete relaxation.",
@@ -211,8 +216,9 @@ export default function BoatActivitySection({
           className="flex gap-6 overflow-x-auto scroll-smooth pb-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {infiniteActivities.map((activity, index) => (
-            <article
+            <Link
               key={`${activity.title}-${index}`}
+              href={`/boat/${activity.slug}`}
               className="group flex w-[340px] shrink-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-[390px] lg:w-[430px]"
             >
               {/* ===== Image ===== */}
@@ -244,15 +250,12 @@ export default function BoatActivitySection({
 
                 <div className="my-5 border-t border-slate-200" />
 
-                <a
-                  href={`tel:${PHONE_NUMBER}`}
-                  className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-gold transition-all duration-300 hover:gap-3"
-                >
+                <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-gold transition-all duration-300 hover:gap-3">
                   Book Now
                   <span className="text-xl leading-none">→</span>
-                </a>
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

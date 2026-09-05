@@ -59,14 +59,14 @@ export default function Hero() {
           <div className="max-w-2xl text-white">
             <h1
               className="
-               min-h-[96px]
-               text-3xl
-               font-bold
-               leading-tight
-               sm:min-h-[110px]
-               sm:text-4xl
-               lg:min-h-[140px]
-               lg:text-5xl
+    min-h-[120px]
+    text-4xl
+    font-bold
+    leading-[1.1]
+    sm:min-h-[110px]
+    sm:text-4xl
+    lg:min-h-[140px]
+    lg:text-5xl
   "
             >
               {activeSlide.title}

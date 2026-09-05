@@ -10,15 +10,15 @@ const hotelOffers = [
     tag: "LIMITED TIME OFFER",
     title: "Save More on Your Next Hotel Stay",
     description: "Get exclusive discounts on selected hotels across India.",
-    button: "BOOK NOW",
+    button: "CALL NOW",
   },
   {
     id: 2,
-    image: "/summer_specia_hotels.jpg",
+    image: "/summer_special_hotels.jpg",
     tag: "SUMMER SPECIAL",
     title: "Make Your Summer Stay Extra Special",
     description: "Enjoy great savings on hotels at popular destinations.",
-    button: "BOOK NOW",
+    button: "CALL NOW",
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const hotelOffers = [
     tag: "WEEKEND DEAL",
     title: "Plan a Relaxing Weekend Getaway",
     description: "Book your weekend stay and enjoy special hotel prices.",
-    button: "BOOK NOW",
+    button: "CALL NOW",
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const hotelOffers = [
     tag: "SPECIAL DEAL",
     title: "Stay Longer, Save More",
     description: "Enjoy better prices when you plan an extended hotel stay.",
-    button: "BOOK NOW",
+    button: "CALL NOW",
   },
 ];
 

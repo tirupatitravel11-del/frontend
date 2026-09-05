@@ -2,6 +2,8 @@ export const featuredPackages = [
   {
     id: 1,
     title: "Goa Beach Getaway",
+    citySlug: "goa",
+    packageSlug: "goa-beach-getaway",
     image: "/Packages_goa.jpg",
     duration: "4 Days / 3 Nights",
     price: "₹8,999",
@@ -10,6 +12,8 @@ export const featuredPackages = [
   {
     id: 2,
     title: "Kashmir Paradise Tour",
+    citySlug: "kashmir",
+    packageSlug: "kashmir-paradise-tour",
     image: "/package_kashmir.jpg",
     duration: "6 Days / 5 Nights",
     price: "₹18,999",
@@ -19,6 +23,8 @@ export const featuredPackages = [
   {
     id: 3,
     title: "Kerala Backwaters",
+    citySlug: "kerala",
+    packageSlug: "kerala-backwaters",
     image: "/package_kerala.jpg",
     duration: "5 Days / 4 Nights",
     price: "₹13,999",
@@ -27,6 +33,8 @@ export const featuredPackages = [
   {
     id: 4,
     title: "Leh Ladakh Adventure",
+    citySlug: "leh-ladakh",
+    packageSlug: "leh-ladakh-adventure",
     image: "/package_leh.jpg",
     duration: "7 Days / 6 Nights",
     price: "₹22,999",
@@ -35,11 +43,11 @@ export const featuredPackages = [
   {
     id: 5,
     title: "Rajasthan Heritage Tour",
+    citySlug: "rajasthan",
+    packageSlug: "rajasthan-heritage-tour",
     image: "/package_rajasthan.jpg",
     duration: "6 Days / 5 Nights",
     price: "₹16,999",
     rating: 4.8,
   },
- 
-  
 ];

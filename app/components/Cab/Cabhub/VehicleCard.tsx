@@ -100,20 +100,20 @@ export default function VehicleCard({
         )}
 
         {/* Book Button */}
-        <Link
+        {/* <Link
           href={`${linkPrefix}${slug}`}
           className="mt-7 flex items-center justify-center gap-2 rounded-2xl bg-gold px-5 py-4 font-semibold text-white shadow-md transition"
         >
           {buttonText}
           <ArrowRight size={20} />
-        </Link>
+        </Link> */}
 
         {/* Call Button */}
         <a
           href={`tel:${phone}`}
           className="mt-4 block rounded-2xl border border-gold px-5 py-4 text-center font-semibold text-stone-900 transition hover:bg-gold hover:text-white"
         >
-          Call
+          Call Now
         </a>
       </div>
     </div>

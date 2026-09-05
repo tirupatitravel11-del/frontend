@@ -1,10 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, Clock3, Star } from "lucide-react";
 
 interface Props {
   title: string;
+  citySlug: string;
+  packageSlug: string;
   image: string;
   duration: string;
   price: string;
@@ -13,13 +16,18 @@ interface Props {
 
 export default function PackageCard({
   title,
+  citySlug,
+  packageSlug,
   image,
   duration,
   price,
   rating,
 }: Props) {
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-2xl">
+    <Link
+      href={`/package/${packageSlug}`}
+      className="group flex h-full flex-col overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-2xl"
+    >
       {/* Image */}
       <div className="relative h-45 overflow-hidden">
         <Image
@@ -61,14 +69,14 @@ export default function PackageCard({
         </div>
 
         {/* Button */}
-        <button className="mt-auto flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3 font-semibold text-white transition-all duration-300 hover:opacity-90">
+        <span className="mt-auto flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3 font-semibold text-white transition-all duration-300 hover:opacity-90">
           View Package
           <ArrowRight
             size={18}
             className="transition-transform duration-300 group-hover:translate-x-1"
           />
-        </button>
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }

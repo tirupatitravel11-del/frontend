@@ -26,7 +26,7 @@ export default function HotelsSection() {
           </div>
 
           <Link
-            href="/hotels"
+            href="/hotel"
             className="flex items-center justify-center gap-2 font-semibold text-gold md:hidden"
           >
             View All Hotels
@@ -34,7 +34,7 @@ export default function HotelsSection() {
           </Link>
 
           <Link
-            href="/hotels"
+            href="/hotel"
             className="hidden items-center gap-2 font-semibold text-gold md:flex"
           >
             View All Hotels

@@ -4,14 +4,14 @@ export const heroSlides = [
     title: "Reliable Cab Services",
     subtitle:
       "Book affordable cabs for Tirupati, airport transfers, sightseeing and outstation trips.",
-    image: "/heroImage1.jpg",
+    image: "/Hero-2.jpg",
   },
   {
     id: 2,
     title: "Spiritual Destinations",
     subtitle:
       "Discover Tirupati, Varanasi, Ayodhya, Gaya and more with our tour packages.",
-    image: "/heroImage2.jpg",
+    image: "/Hero-4.jpg",
   },
   {
     id: 3,
@@ -19,7 +19,7 @@ export const heroSlides = [
     subtitle:
       "Budget, Deluxe and Premium hotels near temples at the best prices.",
     image:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600",
+      "/Hero-3.jpg",
   },
   {
     id: 4,
@@ -27,6 +27,6 @@ export const heroSlides = [
     subtitle:
       "Enjoy memorable boat rides with family and friends during your trip.",
     image:
-      "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1600",
+      "/boat5.jpg",
   },
 ];
