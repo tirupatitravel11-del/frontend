@@ -107,25 +107,3 @@ export default async function Page({
 }
 
 
-// import { notFound } from "next/navigation";
-
-// import RoutePage from "@/_components/route/pages/RoutePage";
-// import { getRoutePage } from "@/app/lib/api/route";
-
-
-
-// export default async function Page({
-//   params,
-// }: {
-//   params: Promise<{ pageSlug: string }>;
-// }) {
-//   const { pageSlug } = await params;
-
-//   const data = getRoutePage(pageSlug);
-
-//   if (!data) {
-//     notFound();
-//   }
-
-//   return <RoutePage data={data} />;
-// }

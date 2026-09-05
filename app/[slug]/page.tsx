@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-
 import TempoTravellerPage from "@/app/components/seo-pages/TempoTravellerPage";
 import { seoPages, seoPageSlugs } from "@/app/data/seoPages";
 import AirportTaxiPage from "../components/seo-pages/AirportTaxiPage";
 import TaxiServicePage from "../components/seo-pages/TaxiServicePage";
+import UrbaniaRentalPage from "../components/seo-pages/UrbaniaRentalPage";
+import InnovaCrystaPage from "../components/seo-pages/InnovaCrystaPage";
+import ErtigaTaxiPage from "../components/seo-pages/ErtigaTaxiPage";
+import DzireTaxiPage from "../components/seo-pages/DzireTaxiPage";
+import EtiosTaxiPage from "../components/seo-pages/EtiosTaxiPage";
+
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
-
-export function generateStaticParams() {
-  return seoPageSlugs.map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({
   params,
@@ -46,6 +47,26 @@ export default async function SeoPage({ params }: PageProps) {
   if (page.service === "airport") {
     return <AirportTaxiPage page={page} />;
   }
+
+  if (page.service === "urbania-rental") {
+    return <UrbaniaRentalPage page={page} />;
+  }
+
+  if (page.service === "innova-crysta") {
+    return <InnovaCrystaPage page={page} />;
+  }
+
+   if (page.service === "ertiga") {
+    return <ErtigaTaxiPage page={page} />;
+  }
+   if (page.service === "dzire") {
+    return <DzireTaxiPage page={page} />;
+  }
+   if (page.service === "etios") {
+    return <EtiosTaxiPage page={page} />;
+  }
+
+
 
   return <TaxiServicePage page={page} />;
 }
