@@ -6,7 +6,10 @@ export type SeoService =
   | "innova-crysta"
   | "ertiga"
   | "dzire"
-  | "etios";
+  | "etios"
+  | "amaze"
+  | "taxi-contact-number"
+  | "luxury-tempo-traveller";
 
 export type SeoPageData = {
   slug: string;
@@ -183,6 +186,63 @@ const serviceDetails: Record<
       "Outstation journeys",
     ],
   },
+  amaze: {
+    title: "Amaze Taxi",
+    description:
+      "Book a reliable and premium Honda Amaze sedan taxi for comfortable local and outstation travel.",
+    intro:
+      "Experience Honda's refined comfort and excellent fuel efficiency in a spacious Amaze sedan, perfect for small families, airport transfers, and long-distance journeys with a professional driver.",
+    highlights: [
+      "Premium 4+1 seater compact sedan",
+      "Spacious cabin and ample boot space for luggage",
+      "Refined ride quality and excellent fuel efficiency",
+      "Experienced and professional drivers",
+    ],
+    popularTrips: [
+      "Airport transfers",
+      "Small family travel",
+      "Local sightseeing",
+      "Outstation journeys",
+    ],
+  },
+  "taxi-contact-number": {
+    title: "Taxi Contact Number",
+    description:
+      "Contact Tirupati Travel for reliable taxi bookings, fare details, airport transfers, and outstation travel.",
+    intro:
+      "Speak with our travel team for quick taxi bookings, fare information, pickup support, and custom travel requirements.",
+    highlights: [
+      "24/7 booking assistance",
+      "Local and outstation taxi support",
+      "Quick fare and vehicle guidance",
+      "Call or message us on WhatsApp",
+    ],
+    popularTrips: [
+      "Airport transfers",
+      "Railway station pickups",
+      "Local sightseeing",
+      "Outstation taxi bookings",
+    ],
+  },
+  "luxury-tempo-traveller": {
+    title: "Luxury Tempo Traveller",
+    description:
+      "Book a premium and spacious Luxury Tempo Traveller for comfortable group travel, family vacations, and outstation journeys.",
+    intro:
+      "Experience unmatched group travel comfort with our Luxury Tempo Traveller fleet. Featuring Maharaja pusher seats, powerful AC, and ample luggage space, it is the perfect choice for weddings, pilgrimages, corporate outings, and large family vacations with a professional driver.",
+    highlights: [
+      "Spacious 12 to 20+ seater luxury configurations",
+      "Maharaja pusher seats with armrests and reclining features",
+      "Onboard entertainment with LED TV and premium music system",
+      "Experienced drivers specialized in long-distance highway routes",
+    ],
+    popularTrips: [
+      "Family vacations and group tours",
+      "Wedding and event transportation",
+      "Pilgrimages and religious tours",
+      "Corporate outings and airport transfers",
+    ],
+  },
 };
 
 const vehicleServices = [
@@ -199,16 +259,11 @@ const vehicleServices = [
   { slug: "ertiga-taxi", title: "Ertiga Taxi", service: "ertiga" },
   { slug: "dzire-taxi", title: "Dzire Taxi", service: "dzire" },
   { slug: "etios-taxi", title: "Etios Taxi", service: "etios" },
-  { slug: "amaze-taxi", title: "Amaze Taxi", service: "taxi" },
-  {
-    slug: "taxi-contact-number",
-    title: "Taxi Contact Number",
-    service: "taxi",
-  },
+  { slug: "amaze-taxi", title: "Amaze Taxi", service: "amaze" },
   {
     slug: "luxury-tempo-traveller",
     title: "Luxury Tempo Traveller",
-    service: "tempo",
+    service: "luxury-tempo-traveller",
   },
   {
     slug: "12-seater-tempo-traveller",
@@ -242,8 +297,16 @@ export const seoPages: Record<string, SeoPageData> = Object.fromEntries(
           ? "taxi-service"
           : service === "tempo"
             ? "tempo-traveller"
-            : "airport-taxi";
-      const slug = `${serviceSlug}-in-${city}`;
+            : service === "taxi-contact-number"
+              ? `${city}-taxi-contact-number`
+              : service === "luxury-tempo-traveller"
+                ? `${city}-luxury-tempo-traveller-taxi`
+                : "airport-taxi";
+      const slug =
+        service === "taxi-contact-number" ||
+        service === "luxury-tempo-traveller"
+          ? serviceSlug
+          : `${serviceSlug}-in-${city}`;
 
       return [
         slug,

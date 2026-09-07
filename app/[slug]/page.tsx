@@ -10,7 +10,13 @@ import InnovaCrystaPage from "../components/seo-pages/InnovaCrystaPage";
 import ErtigaTaxiPage from "../components/seo-pages/ErtigaTaxiPage";
 import DzireTaxiPage from "../components/seo-pages/DzireTaxiPage";
 import EtiosTaxiPage from "../components/seo-pages/EtiosTaxiPage";
-
+import AmazeTaxiPage from "../components/seo-pages/AmazeTaxiPage";
+import TaxiContactNumberPage from "../components/seo-pages/TaxiContactNumberPage";
+import LuxuryTempoTravellerTaxi from "../components/seo-pages/LuxuryTempoTravellerTaxi";
+import SixteenSeaterTempoTravellerTaxiPage from "../components/seo-pages/16SeaterTempoTaxiPage";
+import TwelveSeaterTempoTravellerTaxiPage from "../components/seo-pages/12SeaterTempoTaxiPage";
+import TwentySeaterTempoTravellerTaxiPage from "../components/seo-pages/20SeaterTempoTaxiPage";
+import TwentyFourSeaterTempoTravellerTaxiPage from "../components/seo-pages/24SeaterTempoTaxiPage";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -40,6 +46,22 @@ export default async function SeoPage({ params }: PageProps) {
     notFound();
   }
 
+  if (page.slug.includes("16-seater-tempo-traveller")) {
+    return <SixteenSeaterTempoTravellerTaxiPage />;
+  }
+
+  if (page.slug.includes("12-seater-tempo-traveller")) {
+    return <TwelveSeaterTempoTravellerTaxiPage />;
+  }
+
+  if (page.slug.includes("20-seater-tempo-traveller")) {
+    return <TwentySeaterTempoTravellerTaxiPage />;
+  }
+
+  if (page.slug.includes("24-seater-tempo-traveller")) {
+    return <TwentyFourSeaterTempoTravellerTaxiPage />;
+  }
+
   if (page.service === "tempo") {
     return <TempoTravellerPage page={page} />;
   }
@@ -56,17 +78,24 @@ export default async function SeoPage({ params }: PageProps) {
     return <InnovaCrystaPage page={page} />;
   }
 
-   if (page.service === "ertiga") {
+  if (page.service === "ertiga") {
     return <ErtigaTaxiPage page={page} />;
   }
-   if (page.service === "dzire") {
+  if (page.service === "dzire") {
     return <DzireTaxiPage page={page} />;
   }
-   if (page.service === "etios") {
+  if (page.service === "etios") {
     return <EtiosTaxiPage page={page} />;
   }
-
-
+  if (page.service === "amaze") {
+    return <AmazeTaxiPage page={page} />;
+  }
+  if (page.service === "taxi-contact-number") {
+    return <TaxiContactNumberPage />;
+  }
+  if (page.service === "luxury-tempo-traveller") {
+    return <LuxuryTempoTravellerTaxi page={page} />;
+  }
 
   return <TaxiServicePage page={page} />;
 }
