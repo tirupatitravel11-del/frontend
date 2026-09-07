@@ -22,6 +22,7 @@ import Testimonials from "@/app/components/Home/Testimonials";
 import InnovaFleetDetails from "@/_components/InnovaCrysta/InnovaFleetDetails";
 import HowItWorks from "../AirportTransfer/HowItWorks";
 import InnovaFaq from "@/_components/InnovaCrysta/InnovaFaq";
+import FamilyLongDistanceSpotlightTaxi from "@/_components/InnovaCrysta/FamilyLongDistanceSpotlightTaxi";
 
 const PHONE_NUMBER = "+916390008503";
 const WHATSAPP_NUMBER = "916390008503"; // Format for wa.me (no '+')
@@ -139,7 +140,7 @@ function ServicePage({ page }: { page: SeoPageData }) {
 
       {/* ===== BELOW HERO SECTIONS ===== */}
       <div className="relative z-10 border-t border-slate-100 bg-white">
-        <FamilyLongDistanceSpotlight />
+        <FamilyLongDistanceSpotlightTaxi />
         {/* <InnovaFleetDetails  /> */}
 
         {/* <PopularRoutes
@@ -148,12 +149,12 @@ function ServicePage({ page }: { page: SeoPageData }) {
                 to={route.toCity}
                 pagetype={page.pageType}
               /> */}
-       
-        <HowItWorks/>
-    
+
+        <HowItWorks />
+
         <WhyChooseUs />
         <Testimonials />
-        <InnovaFaq/>
+        <InnovaFaq />
 
         {/* <InnovaCrystaFaq from={page.city} to="local destinations" /> */}
       </div>
