@@ -189,7 +189,7 @@ export default async function BoatDetailsPage({ params }: BoatDetailsPageProps) 
                 </div>
 
                 <Link
-                  href="tel:+916390008503"
+                  href="tel:+918726124680"
                   className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-5 py-3 font-bold text-white transition hover:bg-[#c88912]"
                 >
                   Book This Boat Ride

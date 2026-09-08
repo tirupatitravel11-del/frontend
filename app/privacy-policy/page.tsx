@@ -9,7 +9,7 @@ import {
   Phone,
 } from "lucide-react";
 
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 const SECTIONS = [
   {

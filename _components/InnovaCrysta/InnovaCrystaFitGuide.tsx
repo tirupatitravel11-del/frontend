@@ -1,6 +1,6 @@
 import { Car, CarFront, Users } from "lucide-react";
 
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 const INNOVA_FITS = [
   "You're travelling with 4–6 people",

@@ -2,7 +2,7 @@
 
 import { ClipboardList, Wallet, Receipt, Timer, Phone } from "lucide-react";
 
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 const READY_DETAILS = [
   "Pickup address — full address or nearest landmark",

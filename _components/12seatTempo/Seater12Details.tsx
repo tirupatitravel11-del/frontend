@@ -2,7 +2,7 @@
 
 /* ====== Assets: place your images in /public/images/tempo-traveller/ ====== */
 const MAIN_IMAGE = "/12-seater-tempo-traveller.webp";
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 export default function Seater12Details() {
   return (

@@ -26,8 +26,8 @@ import HowItWorks from "../AirportTransfer/HowItWorks";
 import EtiosTaxiFaq from "@/_components/Etios/EtiosTaxiFaq";
 import EtiosTaxiComparison from "@/_components/Etios/EtiosTaxiComparison";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503";
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680";
 
 const ETIOS_MODELS = [
   "Toyota Etios Sedan (4+1 Seater)",

@@ -1,6 +1,6 @@
 import { Car, Fuel, Luggage, Users, Zap } from "lucide-react";
 
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 type SedanModel = {
   name: string;

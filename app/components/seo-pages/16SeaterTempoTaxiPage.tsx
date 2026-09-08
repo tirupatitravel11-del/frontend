@@ -22,8 +22,8 @@ import SixteenSeaterTempoFaq from "@/_components/16seatTempo/SixteenSeaterTempoF
 import SixteenSeaterTempoFare from "@/_components/16seatTempo/SixteenSeaterTempoFare";
 import TempoTaxiFaq from "@/_components/12seatTempo/TempoTaxiFaq";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503";
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680";
 
 const FEATURES = [
   { icon: Users, label: "16+1 Seating", sub: "Spacious pusher seats" },

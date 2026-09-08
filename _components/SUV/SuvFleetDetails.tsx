@@ -1,6 +1,6 @@
 import { Car, Fuel, Luggage, Settings, Users } from "lucide-react";
 
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 type SuvModel = {
   name: string;

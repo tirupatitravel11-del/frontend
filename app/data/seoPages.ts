@@ -22,12 +22,13 @@ export type SeoPageData = {
   popularTrips: string[];
 };
 
-const cities = ["ayodhya", "varanasi", "lucknow"] as const;
+const cities = ["ayodhya", "varanasi", "lucknow", "prayagraj"] as const;
 
 const cityNames: Record<(typeof cities)[number], string> = {
   ayodhya: "Ayodhya",
   varanasi: "Varanasi",
   lucknow: "Lucknow",
+  prayagraj: "Prayagraj",
 };
 
 const serviceDetails: Record<

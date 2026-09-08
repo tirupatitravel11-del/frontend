@@ -22,8 +22,8 @@ import TwentyFourSeaterTempoFaq from "@/_components/24seatTempo/TwentyFourSeater
 import TwentyFourSeaterTempoFare from "@/_components/24seatTempo/TwentyFourSeaterTempoFare";
 import TempoTaxiFaq from "@/_components/12seatTempo/TempoTaxiFaq";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503";
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680";
 
 const FEATURES = [
   { icon: Users, label: "24+1 Seating", sub: "Maximum capacity" },

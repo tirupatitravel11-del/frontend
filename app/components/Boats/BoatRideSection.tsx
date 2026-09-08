@@ -79,7 +79,7 @@ export default function BoatRideSection() {
           />
 
           <a
-            href="tel:+916390008503"
+            href="tel:+918726124680"
             className="mx-auto mt-7 block max-w-[420px] rounded-md bg-gold px-10 py-4 text-center text-white shadow-lg "
           >
             <span className="flex items-center justify-center gap-2.5 text-xl font-bold md:text-2xl">
