@@ -20,8 +20,8 @@ import TempoTravellerFare from "@/_components/12seatTempo/TempoTravellerFare";
 import TempoTravellerFaq from "@/_components/12seatTempo/TempoTravellerFaq";
 import TempoTaxiFaq from "@/_components/12seatTempo/TempoTaxiFaq";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503";
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680";
 
 const FEATURES = [
   { icon: Users, label: "12+1 Seating", sub: "Comfortable pusher seats" },

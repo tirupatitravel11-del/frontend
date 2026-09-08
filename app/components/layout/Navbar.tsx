@@ -77,7 +77,7 @@ export default function Navbar() {
     {/* Mobile Actions - Made bigger with better spacing */}
     <div className="flex items-center gap-3">
       <a
-        href="tel:+919876543210"
+        href="tel:+918726124680"
         className="flex h-12 w-12 items-center justify-center rounded-full bg-gold text-white shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl lg:hidden"
         aria-label="Call us"
       >

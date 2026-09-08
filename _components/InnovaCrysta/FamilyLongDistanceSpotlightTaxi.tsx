@@ -1,7 +1,7 @@
 import { Clock, Luggage, MapPin, Users } from "lucide-react";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503";
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680";
 
 const FAMILY_POINTS = [
   "Spacious 6-seater cabin — ideal for families and small groups",

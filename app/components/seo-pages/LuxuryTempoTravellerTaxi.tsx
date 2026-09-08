@@ -18,8 +18,8 @@ import LuxuryFleetDetails from "@/_components/luxuryTempoTraveller/LuxuryFleetDe
 import LuxuryTaxiFleet from "@/_components/luxuryTempoTraveller/LuxuryTaxiFleet";
 import LuxuryTaxiFaqs from "@/_components/luxuryTempoTraveller/LuxuryTaxiFaqs";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503";
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680";
 
 type SeaterType = string;
 

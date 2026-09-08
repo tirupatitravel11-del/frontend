@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { BadgeCheck, Fuel, MapPin, Timer } from "lucide-react";
 
-const WHATSAPP_NUMBER = "916390008503";
+const WHATSAPP_NUMBER = "918726124680";
 
 type CabType = "SEDAN" | "SUV" | "HATCHBACK";
 type FuelType = "CNG" | "DIESEL" | "ELECTRIC" | "PETROL";

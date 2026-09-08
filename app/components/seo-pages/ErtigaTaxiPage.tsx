@@ -26,8 +26,8 @@ import ErtigaTaxiFaq from "@/_components/Ertiga/ErtigaTaxiFaq";
 import ErtigaAdvantage from "@/_components/Ertiga/ErtigaAdvantage";
 import ErtigaStorySection from "@/_components/Ertiga/ErtigaStorySection";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503";
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680";
 
 const ERTIGA_MODELS = [
   "Maruti Suzuki Ertiga 7 Seater",

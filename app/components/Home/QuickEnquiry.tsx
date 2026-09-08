@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const WHATSAPP_NUMBER = "916390008503";
+const WHATSAPP_NUMBER = "918726124680";
 
 export default function QuickEnquiry({
   className = "",

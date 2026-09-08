@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503";
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680";
 
 type TripType = "one-way" | "round-trip";
 

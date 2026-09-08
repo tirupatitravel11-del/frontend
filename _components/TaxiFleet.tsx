@@ -9,7 +9,7 @@ type Cab = {
   popular?: boolean;
 };
 
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 const cabs: Cab[] = [
   {

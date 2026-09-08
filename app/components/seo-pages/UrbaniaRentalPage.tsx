@@ -30,8 +30,8 @@ import UrbaniaFaq from "@/_components/urbaniaRental/UrbaniaFaq";
 // import Testimonials from "../Home/Testimonials";
 // import TaxiServiceFAQ from "@/_components/seo/TaxiServiceFaq";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503"; // Format for wa.me (no '+')
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680"; // Format for wa.me (no '+')
 
 const URBANIA_MODELS = [
   "Force Urbania 9 Seater",

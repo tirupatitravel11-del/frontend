@@ -2,7 +2,7 @@
 
 import { Luggage, Users, ShieldCheck, Route } from "lucide-react";
 
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 const ETIOS_ADVANTAGES = [
   {

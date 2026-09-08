@@ -67,8 +67,8 @@ interface FAQItem {
 // CONSTANTS
 // ======================================================
 
-const PHONE_NUMBER = "+918448445504";
-const WHATSAPP_NUMBER = "918448445504";
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680";
 
 const SITE_NAME = "Tirupati travels";
 

@@ -25,8 +25,8 @@ import HowItWorks from "../AirportTransfer/HowItWorks";
 import AmazeTaxiFitGuide from "@/_components/amaze/AmazeTaxiFitGuide";
 import AmazeTaxiFaq from "@/_components/amaze/AmazeTaxiFaq";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503";
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680";
 
 const AMAZE_MODELS = ["Honda Amaze (4+1 Seater)", "Honda Amaze VX (Top Model)"];
 

@@ -48,6 +48,8 @@ const fallbackAmenities = [
   "Spa",
 ];
 
+const WHATSAPP_NUMBER = "918726124680";
+
 function createFallbackHotel(citySlug: string, hotelSlug: string): Hotel {
   const featuredHotel = featuredHotels.find(
     (item) => item.city === citySlug && item.slug === hotelSlug,
@@ -172,6 +174,16 @@ export default function HotelDetailsPage() {
   const visibleAmenities = showAllAmenities
     ? allAmenities
     : allAmenities.slice(0, 4);
+
+  const handleBookNow = () => {
+    const message = `Hi, I want to book a room at ${hotel?.name || "this hotel"} in ${hotel?.address || citySlug}. Please share availability and pricing.`;
+
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
 
   // -------------------------
   // IMAGE
@@ -357,6 +369,7 @@ export default function HotelDetailsPage() {
 
                 <button
                   type="button"
+                  onClick={handleBookNow}
                   className="mt-6 w-full rounded-lg bg-gold px-5 py-3 font-bold text-white transition hover:bg-[#c88912]"
                 >
                   Book Now

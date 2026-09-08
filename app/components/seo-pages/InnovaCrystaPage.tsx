@@ -24,8 +24,8 @@ import HowItWorks from "../AirportTransfer/HowItWorks";
 import InnovaFaq from "@/_components/InnovaCrysta/InnovaFaq";
 import FamilyLongDistanceSpotlightTaxi from "@/_components/InnovaCrysta/FamilyLongDistanceSpotlightTaxi";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503"; // Format for wa.me (no '+')
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680"; // Format for wa.me (no '+')
 
 const INNOVA_MODELS = [
   "Toyota Innova Crysta 7 Seater",

@@ -25,8 +25,8 @@ import Testimonials from "@/app/components/Home/Testimonials";
 import DzireTaxiFaq from "@/_components/dzire/DzireTaxiFaq";
 import DzireTaxiFitGuide from "@/_components/dzire/DzireTaxiFitGuide";
 
-const PHONE_NUMBER = "+916390008503";
-const WHATSAPP_NUMBER = "916390008503";
+const PHONE_NUMBER = "+918726124680";
+const WHATSAPP_NUMBER = "918726124680";
 
 const DZIRE_MODELS = [
   "Maruti Suzuki Dzire (4+1 Seater)",
