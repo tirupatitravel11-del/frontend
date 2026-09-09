@@ -1,7 +1,7 @@
 "use client";
 
 /* ====== Assets: place your images in /public/images/urbania/ ====== */
-const MAIN_IMAGE = "/urbania/urbania.png";
+const MAIN_IMAGE = "/urbania.png";
 const INTERIOR_IMAGE_1 = "/images/urbania/interior-1.png";
 const INTERIOR_IMAGE_2 = "/images/urbania/interior-2.png";
 

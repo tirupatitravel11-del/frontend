@@ -13,7 +13,7 @@ export const taxiFleet = [
     id: 2,
     category: "LUXURY",
     name: "Urbania Rental",
-    image: "/urbania/Urbania.png",
+    image: "/Urbania.png",
     seating: "17 Seats",
     features: ["Premium Comfort", "Recliner Seats", "Luxury Travel"],
     buttonText: "Book Urbania",

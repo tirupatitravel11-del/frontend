@@ -24,14 +24,9 @@ import UrbaniaFaq from "@/_components/urbaniaRental/UrbaniaFaq";
 
 
 
-// import WhyChooseUs from "@/_components/WhyChooseUs";
-// import HowItWorks from "../AirportTransfer/HowItWorks";
-// import OurServices from "@/_components/seo/OurServices";
-// import Testimonials from "../Home/Testimonials";
-// import TaxiServiceFAQ from "@/_components/seo/TaxiServiceFaq";
 
 const PHONE_NUMBER = "+918726124680";
-const WHATSAPP_NUMBER = "918726124680"; // Format for wa.me (no '+')
+const WHATSAPP_NUMBER = "918726124680"; 
 
 const URBANIA_MODELS = [
   "Force Urbania 9 Seater",
