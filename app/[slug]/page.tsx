@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 
 import TempoTravellerPage from "@/app/components/seo-pages/TempoTravellerPage";
 import { seoPages, seoPageSlugs } from "@/app/data/seoPages";
+import { getVehiclePricing } from "@/app/constants/routePricing";
+import { createSeoMetadata } from "@/app/lib/seo";
 import AirportTaxiPage from "../components/seo-pages/AirportTaxiPage";
 import TaxiServicePage from "../components/seo-pages/TaxiServicePage";
 import UrbaniaRentalPage from "../components/seo-pages/UrbaniaRentalPage";
@@ -32,10 +34,24 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
-    title: `${page.title} | Tirupati Travel`,
+  const pricingKey = page.slug.includes("-in-")
+    ? page.slug.slice(0, page.slug.lastIndexOf("-in-"))
+    : page.service === "airport"
+      ? "airport-taxi"
+      : page.service;
+  const normalizedPricingKey =
+    pricingKey === "airport-taxi"
+      ? pricingKey
+      : pricingKey.replace(/-taxi$/, "");
+  const pricing = getVehiclePricing(normalizedPricingKey);
+
+  return createSeoMetadata({
+    primaryKeyword: page.title,
+    price: pricing.price,
+    offer: pricing.offer,
+    cta: pricing.cta,
     description: page.description,
-  };
+  });
 }
 
 export default async function SeoPage({ params }: PageProps) {

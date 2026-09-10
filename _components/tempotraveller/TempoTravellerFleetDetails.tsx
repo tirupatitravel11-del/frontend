@@ -18,22 +18,9 @@ type TempoTravellerModel = {
 
 const TEMPO_TRAVELLERS: TempoTravellerModel[] = [
   {
-    name: "9 Seater Tempo Traveller",
-    tagline: "Perfect for Small Group Travel",
-    image: "/tempo1.jpeg",
-    fuel: "Diesel",
-    luggageCapacity: "4 Large Bags",
-    seats: 9,
-    bags: 4,
-    oneWayFare: 3500,
-    roundTripFare: 6500,
-    badge: "Most Popular",
-    popular: true,
-  },
-  {
     name: "12 Seater Tempo Traveller",
-    tagline: "Comfortable Choice for Families",
-    image: "/tempo2.jpeg",
+    tagline: "Perfect for Small Families & Groups",
+    image: "/tempo1.jpeg",
     fuel: "Diesel",
     luggageCapacity: "6 Large Bags",
     seats: 12,
@@ -43,19 +30,21 @@ const TEMPO_TRAVELLERS: TempoTravellerModel[] = [
   },
   {
     name: "16 Seater Tempo Traveller",
-    tagline: "Ideal for Large Group Trips",
-    image: "/tempo1.jpeg",
+    tagline: "Ideal for Medium Groups & Tours",
+    image: "/tempo2.jpeg",
     fuel: "Diesel",
     luggageCapacity: "8 Large Bags",
     seats: 16,
     bags: 8,
     oneWayFare: 5200,
     roundTripFare: 9500,
+    badge: "Most Popular",
+    popular: true,
   },
   {
     name: "20 Seater Tempo Traveller",
-    tagline: "Best for Bigger Groups & Tours",
-    image: "/tempo2.jpeg",
+    tagline: "Best for Large Family Trips",
+    image: "/tempo1.jpeg",
     fuel: "Diesel",
     luggageCapacity: "10 Large Bags",
     seats: 20,
@@ -63,8 +52,18 @@ const TEMPO_TRAVELLERS: TempoTravellerModel[] = [
     oneWayFare: 6500,
     roundTripFare: 11500,
   },
+  {
+    name: "24 Seater Tempo Traveller",
+    tagline: "Ultimate Choice for Big Groups",
+    image: "/tempo2.jpeg",
+    fuel: "Diesel",
+    luggageCapacity: "12 Large Bags",
+    seats: 24,
+    bags: 12,
+    oneWayFare: 7800,
+    roundTripFare: 14000,
+  },
 ];
-
 export default function TempoTravellerFleetDetails() {
   return (
     <section className="bg-white py-12 sm:py-16">

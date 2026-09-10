@@ -20,6 +20,11 @@ import Seater20TempoTravellerPage from "@/_components/route/pages/Seater20TempoT
 import TwelveSeaterTempoTravellerPage from "@/_components/route/pages/TwelveSeaterTempoTravellerPage";
 import SixteenSeaterTempoTravellerPage from "@/_components/route/pages/SixteenSeaterTempoTravellerPage";
 import TwentyFourSeaterTempoTravellerPage from "@/_components/route/pages/TwentyFourSeaterTempoTravellerPage";
+import {
+  getRoutePricing,
+  getVehiclePricing,
+} from "@/app/constants/routePricing";
+import { createSeoMetadata } from "@/app/lib/seo";
 type PageProps = {
   params: Promise<{
     pageSlug: string;
@@ -39,10 +44,54 @@ export async function generateMetadata({
     };
   }
 
-  return {
-    title: data.page.metaTitle,
+  const routeFare = data.fares?.length
+    ? Math.min(...data.fares.map((fare) => fare.oneWayPrice))
+    : null;
+  const pricing = routeFare
+    ? {
+        price: `₹${routeFare}`,
+        offer: "10% Off",
+        cta: "Book Now",
+      }
+    : (getRoutePricing(pageSlug) ?? getVehiclePricing(data.page.pageType));
+  const vehicleRoutePageTypes = new Set([
+    "sedan-taxi",
+    "dzire-taxi",
+    "amaze-taxi",
+    "etios-taxi",
+    "ertiga-taxi",
+    "innova-crysta-taxi",
+    "tempo-traveller",
+    "luxury-tempo-traveller",
+    "12-seater-tempo-traveller",
+    "16-seater-tempo-traveller",
+    "20-seater-tempo-traveller",
+    "24-seater-tempo-traveller",
+  ]);
+  const pageTypeLabel = vehicleRoutePageTypes.has(data.page.pageType)
+    ? "Taxi"
+    : data.page.pageType === "taxi"
+      ? "Taxi"
+      : data.page.pageType === "taxi-fare"
+        ? "Taxi Fare"
+        : data.page.pageType === "one-way-taxi"
+          ? "One Way Taxi"
+          : data.page.pageType === "suv-taxi"
+            ? "SUV Taxi"
+            : data.page.pageType === "taxi-contact-number"
+              ? "Taxi Contact Number"
+              : "Distance & Travel Time";
+  const primaryKeyword = data.route
+    ? `${data.route.fromCity} to ${data.route.toCity} ${pageTypeLabel}`
+    : data.page.metaTitle;
+
+  return createSeoMetadata({
+    primaryKeyword,
+    price: pricing.price,
+    offer: pricing.offer,
+    cta: pricing.cta,
     description: data.page.metaDescription,
-  };
+  });
 }
 export default async function Page({
   params,
@@ -105,5 +154,3 @@ export default async function Page({
       notFound();
   }
 }
-
-

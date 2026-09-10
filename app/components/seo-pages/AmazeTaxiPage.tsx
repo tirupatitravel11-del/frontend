@@ -24,6 +24,7 @@ import Testimonials from "@/app/components/Home/Testimonials";
 import HowItWorks from "../AirportTransfer/HowItWorks";
 import AmazeTaxiFitGuide from "@/_components/amaze/AmazeTaxiFitGuide";
 import AmazeTaxiFaq from "@/_components/amaze/AmazeTaxiFaq";
+import AmazeStorySection from "@/_components/amaze/AmazeStorySection";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -146,7 +147,7 @@ export default function AmazeTaxiPage({ page }: { page: SeoPageData }) {
           pagetype="amaze-taxi"
         /> */}
 
-     
+     <AmazeStorySection/>
         <AmazeTaxiFitGuide/>
 
         <HowItWorks />
