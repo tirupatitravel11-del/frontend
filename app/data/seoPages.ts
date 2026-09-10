@@ -298,11 +298,23 @@ export const seoPages: Record<string, SeoPageData> = Object.fromEntries(
           ? "taxi-service"
           : service === "tempo"
             ? "tempo-traveller"
-            : service === "taxi-contact-number"
-              ? `${city}-taxi-contact-number`
-              : service === "luxury-tempo-traveller"
-                ? `${city}-luxury-tempo-traveller-taxi`
-                : "airport-taxi";
+            : service === "urbania-rental"
+              ? "urbania-rental"
+              : service === "innova-crysta"
+                ? "innova-crysta-taxi"
+                : service === "ertiga"
+                  ? "ertiga-taxi"
+                  : service === "dzire"
+                    ? "dzire-taxi"
+                    : service === "etios"
+                      ? "etios-taxi"
+                      : service === "amaze"
+                        ? "amaze-taxi"
+                        : service === "taxi-contact-number"
+                          ? `${city}-taxi-contact-number`
+                          : service === "luxury-tempo-traveller"
+                            ? `${city}-luxury-tempo-traveller-taxi`
+                            : "airport-taxi";
       const slug =
         service === "taxi-contact-number" ||
         service === "luxury-tempo-traveller"

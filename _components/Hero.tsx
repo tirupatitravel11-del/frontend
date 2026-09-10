@@ -10,10 +10,10 @@ type TripType = "one-way" | "round-trip";
 interface HeroProps {
   from: string;
   to: string;
-  fare:any
+  fare: any;
 }
 
-export default function Hero({ from, to ,fare}: HeroProps) {
+export default function Hero({ from, to, fare }: HeroProps) {
   const [tripType, setTripType] = useState<TripType>("one-way");
 
   const [date, setDate] = useState("");
@@ -34,7 +34,7 @@ Date: ${date}`;
 
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank"
+      "_blank",
     );
   };
 
@@ -45,22 +45,20 @@ Date: ${date}`;
       <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-16 lg:grid-cols-2 lg:py-24">
-
         {/* Left: Content */}
         <div>
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
-            {from} → {to} Cab Service
+            {from} → {to} Taxi Service
           </p>
 
           <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:leading-tight">
-            {from} to {to}{" "}
-            <span className="text-gold">Taxi Service</span> at Fixed Fares
+            {from} to {to} <span className="text-gold">Taxi Service</span> at
+            Fixed Fares
           </h1>
 
           <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-            Book a clean, sanitized cab in minutes. Pickup from any location
-            in {from} — drop anywhere in {to}. No hidden charges, no surge
-            pricing.
+            Book a clean, sanitized cab in minutes. Pickup from any location in{" "}
+            {from} — drop anywhere in {to}. No hidden charges, no surge pricing.
           </p>
 
           {/* Highlights */}

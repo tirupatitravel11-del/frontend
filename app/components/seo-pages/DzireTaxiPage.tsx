@@ -24,6 +24,7 @@ import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
 import DzireTaxiFaq from "@/_components/dzire/DzireTaxiFaq";
 import DzireTaxiFitGuide from "@/_components/dzire/DzireTaxiFitGuide";
+import DzireStorySection from "@/_components/dzire/DzireStorySection";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -148,7 +149,7 @@ export default function DzireTaxiPage({ page }: { page: SeoPageData }) {
           to={route.toCity}
           pagetype="dzire-taxi"
         /> */}
-
+<DzireStorySection/>
         <DzireTaxiFitGuide />
 
         <HowToBook from={route.fromCity} to={route.toCity} />

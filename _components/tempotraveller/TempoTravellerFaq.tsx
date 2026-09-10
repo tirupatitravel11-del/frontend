@@ -25,22 +25,24 @@ export default function TempoTravellerFaq({
   const TEMPO_TRAVELLER_FAQS: Faq[] = [
     {
       question: `What is the Tempo Traveller fare from ${from} to ${to}?`,
-      answer: `Tempo Traveller fares from ${from} to ${to} depend on the route, number of passengers, vehicle seating capacity and trip duration. We offer 9-seater, 12-seater, 16-seater and larger Tempo Travellers for local, one-way and outstation trips. Contact us with your travel details for the exact fare.`,
+      answer: `Tempo Traveller fares from ${from} to ${to} depend on the route, number of passengers, vehicle seating capacity, and trip duration. We offer 12-seater, 16-seater, 20-seater, and 24-seater Tempo Travellers for local, one-way, and outstation trips. Contact us with your exact travel details for a transparent, fixed quote.`,
     },
     {
       question: `How many people can travel in a Tempo Traveller from ${from} to ${to}?`,
-      answer: `Our Tempo Travellers are available in different seating capacities, including 9-seater, 12-seater, 16-seater and higher-capacity options. You can choose the vehicle according to your group size and luggage requirements for travel from ${from} to ${to}.`,
+      answer: `Our Tempo Travellers are available in 12-seater, 16-seater, 20-seater, and 24-seater configurations. You can easily choose the right vehicle based on your group size and luggage requirements for a comfortable journey from ${from} to ${to}.`,
     },
     {
-      question: `Is Tempo Traveller available for outstation trips from ${from} to ${to}?`,
-      answer: `Yes. Tempo Travellers are available for outstation, one-way and round-trip journeys from ${from} to ${to}. They are ideal for family vacations, group tours, weddings, religious trips, corporate travel and sightseeing.`,
+      question: `What is the luggage capacity of your Tempo Travellers?`,
+      answer: `Luggage space scales with the vehicle size. Our 12-seater comfortably holds around 6 large bags, the 16-seater holds 8 large bags, the 20-seater holds 10 large bags, and our 24-seater can accommodate up to 12 large bags, ensuring everyone's luggage travels safely.`,
+    },
+    {
+      question: `Is a Tempo Traveller available for outstation trips from ${from} to ${to}?`,
+      answer: `Yes, absolutely. Our Tempo Travellers are extensively used for outstation, one-way, and round-trip journeys from ${from} to ${to}. They are the ideal choice for family vacations, group tours, weddings, religious trips (like Tirumala Darshan), corporate travel, and sightseeing.`,
     },
     {
       question: `Can I book a Tempo Traveller for a one-way trip from ${from} to ${to}?`,
-      answer: `Yes, one-way Tempo Traveller bookings are available on selected routes. You can book a private Tempo Traveller for a one-way journey from ${from} to ${to} instead of booking a complete round trip.`,
+      answer: `Yes, one-way Tempo Traveller bookings are available on most major routes. You can book a private vehicle for a single drop from ${from} to ${to} without being forced to pay for a complete round trip.`,
     },
-
-    // ...rest of your FAQs
   ];
 
   const finalFaqs = faqs ?? TEMPO_TRAVELLER_FAQS;
@@ -52,8 +54,8 @@ export default function TempoTravellerFaq({
   };
 
   return (
-    <section className="bg-slate-50 py-14">
-      <div className="mx-auto max-w-4xl px-6">
+    <section className="bg-slate-50 py-14 sm:py-20">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <div className="mb-10 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
             FAQs
