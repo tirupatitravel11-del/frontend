@@ -67,6 +67,9 @@ export async function generateMetadata({
     "16-seater-tempo-traveller",
     "20-seater-tempo-traveller",
     "24-seater-tempo-traveller",
+    "urbania-rental",
+    "distance-travel-time",
+    "taxi-contact-number",
   ]);
   const pageTypeLabel = vehicleRoutePageTypes.has(data.page.pageType)
     ? "Taxi"
