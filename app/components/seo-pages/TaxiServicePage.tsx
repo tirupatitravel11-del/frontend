@@ -69,7 +69,7 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
               </Link>
 
               <a
-                href="tel:+916390008503"
+                href="tel:+918726124680"
                 className="rounded-full border-2 border-slate-900 px-7 py-3.5 text-center text-sm font-bold text-slate-900 transition-all hover:bg-slate-900 hover:text-white hover:shadow-lg sm:px-8 sm:py-4"
               >
                 Call to Book

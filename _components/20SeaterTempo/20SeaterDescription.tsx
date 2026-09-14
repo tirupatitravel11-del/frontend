@@ -2,7 +2,7 @@
 
 /* ====== Assets: place your images in /public/images/tempo-traveller/ ====== */
 const MAIN_IMAGE = "/20-seater-tempo.jpg";
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 export default function TwentySeaterStorySection() {
   return (

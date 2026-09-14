@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-
 import TempoTravellerPage from "@/app/components/seo-pages/TempoTravellerPage";
 import { seoPages, seoPageSlugs } from "@/app/data/seoPages";
+import { getVehiclePricing } from "@/app/constants/routePricing";
+import { createSeoMetadata } from "@/app/lib/seo";
 import AirportTaxiPage from "../components/seo-pages/AirportTaxiPage";
 import TaxiServicePage from "../components/seo-pages/TaxiServicePage";
+import UrbaniaRentalPage from "../components/seo-pages/UrbaniaRentalPage";
+import InnovaCrystaPage from "../components/seo-pages/InnovaCrystaPage";
+import ErtigaTaxiPage from "../components/seo-pages/ErtigaTaxiPage";
+import DzireTaxiPage from "../components/seo-pages/DzireTaxiPage";
+import EtiosTaxiPage from "../components/seo-pages/EtiosTaxiPage";
+import AmazeTaxiPage from "../components/seo-pages/AmazeTaxiPage";
+import TaxiContactNumberPage from "../components/seo-pages/TaxiContactNumberPage";
+import LuxuryTempoTravellerTaxi from "../components/seo-pages/LuxuryTempoTravellerTaxi";
+import SixteenSeaterTempoTravellerTaxiPage from "../components/seo-pages/16SeaterTempoTaxiPage";
+import TwelveSeaterTempoTravellerTaxiPage from "../components/seo-pages/12SeaterTempoTaxiPage";
+import TwentySeaterTempoTravellerTaxiPage from "../components/seo-pages/20SeaterTempoTaxiPage";
+import TwentyFourSeaterTempoTravellerTaxiPage from "../components/seo-pages/24SeaterTempoTaxiPage";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
-
-export function generateStaticParams() {
-  return seoPageSlugs.map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({
   params,
@@ -25,10 +34,24 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
-    title: `${page.title} | Tirupati Travel`,
+  const pricingKey = page.slug.includes("-in-")
+    ? page.slug.slice(0, page.slug.lastIndexOf("-in-"))
+    : page.service === "airport"
+      ? "airport-taxi"
+      : page.service;
+  const normalizedPricingKey =
+    pricingKey === "airport-taxi"
+      ? pricingKey
+      : pricingKey.replace(/-taxi$/, "");
+  const pricing = getVehiclePricing(normalizedPricingKey);
+
+  return createSeoMetadata({
+    primaryKeyword: page.title,
+    price: pricing.price,
+    offer: pricing.offer,
+    cta: pricing.cta,
     description: page.description,
-  };
+  });
 }
 
 export default async function SeoPage({ params }: PageProps) {
@@ -39,12 +62,55 @@ export default async function SeoPage({ params }: PageProps) {
     notFound();
   }
 
+  if (page.slug.includes("16-seater-tempo-traveller")) {
+    return <SixteenSeaterTempoTravellerTaxiPage />;
+  }
+
+  if (page.slug.includes("12-seater-tempo-traveller")) {
+    return <TwelveSeaterTempoTravellerTaxiPage />;
+  }
+
+  if (page.slug.includes("20-seater-tempo-traveller")) {
+    return <TwentySeaterTempoTravellerTaxiPage />;
+  }
+
+  if (page.slug.includes("24-seater-tempo-traveller")) {
+    return <TwentyFourSeaterTempoTravellerTaxiPage />;
+  }
+
   if (page.service === "tempo") {
     return <TempoTravellerPage page={page} />;
   }
 
   if (page.service === "airport") {
     return <AirportTaxiPage page={page} />;
+  }
+
+  if (page.service === "urbania-rental") {
+    return <UrbaniaRentalPage page={page} />;
+  }
+
+  if (page.service === "innova-crysta") {
+    return <InnovaCrystaPage page={page} />;
+  }
+
+  if (page.service === "ertiga") {
+    return <ErtigaTaxiPage page={page} />;
+  }
+  if (page.service === "dzire") {
+    return <DzireTaxiPage page={page} />;
+  }
+  if (page.service === "etios") {
+    return <EtiosTaxiPage page={page} />;
+  }
+  if (page.service === "amaze") {
+    return <AmazeTaxiPage page={page} />;
+  }
+  if (page.service === "taxi-contact-number") {
+    return <TaxiContactNumberPage />;
+  }
+  if (page.service === "luxury-tempo-traveller") {
+    return <LuxuryTempoTravellerTaxi page={page} />;
   }
 
   return <TaxiServicePage page={page} />;

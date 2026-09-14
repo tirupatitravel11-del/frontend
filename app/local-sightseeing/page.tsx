@@ -55,7 +55,7 @@ export default function LocalSightseeingPage() {
             </Link>
             
             <Link
-              href="tel:+919876543210"
+              href="tel:+918726124680"
               className="flex items-center justify-center gap-2 rounded-lg border-2 border-gold bg-white px-8 py-4 text-base font-semibold text-gold transition-all hover:bg-gold hover:text-white"
             >
               <Phone size={20} />

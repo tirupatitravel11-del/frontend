@@ -29,7 +29,10 @@ export default function TempoTravellerPage({ data }: any) {
 
       <GroupTravelBenefits />
 
-      <TempoTravellerFare />
+      <TempoTravellerFare from={route.fromCity}
+        to={route.toCity}
+        oneWayFare={data.fares?.[0]?.oneWayPrice || 5500}
+        roundTripFare={data.fares?.[0]?.roundTripPrice || 9000} />
 
       <PopularRoutes
         routes={data.popularRoutes}

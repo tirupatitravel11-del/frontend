@@ -22,12 +22,12 @@ export default function TempoTravellerPage({ data }: any) {
       />
       <TempoTravellerFleetDetails />
 
-      <FareDetails
+      {/* <FareDetails
         from={route.fromCity}
         to={route.toCity}
         title="Fare Details"
          fares={data.fares}
-      />
+      /> */}
 
       <WhyChooseUs />
 

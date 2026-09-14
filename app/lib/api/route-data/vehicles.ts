@@ -226,7 +226,7 @@ export const VEHICLES: Vehicle[] = [
     cabType: "Urbania",
     passengerCapacity: 16,
     luggageCapacity: 10,
-    image: "../urbania/urbania.png",
+    image: "../urbania.png",
     airCondition: true,
     fuelType: "Diesel",
     transmission: "Manual",

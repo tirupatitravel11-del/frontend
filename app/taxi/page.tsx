@@ -18,7 +18,7 @@ const heroImages = [
   "/services_cabs.jpg",
   "/20-seater-tempo.jpg",
   "ertiga_taxi.png",
-  "/urbania/Urbania.png",
+  "/Urbania.png",
 ];
 
 export default function BoatsPage() {

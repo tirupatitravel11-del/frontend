@@ -16,12 +16,12 @@ export default function TaxiFarePage({ data }: any) {
         to={data.route.toCity}
         fare={data.fares[0]}  />
 
-      <FareDetails
+      {/* <FareDetails
         from={route.fromCity}
         to={route.toCity}
         title="Fare Details"
         fares={data.fares}
-      />
+      /> */}
 
         <CabSelector
              from={route.fromCity}

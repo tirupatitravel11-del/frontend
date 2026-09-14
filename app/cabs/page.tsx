@@ -9,6 +9,7 @@ import LucknowFAQ from "../components/Cab/Cabhub/LucknowFAQ";
 import Testimonials from "../components/Home/Testimonials";
 import OutstationRoutes from "../components/Cab/Cabhub/OutstationRoute";
 import CabServices from "../components/Cab/Cabhub/CabServices";
+import CityWiseServices from "../components/Cab/Cabhub/CityWiseServices";
 
 export default function CabsPage() {
   return (
@@ -32,8 +33,6 @@ export default function CabsPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-            
-
               <button
                 type="button"
                 className="rounded-full border-2 border-gold px-7 py-3.5 font-bold text-gold transition hover:bg-gold hover:text-white"
@@ -51,8 +50,8 @@ export default function CabsPage() {
       </section>
 
       <VehicleFleet />
-      <CabServices/>
-
+      <CabServices />
+      <CityWiseServices />
       <Testimonials />
 
       <WhyBookWithUs />

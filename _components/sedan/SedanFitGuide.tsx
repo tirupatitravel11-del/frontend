@@ -1,6 +1,6 @@
 import { Car, CarFront } from "lucide-react";
 
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 const SEDAN_FITS = [
   "You're travelling with up to 4 people",

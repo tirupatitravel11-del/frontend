@@ -100,19 +100,17 @@ export default function Footer() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="tel:+919876543210"
+                href="tel:+918726124680"
                 className="flex items-center gap-2 rounded-full border border-stone-500 px-5 py-3 transition hover:bg-gold"
               >
                 <Phone size={18} />
-                
               </a>
 
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/918726124680"
                 className="flex items-center gap-2 rounded-full border border-stone-500 px-5 py-3 transition hover:bg-green-600"
               >
                 <MessageCircle size={18} />
-                
               </a>
 
               {/* Twitter/X */}
@@ -243,7 +241,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-3">
                 <Phone className="text-gold" size={18} />
-                <span>+91 9876543210</span>
+                <span>+91 8726124680</span>
               </div>
 
               <div className="flex items-center gap-3">

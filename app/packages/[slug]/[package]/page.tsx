@@ -35,6 +35,8 @@ const formatPrice = (price: any): number => {
   return isNaN(numericValue) ? 0 : numericValue;
 };
 
+const WHATSAPP_NUMBER = "918726124680";
+
 // ===============================
 // GET SINGLE PACKAGE
 // ===============================
@@ -99,7 +101,8 @@ export default async function PackageDetailsPage({ params }: Props) {
   const { slug: citySlug, package: packageSlug } = await params;
 
   const packageData =
-    (await getPackage(packageSlug)) || getFallbackPackage(citySlug, packageSlug);
+    (await getPackage(packageSlug)) ||
+    getFallbackPackage(citySlug, packageSlug);
 
   // package nahi mila
   if (!packageData) {
@@ -124,7 +127,7 @@ export default async function PackageDetailsPage({ params }: Props) {
     <main className="bg-stone-100 py-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
-        
+
         <div className="rounded-2xl bg-gold p-6 text-white">
           <h1 className="mt-2 text-3xl font-bold">{packageData.title}</h1>
 
@@ -154,7 +157,7 @@ export default async function PackageDetailsPage({ params }: Props) {
               alt={packageData.title}
               width={1200}
               height={700}
-              className="h-[380px] w-full rounded-2xl object-cover"
+              className="h-95 w-full rounded-2xl object-cover"
             />
 
             {/* About This Package */}
@@ -357,16 +360,21 @@ export default async function PackageDetailsPage({ params }: Props) {
 
                 <div className="flex items-center gap-1">
                   <IndianRupee size={18} className="text-gold" />
-                  
+
                   <p className="text-3xl font-bold text-gold">
                     {displayPrice.toLocaleString("en-IN")}
                   </p>
                 </div>
               </div>
 
-              <button className="mt-6 w-full rounded-xl bg-gold py-3 text-sm font-bold text-white transition hover:opacity-90">
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi, I want to book the ${packageData.title} package. Please share availability and pricing details.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 block w-full rounded-xl bg-gold py-3 text-center text-sm font-bold text-white transition hover:opacity-90"
+              >
                 Book Now
-              </button>
+              </a>
             </div>
           </aside>
         </div>

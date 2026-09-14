@@ -13,7 +13,7 @@ import WhyBookWithUs from "@/app/components/Cab/Cabhub/WhyTrustUs";
 import BookingProcess from "@/app/components/Cab/Cabhub/BookingProcess";
 import FareDetails from "@/_components/FareDetails";
 
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 export default async function TaxiDetailPage({
   params,

@@ -30,7 +30,7 @@ export default function VehicleCard({
   buttonText,
   slug,
   linkPrefix = "/cabs/", // Default for backward compatibility
-  phone = "8448445504",
+  phone = "918726124680",
 }: VehicleCardProps) {
   return (
     <div className="group overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">

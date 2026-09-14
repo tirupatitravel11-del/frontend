@@ -2,7 +2,7 @@
 
 import { ClipboardList, Wallet, Receipt, Timer, Phone } from "lucide-react";
 
-const PHONE_NUMBER = "+916390008503";
+const PHONE_NUMBER = "+918726124680";
 
 const READY_DETAILS = [
   "Pickup address — full address or nearest landmark",
@@ -158,18 +158,7 @@ export default function BookingInformation() {
           })}
         </div>
 
-        {/* ===== Bottom CTA Line ===== */}
-        <p className="mt-10 text-center text-sm leading-6 text-slate-600 sm:text-base">
-          Still have a question?{" "}
-          <a
-            href={`tel:${PHONE_NUMBER}`}
-            className="inline-flex items-center gap-1.5 font-bold text-gold hover:underline"
-          >
-            <Phone className="h-4 w-4" />
-            Call +91 63900 08503
-          </a>{" "}
-          — we pick up 24×7.
-        </p>
+    
       </div>
     </section>
   );

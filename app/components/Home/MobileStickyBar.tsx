@@ -6,7 +6,7 @@ export default function MobileStickyBar() {
   return (
     <div className="fixed bottom-5 right-5 z-50 hidden lg:block ">
       <a
-        href="tel:+919876543210"
+        href="tel:+918726124680"
         className="
           flex
           h-14
