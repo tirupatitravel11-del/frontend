@@ -8,12 +8,16 @@ import Testimonials from "../Home/Testimonials";
 import HowItWorks from "../AirportTransfer/HowItWorks";
 import TempoTravellerFAQTaxi from "@/_components/seo/TempoTravellerFAQTaxi";
 import PerfectFor from "@/_components/seo/PerfectFor";
+import PopularRoutes from "@/_components/PopularRoutes";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 
 export default function TempoTravellerPage({ page }: { page: SeoPageData }) {
   return <ServicePage page={page} />;
 }
 
 function ServicePage({ page }: { page: SeoPageData }) {
+  const popularRoutes = generatePopularRoutes(page.city, "");
+
   return (
     <>
       {/* ================= HERO SECTION ================= */}
@@ -180,11 +184,19 @@ function ServicePage({ page }: { page: SeoPageData }) {
       </section>
 
       <TempoTravellerFleetDetailsTaxi />
-      <HowItWorks/>
-      <PerfectFor/>
+      {popularRoutes.length > 0 && (
+        <PopularRoutes
+          routes={popularRoutes}
+          from={popularRoutes[0].from}
+          to="popular destinations"
+          pagetype="tempo-traveller"
+        />
+      )}
+      <HowItWorks />
+      <PerfectFor />
       <WhyChooseUs />
       <Testimonials />
-      <TempoTravellerFAQTaxi/>
+      <TempoTravellerFAQTaxi />
     </>
   );
 }

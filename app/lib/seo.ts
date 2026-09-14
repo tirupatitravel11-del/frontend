@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+const BOOKING_PHONE = "+918726124680";
+
 type SeoMetadataInput = {
   primaryKeyword: string;
   description: string;
@@ -17,6 +19,6 @@ export function createSeoMetadata({
 }: SeoMetadataInput): Metadata {
   return {
     title: `${primaryKeyword} ${price} | ${offer} | ${cta}`,
-    description,
+    description: `${description} Call ${BOOKING_PHONE}.`,
   };
 }

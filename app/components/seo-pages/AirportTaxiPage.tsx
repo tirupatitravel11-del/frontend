@@ -8,12 +8,15 @@ import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "../Home/Testimonials";
 import AirportFAQ from "../AirportTransfer/airportFAQ";
 import LuggageCapacityAirport from "@/_components/seo/LuggageCapacityAirport";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import PopularRoutes from "@/_components/PopularRoutes";
 
 export default function AirportTaxiPage({ page }: { page: SeoPageData }) {
   return <ServicePage page={page} />;
 }
 
 function ServicePage({ page }: { page: SeoPageData }) {
+  const popularRoutes = generatePopularRoutes(page.city, "");
   return (
     <>
       {/* ================= HERO SECTION ================= */}
@@ -182,10 +185,18 @@ function ServicePage({ page }: { page: SeoPageData }) {
 
       {/* Add your fleet/other sections below */}
 
-      <HowItWorks />
       <VehicleFleet />
       <LuggageCapacityAirport />
       <AirportExperience />
+      {popularRoutes.length > 0 && (
+        <PopularRoutes
+          routes={popularRoutes}
+          from={popularRoutes[0].from}
+          to="popular destinations"
+          pagetype="taxi"
+        />
+      )}
+      <HowItWorks />
       <WhyChooseUs />
       <Testimonials />
       <AirportFAQ />

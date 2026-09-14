@@ -17,6 +17,8 @@ import Testimonials from "../Home/Testimonials";
 import LuxuryFleetDetails from "@/_components/luxuryTempoTraveller/LuxuryFleetDetails";
 import LuxuryTaxiFleet from "@/_components/luxuryTempoTraveller/LuxuryTaxiFleet";
 import LuxuryTaxiFaqs from "@/_components/luxuryTempoTraveller/LuxuryTaxiFaqs";
+import PopularRoutes from "@/_components/PopularRoutes";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -60,6 +62,7 @@ export default function LuxuryTempoTravellerTaxi({
   const [drop, setDrop] = useState("");
 
   const today = new Date().toISOString().split("T")[0];
+  const popularRoutes = generatePopularRoutes(page.city, "");
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -325,9 +328,17 @@ Please share the detailed quote and availability.`;
         {/* <LuxuryTaxiFleet /> */}
         {/* <TempoTravellerFeatures /> */}
         {/* <TempoTravellerFaq /> */}
+        {popularRoutes.length > 0 && (
+          <PopularRoutes
+            routes={popularRoutes}
+            from={popularRoutes[0].from}
+            to="popular destinations"
+            pagetype="luxury-tempo-traveller"
+          />
+        )}
         <WhyChooseUs />
         <Testimonials />
-        <LuxuryTaxiFaqs/>
+        <LuxuryTaxiFaqs />
       </div>
     </main>
   );

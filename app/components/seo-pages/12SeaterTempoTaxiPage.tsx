@@ -19,6 +19,9 @@ import TempoTravellerDetails from "@/_components/12seatTempo/TempoTravellerDetai
 import TempoTravellerFare from "@/_components/12seatTempo/TempoTravellerFare";
 import TempoTravellerFaq from "@/_components/12seatTempo/TempoTravellerFaq";
 import TempoTaxiFaq from "@/_components/12seatTempo/TempoTaxiFaq";
+import PopularRoutes from "@/_components/PopularRoutes";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import type { SeoPageData } from "@/app/data/seoPages";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -30,7 +33,11 @@ const FEATURES = [
   { icon: ShieldCheck, label: "Verified Driver", sub: "Experienced & safe" },
 ];
 
-export default function TwelveSeaterTempoTravellerPage() {
+export default function TwelveSeaterTempoTravellerPage({
+  page,
+}: {
+  page: SeoPageData;
+}) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [passengers, setPassengers] = useState("");
@@ -39,6 +46,7 @@ export default function TwelveSeaterTempoTravellerPage() {
   const [drop, setDrop] = useState("");
 
   const today = new Date().toISOString().split("T")[0];
+  const popularRoutes = generatePopularRoutes(page.city, "");
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -309,6 +317,14 @@ Please share the detailed quote and availability.`;
         <TempoTravellerDetails />
         <GroupTravelBenefits />
         {/* <TempoTravellerFare /> */}
+        {popularRoutes.length > 0 && (
+          <PopularRoutes
+            routes={popularRoutes}
+            from={popularRoutes[0].from}
+            to="popular destinations"
+            pagetype="tempo-traveller"
+          />
+        )}
         <TempoTaxiFaq />
       </div>
     </main>

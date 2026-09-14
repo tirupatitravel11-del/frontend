@@ -88,15 +88,23 @@ export default function Seater20TempoTravellerPage({ data }: any) {
 
   return (
     <>
-      <TwentySeaterHero   from={route.fromCity}
+      <TwentySeaterHero
+        from={route.fromCity}
         to={route.toCity}
-       fare={data.fares[0]} />
+        fare={data.fares[0]}
+      />
       <TwentySeaterStorySection />
       <TwentySeaterSeating />
+      <PopularRoutes
+        routes={data.popularRoutes}
+        from={route.fromCity}
+        to={route.toCity}
+        pagetype={page.pageType}
+      />
+
       <WhyChooseUs />
       <Testimonials />
-      <TwentySeaterFaq from={data.route.fromCity}
-        to={data.route.toCity}/>
+      <TwentySeaterFaq from={data.route.fromCity} to={data.route.toCity} />
     </>
   );
 }

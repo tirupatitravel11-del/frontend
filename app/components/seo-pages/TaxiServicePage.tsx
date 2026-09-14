@@ -11,12 +11,16 @@ import Testimonials from "../Home/Testimonials";
 import HowToBookIt from "@/_components/seo/HowToBookIt";
 import TaxiServiceFAQ from "@/_components/seo/TaxiServiceFaq";
 import SafetyFeatures from "@/_components/seo/SafetyFeatures";
+import PopularRoutes from "@/_components/PopularRoutes";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 
 export default function TaxiServicePage({ page }: { page: SeoPageData }) {
   return <ServicePage page={page} icon="CAR" />;
 }
 
 function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
+  const popularRoutes = generatePopularRoutes(page.city, "");
+
   return (
     <section className="relative min-h-[80vh] overflow-hidden bg-white lg:min-h-screen">
       {/* Decorative Background */}
@@ -178,14 +182,20 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
         </div>
       </div>
       <VehicleFleet />
-      <OurServices/>
-      <HowToBookIt/>
-      <SafetyFeatures/>
-      <Testimonials/>
+      <OurServices />
+      {popularRoutes.length > 0 && (
+        <PopularRoutes
+          routes={popularRoutes}
+          from={popularRoutes[0].from}
+          to="popular destinations"
+          pagetype="taxi"
+        />
+      )}
+      <HowToBookIt />
+      <SafetyFeatures />
+      <Testimonials />
       <WhyChooseUs />
-      <TaxiServiceFAQ/>
-      
-
+      <TaxiServiceFAQ />
     </section>
   );
 }

@@ -5,6 +5,8 @@ import TempoTravellerPage from "@/app/components/seo-pages/TempoTravellerPage";
 import { seoPages, seoPageSlugs } from "@/app/data/seoPages";
 import { getVehiclePricing } from "@/app/constants/routePricing";
 import { createSeoMetadata } from "@/app/lib/seo";
+import PopularRoutes from "@/_components/PopularRoutes";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 import AirportTaxiPage from "../components/seo-pages/AirportTaxiPage";
 import TaxiServicePage from "../components/seo-pages/TaxiServicePage";
 import UrbaniaRentalPage from "../components/seo-pages/UrbaniaRentalPage";
@@ -62,56 +64,78 @@ export default async function SeoPage({ params }: PageProps) {
     notFound();
   }
 
-  if (page.slug.includes("16-seater-tempo-traveller")) {
-    return <SixteenSeaterTempoTravellerTaxiPage />;
-  }
+  const popularRoutes = generatePopularRoutes(page.city, "");
+  const routePageType =
+    page.service === "tempo"
+      ? "tempo-traveller"
+      : page.service === "airport"
+        ? "taxi"
+        : page.service === "innova-crysta"
+          ? "innova-crysta-taxi"
+          : page.service === "taxi-contact-number"
+            ? "taxi-contact-number"
+            : page.service === "luxury-tempo-traveller"
+              ? "luxury-tempo-traveller"
+              : `${page.service}-taxi`;
 
-  if (page.slug.includes("12-seater-tempo-traveller")) {
-    return <TwelveSeaterTempoTravellerTaxiPage />;
-  }
+  const pageContent = (
+    <>
+      {page.slug.includes("16-seater-tempo-traveller") ? (
+        <SixteenSeaterTempoTravellerTaxiPage page={page} />
+      ) : page.slug.includes("12-seater-tempo-traveller") ? (
+        <TwelveSeaterTempoTravellerTaxiPage page={page} />
+      ) : page.slug.includes("20-seater-tempo-traveller") ? (
+        <TwentySeaterTempoTravellerTaxiPage page={page} />
+      ) : page.slug.includes("24-seater-tempo-traveller") ? (
+        <TwentyFourSeaterTempoTravellerTaxiPage page={page} />
+      ) : page.service === "tempo" ? (
+        <TempoTravellerPage page={page} />
+      ) : page.service === "airport" ? (
+        <AirportTaxiPage page={page} />
+      ) : page.service === "urbania-rental" ? (
+        <UrbaniaRentalPage page={page} />
+      ) : page.service === "innova-crysta" ? (
+        <InnovaCrystaPage page={page} />
+      ) : page.service === "ertiga" ? (
+        <ErtigaTaxiPage page={page} />
+      ) : page.service === "dzire" ? (
+        <DzireTaxiPage page={page} />
+      ) : page.service === "etios" ? (
+        <EtiosTaxiPage page={page} />
+      ) : page.service === "amaze" ? (
+        <AmazeTaxiPage page={page} />
+      ) : page.service === "taxi-contact-number" ? (
+        <TaxiContactNumberPage page={page} />
+      ) : page.service === "luxury-tempo-traveller" ? (
+        <LuxuryTempoTravellerTaxi page={page} />
+      ) : (
+        <TaxiServicePage page={page} />
+      )}
+    </>
+  );
 
-  if (page.slug.includes("20-seater-tempo-traveller")) {
-    return <TwentySeaterTempoTravellerTaxiPage />;
-  }
-
-  if (page.slug.includes("24-seater-tempo-traveller")) {
-    return <TwentyFourSeaterTempoTravellerTaxiPage />;
-  }
-
-  if (page.service === "tempo") {
-    return <TempoTravellerPage page={page} />;
-  }
-
-  if (page.service === "airport") {
-    return <AirportTaxiPage page={page} />;
-  }
-
-  if (page.service === "urbania-rental") {
-    return <UrbaniaRentalPage page={page} />;
-  }
-
-  if (page.service === "innova-crysta") {
-    return <InnovaCrystaPage page={page} />;
-  }
-
-  if (page.service === "ertiga") {
-    return <ErtigaTaxiPage page={page} />;
-  }
-  if (page.service === "dzire") {
-    return <DzireTaxiPage page={page} />;
-  }
-  if (page.service === "etios") {
-    return <EtiosTaxiPage page={page} />;
-  }
-  if (page.service === "amaze") {
-    return <AmazeTaxiPage page={page} />;
-  }
-  if (page.service === "taxi-contact-number") {
-    return <TaxiContactNumberPage />;
-  }
-  if (page.service === "luxury-tempo-traveller") {
-    return <LuxuryTempoTravellerTaxi page={page} />;
-  }
-
-  return <TaxiServicePage page={page} />;
+  return (
+    <>
+      {pageContent}
+      {page.service !== "taxi" &&
+        page.service !== "tempo" &&
+        page.service !== "amaze" &&
+        page.service !== "dzire" &&
+        page.service !== "etios" &&
+        page.service !== "ertiga" &&
+        page.service !== "innova-crysta" &&
+        page.service !== "airport" &&
+        page.service !== "urbania-rental" &&
+        page.service !== "luxury-tempo-traveller" &&
+        page.service !== "taxi-contact-number" &&
+        popularRoutes.length > 0 && (
+          <PopularRoutes
+            routes={popularRoutes}
+            from={popularRoutes[0].from}
+            to="popular destinations"
+            pagetype={routePageType}
+          />
+        )}
+    </>
+  );
 }

@@ -1,5 +1,6 @@
 import HowToBook from "@/_components/Howtobook";
 import FamilyLongDistanceSpotlight from "@/_components/InnovaCrysta/FamilyLongDistanceSpotlight";
+import FamilyLongDistanceSpotlightTaxi from "@/_components/InnovaCrysta/FamilyLongDistanceSpotlightTaxi";
 import InnovaCrystaFaq from "@/_components/InnovaCrysta/InnovaCrystaFaq";
 import InnovaCrystaFitGuide from "@/_components/InnovaCrysta/InnovaCrystaFitGuide";
 import InnovaCrystaHero from "@/_components/InnovaCrysta/InnovaCrystaHero";
@@ -57,7 +58,7 @@ export default function InnovaCrystaTaxiPage({ data }: any) {
         to={route.toCity}
         pagetype={page.pageType}
       />
-      <FamilyLongDistanceSpotlight />
+      <FamilyLongDistanceSpotlightTaxi />
       <Testimonials />
       <HowToBook from="Noida" to="Delhi" />
       <WhyChooseUs />

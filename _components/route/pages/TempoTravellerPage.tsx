@@ -1,10 +1,12 @@
-
 import HowToBook from "@/_components/Howtobook";
+import PopularRoutes from "@/_components/PopularRoutes";
 import FareDetails from "@/_components/tempotraveller/FareDetails";
 import TempoTravellerFaq from "@/_components/tempotraveller/TempoTravellerFaq";
 import TempoTravellerFleetDetails from "@/_components/tempotraveller/TempoTravellerFleetDetails";
 import TempoTravellerHero from "@/_components/tempotraveller/TempoTravellerHero";
+import TempoTravellerStorySection from "@/_components/tempotraveller/TempoTravellerStorySection";
 import WhyChooseUs from "@/_components/WhyChooseUs";
+import Testimonials from "@/app/components/Home/Testimonials";
 
 export default function TempoTravellerPage({ data }: any) {
   const { route, page } = data;
@@ -20,7 +22,14 @@ export default function TempoTravellerPage({ data }: any) {
         to={route.toCity}
         startingFare={1599}
       />
+      <TempoTravellerStorySection />
       <TempoTravellerFleetDetails />
+      <PopularRoutes
+        routes={data.popularRoutes}
+        from={route.fromCity}
+        to={route.toCity}
+        pagetype={page.pageType}
+      />
 
       {/* <FareDetails
         from={route.fromCity}
@@ -32,11 +41,9 @@ export default function TempoTravellerPage({ data }: any) {
       <WhyChooseUs />
 
       <HowToBook from={route.fromCity} to={route.toCity} />
+      <Testimonials />
 
-      <TempoTravellerFaq
-      from={data.route.fromCity}
-        to={data.route.toCity}
-      />
+      <TempoTravellerFaq from={data.route.fromCity} to={data.route.toCity} />
     </>
   );
 }

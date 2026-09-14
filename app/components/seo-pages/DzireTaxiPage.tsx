@@ -25,6 +25,7 @@ import Testimonials from "@/app/components/Home/Testimonials";
 import DzireTaxiFaq from "@/_components/dzire/DzireTaxiFaq";
 import DzireTaxiFitGuide from "@/_components/dzire/DzireTaxiFitGuide";
 import DzireStorySection from "@/_components/dzire/DzireStorySection";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -38,6 +39,7 @@ type TripType = "one-way" | "round-trip";
 
 export default function DzireTaxiPage({ page }: { page: SeoPageData }) {
   const route = { fromCity: page.city, toCity: "local destinations" };
+  const popularRoutes = generatePopularRoutes(page.city, "");
 
   return (
     <main className="flex flex-col gap-0">
@@ -143,16 +145,18 @@ export default function DzireTaxiPage({ page }: { page: SeoPageData }) {
 
       {/* ===== BELOW HERO SECTIONS ===== */}
       <div className="relative z-10 border-t border-slate-100 bg-white">
-        {/* <PopularRoutes
-          routes={[]}
-          from={route.fromCity}
-          to={route.toCity}
-          pagetype="dzire-taxi"
-        /> */}
-<DzireStorySection/>
+        <DzireStorySection />
         <DzireTaxiFitGuide />
 
         <HowToBook from={route.fromCity} to={route.toCity} />
+        {popularRoutes.length > 0 && (
+          <PopularRoutes
+            routes={popularRoutes}
+            from={popularRoutes[0].from}
+            to="popular destinations"
+            pagetype="dzire-taxi"
+          />
+        )}
 
         <WhyChooseUs />
         <Testimonials />
