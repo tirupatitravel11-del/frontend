@@ -7,7 +7,7 @@ export type VehiclePricing = {
 export const vehiclePricing: Record<string, VehiclePricing> = {
   taxi: { price: "from ₹9/km", offer: "10% Off", cta: "Book Now" },
   "tempo-traveller": {
-    price: "from ₹1,499/day",
+    price: "from ₹24/km",
     offer: "10% Off",
     cta: "Book Now",
   },
@@ -38,7 +38,7 @@ export const vehiclePricing: Record<string, VehiclePricing> = {
     cta: "Book Now",
   },
   "12-seater-tempo-traveller": {
-    price: "₹20/km",
+    price: "₹24/km",
     offer: "10% Off",
     cta: "Book Now",
   },

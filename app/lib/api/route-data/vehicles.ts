@@ -167,7 +167,7 @@ export const VEHICLES: Vehicle[] = [
     airCondition: true,
     fuelType: "Diesel",
     transmission: "Manual",
-    perKm: 20,
+    perKm: 24,
   },
 
   {
