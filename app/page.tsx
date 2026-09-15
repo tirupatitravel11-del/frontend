@@ -14,9 +14,9 @@ import HotelSection from "./components/Home/HotelSection";
 import FeaturedBoats from "./components/Home/FeaturesBoats";
 
 export const metadata: Metadata = {
-  title: "Tirupati Travels | India Taxi & Cab | @10% Off | Book Now",
+  title: "Tirupati Travels | Taxi & Cab Service in India | Book Cabs Online",
   description:
-    "Book taxis, hotels, tour packages, travel experiences and boat rides across India with Tirupati Travel. Get @10% Off and book now. Call +918726124680.",
+    "Book taxis, hotels and tour packages across India. Get reliable local, outstation, airport transfers, tempo travellers and customized travel services.",
 };
 
 export default function Home() {

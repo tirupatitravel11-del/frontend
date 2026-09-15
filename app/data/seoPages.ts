@@ -38,7 +38,7 @@ const serviceDetails: Record<
   taxi: {
     title: "Taxi Service",
     description:
-      "Book reliable local and outstation taxis with Tirupati Travel.",
+      "Book reliable taxi service for comfortable local, outstation and airport travel at affordable fares.",
     intro:
       "Travel comfortably with clean cars, experienced drivers, transparent fares, and flexible pickup options.",
     highlights: [
@@ -57,7 +57,7 @@ const serviceDetails: Record<
   tempo: {
     title: "Tempo Traveller",
     description:
-      "Hire spacious tempo travellers for family trips, pilgrimages, and group tours.",
+      "Hire a spacious tempo traveller for family trips, pilgrimages, group tours and comfortable local or outstation travel.",
     intro:
       "Make group travel simple with comfortable, well-maintained tempo travellers and experienced drivers.",
     highlights: [
@@ -76,7 +76,7 @@ const serviceDetails: Record<
   airport: {
     title: "Airport Taxi",
     description:
-      "Reserve dependable airport transfers with punctual pickup and drop service.",
+      "Book reliable airport taxi service with on-time pickup, comfortable rides and convenient airport transfers.",
     intro:
       "Reach the airport on time with pre-booked airport taxis, flight-aware support, and convenient door-to-door service.",
     highlights: [
@@ -93,9 +93,9 @@ const serviceDetails: Record<
     ],
   },
   "urbania-rental": {
-    title: "Urbania Rental",
+    title: "Force Urbania Rental",
     description:
-      "Hire a comfortable Force Urbania for local trips, group travel, and outstation journeys.",
+      "Hire a spacious Force Urbania for family trips, group tours, local sightseeing, airport transfers and outstation travel.",
     intro:
       "Travel with extra space and comfort in a well-maintained Force Urbania with a professional driver.",
     highlights: [
@@ -112,9 +112,9 @@ const serviceDetails: Record<
     ],
   },
   "innova-crysta": {
-    title: "Innova Crysta",
+    title: "Innova Crysta Taxi",
     description:
-      "Book a comfortable Toyota Innova Crysta for local and outstation travel.",
+      "Book a Toyota Innova Crysta taxi for comfortable local, outstation and airport travel with a professional driver.",
     intro:
       "Travel in a premium, spacious Innova Crysta with an experienced professional driver.",
     highlights: [
@@ -133,7 +133,7 @@ const serviceDetails: Record<
   ertiga: {
     title: "Ertiga Taxi",
     description:
-      "Book a comfortable Maruti Suzuki Ertiga taxi for local and outstation travel.",
+      "Book a Maruti Suzuki Ertiga taxi for family trips, local sightseeing, outstation journeys and airport transfers.",
     intro:
       "Travel with family or a small group in a spacious Ertiga with a professional driver.",
     highlights: [
@@ -152,7 +152,7 @@ const serviceDetails: Record<
   dzire: {
     title: "Dzire Taxi",
     description:
-      "Book a budget-friendly Maruti Suzuki Dzire sedan taxi for local and outstation travel.",
+      "Book an affordable Maruti Suzuki Dzire taxi for comfortable local, outstation and airport travel.",
     intro:
       "Enjoy a smooth and economical ride in a comfortable Dzire sedan, perfect for couples, small families, and business travel with a professional driver.",
     highlights: [
@@ -171,9 +171,9 @@ const serviceDetails: Record<
   etios: {
     title: "Etios Taxi",
     description:
-      "Book a reliable and spacious Toyota Etios sedan taxi for comfortable local and outstation travel.",
+      "Book a reliable Toyota Etios taxi for comfortable local, outstation and airport travel with professional drivers.",
     intro:
-      "Experience legendary Toyota reliability and exceptional boot space in a comfortable Etios sedan, perfect for families, airport transfers, and long-distance journeys with a professional driver.",
+      "Enjoy a reliable Toyota Etios sedan with spacious luggage capacity, comfortable seating and a professional driver for family and long-distance travel.",
     highlights: [
       "Comfortable 4+1 seater sedan",
       "Exceptionally spacious boot for heavy luggage",
@@ -190,7 +190,7 @@ const serviceDetails: Record<
   amaze: {
     title: "Amaze Taxi",
     description:
-      "Book a reliable and premium Honda Amaze sedan taxi for comfortable local and outstation travel.",
+      "Book a Honda Amaze taxi for comfortable local, outstation and airport travel with reliable service and professional drivers.",
     intro:
       "Experience Honda's refined comfort and excellent fuel efficiency in a spacious Amaze sedan, perfect for small families, airport transfers, and long-distance journeys with a professional driver.",
     highlights: [
@@ -209,7 +209,7 @@ const serviceDetails: Record<
   "taxi-contact-number": {
     title: "Taxi Contact Number",
     description:
-      "Contact Tirupati Travel for reliable taxi bookings, fare details, airport transfers, and outstation travel.",
+      "Call Tirupati Travel for taxi bookings, fare details, local and outstation cabs, airport transfers and travel assistance.",
     intro:
       "Speak with our travel team for quick taxi bookings, fare information, pickup support, and custom travel requirements.",
     highlights: [
@@ -228,7 +228,7 @@ const serviceDetails: Record<
   "luxury-tempo-traveller": {
     title: "Luxury Tempo Traveller",
     description:
-      "Book a premium and spacious Luxury Tempo Traveller for comfortable group travel, family vacations, and outstation journeys.",
+      "Hire a Luxury Tempo Traveller for family trips, pilgrimages, weddings, group tours and comfortable outstation travel.",
     intro:
       "Experience unmatched group travel comfort with our Luxury Tempo Traveller fleet. Featuring Maharaja pusher seats, powerful AC, and ample luggage space, it is the perfect choice for weddings, pilgrimages, corporate outings, and large family vacations with a professional driver.",
     highlights: [
@@ -254,7 +254,7 @@ const vehicleServices = [
   },
   {
     slug: "innova-crysta",
-    title: "Innova Crysta",
+    title: "Innova Crysta Taxi",
     service: "innova-crysta",
   },
   { slug: "ertiga-taxi", title: "Ertiga Taxi", service: "ertiga" },
@@ -329,7 +329,10 @@ export const seoPages: Record<string, SeoPageData> = Object.fromEntries(
           service,
           ...details,
           title: `${details.title} in ${cityName}`,
-          description: `${details.description} ${cityName} bookings available for local and outstation travel.`,
+          description:
+            service === "taxi" && city === "ayodhya"
+              ? "Book reliable taxi service in Ayodhya for local, outstation and airport travel. Choose comfortable cabs with affordable fares and easy booking."
+              : `${details.description} ${cityName} bookings available for local and outstation travel.`,
         },
       ];
     }),

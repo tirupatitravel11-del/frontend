@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "India Travel Blog | @10% Off | Tirupati Travels | Book Now",
+  title: "India Travel Blog | Guides, Tips & Places | Tirupati Travel",
   description:
-    "Read Tirupati travel guides and tips covering darshan planning, hotels, taxi services, sightseeing and the latest travel updates. Call +918726124680.",
+    "Read India travel guides and tips covering Tirupati, darshan planning, hotels, taxi services, sightseeing, tour packages and useful travel updates.",
 };
 
 export default function BlogsLayout({
