@@ -46,13 +46,69 @@ export async function generateMetadata({
       ? pricingKey
       : pricingKey.replace(/-taxi$/, "");
   const pricing = getVehiclePricing(normalizedPricingKey);
+  const omitBookNow = false;
+
+  const city = page.city;
+  const formattedPrice = pricing.price.startsWith("from")
+    ? pricing.price
+    : `from ${pricing.price}`;
+
+  let seoDescription = page.description;
+
+  if (page.service === "amaze" || page.slug.includes("amaze")) {
+    seoDescription = `Hire verified Honda Amaze taxi in ${city} for local sightseeing, outstation travel & airport drops. Experienced drivers, clean AC sedans.`;
+  } else if (page.service === "ertiga" || page.slug.includes("ertiga")) {
+    seoDescription = `Hire verified Ertiga taxi in ${city} for family trips, group tours, outstation travel & airport transfers. Experienced drivers, spacious 6-7 seater.`;
+  } else if (page.service === "dzire" || page.slug.includes("dzire")) {
+    seoDescription = `Hire verified Dzire taxi in ${city} for local sightseeing, outstation trips & airport transfers. City-expert drivers, clean AC cars.`;
+  } else if (page.service === "etios" || page.slug.includes("etios")) {
+    seoDescription = `Hire verified Toyota Etios taxi in ${city} for local sightseeing, long-distance trips & airport transfers. Expert drivers, spacious boot & AC comfort.`;
+  } else if (
+    page.service === "innova-crysta" ||
+    page.slug.includes("innova")
+  ) {
+    seoDescription = `Hire verified Innova Crysta taxi in ${city} for premium family travel, outstation tours & airport drop. Professional drivers, luxury SUV comfort.`;
+  } else if (
+    page.service === "urbania-rental" ||
+    page.slug.includes("urbania")
+  ) {
+    seoDescription = `Hire verified Force Urbania in ${city} for group tours, pilgrimages, outstation trips & event travel. Experienced drivers, luxury AC recliner seats.`;
+  } else if (
+    page.service === "luxury-tempo-traveller" ||
+    page.slug.includes("luxury-tempo")
+  ) {
+    seoDescription = `Hire verified Luxury Tempo Traveller in ${city} for group tours, pilgrimages, weddings & outstation travel. Maharaja seats, LED TV & expert drivers.`;
+  } else if (page.service === "tempo" || page.slug.includes("tempo")) {
+    const tempoLabel = page.slug.includes("12-seater")
+      ? "12 Seater Tempo Traveller"
+      : page.slug.includes("16-seater")
+        ? "16 Seater Tempo Traveller"
+        : page.slug.includes("20-seater")
+          ? "20 Seater Tempo Traveller"
+          : page.slug.includes("24-seater")
+            ? "24 Seater Tempo Traveller"
+            : "Tempo Traveller";
+    seoDescription = `Hire verified ${tempoLabel} in ${city} for group travel, pilgrimages, local sightseeing & outstation trips. Experienced drivers, clean AC seating.`;
+  } else if (
+    page.service === "airport" ||
+    page.slug.includes("airport")
+  ) {
+    seoDescription = `Book verified airport taxi in ${city} for 24/7 airport pickups, hotel drops & outstation connections. On-time arrival, flight tracking & clean AC cabs.`;
+  } else if (
+    page.service === "taxi-contact-number" ||
+    page.slug.includes("contact-number")
+  ) {
+    seoDescription = `Call Tirupati Travel to book verified taxis in ${city} for local sightseeing, outstation trips & airport transfers. Instant quotes & 24/7 support.`;
+  } else if (page.service === "taxi" || page.slug.includes("taxi")) {
+    seoDescription = `Book verified taxi service in ${city} for local sightseeing, outstation journeys & airport transfers. City-expert drivers, clean AC cars.`;
+  }
 
   return createSeoMetadata({
     primaryKeyword: page.title,
     price: pricing.price,
     offer: pricing.offer,
-    cta: pricing.cta,
-    description: page.description,
+    cta: omitBookNow ? "" : pricing.cta,
+    description: seoDescription,
   });
 }
 

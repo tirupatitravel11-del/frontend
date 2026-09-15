@@ -110,6 +110,14 @@ export function getRoutePage(pageSlug: string) {
 
   const oneWayPrice = fare.oneWayFare;
   const roundTripPrice = fare.roundTripFare;
+  const isTempoTraveller = [
+    "tempo-traveller",
+    "luxury-tempo-traveller",
+    "12-seater-tempo-traveller",
+    "16-seater-tempo-traveller",
+    "20-seater-tempo-traveller",
+    "24-seater-tempo-traveller",
+  ].includes(vehicle.pageType);
 
   return {
     page: {
@@ -123,7 +131,9 @@ export function getRoutePage(pageSlug: string) {
 
       metaTitle: `${vehicle.name} on Rent in ${route.fromCity} @ ₹${vehicle.perKm}/KM – Book Now`,
 
-      metaDescription: `Hire a ${vehicle.name} in ${route.fromCity} for local trips, airport transfers and outstation travel. Get clean AC cars, experienced drivers and dependable taxi service.`,
+      metaDescription: isTempoTraveller
+        ? `Hire a ${vehicle.name} from ${route.fromCity} for local trips, group travel and outstation journeys. Get a clean, comfortable vehicle, experienced drivers and dependable service.`
+        : `Hire a ${vehicle.name} in ${route.fromCity} for local trips, airport transfers and outstation travel. Get clean AC cars, experienced drivers and dependable taxi service.`,
 
       faqs: [],
     },

@@ -23,7 +23,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Tirupati Travel | Taxi & Cab Booking Service in India",
   description:
-    "Book affordable taxi and cab services with Tirupati Travel. One-way cabs, outstation taxis, airport transfers, sedan, SUV and tempo traveller booking at reliable fares. Call +918726124680.",
+    "Book taxis, hotels and tour packages across India. Get reliable local, outstation, airport transfers, tempo travellers and customized travel services.",
 };
 
 export default function RootLayout({

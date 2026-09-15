@@ -26,6 +26,8 @@ export const vehiclePricing: Record<string, VehiclePricing> = {
     offer: "10% Off",
     cta: "Book Now",
   },
+  suv: { price: "from ₹14/km", offer: "10% Off", cta: "Book Now" },
+  sedan: { price: "from ₹11/km", offer: "10% Off", cta: "Book Now" },
   ertiga: { price: "from ₹14/km", offer: "10% Off", cta: "Book Now" },
   dzire: { price: "from ₹11/km", offer: "10% Off", cta: "Book Now" },
   etios: { price: "from ₹12/km", offer: "10% Off", cta: "Book Now" },

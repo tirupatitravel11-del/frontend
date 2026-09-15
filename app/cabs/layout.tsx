@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pan India Taxi | @10% Off | Tirupati Travels | Book Now",
+  title: "Pan India Taxi Service | 10% Off | Book Now | Tirupati Travel",
   description:
-    "Book Tirupati taxi and cab services for airport transfers, local sightseeing and outstation trips with reliable drivers and transparent fares. Call +918726124680.",
+    "Book affordable Pan India taxi services for local, outstation and airport travel. Choose from sedans, SUVs and tempo travellers with reliable service.",
 };
 
 export default function CabsLayout({
