@@ -23,6 +23,8 @@ import InnovaFleetDetails from "@/_components/InnovaCrysta/InnovaFleetDetails";
 import HowItWorks from "../AirportTransfer/HowItWorks";
 import InnovaFaq from "@/_components/InnovaCrysta/InnovaFaq";
 import FamilyLongDistanceSpotlightTaxi from "@/_components/InnovaCrysta/FamilyLongDistanceSpotlightTaxi";
+import PopularRoutes from "@/_components/PopularRoutes";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680"; // Format for wa.me (no '+')
@@ -39,6 +41,8 @@ export default function InnovaCrystaPage({ page }: { page: SeoPageData }) {
 }
 
 function ServicePage({ page }: { page: SeoPageData }) {
+  const popularRoutes = generatePopularRoutes(page.city, "");
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-white">
       {/* Decorative Background */}
@@ -143,13 +147,14 @@ function ServicePage({ page }: { page: SeoPageData }) {
         <FamilyLongDistanceSpotlightTaxi />
         {/* <InnovaFleetDetails  /> */}
 
-        {/* <PopularRoutes
-                routes={data.popularRoutes}
-                from={route.fromCity}
-                to={route.toCity}
-                pagetype={page.pageType}
-              /> */}
-
+        {popularRoutes.length > 0 && (
+          <PopularRoutes
+            routes={popularRoutes}
+            from={popularRoutes[0].from}
+            to="popular destinations"
+            pagetype="innova-crysta-taxi"
+          />
+        )}
         <HowItWorks />
 
         <WhyChooseUs />

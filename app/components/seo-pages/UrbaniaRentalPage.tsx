@@ -21,12 +21,11 @@ import UrbaniaCitySection from "@/_components/urbaniaRental/Aboutsection";
 import UrbaniaUseCases from "@/_components/urbaniaRental/FitforeveryGroup";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import UrbaniaFaq from "@/_components/urbaniaRental/UrbaniaFaq";
-
-
-
+import PopularRoutes from "@/_components/PopularRoutes";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 
 const PHONE_NUMBER = "+918726124680";
-const WHATSAPP_NUMBER = "918726124680"; 
+const WHATSAPP_NUMBER = "918726124680";
 
 const URBANIA_MODELS = [
   "Force Urbania 9 Seater",
@@ -42,6 +41,8 @@ export default function UrbaniaRentalPage({ page }: { page: SeoPageData }) {
 }
 
 function ServicePage({ page }: { page: SeoPageData }) {
+  const popularRoutes = generatePopularRoutes(page.city, "");
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-white">
       {/* Decorative Background */}
@@ -144,12 +145,20 @@ function ServicePage({ page }: { page: SeoPageData }) {
       {/* ===== BELOW HERO SECTIONS ===== */}
       <div className="relative z-10 border-t border-slate-100 bg-white">
         <UrbaniaCitySection />
-       
+
         <UrbaniaVariants />
 
         <UrbaniaUseCases />
+        {popularRoutes.length > 0 && (
+          <PopularRoutes
+            routes={popularRoutes}
+            from={popularRoutes[0].from}
+            to="popular destinations"
+            pagetype="urbania-rental"
+          />
+        )}
         <WhyChooseUs />
-        <UrbaniaFaq/>
+        <UrbaniaFaq />
       </div>
     </section>
   );

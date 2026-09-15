@@ -16,7 +16,7 @@ import FeaturedBoats from "./components/Home/FeaturesBoats";
 export const metadata: Metadata = {
   title: "Tirupati Travels | India Taxi & Cab | @10% Off | Book Now",
   description:
-    "Book taxis, hotels, tour packages, travel experiences and boat rides across India with Tirupati Travel. Get @10% Off and book now.",
+    "Book taxis, hotels, tour packages, travel experiences and boat rides across India with Tirupati Travel. Get @10% Off and book now. Call +918726124680.",
 };
 
 export default function Home() {

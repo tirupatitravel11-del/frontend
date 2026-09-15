@@ -21,6 +21,9 @@ import TwentyFourSeaterTempoDetails from "@/_components/24seatTempo/TwentyFourSe
 import TwentyFourSeaterTempoFaq from "@/_components/24seatTempo/TwentyFourSeaterTempoFaq";
 import TwentyFourSeaterTempoFare from "@/_components/24seatTempo/TwentyFourSeaterTempoFare";
 import TempoTaxiFaq from "@/_components/12seatTempo/TempoTaxiFaq";
+import PopularRoutes from "@/_components/PopularRoutes";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import type { SeoPageData } from "@/app/data/seoPages";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -34,7 +37,11 @@ const FEATURES = [
   { icon: ShieldCheck, label: "Verified Driver", sub: "Experienced & safe" },
 ];
 
-export default function TwentyFourSeaterTempoTravellerPage() {
+export default function TwentyFourSeaterTempoTravellerPage({
+  page,
+}: {
+  page: SeoPageData;
+}) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [passengers, setPassengers] = useState("");
@@ -43,6 +50,7 @@ export default function TwentyFourSeaterTempoTravellerPage() {
   const [drop, setDrop] = useState("");
 
   const today = new Date().toISOString().split("T")[0];
+  const popularRoutes = generatePopularRoutes(page.city, "");
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -312,7 +320,15 @@ Please share the detailed quote and availability.`;
         <TwentyFourSeaterTempoDetails />
         <TwentyFourSeaterGroupBenefits />
         {/* <TwentyFourSeaterTempoFare /> */}
-    <TempoTaxiFaq/>
+        {popularRoutes.length > 0 && (
+          <PopularRoutes
+            routes={popularRoutes}
+            from={popularRoutes[0].from}
+            to="popular destinations"
+            pagetype="tempo-traveller"
+          />
+        )}
+        <TempoTaxiFaq />
       </div>
     </main>
   );

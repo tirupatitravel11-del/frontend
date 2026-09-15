@@ -25,6 +25,8 @@ import EtiosAirport from "@/_components/Etios/EtiosAirport";
 import HowItWorks from "../AirportTransfer/HowItWorks";
 import EtiosTaxiFaq from "@/_components/Etios/EtiosTaxiFaq";
 import EtiosTaxiComparison from "@/_components/Etios/EtiosTaxiComparison";
+import PopularRoutes from "@/_components/PopularRoutes";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -38,6 +40,7 @@ type TripType = "one-way" | "round-trip";
 
 export default function EtiosTaxiPage({ page }: { page: SeoPageData }) {
   const route = { fromCity: page.city, toCity: "local destinations" };
+  const popularRoutes = generatePopularRoutes(page.city, "");
 
   return (
     <main className="flex flex-col gap-0">
@@ -147,13 +150,15 @@ export default function EtiosTaxiPage({ page }: { page: SeoPageData }) {
 
         <EtiosStorySection />
         <EtiosTaxiComparison />
-        {/* <PopularRoutes
-               routes={data.popularRoutes}
-               from={route.fromCity}
-               to={route.toCity}
-               pagetype={page.pageType}
-             /> */}
         <EtiosAirport />
+        {popularRoutes.length > 0 && (
+          <PopularRoutes
+            routes={popularRoutes}
+            from={popularRoutes[0].from}
+            to="popular destinations"
+            pagetype="etios-taxi"
+          />
+        )}
         <HowItWorks />
         <Testimonials />
 

@@ -14,8 +14,6 @@
 //   );
 // }
 
-
-
 // export function findVehicleFromSlug(
 //   pageSlug: string,
 // ): Vehicle | null {
@@ -76,7 +74,6 @@
 
 import { ROUTES, Route } from "./-helper";
 import { VEHICLES, Vehicle } from "./vehicles";
-
 
 // ========================================
 // GENERIC PAGE TYPES
@@ -140,7 +137,7 @@ export const GENERIC_PAGE_TYPES = [
 //   perKm = 15,
 // ) {
 //   console.log(distance,roundTrip,parKm);
-  
+
 //   const totalKm = roundTrip
 //     ? distance * 2
 //     : distance;
@@ -149,17 +146,10 @@ export const GENERIC_PAGE_TYPES = [
 //     totalKm * perKm + 500
 //   );
 // }
-export function calculateFare(
-  distance: number,
-  perKm: number,
-) {
-  const oneWayFare = Math.round(
-    (distance * perKm * 1.5) + 500
-  );
+export function calculateFare(distance: number, perKm: number) {
+  const oneWayFare = Math.round(distance * perKm * 1.5 + 500);
 
-  const roundTripFare = Math.round(
-    (distance * 2 * perKm * 1.5) + 500
-  );
+  const roundTripFare = Math.round(distance * 2 * perKm * 1.5 + 500);
 
   return {
     oneWayFare,
@@ -170,12 +160,8 @@ export function calculateFare(
 // VEHICLE
 // ========================================
 
-export function findVehicleFromSlug(
-  pageSlug: string,
-): Vehicle | null {
-  const normalizedSlug = pageSlug
-    .toLowerCase()
-    .replace(/^\/|\/$/g, "");
+export function findVehicleFromSlug(pageSlug: string): Vehicle | null {
+  const normalizedSlug = pageSlug.toLowerCase().replace(/^\/|\/$/g, "");
 
   const sortedVehicles = [...VEHICLES].sort(
     (a, b) => b.slug.length - a.slug.length,
@@ -198,7 +184,6 @@ export function findVehicleFromSlug(
   return null;
 }
 
-
 // ========================================
 // ROUTE
 // ========================================
@@ -207,9 +192,7 @@ export function findRouteFromSlug(
   pageSlug: string,
   vehicle: Vehicle,
 ): Route | null {
-  const normalizedSlug = pageSlug
-    .toLowerCase()
-    .replace(/^\/|\/$/g, "");
+  const normalizedSlug = pageSlug.toLowerCase().replace(/^\/|\/$/g, "");
 
   let routeSlug = normalizedSlug;
 
@@ -221,22 +204,14 @@ export function findRouteFromSlug(
 
   for (const suffix of suffixes) {
     if (routeSlug.endsWith(suffix)) {
-      routeSlug = routeSlug.slice(
-        0,
-        -suffix.length,
-      );
+      routeSlug = routeSlug.slice(0, -suffix.length);
 
       break;
     }
   }
 
-  return (
-    ROUTES.find(
-      (route) => route.slug === routeSlug,
-    ) || null
-  );
+  return ROUTES.find((route) => route.slug === routeSlug) || null;
 }
-
 
 // ========================================
 // POPULAR ROUTES
@@ -246,12 +221,13 @@ export function generatePopularRoutes(
   fromCity: string,
   currentRouteSlug: string,
 ) {
-  return ROUTES
-    .filter(
-      (route) =>
-        route.fromCity === fromCity &&
-        route.slug !== currentRouteSlug,
-    )
+  const normalizedFromCity = fromCity.trim().toLowerCase();
+
+  return ROUTES.filter(
+    (route) =>
+      route.fromCity.toLowerCase() === normalizedFromCity &&
+      route.slug !== currentRouteSlug,
+  )
     .slice(0, 10)
     .map((route, index) => ({
       id: index + 1,
@@ -259,6 +235,11 @@ export function generatePopularRoutes(
       to: route.toCity,
       distance: `${route.distance} km`,
       duration: route.duration,
+      fare: Math.min(
+        ...VEHICLES.map(
+          (vehicle) => calculateFare(route.distance, vehicle.perKm).oneWayFare,
+        ),
+      ),
       image: `/popular_cab_route${index + 1}.jpg`,
       popular: true,
       slug: route.slug,
@@ -269,9 +250,7 @@ export function findGenericRouteFromSlug(
   pageSlug: string,
   pageType: GenericPageType,
 ): Route | null {
-  const normalizedSlug = pageSlug
-    .toLowerCase()
-    .replace(/^\/|\/$/g, "");
+  const normalizedSlug = pageSlug.toLowerCase().replace(/^\/|\/$/g, "");
 
   const pageConfig = GENERIC_PAGE_TYPES.find(
     (item) => item.pageType === pageType,
@@ -285,14 +264,7 @@ export function findGenericRouteFromSlug(
     return null;
   }
 
-  const routeSlug = normalizedSlug.slice(
-    0,
-    -pageConfig.suffix.length,
-  );
+  const routeSlug = normalizedSlug.slice(0, -pageConfig.suffix.length);
 
-  return (
-    ROUTES.find(
-      (route) => route.slug === routeSlug,
-    ) || null
-  );
+  return ROUTES.find((route) => route.slug === routeSlug) || null;
 }

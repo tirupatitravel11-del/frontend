@@ -25,6 +25,7 @@ import Testimonials from "@/app/components/Home/Testimonials";
 import ErtigaTaxiFaq from "@/_components/Ertiga/ErtigaTaxiFaq";
 import ErtigaAdvantage from "@/_components/Ertiga/ErtigaAdvantage";
 import ErtigaStorySection from "@/_components/Ertiga/ErtigaStorySection";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -38,6 +39,7 @@ type TripType = "one-way" | "round-trip";
 
 export default function ErtigaTaxiPage({ page }: { page: SeoPageData }) {
   const route = { fromCity: page.city, toCity: "local destinations" };
+  const popularRoutes = generatePopularRoutes(page.city, "");
 
   // Filter specifically for Ertiga or standard MUVs
   return (
@@ -144,20 +146,20 @@ export default function ErtigaTaxiPage({ page }: { page: SeoPageData }) {
 
       {/* ===== BELOW HERO SECTIONS ===== */}
       <div className="relative z-10 border-t border-slate-100 bg-white">
-        {/* <PopularRoutes
-          routes={[]}
-          from={route.fromCity}
-          to={route.toCity}
-          pagetype="ertiga-taxi"
-        /> */}
         <ErtigaStorySection />
 
         <ErtigaAdvantage />
 
-
-
         {/* <ErtigaFitGuide /> */}
 
+        {popularRoutes.length > 0 && (
+          <PopularRoutes
+            routes={popularRoutes}
+            from={popularRoutes[0].from}
+            to="popular destinations"
+            pagetype="ertiga-taxi"
+          />
+        )}
         <HowToBook from={route.fromCity} to={route.toCity} />
 
         <WhyChooseUs />

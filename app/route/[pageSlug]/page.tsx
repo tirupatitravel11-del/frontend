@@ -40,7 +40,7 @@ export async function generateMetadata({
   if (!data) {
     return {
       title: "Page Not Found",
-      description: "The requested page was not found.",
+      description: "The requested page was not found. Call +918726124680.",
     };
   }
 
