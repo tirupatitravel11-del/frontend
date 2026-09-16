@@ -1,6 +1,9 @@
 "use client";
 
+import axios from "axios";
+import { Loader2 } from "lucide-react";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -17,25 +20,120 @@ export default function Hero({ from, to, fare }: HeroProps) {
   const [tripType, setTripType] = useState<TripType>("one-way");
 
   const [date, setDate] = useState("");
-  const [pickup, setPickup] = useState(from);
-  const [drop, setDrop] = useState(to);
-
+  const [pickup, setPickup] = useState("");
+  const [drop, setDrop] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+  const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false);
   const today = new Date().toISOString().split("T")[0];
 
-  const handleBook = (e: React.FormEvent) => {
+  const handleBook = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const message = `Hello, I want to book a taxi.
+    if (!name.trim()) {
+      toast.error("Please enter your name");
+      return;
+    }
+    if (!pickup.trim()) {
+      toast.error("Please enter pickup location");
+      return;
+    }
 
+    if (!drop.trim()) {
+      toast.error("Please enter drop location");
+      return;
+    }
+    if (pickup.trim().toLowerCase() === drop.trim().toLowerCase()) {
+      toast.error("Pickup and drop location cannot be the same");
+      return;
+    }
+    if (!date) {
+      toast.error("Please select travel date");
+      return;
+    }
+
+    if (date < today) {
+      toast.error("Travel date cannot be in the past");
+      return;
+    }
+
+    if (!phoneNo) {
+      toast.error("Please enter your phone number");
+      return;
+    }
+
+    if (!/^[6-9]\d{9}$/.test(phoneNo)) {
+      toast.error("Please enter a valid 10 digit Indian mobile number");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        process.env.apiUrl + "/api/create-booking-cab",
+        {
+          name,
+          phoneNo,
+          serviceType: "cab",
+          pickup: pickup.trim(),
+          drop: drop.trim(),
+          date,
+          from,
+          to,
+          trip: tripType,
+          fare:tripType == "one-way" ? fare?.oneWayPrice : fare?.roundTripPrice,
+          vehicle: "taxi",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      if (response.status === 200 || response.status === 201) {
+        toast.success("Booking request submitted successfully!");
+
+        const message = `Hello, I want to book a Taxi.
 Trip: ${tripType === "one-way" ? "One Way" : "Round Trip"}
 Pickup: ${pickup}
 Drop: ${drop}
-Date: ${date}`;
+Travel Date: ${date}
+Vehicle: Taxi
+Phone: ${phoneNo}
+Fare: ₹${(fare?.tripType === "one-way"
+          ? fare?.oneWayPrice
+          : fare?.roundTripPrice
+        )?.toLocaleString("en-IN")}`;
 
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank",
-    );
+        window.open(
+          `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+          "_blank",
+        );
+
+        // Reset form
+        setDate("");
+        setPickup("");
+        setDrop("");
+        setPhoneNo("");
+        setName("");
+        setTripType("one-way")
+      }
+    } catch (error) {
+      console.error("Booking API failed:", error);
+
+      if (axios.isAxiosError(error)) {
+        toast.error(
+          error.response?.data?.message ||
+            "Something went wrong. Please try again.",
+        );
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -131,6 +229,50 @@ Date: ${date}`;
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                  name
+                </label>
+
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  placeholder={`enter your name`}
+                  className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
+                />
+              </div>
+
+              <div>
+                <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                  Phone no
+                </label>
+
+                <input
+                  type="tel"
+                  value={phoneNo}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, "");
+
+                    if (value.length <= 10) {
+                      setPhoneNo(value);
+                    }
+                  }}
+                  maxLength={10}
+                  inputMode="numeric"
+                  placeholder="98xxxxxxxx"
+                  className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
+                />
+
+                {phoneNo.length > 0 && phoneNo.length < 10 && (
+                  <p className="mt-1 text-xs text-red-500">
+                    Please enter a 10 digit mobile number
+                  </p>
+                )}
+              </div>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label className="mb-1.5 block text-sm font-semibold text-slate-700">
                   Pickup Location
                 </label>
 
@@ -177,12 +319,18 @@ Date: ${date}`;
 
             <button
               type="submit"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
+              disabled={loading}
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-gold/90 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Book Now
-              <span className="text-lg leading-none">→</span>
+              {loading ? (
+                <>
+                  <Loader2 size={18} className="animate-spin" />
+                  Booking...
+                </>
+              ) : (
+                "Book Now →"
+              )}
             </button>
-
             <p className="text-center text-xs text-slate-500">
               No advance payment • Instant confirmation on WhatsApp
             </p>

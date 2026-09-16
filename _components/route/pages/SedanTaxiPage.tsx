@@ -21,7 +21,8 @@ export default function SedanTaxiPage({ data }: any) {
 
   return (
     <>
-      <SedanHero        from={data.route.fromCity}
+      <SedanHero 
+        from={data.route.fromCity}
         to={data.route.toCity}
         vehicle={data.vehicle}
         fare={data.fares[0]} />

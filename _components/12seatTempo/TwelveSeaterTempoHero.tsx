@@ -7,7 +7,10 @@ import {
   Phone,
   MessageCircle,
   CalendarDays,
+  Loader2,
 } from "lucide-react";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -16,38 +19,143 @@ interface TwelveSeaterTempoHeroProps {
   from: string;
   to: string;
   startingFare?: number;
-    fare:any
+  fare: any;
 }
 
 export default function TwelveSeaterTempoHero({
   from,
   to,
   startingFare = 4500,
-  fare
+  fare,
 }: TwelveSeaterTempoHeroProps) {
   const [date, setDate] = useState("");
-  const [pickup, setPickup] = useState(from);
-  const [drop, setDrop] = useState(to);
-
+  const [pickup, setPickup] = useState("");
+  const [drop, setDrop] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+  const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false);
   const today = new Date().toISOString().split("T")[0];
 
-  const handleBook = (e: React.FormEvent) => {
+  //   const handleBook = (e: React.FormEvent) => {
+  //     e.preventDefault();
+
+  //     const message = `Hello, I want to book a 12 Seater Tempo Traveller.
+
+  // Pickup: ${pickup}
+  // Drop: ${drop}
+  // Travel Date: ${date}
+  // Passengers: Up to 12
+  // Vehicle: 12 Seater Tempo Traveller`;
+
+  //     window.open(
+  //       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+  //       "_blank",
+  //     );
+  //   };
+  const handleBook = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const message = `Hello, I want to book a 12 Seater Tempo Traveller.
+    if (!name.trim()) {
+      toast.error("Please enter your name");
+      return;
+    }
+    if (!pickup.trim()) {
+      toast.error("Please enter pickup location");
+      return;
+    }
+
+    if (!drop.trim()) {
+      toast.error("Please enter drop location");
+      return;
+    }
+    if (pickup.trim().toLowerCase() === drop.trim().toLowerCase()) {
+      toast.error("Pickup and drop location cannot be the same");
+      return;
+    }
+    if (!date) {
+      toast.error("Please select travel date");
+      return;
+    }
+
+    if (date < today) {
+      toast.error("Travel date cannot be in the past");
+      return;
+    }
+
+    if (!phoneNo) {
+      toast.error("Please enter your phone number");
+      return;
+    }
+
+    if (!/^[6-9]\d{9}$/.test(phoneNo)) {
+      toast.error("Please enter a valid 10 digit Indian mobile number");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+         process.env.apiUrl + '/api/create-booking-cab',
+        {
+          name,
+          phoneNo,
+          serviceType: "cab",
+          pickup: pickup.trim(),
+          drop: drop.trim(),
+          date,
+          from,
+          to,
+          fare: fare?.oneWayPrice ?? startingFare,
+          vehicle: "12 Seater Tempo Traveller",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      if (response.status === 200 || response.status === 201) {
+        toast.success("Booking request submitted successfully!");
+
+        const message = `Hello, I want to book a 12 Seater Tempo Traveller.
 
 Pickup: ${pickup}
 Drop: ${drop}
 Travel Date: ${date}
 Passengers: Up to 12
-Vehicle: 12 Seater Tempo Traveller`;
+Vehicle: 12 Seater Tempo Traveller
+Phone: ${phoneNo}
+Fare: ₹${(fare?.oneWayPrice ?? startingFare).toLocaleString("en-IN")}`;
 
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank",
-    );
+        window.open(
+          `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+          "_blank",
+        );
+
+        // Reset form
+        setDate("");
+        setPickup("");
+        setDrop("");
+        setPhoneNo("");
+        setName("")
+      }
+    } catch (error) {
+      console.error("Booking API failed:", error);
+
+      if (axios.isAxiosError(error)) {
+        toast.error(
+          error.response?.data?.message ||
+            "Something went wrong. Please try again.",
+        );
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
-
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="pointer-events-none absolute -top-32 right-0 h-72 w-72 rounded-full bg-gold/10 blur-3xl sm:h-96 sm:w-96" />
@@ -67,8 +175,7 @@ Vehicle: 12 Seater Tempo Traveller`;
 
           <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:leading-tight">
             {from} to {to}{" "}
-            <span className="text-gold">12 Seater Tempo Traveller</span>{" "}
-            Rental
+            <span className="text-gold">12 Seater Tempo Traveller</span> Rental
           </h1>
 
           <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
@@ -98,9 +205,7 @@ Vehicle: 12 Seater Tempo Traveller`;
                 8+
               </p>
 
-              <p className="text-[11px] text-slate-500 sm:text-xs">
-                Bags
-              </p>
+              <p className="text-[11px] text-slate-500 sm:text-xs">Bags</p>
             </div>
 
             <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
@@ -147,6 +252,18 @@ Vehicle: 12 Seater Tempo Traveller`;
           </h2>
 
           <form onSubmit={handleBook} className="mt-5 space-y-4">
+              <div>
+              <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                Name
+              </label>
+
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder={`enter your name`}
+                className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
+              />
+            </div>
             <div>
               <label className="mb-1.5 block text-sm font-semibold text-slate-700">
                 Pickup Location
@@ -155,7 +272,6 @@ Vehicle: 12 Seater Tempo Traveller`;
               <input
                 value={pickup}
                 onChange={(e) => setPickup(e.target.value)}
-                required
                 placeholder={`e.g. ${from} Sector 62`}
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
               />
@@ -169,7 +285,6 @@ Vehicle: 12 Seater Tempo Traveller`;
               <input
                 value={drop}
                 onChange={(e) => setDrop(e.target.value)}
-                required
                 placeholder={`e.g. ${to} Airport`}
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
               />
@@ -186,16 +301,49 @@ Vehicle: 12 Seater Tempo Traveller`;
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 min={today}
-                required
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
               />
             </div>
+            <div>
+              <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                Phone no
+              </label>
 
+              <input
+                type="tel"
+                value={phoneNo}
+                onChange={(e) => {
+                  const value = e.target.value.replace(/\D/g, "");
+
+                  if (value.length <= 10) {
+                    setPhoneNo(value);
+                  }
+                }}
+                maxLength={10}
+                inputMode="numeric"
+                placeholder="98xxxxxxxx"
+                className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
+              />
+
+              {phoneNo.length > 0 && phoneNo.length < 10 && (
+                <p className="mt-1 text-xs text-red-500">
+                  Please enter a 10 digit mobile number
+                </p>
+              )}
+            </div>
             <button
               type="submit"
-              className="w-full rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-gold/90"
+              disabled={loading}
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-gold/90 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Book 12 Seater Now →
+              {loading ? (
+                <>
+                  <Loader2 size={18} className="animate-spin" />
+                  Booking...
+                </>
+              ) : (
+                "Book 12 Seater Now →"
+              )}
             </button>
           </form>
         </div>

@@ -8,6 +8,7 @@ import WhyChooseUs from "@/_components/WhyChooseUs";
 
 export default function TempoTravellerPage({ data }: any) {
   const { route, page } = data;
+console.log(data,"lllllllllllll");
 
   const sedanVehicles = data.vehicles.filter(
     (vehicle: any) => vehicle.cabType === "Sedan",
@@ -19,6 +20,7 @@ export default function TempoTravellerPage({ data }: any) {
         from={route.fromCity}
         to={route.toCity}
         startingFare={1599}
+        fare={data.fares[0]}
       />
       <TempoTravellerFleetDetails />
 

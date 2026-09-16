@@ -14,11 +14,13 @@ import Testimonials from "@/app/components/Home/Testimonials";
 export default function ContactPage({ data }: any) {
   const { route, page, vehicles, fares, popularRoutes } = data;
   console.log(data, "dhsjh");
+  console.log(fares, "fare");
+
 
   return (
     <>
       {/* Hero */}
-      <ContactHero from={route.fromCity} to={route.toCity} />
+      <ContactHero from={route.fromCity} to={route.toCity} fare={data.fares[0]} />
       <BookingInformation />
       {/* Cab Selector */}
       <CabSelector

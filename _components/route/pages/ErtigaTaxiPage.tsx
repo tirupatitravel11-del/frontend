@@ -20,32 +20,7 @@ import WhyChooseUs from "@/_components/WhyChooseUs";
 import TestimonialCard from "@/app/components/Home/TestimonialCard";
 import Testimonials from "@/app/components/Home/Testimonials";
 
-const NOIDA_DELHI_ROUTES: any = [
-  {
-    from: "Noida",
-    to: "Delhi",
-    km: "25 km",
-    time: "45 min–1.5 hr",
-    fare: 1200,
-    tag: "Popular",
-  },
-  {
-    from: "Noida",
-    to: "New Delhi Railway Station",
-    km: "30 km",
-    time: "1–1.5 hr",
-    fare: 1299,
-    tag: "Railway",
-  },
-  {
-    from: "Noida",
-    to: "Delhi Airport",
-    km: "35 km",
-    time: "1–2 hr",
-    fare: 1499,
-    tag: "Airport",
-  },
-];
+
 
 export default function ErtigaTaxiPage({ data }: any) {
   const { route, page } = data;

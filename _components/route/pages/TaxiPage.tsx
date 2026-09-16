@@ -19,7 +19,7 @@ export default function TaxiPage({ data }: any) {
     fares,
     popularRoutes,
   } = data;
-console.log(data,"dhsjh");
+console.log(data,"fulldata");
 
   return (
     <>

@@ -105,18 +105,7 @@ const luxuryTableFares = tempoFares.map((fare) => ({
       <WhyChooseUs />
       <LuxuryTempoFaq from={data.route.fromCity}
         to={data.route.toCity}/>
-      {/* <TempoTravellerFleetDetails/> */}
-      {/* <InnovaCrystaHero from="Noida" to="Delhi" startingFare={1599} />
-      <InnovaFleetDetails />
-      <InnovaCrystaFitGuide />
-      <PopularRoutes from="Noida" to="Delhi" routes={NOIDA_DELHI_ROUTES} />
-      <FamilyLongDistanceSpotlight />
-      <Testimonials />
-      <HowToBook from="Noida" to="Delhi" />
-      <WhyChooseUs />
-
-      <InnovaCrystaFaq /> */}
     </>
   );
 }
-// sjushdhs
+
