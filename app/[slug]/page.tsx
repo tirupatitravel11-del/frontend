@@ -9,6 +9,7 @@ import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 import AirportTaxiPage from "../components/seo-pages/AirportTaxiPage";
 import TaxiServicePage from "../components/seo-pages/TaxiServicePage";
+import SuvTaxiPage from "../components/seo-pages/SuvTaxiPage";
 import UrbaniaRentalPage from "../components/seo-pages/UrbaniaRentalPage";
 import InnovaCrystaPage from "../components/seo-pages/InnovaCrystaPage";
 import ErtigaTaxiPage from "../components/seo-pages/ErtigaTaxiPage";
@@ -55,7 +56,9 @@ export async function generateMetadata({
 
   let seoDescription = page.description;
 
-  if (page.service === "amaze" || page.slug.includes("amaze")) {
+  if (page.service === "suv" || page.slug.includes("suv-taxi")) {
+    seoDescription = `Hire verified SUV taxi in ${city} for family trips, airport transfers, outstation journeys & group travel. Spacious seating, premium AC comfort.`;
+  } else if (page.service === "amaze" || page.slug.includes("amaze")) {
     seoDescription = `Hire verified Honda Amaze taxi in ${city} for local sightseeing, outstation travel & airport drops. Experienced drivers, clean AC sedans.`;
   } else if (page.service === "ertiga" || page.slug.includes("ertiga")) {
     seoDescription = `Hire verified Ertiga taxi in ${city} for family trips, group tours, outstation travel & airport transfers. Experienced drivers, spacious 6-7 seater.`;
@@ -63,10 +66,7 @@ export async function generateMetadata({
     seoDescription = `Hire verified Dzire taxi in ${city} for local sightseeing, outstation trips & airport transfers. City-expert drivers, clean AC cars.`;
   } else if (page.service === "etios" || page.slug.includes("etios")) {
     seoDescription = `Hire verified Toyota Etios taxi in ${city} for local sightseeing, long-distance trips & airport transfers. Expert drivers, spacious boot & AC comfort.`;
-  } else if (
-    page.service === "innova-crysta" ||
-    page.slug.includes("innova")
-  ) {
+  } else if (page.service === "innova-crysta" || page.slug.includes("innova")) {
     seoDescription = `Hire verified Innova Crysta taxi in ${city} for premium family travel, outstation tours & airport drop. Professional drivers, luxury SUV comfort.`;
   } else if (
     page.service === "urbania-rental" ||
@@ -89,10 +89,7 @@ export async function generateMetadata({
             ? "24 Seater Tempo Traveller"
             : "Tempo Traveller";
     seoDescription = `Hire verified ${tempoLabel} in ${city} for group travel, pilgrimages, local sightseeing & outstation trips. Experienced drivers, clean AC seating.`;
-  } else if (
-    page.service === "airport" ||
-    page.slug.includes("airport")
-  ) {
+  } else if (page.service === "airport" || page.slug.includes("airport")) {
     seoDescription = `Book verified airport taxi in ${city} for 24/7 airport pickups, hotel drops & outstation connections. On-time arrival, flight tracking & clean AC cabs.`;
   } else if (
     page.service === "taxi-contact-number" ||
@@ -148,6 +145,8 @@ export default async function SeoPage({ params }: PageProps) {
         <TempoTravellerPage page={page} />
       ) : page.service === "airport" ? (
         <AirportTaxiPage page={page} />
+      ) : page.service === "suv" ? (
+        <SuvTaxiPage page={page} />
       ) : page.service === "urbania-rental" ? (
         <UrbaniaRentalPage page={page} />
       ) : page.service === "innova-crysta" ? (
@@ -175,6 +174,7 @@ export default async function SeoPage({ params }: PageProps) {
       {pageContent}
       {page.service !== "taxi" &&
         page.service !== "tempo" &&
+        page.service !== "suv" &&
         page.service !== "amaze" &&
         page.service !== "dzire" &&
         page.service !== "etios" &&
