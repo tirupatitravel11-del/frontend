@@ -141,7 +141,8 @@ export const VEHICLES: Vehicle[] = [
   },
 
   {
-    slug: "luxury-tempo-traveller",
+    slug: "
+    ury-tempo-traveller",
     name: "Luxury Tempo Traveller",
     pageType: "luxury-tempo-traveller",
     brand: "Force",
