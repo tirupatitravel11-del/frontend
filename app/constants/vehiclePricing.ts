@@ -17,7 +17,12 @@ export const vehiclePricing: Record<string, VehiclePricing> = {
     cta: "Book Now",
   },
   "urbania-rental": {
-    price: "from ₹2,499/day",
+    price: "from ₹30/km",
+    offer: "10% Off",
+    cta: "Book Now",
+  },
+  urbania: {
+    price: "from ₹30/km",
     offer: "10% Off",
     cta: "Book Now",
   },
@@ -33,7 +38,7 @@ export const vehiclePricing: Record<string, VehiclePricing> = {
   etios: { price: "from ₹12/km", offer: "10% Off", cta: "Book Now" },
   amaze: { price: "from ₹12/km", offer: "10% Off", cta: "Book Now" },
   "luxury-tempo-traveller": {
-    price: "from ₹2,999/day",
+    price: "from ₹22/km",
     offer: "10% Off",
     cta: "Book Now",
   },
