@@ -167,7 +167,7 @@ export const VEHICLES: Vehicle[] = [
     airCondition: true,
     fuelType: "Diesel",
     transmission: "Manual",
-    perKm: 20,
+    perKm: 24,
   },
 
   {
@@ -234,12 +234,8 @@ export const VEHICLES: Vehicle[] = [
   },
 ];
 
-export function findVehicleFromSlug(
-  pageSlug: string,
-): Vehicle | null {
-  const normalizedSlug = pageSlug
-    .toLowerCase()
-    .replace(/^\/|\/$/g, "");
+export function findVehicleFromSlug(pageSlug: string): Vehicle | null {
+  const normalizedSlug = pageSlug.toLowerCase().replace(/^\/|\/$/g, "");
 
   // Longest slug first
   const sortedVehicles = [...VEHICLES].sort(
@@ -257,21 +253,13 @@ export function findVehicleFromSlug(
 
     // Tempo Traveller type URLs
     // noida-to-delhi-tempo-traveller
-    if (
-      normalizedSlug.endsWith(
-        `-${vehicle.slug}`,
-      )
-    ) {
+    if (normalizedSlug.endsWith(`-${vehicle.slug}`)) {
       return vehicle;
     }
 
     // Urbania:
     // noida-to-delhi-urbania-rental
-    if (
-      normalizedSlug.endsWith(
-        `-${vehicle.pageType}`,
-      )
-    ) {
+    if (normalizedSlug.endsWith(`-${vehicle.pageType}`)) {
       return vehicle;
     }
   }

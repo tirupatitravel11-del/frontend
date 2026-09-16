@@ -17,6 +17,8 @@ import Testimonials from "../Home/Testimonials";
 import LuxuryFleetDetails from "@/_components/luxuryTempoTraveller/LuxuryFleetDetails";
 import LuxuryTaxiFleet from "@/_components/luxuryTempoTraveller/LuxuryTaxiFleet";
 import LuxuryTaxiFaqs from "@/_components/luxuryTempoTraveller/LuxuryTaxiFaqs";
+import PopularRoutes from "@/_components/PopularRoutes";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -60,6 +62,7 @@ export default function LuxuryTempoTravellerTaxi({
   const [drop, setDrop] = useState("");
 
   const today = new Date().toISOString().split("T")[0];
+  const popularRoutes = generatePopularRoutes(page.city, "");
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,7 +92,7 @@ Please share the detailed quote and availability.`;
   return (
     <main>
       {/* ===== HERO SECTION ===== */}
-      <section className="relative overflow-hidden bg-white">
+            <section className="relative overflow-hidden bg-white">
         {/* Decorative Gold Glow */}
         <div className="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
@@ -107,8 +110,9 @@ Please share the detailed quote and availability.`;
               Group & Family Travel Specialists
             </p>
 
+            {/* UPDATED H1 HERE */}
             <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:leading-tight">
-              {page.city} Luxury Tempo Traveller on Rent for{" "}
+              Luxury Tempo Traveller on Rent for{" "}
               <span className="text-gold">Comfortable Group Travel</span>
             </h1>
 
@@ -325,9 +329,17 @@ Please share the detailed quote and availability.`;
         {/* <LuxuryTaxiFleet /> */}
         {/* <TempoTravellerFeatures /> */}
         {/* <TempoTravellerFaq /> */}
+        {popularRoutes.length > 0 && (
+          <PopularRoutes
+            routes={popularRoutes}
+            from={popularRoutes[0].from}
+            to="popular destinations"
+            pagetype="luxury-tempo-traveller"
+          />
+        )}
         <WhyChooseUs />
         <Testimonials />
-        <LuxuryTaxiFaqs/>
+        <LuxuryTaxiFaqs />
       </div>
     </main>
   );

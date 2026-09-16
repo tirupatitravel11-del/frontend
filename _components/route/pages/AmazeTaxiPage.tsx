@@ -3,11 +3,12 @@ import AmazeFitGuide from "@/_components/amaze/AmazeFitGuide";
 import AmazeFleetDetails from "@/_components/amaze/AmazeFleetDetails";
 import AmazeHero from "@/_components/amaze/AmazeHero";
 import HowToBook from "@/_components/Howtobook";
+import PopularRoutes from "@/_components/PopularRoutes";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
 
 export default function AmazeTaxiPage({ data }: any) {
-  const { route } = data;
+    const { route, page } = data;
 
   return (
     <>
@@ -17,9 +18,15 @@ export default function AmazeTaxiPage({ data }: any) {
       <AmazeFleetDetails  fares={data.fares}
   vehicles={data.vehicles}/>
       <AmazeFitGuide fares={data.fares[0]}/>
-      <Testimonials />
+        <PopularRoutes
+              routes={data.popularRoutes}
+              from={route.fromCity}
+              to={route.toCity}
+              pagetype={page.pageType}
+            />
       <HowToBook from={route.fromCity} to={route.toCity} />
       <WhyChooseUs />
+      <Testimonials />
       <AmazeFaq from={data.route.fromCity}
         to={data.route.toCity} />
     </>

@@ -11,34 +11,37 @@ import {
   Users,
   Briefcase,
   ShieldCheck,
+  Star,
 } from "lucide-react";
 import type { SeoPageData } from "@/app/data/seoPages";
 
-// Etios specific components
-// import EtiosTaxiFitGuide from "@/_components/etios/EtiosTaxiFitGuide";
-// import EtiosTaxiFaq from "@/_components/etios/EtiosTaxiFaq";
+// SUV specific components (You can create these by duplicating your Etios components)
+// import SuvTaxiFitGuide from "@/_components/suv/SuvTaxiFitGuide";
+// import SuvTaxiFaq from "@/_components/suv/SuvTaxiFaq";
 import HowToBook from "@/_components/Howtobook";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
-import EtiosStorySection from "@/_components/Etios/EtiosStorySection";
-import EtiosAirport from "@/_components/Etios/EtiosAirport";
-import HowItWorks from "../AirportTransfer/HowItWorks";
-import EtiosTaxiFaq from "@/_components/Etios/EtiosTaxiFaq";
-import EtiosTaxiComparison from "@/_components/Etios/EtiosTaxiComparison";
+
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import HowItWorks from "../AirportTransfer/HowItWorks";
+import SuvFitGuideTaxi from "@/_components/SUV/SuvFitGuideTaxi";
+import OutstationCabsPage from "@/app/outstationCabs/page";
+import OutstationSpotlight from "@/_components/SUV/OutstationSpotlight";
+import SuvFaqTaxi from "@/_components/SUV/SuvFaqTaxi";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
 
-const ETIOS_MODELS = [
-  "Toyota Etios Sedan (4+1 Seater)",
-  "Toyota Etios Liva (Hatchback)",
+const SUV_MODELS = [
+  "Toyota Innova Crysta (6+1 Seater)",
+  "Maruti Suzuki Ertiga (6+1 Seater)",
+  "Kia Carens (6+1 Seater)",
 ];
 
 type TripType = "one-way" | "round-trip";
 
-export default function EtiosTaxiPage({ page }: { page: SeoPageData }) {
+export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
   const route = { fromCity: page.city, toCity: "local destinations" };
   const popularRoutes = generatePopularRoutes(page.city, "");
 
@@ -68,48 +71,48 @@ export default function EtiosTaxiPage({ page }: { page: SeoPageData }) {
             {/* LEFT SIDE: Content */}
             <div className="max-w-3xl">
               <span className="mb-4 inline-block rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-gold">
-                Reliable & Spacious Sedan
+                Premium & Spacious SUV
               </span>
 
               <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
-                {page.title || "Toyota Etios Taxi Rental"}{" "}
+                {page.title || "Premium SUV Taxi Rental"}{" "}
                 <span className="text-gold">at Fixed Fares</span>
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
                 {page.description ||
-                  "Experience legendary reliability and comfort with the Toyota Etios. Renowned for its exceptionally spacious boot, smooth ride quality, and budget-friendly fares, making it perfect for small families, airport transfers, and outstation trips."}
+                  "Experience unmatched comfort, power, and space with our premium SUV fleet. Perfect for large families, group outstation trips, and luxurious airport transfers with ample luggage capacity and smooth ride quality."}
               </p>
 
-              {/* Etios Specs Grid */}
+              {/* SUV Specs Grid */}
               <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
                 <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
                   <Users className="mx-auto mb-2 h-6 w-6 text-gold" />
                   <p className="text-lg font-bold text-slate-900 sm:text-xl">
-                    4+1
+                    6+1 / 7+1
                   </p>
                   <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
-                    Comfortable Seats
+                    Spacious Seating
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
                   <Briefcase className="mx-auto mb-2 h-6 w-6 text-gold" />
                   <p className="text-lg font-bold text-slate-900 sm:text-xl">
-                    3+
+                    4+
                   </p>
                   <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
-                    Large Bags (Huge Boot)
+                    Large Bags (Extra Boot)
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
-                  <ShieldCheck className="mx-auto mb-2 h-6 w-6 text-gold" />
+                  <Star className="mx-auto mb-2 h-6 w-6 text-gold" />
                   <p className="text-lg font-bold text-slate-900 sm:text-xl">
-                    Toyota
+                    Premium
                   </p>
                   <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
-                    Legendary Reliability
+                    AC & Comfort
                   </p>
                 </div>
               </div>
@@ -138,7 +141,7 @@ export default function EtiosTaxiPage({ page }: { page: SeoPageData }) {
 
             {/* RIGHT SIDE: Booking Form */}
             <div className="relative">
-              <EtiosBookingForm />
+              <SuvBookingForm />
             </div>
           </div>
         </div>
@@ -146,32 +149,33 @@ export default function EtiosTaxiPage({ page }: { page: SeoPageData }) {
 
       {/* ===== BELOW HERO SECTIONS ===== */}
       <div className="relative z-10 border-t border-slate-100 bg-white">
-        {/* <EtiosTaxiFitGuide /> */}
-
-        <EtiosStorySection />
-        <EtiosTaxiComparison />
-        <EtiosAirport />
+        
+<SuvFitGuideTaxi/>
+   
+      
+        
         {popularRoutes.length > 0 && (
           <PopularRoutes
             routes={popularRoutes}
             from={popularRoutes[0].from}
             to="popular destinations"
-            pagetype="etios-taxi"
+            pagetype="suv-taxi"
           />
         )}
+        <OutstationSpotlight/>
         <HowItWorks />
         <Testimonials />
-
-        <EtiosTaxiFaq />
+        <SuvFaqTaxi/>
+      
       </div>
     </main>
   );
 }
 
 // ===== CLIENT COMPONENT: BOOKING FORM =====
-function EtiosBookingForm() {
+function SuvBookingForm() {
   const [tripType, setTripType] = useState<TripType>("one-way");
-  const [model, setModel] = useState(ETIOS_MODELS[0]);
+  const [model, setModel] = useState(SUV_MODELS[0]);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [pickup, setPickup] = useState("");
@@ -182,7 +186,7 @@ function EtiosBookingForm() {
   const handleBook = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const message = `Hello, I want to book a Toyota Etios.
+    const message = `Hello, I want to book a Premium SUV Taxi.
 
 Trip Type: ${tripType === "one-way" ? "One Way" : "Round Trip"}
 Vehicle Model: ${model}
@@ -195,14 +199,14 @@ Please share the fare and availability.`;
 
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank",
+      "_blank"
     );
   };
 
   return (
     <div className="rounded-3xl border border-slate-200/60 bg-white p-6 shadow-2xl shadow-slate-200/50 sm:p-8">
       <div className="mb-6">
-        <h3 className="text-2xl font-bold text-slate-900">Book Your Etios</h3>
+        <h3 className="text-2xl font-bold text-slate-900">Book Your SUV</h3>
         <p className="mt-1 text-sm text-slate-500">
           Get instant confirmation on WhatsApp
         </p>
@@ -239,7 +243,7 @@ Please share the fare and availability.`;
               onChange={(e) => setModel(e.target.value)}
               className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
             >
-              {ETIOS_MODELS.map((m) => (
+              {SUV_MODELS.map((m) => (
                 <option key={m} value={m}>
                   {m}
                 </option>
@@ -325,7 +329,7 @@ Please share the fare and availability.`;
           type="submit"
           className="w-full rounded-xl bg-gold py-4 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-gold/25 transition-all hover:bg-gold/90 hover:shadow-xl hover:shadow-gold/30"
         >
-          Book Etios Now →
+          Book SUV Now →
         </button>
 
         <p className="text-center text-xs text-slate-500">

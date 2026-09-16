@@ -5,8 +5,11 @@ import TempoTravellerPage from "@/app/components/seo-pages/TempoTravellerPage";
 import { seoPages, seoPageSlugs } from "@/app/data/seoPages";
 import { getVehiclePricing } from "@/app/constants/routePricing";
 import { createSeoMetadata } from "@/app/lib/seo";
+import PopularRoutes from "@/_components/PopularRoutes";
+import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 import AirportTaxiPage from "../components/seo-pages/AirportTaxiPage";
 import TaxiServicePage from "../components/seo-pages/TaxiServicePage";
+import SuvTaxiPage from "../components/seo-pages/SuvTaxiPage";
 import UrbaniaRentalPage from "../components/seo-pages/UrbaniaRentalPage";
 import InnovaCrystaPage from "../components/seo-pages/InnovaCrystaPage";
 import ErtigaTaxiPage from "../components/seo-pages/ErtigaTaxiPage";
@@ -44,13 +47,65 @@ export async function generateMetadata({
       ? pricingKey
       : pricingKey.replace(/-taxi$/, "");
   const pricing = getVehiclePricing(normalizedPricingKey);
+  const omitBookNow = false;
+
+  const city = page.city;
+  const formattedPrice = pricing.price.startsWith("from")
+    ? pricing.price
+    : `from ${pricing.price}`;
+
+  let seoDescription = page.description;
+
+  if (page.service === "suv" || page.slug.includes("suv-taxi")) {
+    seoDescription = `Hire verified SUV taxi in ${city} for family trips, airport transfers, outstation journeys & group travel. Spacious seating, premium AC comfort.`;
+  } else if (page.service === "amaze" || page.slug.includes("amaze")) {
+    seoDescription = `Hire verified Honda Amaze taxi in ${city} for local sightseeing, outstation travel & airport drops. Experienced drivers, clean AC sedans.`;
+  } else if (page.service === "ertiga" || page.slug.includes("ertiga")) {
+    seoDescription = `Hire verified Ertiga taxi in ${city} for family trips, group tours, outstation travel & airport transfers. Experienced drivers, spacious 6-7 seater.`;
+  } else if (page.service === "dzire" || page.slug.includes("dzire")) {
+    seoDescription = `Hire verified Dzire taxi in ${city} for local sightseeing, outstation trips & airport transfers. City-expert drivers, clean AC cars.`;
+  } else if (page.service === "etios" || page.slug.includes("etios")) {
+    seoDescription = `Hire verified Toyota Etios taxi in ${city} for local sightseeing, long-distance trips & airport transfers. Expert drivers, spacious boot & AC comfort.`;
+  } else if (page.service === "innova-crysta" || page.slug.includes("innova")) {
+    seoDescription = `Hire verified Innova Crysta taxi in ${city} for premium family travel, outstation tours & airport drop. Professional drivers, luxury SUV comfort.`;
+  } else if (
+    page.service === "urbania-rental" ||
+    page.slug.includes("urbania")
+  ) {
+    seoDescription = `Hire verified Force Urbania in ${city} for group tours, pilgrimages, outstation trips & event travel. Experienced drivers, luxury AC recliner seats.`;
+  } else if (
+    page.service === "luxury-tempo-traveller" ||
+    page.slug.includes("luxury-tempo")
+  ) {
+    seoDescription = `Hire verified Luxury Tempo Traveller in ${city} for group tours, pilgrimages, weddings & outstation travel. Maharaja seats, LED TV & expert drivers.`;
+  } else if (page.service === "tempo" || page.slug.includes("tempo")) {
+    const tempoLabel = page.slug.includes("12-seater")
+      ? "12 Seater Tempo Traveller"
+      : page.slug.includes("16-seater")
+        ? "16 Seater Tempo Traveller"
+        : page.slug.includes("20-seater")
+          ? "20 Seater Tempo Traveller"
+          : page.slug.includes("24-seater")
+            ? "24 Seater Tempo Traveller"
+            : "Tempo Traveller";
+    seoDescription = `Hire verified ${tempoLabel} in ${city} for group travel, pilgrimages, local sightseeing & outstation trips. Experienced drivers, clean AC seating.`;
+  } else if (page.service === "airport" || page.slug.includes("airport")) {
+    seoDescription = `Book verified airport taxi in ${city} for 24/7 airport pickups, hotel drops & outstation connections. On-time arrival, flight tracking & clean AC cabs.`;
+  } else if (
+    page.service === "taxi-contact-number" ||
+    page.slug.includes("contact-number")
+  ) {
+    seoDescription = `Call Tirupati Travel to book verified taxis in ${city} for local sightseeing, outstation trips & airport transfers. Instant quotes & 24/7 support.`;
+  } else if (page.service === "taxi" || page.slug.includes("taxi")) {
+    seoDescription = `Book verified taxi service in ${city} for local sightseeing, outstation journeys & airport transfers. City-expert drivers, clean AC cars.`;
+  }
 
   return createSeoMetadata({
     primaryKeyword: page.title,
     price: pricing.price,
     offer: pricing.offer,
-    cta: pricing.cta,
-    description: page.description,
+    cta: omitBookNow ? "" : pricing.cta,
+    description: seoDescription,
   });
 }
 
@@ -62,56 +117,81 @@ export default async function SeoPage({ params }: PageProps) {
     notFound();
   }
 
-  if (page.slug.includes("16-seater-tempo-traveller")) {
-    return <SixteenSeaterTempoTravellerTaxiPage />;
-  }
+  const popularRoutes = generatePopularRoutes(page.city, "");
+  const routePageType =
+    page.service === "tempo"
+      ? "tempo-traveller"
+      : page.service === "airport"
+        ? "taxi"
+        : page.service === "innova-crysta"
+          ? "innova-crysta-taxi"
+          : page.service === "taxi-contact-number"
+            ? "taxi-contact-number"
+            : page.service === "luxury-tempo-traveller"
+              ? "luxury-tempo-traveller"
+              : `${page.service}-taxi`;
 
-  if (page.slug.includes("12-seater-tempo-traveller")) {
-    return <TwelveSeaterTempoTravellerTaxiPage />;
-  }
+  const pageContent = (
+    <>
+      {page.slug.includes("16-seater-tempo-traveller") ? (
+        <SixteenSeaterTempoTravellerTaxiPage page={page} />
+      ) : page.slug.includes("12-seater-tempo-traveller") ? (
+        <TwelveSeaterTempoTravellerTaxiPage page={page} />
+      ) : page.slug.includes("20-seater-tempo-traveller") ? (
+        <TwentySeaterTempoTravellerTaxiPage page={page} />
+      ) : page.slug.includes("24-seater-tempo-traveller") ? (
+        <TwentyFourSeaterTempoTravellerTaxiPage page={page} />
+      ) : page.service === "tempo" ? (
+        <TempoTravellerPage page={page} />
+      ) : page.service === "airport" ? (
+        <AirportTaxiPage page={page} />
+      ) : page.service === "suv" ? (
+        <SuvTaxiPage page={page} />
+      ) : page.service === "urbania-rental" ? (
+        <UrbaniaRentalPage page={page} />
+      ) : page.service === "innova-crysta" ? (
+        <InnovaCrystaPage page={page} />
+      ) : page.service === "ertiga" ? (
+        <ErtigaTaxiPage page={page} />
+      ) : page.service === "dzire" ? (
+        <DzireTaxiPage page={page} />
+      ) : page.service === "etios" ? (
+        <EtiosTaxiPage page={page} />
+      ) : page.service === "amaze" ? (
+        <AmazeTaxiPage page={page} />
+      ) : page.service === "taxi-contact-number" ? (
+        <TaxiContactNumberPage page={page} />
+      ) : page.service === "luxury-tempo-traveller" ? (
+        <LuxuryTempoTravellerTaxi page={page} />
+      ) : (
+        <TaxiServicePage page={page} />
+      )}
+    </>
+  );
 
-  if (page.slug.includes("20-seater-tempo-traveller")) {
-    return <TwentySeaterTempoTravellerTaxiPage />;
-  }
-
-  if (page.slug.includes("24-seater-tempo-traveller")) {
-    return <TwentyFourSeaterTempoTravellerTaxiPage />;
-  }
-
-  if (page.service === "tempo") {
-    return <TempoTravellerPage page={page} />;
-  }
-
-  if (page.service === "airport") {
-    return <AirportTaxiPage page={page} />;
-  }
-
-  if (page.service === "urbania-rental") {
-    return <UrbaniaRentalPage page={page} />;
-  }
-
-  if (page.service === "innova-crysta") {
-    return <InnovaCrystaPage page={page} />;
-  }
-
-  if (page.service === "ertiga") {
-    return <ErtigaTaxiPage page={page} />;
-  }
-  if (page.service === "dzire") {
-    return <DzireTaxiPage page={page} />;
-  }
-  if (page.service === "etios") {
-    return <EtiosTaxiPage page={page} />;
-  }
-  if (page.service === "amaze") {
-    return <AmazeTaxiPage page={page} />;
-  }
-  if (page.service === "taxi-contact-number") {
-    return <TaxiContactNumberPage />;
-  }
-  if (page.service === "luxury-tempo-traveller") {
-    return <LuxuryTempoTravellerTaxi page={page} />;
-  }
-
-  return <TaxiServicePage page={page} />;
+  return (
+    <>
+      {pageContent}
+      {page.service !== "taxi" &&
+        page.service !== "tempo" &&
+        page.service !== "suv" &&
+        page.service !== "amaze" &&
+        page.service !== "dzire" &&
+        page.service !== "etios" &&
+        page.service !== "ertiga" &&
+        page.service !== "innova-crysta" &&
+        page.service !== "airport" &&
+        page.service !== "urbania-rental" &&
+        page.service !== "luxury-tempo-traveller" &&
+        page.service !== "taxi-contact-number" &&
+        popularRoutes.length > 0 && (
+          <PopularRoutes
+            routes={popularRoutes}
+            from={popularRoutes[0].from}
+            to="popular destinations"
+            pagetype={routePageType}
+          />
+        )}
+    </>
+  );
 }

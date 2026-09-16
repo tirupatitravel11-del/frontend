@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "India Experiences | @10% Off | Tirupati Travels | Book Now",
+  title: "India Travel Experiences | 10% Off | Book Now  | Tirupati Travel",
   description:
-    "Discover unique travel experiences in Tirupati, including guided tours, temple visits, local activities and memorable sightseeing.",
+    "Discover the best travel experiences in India, including temple visits, guided tours, sightseeing and local activities. Plan memorable trips with Tirupati Travel.",
 };
 
 export default function ExperiencesLayout({
