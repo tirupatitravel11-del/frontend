@@ -3,7 +3,7 @@ import { ROUTES } from "@/app/lib/api/route-data/-helper";
 import { seoPageSlugs } from "@/app/data/seoPages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://tirupatitravel.in/";
+  const baseUrl = "https://tirupatitravel.in";
 
   // Route suffix variations
   const routeSuffixes = [
