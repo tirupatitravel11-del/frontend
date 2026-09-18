@@ -198,7 +198,7 @@ Please share the detailed quote and availability.`;
             to="popular destinations"
             pagetype="tempo-traveller"
           />
-        )}
+        )}  
         <TempoTaxiFaq />
       </div>
     </main>

@@ -112,9 +112,7 @@ const luxuryTableFares = tempoFares.map((fare) => ({
       <Testimonials />
       <LuxuryTempoFaq from={data.route.fromCity}
         to={data.route.toCity}/>
-      
-     
     </>
   );
 }
-// sjushdhs
+

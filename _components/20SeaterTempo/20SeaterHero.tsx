@@ -10,7 +10,10 @@ import {
   Armchair,
   Tv,
   Music,
+  Loader2,
 } from "lucide-react";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -26,29 +29,117 @@ export default function TwentySeaterHero({ from, to,fare }: TwentySeaterHeroProp
   const [phone, setPhone] = useState("");
   const [passengers, setPassengers] = useState("");
   const [travelDate, setTravelDate] = useState("");
+const [pickup, setPickup] = useState("");
+  const [drop, setDrop] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const today = new Date().toISOString().split("T")[0];
 
-  const handleWhatsAppSubmit = (e: React.FormEvent) => {
+ 
+const handleBook = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const message = `Hello, I want to book a 20 Seater Luxury Tempo Traveller.
+    if (!name.trim()) {
+      toast.error("Please enter your name");
+      return;
+    }
+    if (!pickup.trim()) {
+      toast.error("Please enter pickup location");
+      return;
+    }
 
-Route: ${from} → ${to}
-Vehicle: 20 Seater Tempo Traveller
-Passengers: ${passengers}
+    if (!drop.trim()) {
+      toast.error("Please enter drop location");
+      return;
+    }
+    if (pickup.trim().toLowerCase() === drop.trim().toLowerCase()) {
+      toast.error("Pickup and drop location cannot be the same");
+      return;
+    }
+    if (!travelDate) {
+      toast.error("Please select travel date");
+      return;
+    }
+
+    if (travelDate < today) {
+      toast.error("Travel date cannot be in the past");
+      return;
+    }
+
+    if (!phone) {
+      toast.error("Please enter your phone number");
+      return;
+    }
+
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+      toast.error("Please enter a valid 10 digit Indian mobile number");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+         process.env.apiUrl + '/api/create-booking-cab',
+        {
+          name,
+          phoneNo:phone,
+          serviceType: "cab",
+          pickup: pickup.trim(),
+          drop: drop.trim(),
+          date:travelDate,
+          from,
+          to,
+          fare: fare?.oneWayPrice,
+          vehicle: "20 Seater Tempo Traveller",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      if (response.status === 200 || response.status === 201) {
+        toast.success("Booking request submitted successfully!");
+
+        const message = `Hello, I want to book a 20 Seater Tempo Traveller.
+
+Pickup: ${pickup}
+Drop: ${drop}
 Travel Date: ${travelDate}
-Name: ${name}
+Passengers: Up to 20
+Vehicle: 20 Seater Tempo Traveller
 Phone: ${phone}
+Fare: ₹${(fare?.oneWayPrice).toLocaleString("en-IN")}`;
 
-Please share the detailed quote.`;
+        window.open(
+          `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+          "_blank",
+        );
 
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank",
-    );
+        // Reset form
+        setTravelDate("");
+        setPickup("");
+        setDrop("");
+        setPhone("");
+        setName("")
+      }
+    } catch (error) {
+      console.error("Booking API failed:", error);
+
+      if (axios.isAxiosError(error)) {
+        toast.error(
+          error.response?.data?.message ||
+            "Something went wrong. Please try again.",
+        );
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
-
   return (
     <section className="relative overflow-hidden bg-white">
       {/* Decorative Gold Glow */}
@@ -158,51 +249,82 @@ Please share the detailed quote.`;
           </h2>
 
           {/* Form */}
-          <form onSubmit={handleWhatsAppSubmit} className="mt-5 space-y-4">
-            <div>
-              <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                Your Name
-              </label>
-              <input
+          <form onSubmit={handleBook} className="mt-5 space-y-4">
+      
+
+            <div className="grid gap-4 sm:grid-cols-2">
+
+              <div>
+                <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                  Your Name
+                </label>
+                    <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
                 placeholder="e.g. Rahul Sharma"
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
-              />
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
+                />
+                
+              </div>
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-slate-700">
                   Phone Number
                 </label>
                 <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                  placeholder="10-digit mobile"
-                  className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
-                />
+                type="tel"
+                value={phone}
+                onChange={(e) => {
+                  const value = e.target.value.replace(/\D/g, "");
+
+                  if (value.length <= 10) {
+                    setPhone(value);
+                  }
+                }}
+                maxLength={10}
+                inputMode="numeric"
+                placeholder="98xxxxxxxx"
+                className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
+              />
+
+              {phone.length > 0 && phone.length < 10 && (
+                <p className="mt-1 text-xs text-red-500">
+                  Please enter a 10 digit mobile number
+                </p>
+              )}
               </div>
+
+              
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
 
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                  Passengers
+                 Pickup Location
                 </label>
-                <input
-                  type="number"
-                  value={passengers}
-                  onChange={(e) => setPassengers(e.target.value)}
-                  required
-                  min="1"
-                  max="20"
-                  placeholder="e.g. 18"
-                  className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
+                    <input
+                value={pickup}
+                onChange={(e) => setPickup(e.target.value)}
+                placeholder={`e.g. Sector 62`}
+               className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
+                />
+               
+                
+              </div>
+              <div>
+                <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+                 Drop Location
+                </label>
+                    <input
+                value={drop}
+                onChange={(e) => setDrop(e.target.value)}
+                placeholder={`e.g.  Sector 62`}
+               className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
                 />
               </div>
+
+              
             </div>
 
             <div>
@@ -229,11 +351,17 @@ Please share the detailed quote.`;
 
             <button
               type="submit"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
+              disabled={loading}
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-gold/90 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              <p className="h-4 w-4" />
-              Book now
-              <span className="text-lg leading-none">→</span>
+              {loading ? (
+                <>
+                  <Loader2 size={18} className="animate-spin" />
+                  Booking...
+                </>
+              ) : (
+                "Book Now →"
+              )}
             </button>
 
             <p className="text-center text-xs text-slate-500">

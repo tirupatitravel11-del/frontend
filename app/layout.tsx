@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import Toast from "./utils/Toast";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Navbar />
         {children}
+        <Toast />
         <Footer />
       </body>
     </html>
