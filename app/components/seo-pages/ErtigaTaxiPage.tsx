@@ -26,6 +26,7 @@ import ErtigaTaxiFaq from "@/_components/Ertiga/ErtigaTaxiFaq";
 import ErtigaAdvantage from "@/_components/Ertiga/ErtigaAdvantage";
 import ErtigaStorySection from "@/_components/Ertiga/ErtigaStorySection";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -38,6 +39,8 @@ const ERTIGA_MODELS = [
 type TripType = "one-way" | "round-trip";
 
 export default function ErtigaTaxiPage({ page }: { page: SeoPageData }) {
+  const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const route = { fromCity: page.city, toCity: "local destinations" };
   const popularRoutes = generatePopularRoutes(page.city, "");
 
@@ -138,7 +141,18 @@ export default function ErtigaTaxiPage({ page }: { page: SeoPageData }) {
 
             {/* RIGHT SIDE: Booking Form */}
             <div className="relative">
-              <ErtigaBookingForm />
+              <UniversalSeoBookingForm
+                page={{
+                  slug: slug,
+                  city: city,
+                  service: "taxi",
+                  title: title,
+                  description: description,
+                  intro: intro,
+                  highlights: highlights,
+                  popularTrips: popularTrips,
+                }}
+              />
             </div>
           </div>
         </div>

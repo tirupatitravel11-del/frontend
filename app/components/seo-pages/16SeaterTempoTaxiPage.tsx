@@ -24,6 +24,7 @@ import TempoTaxiFaq from "@/_components/12seatTempo/TempoTaxiFaq";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 import type { SeoPageData } from "@/app/data/seoPages";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -42,6 +43,8 @@ export default function SixteenSeaterTempoTravellerTaxiPage({
 }: {
   page: SeoPageData;
 }) {
+  const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [passengers, setPassengers] = useState("");
@@ -147,151 +150,18 @@ Please share the detailed quote and availability.`;
           </div>
 
           {/* ================= RIGHT: Booking Card ================= */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl sm:p-8">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
-              Get Instant Quote
-            </p>
-
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-              Book 16 Seater Traveller
-            </h2>
-
-            <p className="mt-1 text-sm text-slate-500">
-              Fill this form and our team will reply in under 2 minutes.
-            </p>
-
-            {/* Form */}
-            <form onSubmit={handleWhatsAppSubmit} className="mt-5 space-y-4">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                    Pickup Location
-                  </label>
-                  <div className="relative">
-                    <MapPin className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="text"
-                      value={pickup}
-                      onChange={(e) => setPickup(e.target.value)}
-                      required
-                      placeholder="Enter pickup address"
-                      className="w-full rounded-xl border border-slate-200 py-3.5 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                    Drop Location
-                  </label>
-                  <div className="relative">
-                    <MapPin className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="text"
-                      value={drop}
-                      onChange={(e) => setDrop(e.target.value)}
-                      required
-                      placeholder="Enter destination"
-                      className="w-full rounded-xl border border-slate-200 py-3.5 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                    Passengers
-                  </label>
-                  <div className="relative">
-                    <Users className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="number"
-                      value={passengers}
-                      onChange={(e) => setPassengers(e.target.value)}
-                      required
-                      min="1"
-                      max="16"
-                      placeholder="e.g. 12"
-                      className="w-full rounded-xl border border-slate-200 py-3.5 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                    Travel Date
-                  </label>
-                  <div className="relative">
-                    <Calendar className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="date"
-                      value={travelDate}
-                      onChange={(e) => setTravelDate(e.target.value)}
-                      required
-                      min={today}
-                      className="w-full rounded-xl border border-slate-200 py-3.5 pl-12 pr-4 text-sm text-slate-900 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    placeholder="e.g. Rahul Sharma"
-                    className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    required
-                    placeholder="10-digit mobile"
-                    className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
-                  />
-                </div>
-              </div>
-
-              <div className="rounded-xl bg-gold/10 p-4">
-                <p className="text-sm text-slate-700">
-                  <ShieldCheck className="inline h-4 w-4 mr-1.5 text-gold" />
-                  <strong className="text-gold">Selected:</strong> 16 Seater
-                  Luxury Tempo Traveller —{" "}
-                  <span className="text-slate-600">
-                    {" "}
-                    Custom quote on WhatsApp
-                  </span>
-                </p>
-              </div>
-
-              <button
-                type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
-              >
-                <MessageCircle className="h-4 w-4" />
-                Get Quote on WhatsApp
-                <span className="text-lg leading-none">→</span>
-              </button>
-
-              <p className="text-center text-xs text-slate-500">
-                No advance payment • Instant reply • Transparent pricing
-              </p>
-            </form>
-          </div>
+          <UniversalSeoBookingForm
+            page={{
+              slug: slug,
+              city: city,
+              service: "taxi",
+              title: title,
+              description: description,
+              intro: intro,
+              highlights: highlights,
+              popularTrips: popularTrips,
+            }}
+          />
         </div>
       </section>
 

@@ -25,6 +25,7 @@ import InnovaFaq from "@/_components/InnovaCrysta/InnovaFaq";
 import FamilyLongDistanceSpotlightTaxi from "@/_components/InnovaCrysta/FamilyLongDistanceSpotlightTaxi";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680"; // Format for wa.me (no '+')
@@ -41,6 +42,8 @@ export default function InnovaCrystaPage({ page }: { page: SeoPageData }) {
 }
 
 function ServicePage({ page }: { page: SeoPageData }) {
+  const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const popularRoutes = generatePopularRoutes(page.city, "");
 
   return (
@@ -137,7 +140,18 @@ function ServicePage({ page }: { page: SeoPageData }) {
 
           {/* ===== RIGHT SIDE: Booking Form ===== */}
           <div className="relative">
-            <InnovaBookingForm />
+            <UniversalSeoBookingForm
+              page={{
+                slug: slug,
+                city: city,
+                service: "taxi",
+                title: title,
+                description: description,
+                intro: intro,
+                highlights: highlights,
+                popularTrips: popularTrips,
+              }}
+            />
           </div>
         </div>
       </div>

@@ -31,6 +31,7 @@ const cityNames: Record<(typeof cities)[number], string> = {
   varanasi: "Varanasi",
   lucknow: "Lucknow",
   prayagraj: "Prayagraj",
+
 };
 
 const serviceDetails: Record<
@@ -362,7 +363,7 @@ export const seoPages: Record<string, SeoPageData> = Object.fromEntries(
                                 : "airport-taxi";
       const slug =
         service === "taxi-contact-number" ||
-        service === "luxury-tempo-traveller"
+          service === "luxury-tempo-traveller"
           ? serviceSlug
           : `${serviceSlug}-in-${city}`;
 

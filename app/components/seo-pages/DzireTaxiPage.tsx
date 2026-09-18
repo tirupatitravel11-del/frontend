@@ -26,6 +26,7 @@ import DzireTaxiFaq from "@/_components/dzire/DzireTaxiFaq";
 import DzireTaxiFitGuide from "@/_components/dzire/DzireTaxiFitGuide";
 import DzireStorySection from "@/_components/dzire/DzireStorySection";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -38,6 +39,8 @@ const DZIRE_MODELS = [
 type TripType = "one-way" | "round-trip";
 
 export default function DzireTaxiPage({ page }: { page: SeoPageData }) {
+  const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const route = { fromCity: page.city, toCity: "local destinations" };
   const popularRoutes = generatePopularRoutes(page.city, "");
 
@@ -137,7 +140,18 @@ export default function DzireTaxiPage({ page }: { page: SeoPageData }) {
 
             {/* RIGHT SIDE: Booking Form */}
             <div className="relative">
-              <DzireBookingForm />
+              <UniversalSeoBookingForm
+                page={{
+                  slug: slug,
+                  city: city,
+                  service: "taxi",
+                  title: title,
+                  description: description,
+                  intro: intro,
+                  highlights: highlights,
+                  popularTrips: popularTrips,
+                }}
+              />
             </div>
           </div>
         </div>
