@@ -29,6 +29,7 @@ import SuvFitGuideTaxi from "@/_components/SUV/SuvFitGuideTaxi";
 import OutstationCabsPage from "@/app/outstationCabs/page";
 import OutstationSpotlight from "@/_components/SUV/OutstationSpotlight";
 import SuvFaqTaxi from "@/_components/SUV/SuvFaqTaxi";
+import SUVStorySection from "@/_components/SUV/SuvStorySeaction";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -149,11 +150,9 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
 
       {/* ===== BELOW HERO SECTIONS ===== */}
       <div className="relative z-10 border-t border-slate-100 bg-white">
-        
-<SuvFitGuideTaxi/>
-   
-      
-        
+        <SUVStorySection />
+        <SuvFitGuideTaxi />
+
         {popularRoutes.length > 0 && (
           <PopularRoutes
             routes={popularRoutes}
@@ -162,11 +161,10 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
             pagetype="suv-taxi"
           />
         )}
-        <OutstationSpotlight/>
+        <OutstationSpotlight />
         <HowItWorks />
         <Testimonials />
-        <SuvFaqTaxi/>
-      
+        <SuvFaqTaxi />
       </div>
     </main>
   );
@@ -199,7 +197,7 @@ Please share the fare and availability.`;
 
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank"
+      "_blank",
     );
   };
 
