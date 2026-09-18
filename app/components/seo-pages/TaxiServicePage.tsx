@@ -13,12 +13,15 @@ import TaxiServiceFAQ from "@/_components/seo/TaxiServiceFaq";
 import SafetyFeatures from "@/_components/seo/SafetyFeatures";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 export default function TaxiServicePage({ page }: { page: SeoPageData }) {
   return <ServicePage page={page} icon="CAR" />;
 }
 
 function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
+  const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const popularRoutes = generatePopularRoutes(page.city, "");
 
   return (
@@ -82,103 +85,18 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
           </div>
 
           {/* RIGHT SIDE - Booking Form */}
-          <div className="relative hidden lg:block">
-            <div className="rounded-3xl border border-slate-200/60 bg-white p-8 shadow-2xl shadow-slate-200/50">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-slate-900">
-                  Book Your Ride
-                </h3>
-                <p className="mt-1 text-sm text-slate-500">
-                  Get instant confirmation
-                </p>
-              </div>
-
-              <form className="space-y-5">
-                {/* Pickup Location */}
-                <div>
-                  <label className="mb-2 block text-sm font-semibold text-slate-700">
-                    Pickup Location
-                  </label>
-                  <div className="relative">
-                    <MapPin className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="text"
-                      placeholder="Enter pickup address"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-                    />
-                  </div>
-                </div>
-
-                {/* Drop Location */}
-                <div>
-                  <label className="mb-2 block text-sm font-semibold text-slate-700">
-                    Drop Location
-                  </label>
-                  <div className="relative">
-                    <MapPin className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="text"
-                      placeholder="Enter destination"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-                    />
-                  </div>
-                </div>
-
-                {/* Date and Time */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="mb-2 block text-sm font-semibold text-slate-700">
-                      Date
-                    </label>
-                    <div className="relative">
-                      <Calendar className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                      <input
-                        type="date"
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-semibold text-slate-700">
-                      Time
-                    </label>
-                    <div className="relative">
-                      <Clock className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                      <input
-                        type="time"
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Vehicle Type */}
-                <div>
-                  <label className="mb-2 block text-sm font-semibold text-slate-700">
-                    Vehicle Type
-                  </label>
-                  <select className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-4 pr-10 text-sm text-slate-900 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20">
-                    <option>Sedan (4 seats)</option>
-                    <option>SUV (6 seats)</option>
-                    <option>Innovia (7 seats)</option>
-                    <option>Tempo Traveller (12 seats)</option>
-                  </select>
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-gold py-4 text-sm font-bold text-white shadow-lg shadow-gold/25 transition-all hover:shadow-xl hover:shadow-gold/30 hover:brightness-110"
-                >
-                  Book now
-                </button>
-
-                <p className="text-center text-xs text-slate-500">
-                  No charges until confirmation
-                </p>
-              </form>
-            </div>
-          </div>
+          <UniversalSeoBookingForm
+            page={{
+              slug: slug,
+              city: city,
+              service: "taxi",
+              title: title,
+              description: description,
+              intro: intro,
+              highlights: highlights,
+              popularTrips: popularTrips,
+            }}
+          />
         </div>
       </div>
       <VehicleFleet />

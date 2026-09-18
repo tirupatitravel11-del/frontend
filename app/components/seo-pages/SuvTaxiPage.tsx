@@ -29,6 +29,8 @@ import SuvFitGuideTaxi from "@/_components/SUV/SuvFitGuideTaxi";
 import OutstationCabsPage from "@/app/outstationCabs/page";
 import OutstationSpotlight from "@/_components/SUV/OutstationSpotlight";
 import SuvFaqTaxi from "@/_components/SUV/SuvFaqTaxi";
+import SUVStorySection from "@/_components/SUV/SuvStorySeaction";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -42,9 +44,11 @@ const SUV_MODELS = [
 type TripType = "one-way" | "round-trip";
 
 export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
+  const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const route = { fromCity: page.city, toCity: "local destinations" };
   const popularRoutes = generatePopularRoutes(page.city, "");
-
+  console.log(city, "sdf");
   return (
     <main className="flex flex-col gap-0">
       {/* ===== HERO SECTION ===== */}
@@ -141,7 +145,18 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
 
             {/* RIGHT SIDE: Booking Form */}
             <div className="relative">
-              <SuvBookingForm />
+              <UniversalSeoBookingForm
+                page={{
+                  slug: slug,
+                  city: city,
+                  service: "taxi",
+                  title: title,
+                  description: description,
+                  intro: intro,
+                  highlights: highlights,
+                  popularTrips: popularTrips,
+                }}
+              />
             </div>
           </div>
         </div>
@@ -149,11 +164,9 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
 
       {/* ===== BELOW HERO SECTIONS ===== */}
       <div className="relative z-10 border-t border-slate-100 bg-white">
-        
-<SuvFitGuideTaxi/>
-   
-      
-        
+        <SUVStorySection />
+        <SuvFitGuideTaxi />
+
         {popularRoutes.length > 0 && (
           <PopularRoutes
             routes={popularRoutes}
@@ -162,11 +175,10 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
             pagetype="suv-taxi"
           />
         )}
-        <OutstationSpotlight/>
+        <OutstationSpotlight />
         <HowItWorks />
         <Testimonials />
-        <SuvFaqTaxi/>
-      
+        <SuvFaqTaxi />
       </div>
     </main>
   );
@@ -199,7 +211,7 @@ Please share the fare and availability.`;
 
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank"
+      "_blank",
     );
   };
 

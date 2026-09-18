@@ -15,16 +15,21 @@ import {
 } from "lucide-react";
 import type { SeoPageData } from "@/app/data/seoPages";
 
-// ===== PLACEHOLDERS: Add your Sedan-specific components here =====
-// import SedanStorySection from "@/_components/Sedan/SedanStorySection";
-// import SedanTaxiComparison from "@/_components/Sedan/SedanTaxiComparison";
-// import SedanAirport from "@/_components/Sedan/SedanAirport";
-// import SedanTaxiFaq from "@/_components/Sedan/SedanTaxiFaq";
+
 
 import HowItWorks from "../AirportTransfer/HowItWorks";
 import Testimonials from "@/app/components/Home/Testimonials";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import AirportExperience from "../AirportTransfer/AirportExperience";
+
+import SedanFaqTaxi from "@/_components/sedan/SedanFaqTaxi";
+import SedanFitGuideTaxi from "@/_components/sedan/SedanFitGuideTaxi";
+import SedanStorySection from "@/_components/sedan/SedanStorySection";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
+
+
+
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -37,7 +42,9 @@ const SEDAN_MODELS = [
 
 type TripType = "one-way" | "round-trip";
 
-export default function SedanTaxiPage({ page }: { page: any }) {
+export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
+   const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const popularRoutes = generatePopularRoutes(page.city, "");
 
   return (
@@ -136,19 +143,28 @@ export default function SedanTaxiPage({ page }: { page: any }) {
 
             {/* RIGHT SIDE: Booking Form */}
             <div className="relative">
-              <SedanBookingForm />
+                 <UniversalSeoBookingForm
+                              page={{
+                                slug: slug,
+                                city: city,
+                                service: "taxi",
+                                title: title,
+                                description: description,
+                                intro: intro,
+                                highlights: highlights,
+                                popularTrips: popularTrips,
+                              }}
+                            />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== BELOW HERO SECTIONS ===== */}
+
       <div className="relative z-10 border-t border-slate-100 bg-white">
-        
-        {/* TODO: Add your Sedan-specific components here */}
-        {/* <SedanStorySection /> */}
-        {/* <SedanTaxiComparison /> */}
-        {/* <SedanAirport /> */}
+
+        <SedanStorySection />
+        <SedanFitGuideTaxi />
 
         {popularRoutes.length > 0 && (
           <PopularRoutes
@@ -158,12 +174,12 @@ export default function SedanTaxiPage({ page }: { page: any }) {
             pagetype="sedan-taxi"
           />
         )}
-        
+
         <HowItWorks />
         <Testimonials />
-        
-        {/* <SedanTaxiFaq /> */}
-        
+
+        <SedanFaqTaxi />
+
       </div>
     </main>
   );
@@ -217,11 +233,10 @@ Please share the fare and availability.`;
               key={type}
               type="button"
               onClick={() => setTripType(type)}
-              className={`rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 ${
-                tripType === type
-                  ? "bg-gold text-white shadow-sm"
-                  : "text-slate-600 hover:bg-slate-100"
-              }`}
+              className={`rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 ${tripType === type
+                ? "bg-gold text-white shadow-sm"
+                : "text-slate-600 hover:bg-slate-100"
+                }`}
             >
               {type === "one-way" ? "One Way" : "Round Trip"}
             </button>

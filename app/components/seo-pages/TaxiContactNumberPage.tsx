@@ -10,6 +10,7 @@ import TaxiServiceFAQ from "@/_components/seo/TaxiServiceFaq";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 import type { SeoPageData } from "@/app/data/seoPages";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 // 1. IMPORT YOUR GENERIC COMPONENTS HERE
 // import AmazeTaxiFitGuide from "@/_components/amaze/AmazeTaxiFitGuide";
@@ -29,6 +30,8 @@ const HIGHLIGHTS = [
 ];
 
 export default function TaxiContactNumberPage({ page }: { page: SeoPageData }) {
+  const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const [tripType, setTripType] = useState<TripType>("one-way");
   const [date, setDate] = useState("");
   const [pickup, setPickup] = useState("");
@@ -97,96 +100,18 @@ export default function TaxiContactNumberPage({ page }: { page: SeoPageData }) {
           </div>
 
           {/* Right: Booking Card */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl sm:p-8">
-            <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold">
-                <Clock className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-gold">
-                  Quick Inquiry
-                </p>
-                <h2 className="text-xl font-bold text-slate-900">
-                  Message Our Dispatcher
-                </h2>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 rounded-xl border border-slate-200 p-1">
-              {(["one-way", "round-trip"] as TripType[]).map((type) => (
-                <button
-                  key={type}
-                  type="button"
-                  onClick={() => setTripType(type)}
-                  className={`rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 ${tripType === type ? "bg-gold text-white shadow-sm" : "text-slate-600 hover:bg-slate-100"}`}
-                >
-                  {type === "one-way" ? "One Way" : "Round Trip"}
-                </button>
-              ))}
-            </div>
-
-            <form onSubmit={handleBook} className="mt-5 space-y-4">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                    Pickup Location
-                  </label>
-                  <div className="relative">
-                    <MapPin className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="text"
-                      value={pickup}
-                      onChange={(e) => setPickup(e.target.value)}
-                      required
-                      placeholder="Enter pickup address"
-                      className="w-full rounded-xl border border-slate-200 py-3.5 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                    Drop Location
-                  </label>
-                  <div className="relative">
-                    <MapPin className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="text"
-                      value={drop}
-                      onChange={(e) => setDrop(e.target.value)}
-                      required
-                      placeholder="Enter destination"
-                      className="w-full rounded-xl border border-slate-200 py-3.5 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-                  Travel Date
-                </label>
-                <div className="relative">
-                  <Calendar className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                  <input
-                    type="date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                    required
-                    min={today}
-                    className="w-full rounded-xl border border-slate-200 py-3.5 pl-12 pr-4 text-sm text-slate-900 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
-                  />
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
-              >
-                Send on WhatsApp <span className="text-lg leading-none">→</span>
-              </button>
-              <p className="text-center text-xs text-slate-500">
-                No spam • Human reply in under 2 minutes
-              </p>
-            </form>
-          </div>
+          <UniversalSeoBookingForm
+            page={{
+              slug: slug,
+              city: city,
+              service: "taxi",
+              title: title,
+              description: description,
+              intro: intro,
+              highlights: highlights,
+              popularTrips: popularTrips,
+            }}
+          />
         </div>
       </section>
 

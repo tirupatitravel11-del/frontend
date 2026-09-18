@@ -27,6 +27,7 @@ import EtiosTaxiFaq from "@/_components/Etios/EtiosTaxiFaq";
 import EtiosTaxiComparison from "@/_components/Etios/EtiosTaxiComparison";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -39,6 +40,8 @@ const ETIOS_MODELS = [
 type TripType = "one-way" | "round-trip";
 
 export default function EtiosTaxiPage({ page }: { page: SeoPageData }) {
+  const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const route = { fromCity: page.city, toCity: "local destinations" };
   const popularRoutes = generatePopularRoutes(page.city, "");
 
@@ -138,7 +141,18 @@ export default function EtiosTaxiPage({ page }: { page: SeoPageData }) {
 
             {/* RIGHT SIDE: Booking Form */}
             <div className="relative">
-              <EtiosBookingForm />
+              <UniversalSeoBookingForm
+                page={{
+                  slug: slug,
+                  city: city,
+                  service: "taxi",
+                  title: title,
+                  description: description,
+                  intro: intro,
+                  highlights: highlights,
+                  popularTrips: popularTrips,
+                }}
+              />
             </div>
           </div>
         </div>
