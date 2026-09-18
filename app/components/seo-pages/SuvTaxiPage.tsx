@@ -30,6 +30,7 @@ import OutstationCabsPage from "@/app/outstationCabs/page";
 import OutstationSpotlight from "@/_components/SUV/OutstationSpotlight";
 import SuvFaqTaxi from "@/_components/SUV/SuvFaqTaxi";
 import SUVStorySection from "@/_components/SUV/SuvStorySeaction";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -43,9 +44,11 @@ const SUV_MODELS = [
 type TripType = "one-way" | "round-trip";
 
 export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
+  const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const route = { fromCity: page.city, toCity: "local destinations" };
   const popularRoutes = generatePopularRoutes(page.city, "");
-
+  console.log(city, "sdf");
   return (
     <main className="flex flex-col gap-0">
       {/* ===== HERO SECTION ===== */}
@@ -142,7 +145,18 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
 
             {/* RIGHT SIDE: Booking Form */}
             <div className="relative">
-              <SuvBookingForm />
+              <UniversalSeoBookingForm
+                page={{
+                  slug: slug,
+                  city: city,
+                  service: "taxi",
+                  title: title,
+                  description: description,
+                  intro: intro,
+                  highlights: highlights,
+                  popularTrips: popularTrips,
+                }}
+              />
             </div>
           </div>
         </div>

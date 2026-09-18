@@ -1243,7 +1243,7 @@ export const ROUTES: Route[] = [
     distance: 180,
     duration: "3.5 - 4.5 hrs",
   },
-    // --- Prayagraj Popular Routes ---
+  // --- Prayagraj Popular Routes ---
   {
     slug: "prayagraj-to-varanasi",
     fromCity: "Prayagraj",
@@ -1594,4 +1594,5 @@ export const ROUTES: Route[] = [
     distance: 350,
     duration: "7 - 8 hrs",
   },
+
 ];

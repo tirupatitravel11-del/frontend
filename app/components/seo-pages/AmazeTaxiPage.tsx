@@ -26,6 +26,7 @@ import AmazeTaxiFitGuide from "@/_components/amaze/AmazeTaxiFitGuide";
 import AmazeTaxiFaq from "@/_components/amaze/AmazeTaxiFaq";
 import AmazeStorySection from "@/_components/amaze/AmazeStorySection";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -35,6 +36,8 @@ const AMAZE_MODELS = ["Honda Amaze (4+1 Seater)", "Honda Amaze VX (Top Model)"];
 type TripType = "one-way" | "round-trip";
 
 export default function AmazeTaxiPage({ page }: { page: SeoPageData }) {
+   const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const route = { fromCity: page.city, toCity: "local destinations" };
   const popularRoutes = generatePopularRoutes(page.city, "");
   return (
@@ -133,7 +136,18 @@ export default function AmazeTaxiPage({ page }: { page: SeoPageData }) {
 
             {/* RIGHT SIDE: Booking Form */}
             <div className="relative">
-              <AmazeBookingForm />
+              <UniversalSeoBookingForm
+                page={{
+                  slug: slug,
+                  city: city,
+                  service: "taxi",
+                  title: title,
+                  description: description,
+                  intro: intro,
+                  highlights: highlights,
+                  popularTrips: popularTrips,
+                }}
+              />
             </div>
           </div>
         </div>

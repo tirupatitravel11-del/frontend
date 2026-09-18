@@ -26,6 +26,7 @@ import AirportExperience from "../AirportTransfer/AirportExperience";
 import SedanFaqTaxi from "@/_components/sedan/SedanFaqTaxi";
 import SedanFitGuideTaxi from "@/_components/sedan/SedanFitGuideTaxi";
 import SedanStorySection from "@/_components/sedan/SedanStorySection";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 
 
@@ -42,6 +43,8 @@ const SEDAN_MODELS = [
 type TripType = "one-way" | "round-trip";
 
 export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
+   const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const popularRoutes = generatePopularRoutes(page.city, "");
 
   return (
@@ -140,7 +143,18 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
 
             {/* RIGHT SIDE: Booking Form */}
             <div className="relative">
-              <SedanBookingForm />
+                 <UniversalSeoBookingForm
+                              page={{
+                                slug: slug,
+                                city: city,
+                                service: "taxi",
+                                title: title,
+                                description: description,
+                                intro: intro,
+                                highlights: highlights,
+                                popularTrips: popularTrips,
+                              }}
+                            />
             </div>
           </div>
         </div>

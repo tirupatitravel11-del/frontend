@@ -23,6 +23,7 @@ import WhyChooseUs from "@/_components/WhyChooseUs";
 import UrbaniaFaq from "@/_components/urbaniaRental/UrbaniaFaq";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -41,6 +42,8 @@ export default function UrbaniaRentalPage({ page }: { page: SeoPageData }) {
 }
 
 function ServicePage({ page }: { page: SeoPageData }) {
+  const { slug, title, description, intro, highlights, popularTrips, city } =
+    page;
   const popularRoutes = generatePopularRoutes(page.city, "");
 
   return (
@@ -137,7 +140,18 @@ function ServicePage({ page }: { page: SeoPageData }) {
 
           {/* ===== RIGHT SIDE: Booking Form ===== */}
           <div className="relative">
-            <UrbaniaBookingForm />
+            <UniversalSeoBookingForm
+              page={{
+                slug: slug,
+                city: city,
+                service: "taxi",
+                title: title,
+                description: description,
+                intro: intro,
+                highlights: highlights,
+                popularTrips: popularTrips,
+              }}
+            />
           </div>
         </div>
       </div>
