@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { MapPin, Calendar, Car, ArrowRight } from "lucide-react";
+import { MapPin, Calendar, Car, ArrowRight, Loader2 } from "lucide-react";
 import type { SeoPageData } from "@/app/data/seoPages";
 
 // ⚠️ Adjust the import path below to match where your vehicles.ts file is located
@@ -10,6 +10,8 @@ import {
   type Vehicle,
   findVehicleFromSlug,
 } from "@/app/lib/api/route-data/vehicles";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const WHATSAPP_NUMBER = "918726124680";
 
@@ -96,7 +98,8 @@ export default function UniversalSeoBookingForm({
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
-
+  const [loading, setLoading] = useState(false);
+  const today = new Date().toISOString().split("T")[0];
   const categoryTitle = useMemo(() => {
     const firstVehicle = vehicleOptions[0];
     if (firstVehicle) {
@@ -116,10 +119,95 @@ export default function UniversalSeoBookingForm({
 
   const defaultPickup = page.city || "";
 
-  const handleSubmit = (e: React.FormEvent) => {
+//   const handleSubmit = (e: React.FormEvent) => {
+//     e.preventDefault();
+
+//     const currentPickup = pickup.trim() || defaultPickup || "Not specified";
+//     const currentDrop = drop.trim() || "Not specified";
+
+//     const message = `Hello, I want to book a cab via Tirupati Travel.
+
+// *Service:* ${page.title || categoryTitle + " Booking"}
+// *Trip Type:* ${tripType === "one-way" ? "One Way" : "Round Trip"}
+// *Vehicle Model:* ${selectedVehicle}
+// *Pickup Location:* ${currentPickup}
+// *Drop Location:* ${currentDrop}
+// *Travel Date:* ${date || "As soon as possible"}
+
+// Please confirm availability and best fare quote.`;
+
+//     window.open(
+//       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+//       "_blank",
+//     );
+//   };
+
+ const handleBook = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const currentPickup = pickup.trim() || defaultPickup || "Not specified";
+    if (!name.trim()) {
+      toast.error("Please enter your name");
+      return;
+    }
+    if (!pickup.trim()) {
+      toast.error("Please enter pickup location");
+      return;
+    }
+
+    if (!drop.trim()) {
+      toast.error("Please enter drop location");
+      return;
+    }
+    if (pickup.trim().toLowerCase() === drop.trim().toLowerCase()) {
+      toast.error("Pickup and drop location cannot be the same");
+      return;
+    }
+    if (!date) {
+      toast.error("Please select travel date");
+      return;
+    }
+
+    if (date < today) {
+      toast.error("Travel date cannot be in the past");
+      return;
+    }
+
+    if (!phoneNo) {
+      toast.error("Please enter your phone number");
+      return;
+    }
+
+    if (!/^[6-9]\d{9}$/.test(phoneNo)) {
+      toast.error("Please enter a valid 10 digit Indian mobile number");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        process.env.apiUrl + "/api/create-booking-cab",
+        {
+          name,
+          phoneNo,
+          serviceType: "cab",
+          pickup: pickup.trim(),
+          drop: drop.trim(),
+          date,
+          vehicle: selectedVehicle,
+          trip: tripType,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      if (response.status === 200 || response.status === 201) {
+        toast.success("Booking request submitted successfully!");
+
+         const currentPickup = pickup.trim() || defaultPickup || "Not specified";
     const currentDrop = drop.trim() || "Not specified";
 
     const message = `Hello, I want to book a cab via Tirupati Travel.
@@ -137,6 +225,30 @@ Please confirm availability and best fare quote.`;
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
       "_blank",
     );
+
+        // Reset form
+        setDate("");
+        setPickup("");
+        setDrop("");
+        setPhoneNo("");
+        setName("");
+        setTripType("one-way");
+        setSelectedVehicle(vehicleOptions[0]?.name || "Maruti Swift Dzire")
+      }
+    } catch (error) {
+      console.error("Booking API failed:", error);
+
+      if (axios.isAxiosError(error)) {
+        toast.error(
+          error.response?.data?.message ||
+            "Something went wrong. Please try again.",
+        );
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -151,7 +263,7 @@ Please confirm availability and best fare quote.`;
         </h3>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleBook} className="space-y-4">
         {/* Trip Type Toggle Pill */}
         <div className="grid grid-cols-2 rounded-full border border-slate-200 bg-slate-50 p-1">
           {(["one-way", "round-trip"] as TripType[]).map((type) => (
@@ -297,13 +409,21 @@ Please confirm availability and best fare quote.`;
         </div>
 
         {/* Action Button */}
-        <button
-          type="submit"
-          className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-amber-500 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-lg shadow-amber-500/30 transition-all duration-300 hover:bg-amber-600 hover:shadow-xl hover:shadow-amber-500/40"
-        >
-          BOOK {categoryTitle.toUpperCase()} NOW
-          <ArrowRight className="h-4 w-4" />
-        </button>
+    
+          <button
+                                  type="submit"
+                                  disabled={loading}
+                                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-gold/90 disabled:cursor-not-allowed disabled:opacity-60"
+                                >
+                                  {loading ? (
+                                    <>
+                                      <Loader2 size={18} className="animate-spin" />
+                                      Booking...
+                                    </>
+                                  ) : (
+                                    ` BOOK ${categoryTitle.toUpperCase()} NOW`
+                                  )}
+                                </button>
       </form>
     </div>
   );
