@@ -37,7 +37,7 @@ const SEDAN_MODELS = [
 
 type TripType = "one-way" | "round-trip";
 
-export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
+export default function SedanTaxiPage({ page }: { page: any }) {
   const popularRoutes = generatePopularRoutes(page.city, "");
 
   return (

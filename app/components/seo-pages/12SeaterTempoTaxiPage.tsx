@@ -323,7 +323,9 @@ Please share the detailed quote and availability.`;
             from={popularRoutes[0].from}
             to="popular destinations"
             pagetype="tempo-traveller"
+            title="tirupati travels"
           />
+          
         )}
         <TempoTaxiFaq />
       </div>

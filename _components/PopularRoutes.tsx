@@ -6,8 +6,8 @@ type TaxiRoute = {
   distance: string;
   duration: string;
   fare: number;
-  tag: string;
-  distance:string;
+  tag?: string;
+ 
 };
 
 const PHONE_NUMBER = "+918726124680";
