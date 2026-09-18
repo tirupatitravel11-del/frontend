@@ -5,76 +5,170 @@ const cities = [
     name: "Lucknow",
     slug: "lucknow",
     services: [
-     
+      { label: "Sedan Taxi in Lucknow", href: "/sedan-taxi-in-lucknow" },
+      { label: "SUV Taxi in Lucknow", href: "/suv-taxi-in-lucknow" },
       { label: "Amaze Taxi in Lucknow", href: "/amaze-taxi-in-lucknow" },
       { label: "Dzire Taxi in Lucknow", href: "/dzire-taxi-in-lucknow" },
       { label: "Etios Taxi in Lucknow", href: "/etios-taxi-in-lucknow" },
       { label: "Ertiga Taxi in Lucknow", href: "/ertiga-taxi-in-lucknow" },
       { label: "Innova Crysta in Lucknow", href: "/innova-crysta-in-lucknow" },
-      { label: "Urbania Rental in Lucknow", href: "/urbania-rental-in-lucknow" },
-      { label: "12-Seater Tempo Traveller", href: "/12-seater-tempo-traveller-in-lucknow" },
-      { label: "16-Seater Tempo Traveller", href: "/16-seater-tempo-traveller-in-lucknow" },
-      { label: "20-Seater Tempo Traveller", href: "/20-seater-tempo-traveller-in-lucknow" },
-      { label: "24-Seater Tempo Traveller", href: "/24-seater-tempo-traveller-in-lucknow" },
-      { label: "Luxury Tempo Traveller", href: "/luxury-tempo-traveller-in-lucknow" },
-      { label: "Lucknow Taxi Contact Number", href: "/lucknow-taxi-contact-number" },
+      {
+        label: "Urbania Rental in Lucknow",
+        href: "/urbania-rental-in-lucknow",
+      },
+      {
+        label: "12-Seater Tempo Traveller",
+        href: "/12-seater-tempo-traveller-in-lucknow",
+      },
+      {
+        label: "16-Seater Tempo Traveller",
+        href: "/16-seater-tempo-traveller-in-lucknow",
+      },
+      {
+        label: "20-Seater Tempo Traveller",
+        href: "/20-seater-tempo-traveller-in-lucknow",
+      },
+      {
+        label: "24-Seater Tempo Traveller",
+        href: "/24-seater-tempo-traveller-in-lucknow",
+      },
+      {
+        label: "Luxury Tempo Traveller",
+        href: "/luxury-tempo-traveller-in-lucknow",
+      },
+      {
+        label: "Lucknow Taxi Contact Number",
+        href: "/lucknow-taxi-contact-number",
+      },
     ],
   },
   {
     name: "Varanasi",
     slug: "varanasi",
     services: [
-
+      { label: "Sedan Taxi in Varanasi", href: "/sedan-taxi-in-varanasi" },
+      { label: "SUV Taxi in Varanasi", href: "/suv-taxi-in-varanasi" },
       { label: "Amaze Taxi in Varanasi", href: "/amaze-taxi-in-varanasi" },
       { label: "Dzire Taxi in Varanasi", href: "/dzire-taxi-in-varanasi" },
       { label: "Etios Taxi in Varanasi", href: "/etios-taxi-in-varanasi" },
       { label: "Ertiga Taxi in Varanasi", href: "/ertiga-taxi-in-varanasi" },
-      { label: "Innova Crysta in Varanasi", href: "/innova-crysta-in-varanasi" },
-      { label: "Urbania Rental in Varanasi", href: "/urbania-rental-in-varanasi" },
-      { label: "12-Seater Tempo Traveller", href: "/12-seater-tempo-traveller-in-varanasi" },
-      { label: "16-Seater Tempo Traveller", href: "/16-seater-tempo-traveller-in-varanasi" },
-      { label: "20-Seater Tempo Traveller", href: "/20-seater-tempo-traveller-in-varanasi" },
-      { label: "24-Seater Tempo Traveller", href: "/24-seater-tempo-traveller-in-varanasi" },
-      { label: "Luxury Tempo Traveller", href: "/luxury-tempo-traveller-in-varanasi" },
-      { label: "Varanasi Taxi Contact Number", href: "/varanasi-taxi-contact-number" },
+      {
+        label: "Innova Crysta in Varanasi",
+        href: "/innova-crysta-in-varanasi",
+      },
+      {
+        label: "Urbania Rental in Varanasi",
+        href: "/urbania-rental-in-varanasi",
+      },
+      {
+        label: "12-Seater Tempo Traveller",
+        href: "/12-seater-tempo-traveller-in-varanasi",
+      },
+      {
+        label: "16-Seater Tempo Traveller",
+        href: "/16-seater-tempo-traveller-in-varanasi",
+      },
+      {
+        label: "20-Seater Tempo Traveller",
+        href: "/20-seater-tempo-traveller-in-varanasi",
+      },
+      {
+        label: "24-Seater Tempo Traveller",
+        href: "/24-seater-tempo-traveller-in-varanasi",
+      },
+      {
+        label: "Luxury Tempo Traveller",
+        href: "/luxury-tempo-traveller-in-varanasi",
+      },
+      {
+        label: "Varanasi Taxi Contact Number",
+        href: "/varanasi-taxi-contact-number",
+      },
     ],
   },
   {
     name: "Ayodhya",
     slug: "ayodhya",
     services: [
-  
+      { label: "Sedan Taxi in Ayodhya", href: "/sedan-taxi-in-ayodhya" },
+      { label: "SUV Taxi in Ayodhya", href: "/suv-taxi-in-ayodhya" },
       { label: "Amaze Taxi in Ayodhya", href: "/amaze-taxi-in-ayodhya" },
       { label: "Dzire Taxi in Ayodhya", href: "/dzire-taxi-in-ayodhya" },
       { label: "Etios Taxi in Ayodhya", href: "/etios-taxi-in-ayodhya" },
       { label: "Ertiga Taxi in Ayodhya", href: "/ertiga-taxi-in-ayodhya" },
       { label: "Innova Crysta in Ayodhya", href: "/innova-crysta-in-ayodhya" },
-      { label: "Urbania Rental in Ayodhya", href: "/urbania-rental-in-ayodhya" },
-      { label: "12-Seater Tempo Traveller", href: "/12-seater-tempo-traveller-in-ayodhya" },
-      { label: "16-Seater Tempo Traveller", href: "/16-seater-tempo-traveller-in-ayodhya" },
-      { label: "20-Seater Tempo Traveller", href: "/20-seater-tempo-traveller-in-ayodhya" },
-      { label: "24-Seater Tempo Traveller", href: "/24-seater-tempo-traveller-in-ayodhya" },
-      { label: "Luxury Tempo Traveller", href: "/luxury-tempo-traveller-in-ayodhya" },
-      { label: "Ayodhya Taxi Contact Number", href: "/ayodhya-taxi-contact-number" },
+      {
+        label: "Urbania Rental in Ayodhya",
+        href: "/urbania-rental-in-ayodhya",
+      },
+      {
+        label: "12-Seater Tempo Traveller",
+        href: "/12-seater-tempo-traveller-in-ayodhya",
+      },
+      {
+        label: "16-Seater Tempo Traveller",
+        href: "/16-seater-tempo-traveller-in-ayodhya",
+      },
+      {
+        label: "20-Seater Tempo Traveller",
+        href: "/20-seater-tempo-traveller-in-ayodhya",
+      },
+      {
+        label: "24-Seater Tempo Traveller",
+        href: "/24-seater-tempo-traveller-in-ayodhya",
+      },
+      {
+        label: "Luxury Tempo Traveller",
+        href: "/luxury-tempo-traveller-in-ayodhya",
+      },
+      {
+        label: "Ayodhya Taxi Contact Number",
+        href: "/ayodhya-taxi-contact-number",
+      },
     ],
   },
   {
     name: "Prayagraj",
     slug: "prayagraj",
     services: [
-
+      { label: "Sedan Taxi in Prayagraj", href: "/sedan-taxi-in-prayagraj" },
+      { label: "SUV Taxi in Prayagraj", href: "/suv-taxi-in-prayagraj" },
       { label: "Amaze Taxi in Prayagraj", href: "/amaze-taxi-in-prayagraj" },
       { label: "Dzire Taxi in Prayagraj", href: "/dzire-taxi-in-prayagraj" },
       { label: "Etios Taxi in Prayagraj", href: "/etios-taxi-in-prayagraj" },
       { label: "Ertiga Taxi in Prayagraj", href: "/ertiga-taxi-in-prayagraj" },
-      { label: "Innova Crysta in Prayagraj", href: "/innova-crysta-in-prayagraj" },
-      { label: "Urbania Rental in Prayagraj", href: "/urbania-rental-in-prayagraj" },
-      { label: "12-Seater Tempo Traveller", href: "/12-seater-tempo-traveller-in-prayagraj" },
-      { label: "16-Seater Tempo Traveller", href: "/16-seater-tempo-traveller-in-prayagraj" },
-      { label: "20-Seater Tempo Traveller", href: "/20-seater-tempo-traveller-in-prayagraj" },
-      { label: "24-Seater Tempo Traveller", href: "/24-seater-tempo-traveller-in-prayagraj" },
-      { label: "Luxury Tempo Traveller", href: "/luxury-tempo-traveller-in-prayagraj" },
-      { label: "Prayagraj Taxi Contact Number", href: "/prayagraj-taxi-contact-number" },
+      {
+        label: "Innova Crysta in Prayagraj",
+        href: "/innova-crysta-in-prayagraj",
+      },
+      {
+        label: "Urbania Rental in Prayagraj",
+        href: "/urbania-rental-in-prayagraj",
+      },
+      {
+        label: "12-Seater Tempo Traveller",
+        href: "/12-seater-tempo-traveller-in-prayagraj",
+      },
+      {
+        label: "16-Seater Tempo Traveller",
+        href: "/16-seater-tempo-traveller-in-prayagraj",
+      },
+      {
+        label: "20-Seater Tempo Traveller",
+        href: "/20-seater-tempo-traveller-in-prayagraj",
+      },
+      {
+        label: "24-Seater Tempo Traveller",
+        href: "/24-seater-tempo-traveller-in-prayagraj",
+      },
+      {
+        label: "Luxury Tempo Traveller",
+        href: "/luxury-tempo-traveller-in-prayagraj",
+      },
+      {
+        label: "Prayagraj Taxi Contact Number",
+        href: "/prayagraj-taxi-contact-number",
+      },
     ],
   },
 ];
@@ -89,7 +183,8 @@ export default function CityWiseServices() {
             Cab Services by City
           </h2>
           <p className="mt-4 text-lg text-stone-600 max-w-2xl mx-auto">
-            Explore our complete range of taxi and tempo traveller services across top pilgrimage destinations.
+            Explore our complete range of taxi and tempo traveller services
+            across top pilgrimage destinations.
           </p>
         </div>
 
@@ -105,7 +200,6 @@ export default function CityWiseServices() {
                 <h3 className="text-2xl font-bold text-stone-900 capitalize">
                   {city.name}
                 </h3>
-             
               </div>
 
               {/* Services Grid - 3 columns on large screens, 2 on medium, 1 on small */}

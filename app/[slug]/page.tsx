@@ -16,6 +16,7 @@ import ErtigaTaxiPage from "../components/seo-pages/ErtigaTaxiPage";
 import DzireTaxiPage from "../components/seo-pages/DzireTaxiPage";
 import EtiosTaxiPage from "../components/seo-pages/EtiosTaxiPage";
 import AmazeTaxiPage from "../components/seo-pages/AmazeTaxiPage";
+import SedanTaxiPage from "../components/seo-pages/SedanTaxiPage";
 import TaxiContactNumberPage from "../components/seo-pages/TaxiContactNumberPage";
 import LuxuryTempoTravellerTaxi from "../components/seo-pages/LuxuryTempoTravellerTaxi";
 import SixteenSeaterTempoTravellerTaxiPage from "../components/seo-pages/16SeaterTempoTaxiPage";
@@ -56,7 +57,9 @@ export async function generateMetadata({
 
   let seoDescription = page.description;
 
-  if (page.service === "suv" || page.slug.includes("suv-taxi")) {
+  if (page.service === "sedan" || page.slug.includes("sedan")) {
+    seoDescription = `Hire verified Sedan taxi in ${city} for local sightseeing, outstation trips & airport transfers. City-expert drivers, clean AC cars.`;
+  } else if (page.service === "suv" || page.slug.includes("suv-taxi")) {
     seoDescription = `Hire verified SUV taxi in ${city} for family trips, airport transfers, outstation journeys & group travel. Spacious seating, premium AC comfort.`;
   } else if (page.service === "amaze" || page.slug.includes("amaze")) {
     seoDescription = `Hire verified Honda Amaze taxi in ${city} for local sightseeing, outstation travel & airport drops. Experienced drivers, clean AC sedans.`;
@@ -145,6 +148,8 @@ export default async function SeoPage({ params }: PageProps) {
         <TempoTravellerPage page={page} />
       ) : page.service === "airport" ? (
         <AirportTaxiPage page={page} />
+      ) : page.service === "sedan" ? (
+        <SedanTaxiPage page={page} />
       ) : page.service === "suv" ? (
         <SuvTaxiPage page={page} />
       ) : page.service === "urbania-rental" ? (
@@ -173,6 +178,7 @@ export default async function SeoPage({ params }: PageProps) {
     <>
       {pageContent}
       {page.service !== "taxi" &&
+        page.service !== "sedan" &&
         page.service !== "tempo" &&
         page.service !== "suv" &&
         page.service !== "amaze" &&

@@ -1,5 +1,6 @@
 export type SeoService =
   | "taxi"
+  | "sedan"
   | "suv"
   | "tempo"
   | "airport"
@@ -53,6 +54,25 @@ const serviceDetails: Record<
       "Railway station transfers",
       "Outstation taxi booking",
       "One-way and round trips",
+    ],
+  },
+  sedan: {
+    title: "Sedan Taxi",
+    description:
+      "Book a comfortable sedan taxi for family trips, local sightseeing, outstation travel and airport transfers.",
+    intro:
+      "Enjoy a smooth, comfortable and budget-friendly ride in a clean AC sedan car with experienced drivers.",
+    highlights: [
+      "Comfortable 4+1 seating",
+      "Spacious boot for luggage",
+      "Ideal for city & outstation travel",
+      "Clean AC cars with expert drivers",
+    ],
+    popularTrips: [
+      "Airport transfers",
+      "Outstation journeys",
+      "Local sightseeing",
+      "Corporate travel",
     ],
   },
   suv: {
@@ -277,6 +297,7 @@ const vehicleServices = [
     title: "Innova Crysta Taxi",
     service: "innova-crysta",
   },
+  { slug: "sedan-taxi", title: "Sedan Taxi", service: "sedan" },
   { slug: "ertiga-taxi", title: "Ertiga Taxi", service: "ertiga" },
   { slug: "dzire-taxi", title: "Dzire Taxi", service: "dzire" },
   { slug: "etios-taxi", title: "Etios Taxi", service: "etios" },
@@ -316,27 +337,29 @@ export const seoPages: Record<string, SeoPageData> = Object.fromEntries(
       const serviceSlug =
         service === "taxi"
           ? "taxi-service"
-          : service === "suv"
-            ? "suv-taxi"
-            : service === "tempo"
-              ? "tempo-traveller"
-              : service === "urbania-rental"
-                ? "urbania-rental"
-                : service === "innova-crysta"
-                  ? "innova-crysta-taxi"
-                  : service === "ertiga"
-                    ? "ertiga-taxi"
-                    : service === "dzire"
-                      ? "dzire-taxi"
-                      : service === "etios"
-                        ? "etios-taxi"
-                        : service === "amaze"
-                          ? "amaze-taxi"
-                          : service === "taxi-contact-number"
-                            ? `${city}-taxi-contact-number`
-                            : service === "luxury-tempo-traveller"
-                              ? `${city}-luxury-tempo-traveller-taxi`
-                              : "airport-taxi";
+          : service === "sedan"
+            ? "sedan-taxi"
+            : service === "suv"
+              ? "suv-taxi"
+              : service === "tempo"
+                ? "tempo-traveller"
+                : service === "urbania-rental"
+                  ? "urbania-rental"
+                  : service === "innova-crysta"
+                    ? "innova-crysta-taxi"
+                    : service === "ertiga"
+                      ? "ertiga-taxi"
+                      : service === "dzire"
+                        ? "dzire-taxi"
+                        : service === "etios"
+                          ? "etios-taxi"
+                          : service === "amaze"
+                            ? "amaze-taxi"
+                            : service === "taxi-contact-number"
+                              ? `${city}-taxi-contact-number`
+                              : service === "luxury-tempo-traveller"
+                                ? `${city}-luxury-tempo-traveller-taxi`
+                                : "airport-taxi";
       const slug =
         service === "taxi-contact-number" ||
         service === "luxury-tempo-traveller"
