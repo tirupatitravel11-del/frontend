@@ -171,6 +171,88 @@ const cities = [
       },
     ],
   },
+    {
+    name: "Gaya",
+    slug: "gaya",
+    services: [
+      { label: "Sedan Taxi in Gaya", href: "/sedan-taxi-in-gaya" },
+      { label: "SUV Taxi in Gaya", href: "/suv-taxi-in-gaya" },
+      { label: "Amaze Taxi in Gaya", href: "/amaze-taxi-in-gaya" },
+      { label: "Dzire Taxi in Gaya", href: "/dzire-taxi-in-gaya" },
+      { label: "Etios Taxi in Gaya", href: "/etios-taxi-in-gaya" },
+      { label: "Ertiga Taxi in Gaya", href: "/ertiga-taxi-in-gaya" },
+      { label: "Innova Crysta in Gaya", href: "/innova-crysta-in-gaya" },
+      { label: "Urbania Rental in Gaya", href: "/urbania-rental-in-gaya" },
+      {
+        label: "12-Seater Tempo Traveller",
+        href: "/12-seater-tempo-traveller-in-gaya",
+      },
+      {
+        label: "16-Seater Tempo Traveller",
+        href: "/16-seater-tempo-traveller-in-gaya",
+      },
+      {
+        label: "20-Seater Tempo Traveller",
+        href: "/20-seater-tempo-traveller-in-gaya",
+      },
+      {
+        label: "24-Seater Tempo Traveller",
+        href: "/24-seater-tempo-traveller-in-gaya",
+      },
+      {
+        label: "Luxury Tempo Traveller",
+        href: "/luxury-tempo-traveller-in-gaya",
+      },
+      {
+        label: "Gaya Taxi Contact Number",
+        href: "/gaya-taxi-contact-number",
+      },
+    ],
+  },
+  {
+    name: "Vindhyachal",
+    slug: "vindhyachal",
+    services: [
+      { label: "Sedan Taxi in Vindhyachal", href: "/sedan-taxi-in-vindhyachal" },
+      { label: "SUV Taxi in Vindhyachal", href: "/suv-taxi-in-vindhyachal" },
+      { label: "Amaze Taxi in Vindhyachal", href: "/amaze-taxi-in-vindhyachal" },
+      { label: "Dzire Taxi in Vindhyachal", href: "/dzire-taxi-in-vindhyachal" },
+      { label: "Etios Taxi in Vindhyachal", href: "/etios-taxi-in-vindhyachal" },
+      { label: "Ertiga Taxi in Vindhyachal", href: "/ertiga-taxi-in-vindhyachal" },
+      {
+        label: "Innova Crysta in Vindhyachal",
+        href: "/innova-crysta-in-vindhyachal",
+      },
+      {
+        label: "Urbania Rental in Vindhyachal",
+        href: "/urbania-rental-in-vindhyachal",
+      },
+      {
+        label: "12-Seater Tempo Traveller",
+        href: "/12-seater-tempo-traveller-in-vindhyachal",
+      },
+      {
+        label: "16-Seater Tempo Traveller",
+        href: "/16-seater-tempo-traveller-in-vindhyachal",
+      },
+      {
+        label: "20-Seater Tempo Traveller",
+        href: "/20-seater-tempo-traveller-in-vindhyachal",
+      },
+      {
+        label: "24-Seater Tempo Traveller",
+        href: "/24-seater-tempo-traveller-in-vindhyachal",
+      },
+      {
+        label: "Luxury Tempo Traveller",
+        href: "/luxury-tempo-traveller-in-vindhyachal",
+      },
+      {
+        label: "Vindhyachal Taxi Contact Number",
+        href: "/vindhyachal-taxi-contact-number",
+      },
+    ],
+  },
 ];
 
 export default function CityWiseServices() {

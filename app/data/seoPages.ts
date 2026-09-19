@@ -24,14 +24,22 @@ export type SeoPageData = {
   popularTrips: string[];
 };
 
-const cities = ["ayodhya", "varanasi", "lucknow", "prayagraj"] as const;
+const cities = [
+  "ayodhya",
+  "varanasi",
+  "lucknow",
+  "prayagraj",
+  "gaya",
+  "vindhyachal",
+] as const;
 
 const cityNames: Record<(typeof cities)[number], string> = {
   ayodhya: "Ayodhya",
   varanasi: "Varanasi",
   lucknow: "Lucknow",
   prayagraj: "Prayagraj",
-
+  gaya: "Gaya",
+  vindhyachal: "Vindhyachal",
 };
 
 const serviceDetails: Record<
@@ -363,7 +371,7 @@ export const seoPages: Record<string, SeoPageData> = Object.fromEntries(
                                 : "airport-taxi";
       const slug =
         service === "taxi-contact-number" ||
-          service === "luxury-tempo-traveller"
+        service === "luxury-tempo-traveller"
           ? serviceSlug
           : `${serviceSlug}-in-${city}`;
 
