@@ -253,6 +253,50 @@ const cities = [
       },
     ],
   },
+  {
+  name: "Agra",
+  slug: "agra",
+  services: [
+    { label: "Sedan Taxi in Agra", href: "/sedan-taxi-in-agra" },
+    { label: "SUV Taxi in Agra", href: "/suv-taxi-in-agra" },
+    { label: "Amaze Taxi in Agra", href: "/amaze-taxi-in-agra" },
+    { label: "Dzire Taxi in Agra", href: "/dzire-taxi-in-agra" },
+    { label: "Etios Taxi in Agra", href: "/etios-taxi-in-agra" },
+    { label: "Ertiga Taxi in Agra", href: "/ertiga-taxi-in-agra" },
+    {
+      label: "Innova Crysta in Agra",
+      href: "/innova-crysta-in-agra",
+    },
+    {
+      label: "Urbania Rental in Agra",
+      href: "/urbania-rental-in-agra",
+    },
+    {
+      label: "12-Seater Tempo Traveller",
+      href: "/12-seater-tempo-traveller-in-agra",
+    },
+    {
+      label: "16-Seater Tempo Traveller",
+      href: "/16-seater-tempo-traveller-in-agra",
+    },
+    {
+      label: "20-Seater Tempo Traveller",
+      href: "/20-seater-tempo-traveller-in-agra",
+    },
+    {
+      label: "24-Seater Tempo Traveller",
+      href: "/24-seater-tempo-traveller-in-agra",
+    },
+    {
+      label: "Luxury Tempo Traveller",
+      href: "/luxury-tempo-traveller-in-agra",
+    },
+    {
+      label: "Agra Taxi Contact Number",
+      href: "/agra-taxi-contact-number",
+    },
+  ],
+}
 ];
 
 export default function CityWiseServices() {
