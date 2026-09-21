@@ -31,6 +31,7 @@ const cities = [
   "prayagraj",
   "gaya",
   "vindhyachal",
+  "agra",
 ] as const;
 
 const cityNames: Record<(typeof cities)[number], string> = {
@@ -40,6 +41,7 @@ const cityNames: Record<(typeof cities)[number], string> = {
   prayagraj: "Prayagraj",
   gaya: "Gaya",
   vindhyachal: "Vindhyachal",
+  agra: "Agra",
 };
 
 const serviceDetails: Record<
