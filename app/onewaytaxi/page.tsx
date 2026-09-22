@@ -227,7 +227,7 @@ const FAQS: FAQItem[] = [
   },
   {
     q: "How can I book a one-way taxi?",
-    a: "You can call Chiku Cabs, contact us on WhatsApp or submit your travel details through the booking form on this page.",
+    a: "You can call Tirupati Travels, contact us on WhatsApp or submit your travel details through the booking form on this page.",
   },
   {
     q: "Which vehicles are available?",
@@ -243,7 +243,7 @@ const FAQS: FAQItem[] = [
   },
   {
     q: "Can I book for long-distance travel?",
-    a: "Yes. Chiku Cabs provides intercity and long-distance taxi services across multiple routes.",
+    a: "Yes. Tirupati Travels provides intercity and long-distance taxi services across multiple routes.",
   },
   {
     q: "Can I cancel my booking?",

@@ -9,6 +9,67 @@ import {
 import { VEHICLES } from "./route-data/vehicles";
 
 export function getRoutePage(pageSlug: string) {
+  // Check if pageSlug matches any of the restricted *-to-ayodhya routes
+  const ayodhyaTaxiOnlySlugs = new Set([
+    "gorakhpur-to-ayodhya",
+    "kanpur-to-ayodhya",
+    "patna-to-ayodhya",
+    "agra-to-ayodhya",
+    "mathura-to-ayodhya",
+    "basti-to-ayodhya",
+    "gonda-to-ayodhya",
+    "sultanpur-to-ayodhya",
+    "faizabad-to-ayodhya",
+    "jaunpur-to-ayodhya",
+    "pratapgarh-to-ayodhya",
+    "rae-bareli-to-ayodhya",
+    "ambedkar-nagar-to-ayodhya",
+    "azamgarh-to-ayodhya",
+    "deoria-to-ayodhya",
+    "maharajganj-to-ayodhya",
+    "bareilly-to-ayodhya",
+    "moradabad-to-ayodhya",
+    "aligarh-to-ayodhya",
+    "ghaziabad-to-ayodhya",
+    "noida-to-ayodhya",
+    "greater-noida-to-ayodhya",
+    "meerut-to-ayodhya",
+    "gaya-to-ayodhya",
+    "bodh-gaya-to-ayodhya",
+    "muzaffarpur-to-ayodhya",
+    "darbhanga-to-ayodhya",
+    "vrindavan-to-ayodhya",
+    "jaipur-to-ayodhya",
+    "haridwar-to-ayodhya",
+    "rishikesh-to-ayodhya",
+    "dehradun-to-ayodhya",
+    "jhansi-to-ayodhya",
+    "chitrakoot-to-ayodhya",
+    "shravasti-to-ayodhya",
+    "kolkata-to-ayodhya",
+    "ranchi-to-ayodhya",
+    "dhanbad-to-ayodhya",
+    "jamshedpur-to-ayodhya",
+    "bhopal-to-ayodhya",
+    "indore-to-ayodhya",
+    "ujjain-to-ayodhya",
+  ]);
+
+  const normalizedSlug = pageSlug.toLowerCase().replace(/^\/|\/$/g, "");
+  const isAyodhyaTaxiOnly = Array.from(ayodhyaTaxiOnlySlugs).some(baseSlug => 
+    normalizedSlug.startsWith(baseSlug)
+  );
+
+  if (isAyodhyaTaxiOnly) {
+    const matchedBaseSlug = Array.from(ayodhyaTaxiOnlySlugs).find(baseSlug => 
+      normalizedSlug.startsWith(baseSlug)
+    );
+    // Only allow the exact format `${baseSlug}-taxi`
+    if (normalizedSlug !== `${matchedBaseSlug}-taxi`) {
+      return null;
+    }
+  }
+
   // ========================================
   // 1. CHECK GENERIC PAGE
   // ========================================
