@@ -65,7 +65,10 @@ export const ROUTES: Route[] = [
     duration: "6 - 7 hrs",
   },
 
-  // --- Varanasi Nearby Routes ---
+  // --- Routes TO Varanasi ---
+
+  // --- Routes FROM Varanasi ---
+
   {
     slug: "varanasi-to-prayagraj",
     fromCity: "Varanasi",
@@ -73,6 +76,7 @@ export const ROUTES: Route[] = [
     distance: 120,
     duration: "2.5 - 3 hrs",
   },
+
   {
     slug: "varanasi-to-sarnath",
     fromCity: "Varanasi",
@@ -80,6 +84,7 @@ export const ROUTES: Route[] = [
     distance: 10,
     duration: "20 - 30 min",
   },
+
   {
     slug: "varanasi-to-mirzapur",
     fromCity: "Varanasi",
@@ -87,6 +92,7 @@ export const ROUTES: Route[] = [
     distance: 90,
     duration: "2 - 2.5 hrs",
   },
+
   {
     slug: "varanasi-to-ayodhya",
     fromCity: "Varanasi",
@@ -94,6 +100,7 @@ export const ROUTES: Route[] = [
     distance: 200,
     duration: "4 - 5 hrs",
   },
+
   {
     slug: "varanasi-to-gaya",
     fromCity: "Varanasi",
@@ -101,6 +108,7 @@ export const ROUTES: Route[] = [
     distance: 250,
     duration: "5 - 6 hrs",
   },
+
   {
     slug: "varanasi-to-vindhyachal",
     fromCity: "Varanasi",
@@ -108,6 +116,7 @@ export const ROUTES: Route[] = [
     distance: 70,
     duration: "1.5 - 2 hrs",
   },
+
   {
     slug: "varanasi-to-chunar",
     fromCity: "Varanasi",
@@ -115,6 +124,7 @@ export const ROUTES: Route[] = [
     distance: 40,
     duration: "1 - 1.5 hrs",
   },
+
   {
     slug: "varanasi-to-jaunpur",
     fromCity: "Varanasi",
@@ -122,6 +132,7 @@ export const ROUTES: Route[] = [
     distance: 60,
     duration: "1.5 - 2 hrs",
   },
+
   {
     slug: "varanasi-to-ghazipur",
     fromCity: "Varanasi",
@@ -129,6 +140,7 @@ export const ROUTES: Route[] = [
     distance: 75,
     duration: "2 - 2.5 hrs",
   },
+
   {
     slug: "varanasi-to-ramnagar",
     fromCity: "Varanasi",
@@ -144,6 +156,7 @@ export const ROUTES: Route[] = [
     distance: 250,
     duration: "5 - 6 hrs",
   },
+
   {
     slug: "varanasi-to-bodh-gaya",
     fromCity: "Varanasi",
@@ -151,6 +164,7 @@ export const ROUTES: Route[] = [
     distance: 250,
     duration: "5 - 6 hrs",
   },
+
   {
     slug: "varanasi-to-rajgir",
     fromCity: "Varanasi",
@@ -158,6 +172,7 @@ export const ROUTES: Route[] = [
     distance: 280,
     duration: "6 - 7 hrs",
   },
+
   {
     slug: "varanasi-to-nalanda",
     fromCity: "Varanasi",
@@ -165,6 +180,7 @@ export const ROUTES: Route[] = [
     distance: 270,
     duration: "5.5 - 6.5 hrs",
   },
+
   {
     slug: "varanasi-to-deoghar",
     fromCity: "Varanasi",
@@ -172,6 +188,7 @@ export const ROUTES: Route[] = [
     distance: 280,
     duration: "6 - 7 hrs",
   },
+
   {
     slug: "varanasi-to-jabalpur",
     fromCity: "Varanasi",
@@ -179,6 +196,7 @@ export const ROUTES: Route[] = [
     distance: 350,
     duration: "7 - 8 hrs",
   },
+
   {
     slug: "varanasi-to-khajuraho",
     fromCity: "Varanasi",
@@ -186,6 +204,7 @@ export const ROUTES: Route[] = [
     distance: 380,
     duration: "8 - 9 hrs",
   },
+
   {
     slug: "varanasi-to-rewa",
     fromCity: "Varanasi",
@@ -193,6 +212,7 @@ export const ROUTES: Route[] = [
     distance: 180,
     duration: "4 - 5 hrs",
   },
+
   {
     slug: "varanasi-to-satna",
     fromCity: "Varanasi",
@@ -200,6 +220,7 @@ export const ROUTES: Route[] = [
     distance: 250,
     duration: "5 - 6 hrs",
   },
+
   {
     slug: "varanasi-to-azamgarh",
     fromCity: "Varanasi",
@@ -207,6 +228,7 @@ export const ROUTES: Route[] = [
     distance: 90,
     duration: "2 - 2.5 hrs",
   },
+
   {
     slug: "varanasi-to-mau",
     fromCity: "Varanasi",
@@ -214,6 +236,7 @@ export const ROUTES: Route[] = [
     distance: 110,
     duration: "2.5 - 3 hrs",
   },
+
   {
     slug: "varanasi-to-ballia",
     fromCity: "Varanasi",
@@ -221,6 +244,7 @@ export const ROUTES: Route[] = [
     distance: 130,
     duration: "3 - 3.5 hrs",
   },
+
   {
     slug: "varanasi-to-kushinagar",
     fromCity: "Varanasi",
@@ -228,6 +252,7 @@ export const ROUTES: Route[] = [
     distance: 200,
     duration: "4.5 - 5.5 hrs",
   },
+
   {
     slug: "varanasi-to-lumbini",
     fromCity: "Varanasi",
@@ -235,6 +260,7 @@ export const ROUTES: Route[] = [
     distance: 260,
     duration: "6 - 7 hrs",
   },
+
   {
     slug: "varanasi-to-basti",
     fromCity: "Varanasi",
@@ -242,6 +268,7 @@ export const ROUTES: Route[] = [
     distance: 180,
     duration: "4 - 5 hrs",
   },
+
   {
     slug: "varanasi-to-siddharthnagar",
     fromCity: "Varanasi",
@@ -249,6 +276,7 @@ export const ROUTES: Route[] = [
     distance: 160,
     duration: "3.5 - 4.5 hrs",
   },
+
   {
     slug: "varanasi-to-deoria",
     fromCity: "Varanasi",
@@ -256,6 +284,7 @@ export const ROUTES: Route[] = [
     distance: 160,
     duration: "3.5 - 4.5 hrs",
   },
+
   {
     slug: "varanasi-to-lucknow",
     fromCity: "Varanasi",
@@ -263,6 +292,7 @@ export const ROUTES: Route[] = [
     distance: 320,
     duration: "6 - 7 hrs",
   },
+
   {
     slug: "varanasi-to-kanpur",
     fromCity: "Varanasi",
@@ -270,6 +300,7 @@ export const ROUTES: Route[] = [
     distance: 350,
     duration: "7 - 8 hrs",
   },
+
   {
     slug: "varanasi-to-agra",
     fromCity: "Varanasi",
@@ -277,6 +308,7 @@ export const ROUTES: Route[] = [
     distance: 600,
     duration: "10 - 12 hrs",
   },
+
   {
     slug: "varanasi-to-mathura",
     fromCity: "Varanasi",
@@ -284,6 +316,7 @@ export const ROUTES: Route[] = [
     distance: 580,
     duration: "10 - 11 hrs",
   },
+
   {
     slug: "varanasi-to-vrindavan",
     fromCity: "Varanasi",
@@ -291,6 +324,7 @@ export const ROUTES: Route[] = [
     distance: 585,
     duration: "10 - 11 hrs",
   },
+
   {
     slug: "varanasi-to-delhi",
     fromCity: "Varanasi",
@@ -298,6 +332,7 @@ export const ROUTES: Route[] = [
     distance: 800,
     duration: "12 - 14 hrs",
   },
+
   {
     slug: "varanasi-to-noida",
     fromCity: "Varanasi",
@@ -305,6 +340,7 @@ export const ROUTES: Route[] = [
     distance: 810,
     duration: "13 - 15 hrs",
   },
+
   {
     slug: "varanasi-to-chitrakoot",
     fromCity: "Varanasi",
@@ -312,6 +348,7 @@ export const ROUTES: Route[] = [
     distance: 250,
     duration: "5 - 6 hrs",
   },
+
   {
     slug: "varanasi-to-robertsganj",
     fromCity: "Varanasi",
@@ -319,6 +356,7 @@ export const ROUTES: Route[] = [
     distance: 130,
     duration: "3 - 4 hrs",
   },
+
   {
     slug: "varanasi-to-chopan",
     fromCity: "Varanasi",
@@ -326,6 +364,7 @@ export const ROUTES: Route[] = [
     distance: 150,
     duration: "3.5 - 4.5 hrs",
   },
+
   {
     slug: "varanasi-to-buxar",
     fromCity: "Varanasi",
@@ -333,6 +372,7 @@ export const ROUTES: Route[] = [
     distance: 130,
     duration: "3 - 3.5 hrs",
   },
+
   {
     slug: "varanasi-to-sasaram",
     fromCity: "Varanasi",
@@ -340,6 +380,7 @@ export const ROUTES: Route[] = [
     distance: 150,
     duration: "3.5 - 4.5 hrs",
   },
+
   {
     slug: "varanasi-to-arrah",
     fromCity: "Varanasi",
@@ -347,6 +388,7 @@ export const ROUTES: Route[] = [
     distance: 180,
     duration: "4 - 5 hrs",
   },
+
   {
     slug: "varanasi-to-chapra",
     fromCity: "Varanasi",
@@ -354,6 +396,7 @@ export const ROUTES: Route[] = [
     distance: 200,
     duration: "4.5 - 5.5 hrs",
   },
+
   {
     slug: "varanasi-to-muzaffarpur",
     fromCity: "Varanasi",
@@ -361,6 +404,7 @@ export const ROUTES: Route[] = [
     distance: 300,
     duration: "6.5 - 7.5 hrs",
   },
+
   {
     slug: "varanasi-to-darbhanga",
     fromCity: "Varanasi",
@@ -368,6 +412,7 @@ export const ROUTES: Route[] = [
     distance: 330,
     duration: "7 - 8 hrs",
   },
+
   {
     slug: "varanasi-to-ranchi",
     fromCity: "Varanasi",
@@ -375,6 +420,7 @@ export const ROUTES: Route[] = [
     distance: 400,
     duration: "8 - 9 hrs",
   },
+
   {
     slug: "varanasi-to-dhanbad",
     fromCity: "Varanasi",
@@ -382,6 +428,7 @@ export const ROUTES: Route[] = [
     distance: 280,
     duration: "6 - 7 hrs",
   },
+
   {
     slug: "varanasi-to-jamshedpur",
     fromCity: "Varanasi",
@@ -389,6 +436,7 @@ export const ROUTES: Route[] = [
     distance: 350,
     duration: "7.5 - 8.5 hrs",
   },
+
   {
     slug: "varanasi-to-hazaribagh",
     fromCity: "Varanasi",
@@ -396,6 +444,7 @@ export const ROUTES: Route[] = [
     distance: 320,
     duration: "7 - 8 hrs",
   },
+
   {
     slug: "varanasi-to-kolkata",
     fromCity: "Varanasi",
@@ -403,6 +452,7 @@ export const ROUTES: Route[] = [
     distance: 680,
     duration: "12 - 14 hrs",
   },
+
   {
     slug: "varanasi-to-bhubaneswar",
     fromCity: "Varanasi",
@@ -410,7 +460,397 @@ export const ROUTES: Route[] = [
     distance: 650,
     duration: "12 - 14 hrs",
   },
+  {
+    slug: "prayagraj-to-varanasi",
+    fromCity: "Prayagraj",
+    toCity: "Varanasi",
+    distance: 120,
+    duration: "2.5 - 3 hrs",
+  },
 
+  {
+    slug: "sarnath-to-varanasi",
+    fromCity: "Sarnath",
+    toCity: "Varanasi",
+    distance: 10,
+    duration: "20 - 30 min",
+  },
+
+  {
+    slug: "mirzapur-to-varanasi",
+    fromCity: "Mirzapur",
+    toCity: "Varanasi",
+    distance: 90,
+    duration: "2 - 2.5 hrs",
+  },
+
+  {
+    slug: "ayodhya-to-varanasi",
+    fromCity: "Ayodhya",
+    toCity: "Varanasi",
+    distance: 200,
+    duration: "4 - 5 hrs",
+  },
+
+  {
+    slug: "gaya-to-varanasi",
+    fromCity: "Gaya",
+    toCity: "Varanasi",
+    distance: 250,
+    duration: "5 - 6 hrs",
+  },
+
+  {
+    slug: "vindhyachal-to-varanasi",
+    fromCity: "Vindhyachal",
+    toCity: "Varanasi",
+    distance: 70,
+    duration: "1.5 - 2 hrs",
+  },
+
+  {
+    slug: "chunar-to-varanasi",
+    fromCity: "Chunar",
+    toCity: "Varanasi",
+    distance: 40,
+    duration: "1 - 1.5 hrs",
+  },
+
+  {
+    slug: "jaunpur-to-varanasi",
+    fromCity: "Jaunpur",
+    toCity: "Varanasi",
+    distance: 60,
+    duration: "1.5 - 2 hrs",
+  },
+
+  {
+    slug: "ghazipur-to-varanasi",
+    fromCity: "Ghazipur",
+    toCity: "Varanasi",
+    distance: 75,
+    duration: "2 - 2.5 hrs",
+  },
+
+  {
+    slug: "ramnagar-to-varanasi",
+    fromCity: "Ramnagar",
+    toCity: "Varanasi",
+    distance: 15,
+    duration: "30 - 45 min",
+  },
+
+  {
+    slug: "patna-to-varanasi",
+    fromCity: "Patna",
+    toCity: "Varanasi",
+    distance: 250,
+    duration: "5 - 6 hrs",
+  },
+
+  {
+    slug: "bodh-gaya-to-varanasi",
+    fromCity: "Bodh Gaya",
+    toCity: "Varanasi",
+    distance: 250,
+    duration: "5 - 6 hrs",
+  },
+
+  {
+    slug: "rajgir-to-varanasi",
+    fromCity: "Rajgir",
+    toCity: "Varanasi",
+    distance: 280,
+    duration: "6 - 7 hrs",
+  },
+
+  {
+    slug: "nalanda-to-varanasi",
+    fromCity: "Nalanda",
+    toCity: "Varanasi",
+    distance: 270,
+    duration: "5.5 - 6.5 hrs",
+  },
+
+  {
+    slug: "deoghar-to-varanasi",
+    fromCity: "Deoghar",
+    toCity: "Varanasi",
+    distance: 280,
+    duration: "6 - 7 hrs",
+  },
+
+  {
+    slug: "jabalpur-to-varanasi",
+    fromCity: "Jabalpur",
+    toCity: "Varanasi",
+    distance: 350,
+    duration: "7 - 8 hrs",
+  },
+
+  {
+    slug: "khajuraho-to-varanasi",
+    fromCity: "Khajuraho",
+    toCity: "Varanasi",
+    distance: 380,
+    duration: "8 - 9 hrs",
+  },
+
+  {
+    slug: "rewa-to-varanasi",
+    fromCity: "Rewa",
+    toCity: "Varanasi",
+    distance: 180,
+    duration: "4 - 5 hrs",
+  },
+
+  {
+    slug: "satna-to-varanasi",
+    fromCity: "Satna",
+    toCity: "Varanasi",
+    distance: 250,
+    duration: "5 - 6 hrs",
+  },
+
+  {
+    slug: "azamgarh-to-varanasi",
+    fromCity: "Azamgarh",
+    toCity: "Varanasi",
+    distance: 90,
+    duration: "2 - 2.5 hrs",
+  },
+
+  {
+    slug: "mau-to-varanasi",
+    fromCity: "Mau",
+    toCity: "Varanasi",
+    distance: 110,
+    duration: "2.5 - 3 hrs",
+  },
+
+  {
+    slug: "ballia-to-varanasi",
+    fromCity: "Ballia",
+    toCity: "Varanasi",
+    distance: 130,
+    duration: "3 - 3.5 hrs",
+  },
+
+  {
+    slug: "kushinagar-to-varanasi",
+    fromCity: "Kushinagar",
+    toCity: "Varanasi",
+    distance: 200,
+    duration: "4.5 - 5.5 hrs",
+  },
+
+  {
+    slug: "lumbini-to-varanasi",
+    fromCity: "Lumbini",
+    toCity: "Varanasi",
+    distance: 260,
+    duration: "6 - 7 hrs",
+  },
+
+  {
+    slug: "basti-to-varanasi",
+    fromCity: "Basti",
+    toCity: "Varanasi",
+    distance: 180,
+    duration: "4 - 5 hrs",
+  },
+
+  {
+    slug: "siddharthnagar-to-varanasi",
+    fromCity: "Siddharthnagar",
+    toCity: "Varanasi",
+    distance: 160,
+    duration: "3.5 - 4.5 hrs",
+  },
+
+  {
+    slug: "deoria-to-varanasi",
+    fromCity: "Deoria",
+    toCity: "Varanasi",
+    distance: 160,
+    duration: "3.5 - 4.5 hrs",
+  },
+
+  {
+    slug: "lucknow-to-varanasi",
+    fromCity: "Lucknow",
+    toCity: "Varanasi",
+    distance: 320,
+    duration: "6 - 7 hrs",
+  },
+
+  {
+    slug: "kanpur-to-varanasi",
+    fromCity: "Kanpur",
+    toCity: "Varanasi",
+    distance: 350,
+    duration: "7 - 8 hrs",
+  },
+
+  {
+    slug: "agra-to-varanasi",
+    fromCity: "Agra",
+    toCity: "Varanasi",
+    distance: 600,
+    duration: "10 - 12 hrs",
+  },
+
+  {
+    slug: "mathura-to-varanasi",
+    fromCity: "Mathura",
+    toCity: "Varanasi",
+    distance: 580,
+    duration: "10 - 11 hrs",
+  },
+
+  {
+    slug: "vrindavan-to-varanasi",
+    fromCity: "Vrindavan",
+    toCity: "Varanasi",
+    distance: 585,
+    duration: "10 - 11 hrs",
+  },
+
+  {
+    slug: "delhi-to-varanasi",
+    fromCity: "Delhi",
+    toCity: "Varanasi",
+    distance: 800,
+    duration: "12 - 14 hrs",
+  },
+
+  {
+    slug: "noida-to-varanasi",
+    fromCity: "Noida",
+    toCity: "Varanasi",
+    distance: 810,
+    duration: "13 - 15 hrs",
+  },
+
+  {
+    slug: "chitrakoot-to-varanasi",
+    fromCity: "Chitrakoot",
+    toCity: "Varanasi",
+    distance: 250,
+    duration: "5 - 6 hrs",
+  },
+
+  {
+    slug: "robertsganj-to-varanasi",
+    fromCity: "Robertsganj",
+    toCity: "Varanasi",
+    distance: 130,
+    duration: "3 - 4 hrs",
+  },
+
+  {
+    slug: "chopan-to-varanasi",
+    fromCity: "Chopan",
+    toCity: "Varanasi",
+    distance: 150,
+    duration: "3.5 - 4.5 hrs",
+  },
+
+  {
+    slug: "buxar-to-varanasi",
+    fromCity: "Buxar",
+    toCity: "Varanasi",
+    distance: 130,
+    duration: "3 - 3.5 hrs",
+  },
+
+  {
+    slug: "sasaram-to-varanasi",
+    fromCity: "Sasaram",
+    toCity: "Varanasi",
+    distance: 150,
+    duration: "3.5 - 4.5 hrs",
+  },
+
+  {
+    slug: "arrah-to-varanasi",
+    fromCity: "Arrah",
+    toCity: "Varanasi",
+    distance: 180,
+    duration: "4 - 5 hrs",
+  },
+
+  {
+    slug: "chapra-to-varanasi",
+    fromCity: "Chapra",
+    toCity: "Varanasi",
+    distance: 200,
+    duration: "4.5 - 5.5 hrs",
+  },
+
+  {
+    slug: "muzaffarpur-to-varanasi",
+    fromCity: "Muzaffarpur",
+    toCity: "Varanasi",
+    distance: 300,
+    duration: "6.5 - 7.5 hrs",
+  },
+
+  {
+    slug: "darbhanga-to-varanasi",
+    fromCity: "Darbhanga",
+    toCity: "Varanasi",
+    distance: 330,
+    duration: "7 - 8 hrs",
+  },
+
+  {
+    slug: "ranchi-to-varanasi",
+    fromCity: "Ranchi",
+    toCity: "Varanasi",
+    distance: 400,
+    duration: "8 - 9 hrs",
+  },
+
+  {
+    slug: "dhanbad-to-varanasi",
+    fromCity: "Dhanbad",
+    toCity: "Varanasi",
+    distance: 280,
+    duration: "6 - 7 hrs",
+  },
+
+  {
+    slug: "jamshedpur-to-varanasi",
+    fromCity: "Jamshedpur",
+    toCity: "Varanasi",
+    distance: 350,
+    duration: "7.5 - 8.5 hrs",
+  },
+
+  {
+    slug: "hazaribagh-to-varanasi",
+    fromCity: "Hazaribagh",
+    toCity: "Varanasi",
+    distance: 320,
+    duration: "7 - 8 hrs",
+  },
+
+  {
+    slug: "kolkata-to-varanasi",
+    fromCity: "Kolkata",
+    toCity: "Varanasi",
+    distance: 680,
+    duration: "12 - 14 hrs",
+  },
+
+  {
+    slug: "bhubaneswar-to-varanasi",
+    fromCity: "Bhubaneswar",
+    toCity: "Varanasi",
+    distance: 650,
+    duration: "12 - 14 hrs",
+  },
   // --- Ayodhya Nearby Routes ---
   {
     slug: "ayodhya-to-gorakhpur",
@@ -1243,6 +1683,9 @@ export const ROUTES: Route[] = [
     distance: 180,
     duration: "3.5 - 4.5 hrs",
   },
+
+
+
   // --- Prayagraj Popular Routes ---
   {
     slug: "prayagraj-to-varanasi",
@@ -1596,357 +2039,361 @@ export const ROUTES: Route[] = [
   },
 
   // --- Gaya Popular Routes ---
+
+
   {
-    slug: "gaya-to-patna",
-    fromCity: "Gaya",
-    toCity: "Patna",
+    slug: "patna-to-gaya",
+    fromCity: "Patna",
+    toCity: "Gaya",
     distance: 100,
     duration: "2 - 2.5 hrs",
   },
   {
-    slug: "gaya-to-bodh-gaya",
-    fromCity: "Gaya",
-    toCity: "Bodh Gaya",
+    slug: "bodh-gaya-to-gaya",
+    fromCity: "Bodh Gaya",
+    toCity: "Gaya",
     distance: 15,
     duration: "30 - 45 min",
   },
   {
-    slug: "gaya-to-nalanda",
-    fromCity: "Gaya",
-    toCity: "Nalanda",
+    slug: "nalanda-to-gaya",
+    fromCity: "Nalanda",
+    toCity: "Gaya",
     distance: 85,
     duration: "1.5 - 2 hrs",
   },
   {
-    slug: "gaya-to-rajgir",
-    fromCity: "Gaya",
-    toCity: "Rajgir",
+    slug: "rajgir-to-gaya",
+    fromCity: "Rajgir",
+    toCity: "Gaya",
     distance: 95,
     duration: "2 - 2.5 hrs",
   },
   {
-    slug: "gaya-to-nawada",
-    fromCity: "Gaya",
-    toCity: "Nawada",
+    slug: "nawada-to-gaya",
+    fromCity: "Nawada",
+    toCity: "Gaya",
     distance: 70,
     duration: "1.5 - 2 hrs",
   },
   {
-    slug: "gaya-to-jehanabad",
-    fromCity: "Gaya",
-    toCity: "Jehanabad",
+    slug: "jehanabad-to-gaya",
+    fromCity: "Jehanabad",
+    toCity: "Gaya",
     distance: 50,
     duration: "1 - 1.5 hrs",
   },
   {
-    slug: "gaya-to-aurangabad",
-    fromCity: "Gaya",
-    toCity: "Aurangabad",
+    slug: "aurangabad-to-gaya",
+    fromCity: "Aurangabad",
+    toCity: "Gaya",
     distance: 70,
     duration: "1.5 - 2 hrs",
   },
   {
-    slug: "gaya-to-sasaram",
-    fromCity: "Gaya",
-    toCity: "Sasaram",
+    slug: "sasaram-to-gaya",
+    fromCity: "Sasaram",
+    toCity: "Gaya",
     distance: 130,
     duration: "2.5 - 3 hrs",
   },
   {
-    slug: "gaya-to-buxar",
-    fromCity: "Gaya",
-    toCity: "Buxar",
+    slug: "buxar-to-gaya",
+    fromCity: "Buxar",
+    toCity: "Gaya",
     distance: 180,
     duration: "3.5 - 4.5 hrs",
   },
   {
-    slug: "gaya-to-varanasi",
-    fromCity: "Gaya",
-    toCity: "Varanasi",
+    slug: "varanasi-to-gaya",
+    fromCity: "Varanasi",
+    toCity: "Gaya",
     distance: 240,
     duration: "5 - 6 hrs",
   },
   {
-    slug: "gaya-to-prayagraj",
-    fromCity: "Gaya",
-    toCity: "Prayagraj",
+    slug: "prayagraj-to-gaya",
+    fromCity: "Prayagraj",
+    toCity: "Gaya",
     distance: 380,
     duration: "8 - 9 hrs",
   },
   {
-    slug: "gaya-to-ranchi",
-    fromCity: "Gaya",
-    toCity: "Ranchi",
+    slug: "ranchi-to-gaya",
+    fromCity: "Ranchi",
+    toCity: "Gaya",
     distance: 315,
     duration: "6 - 7 hrs",
   },
   {
-    slug: "gaya-to-hazaribagh",
-    fromCity: "Gaya",
-    toCity: "Hazaribagh",
+    slug: "hazaribagh-to-gaya",
+    fromCity: "Hazaribagh",
+    toCity: "Gaya",
     distance: 220,
     duration: "4.5 - 5.5 hrs",
   },
   {
-    slug: "gaya-to-dhanbad",
-    fromCity: "Gaya",
-    toCity: "Dhanbad",
+    slug: "dhanbad-to-gaya",
+    fromCity: "Dhanbad",
+    toCity: "Gaya",
     distance: 190,
     duration: "4 - 5 hrs",
   },
   {
-    slug: "gaya-to-jamshedpur",
-    fromCity: "Gaya",
-    toCity: "Jamshedpur",
+    slug: "jamshedpur-to-gaya",
+    fromCity: "Jamshedpur",
+    toCity: "Gaya",
     distance: 280,
     duration: "6 - 7 hrs",
   },
   {
-    slug: "gaya-to-bokaro",
-    fromCity: "Gaya",
-    toCity: "Bokaro",
+    slug: "bokaro-to-gaya",
+    fromCity: "Bokaro",
+    toCity: "Gaya",
     distance: 230,
     duration: "5 - 6 hrs",
   },
   {
-    slug: "gaya-to-deoghar",
-    fromCity: "Gaya",
-    toCity: "Deoghar",
+    slug: "deoghar-to-gaya",
+    fromCity: "Deoghar",
+    toCity: "Gaya",
     distance: 240,
     duration: "5 - 6 hrs",
   },
   {
-    slug: "gaya-to-dumka",
-    fromCity: "Gaya",
-    toCity: "Dumka",
+    slug: "dumka-to-gaya",
+    fromCity: "Dumka",
+    toCity: "Gaya",
     distance: 300,
     duration: "6.5 - 7.5 hrs",
   },
   {
-    slug: "gaya-to-giridih",
-    fromCity: "Gaya",
-    toCity: "Giridih",
+    slug: "giridih-to-gaya",
+    fromCity: "Giridih",
+    toCity: "Gaya",
     distance: 180,
     duration: "4 - 5 hrs",
   },
   {
-    slug: "gaya-to-jamtara",
-    fromCity: "Gaya",
-    toCity: "Jamtara",
+    slug: "jamtara-to-gaya",
+    fromCity: "Jamtara",
+    toCity: "Gaya",
     distance: 220,
     duration: "5 - 6 hrs",
   },
   {
-    slug: "gaya-to-muzaffarpur",
-    fromCity: "Gaya",
-    toCity: "Muzaffarpur",
+    slug: "muzaffarpur-to-gaya",
+    fromCity: "Muzaffarpur",
+    toCity: "Gaya",
     distance: 220,
     duration: "4.5 - 5.5 hrs",
   },
   {
-    slug: "gaya-to-darbhanga",
-    fromCity: "Gaya",
-    toCity: "Darbhanga",
+    slug: "darbhanga-to-gaya",
+    fromCity: "Darbhanga",
+    toCity: "Gaya",
     distance: 260,
     duration: "5.5 - 6.5 hrs",
   },
   {
-    slug: "gaya-to-bhagalpur",
-    fromCity: "Gaya",
-    toCity: "Bhagalpur",
+    slug: "bhagalpur-to-gaya",
+    fromCity: "Bhagalpur",
+    toCity: "Gaya",
     distance: 220,
     duration: "5 - 6 hrs",
   },
   {
-    slug: "gaya-to-munger",
-    fromCity: "Gaya",
-    toCity: "Munger",
+    slug: "munger-to-gaya",
+    fromCity: "Munger",
+    toCity: "Gaya",
     distance: 180,
     duration: "4 - 5 hrs",
   },
   {
-    slug: "gaya-to-begusarai",
-    fromCity: "Gaya",
-    toCity: "Begusarai",
+    slug: "begusarai-to-gaya",
+    fromCity: "Begusarai",
+    toCity: "Gaya",
     distance: 160,
     duration: "3.5 - 4.5 hrs",
   },
   {
-    slug: "gaya-to-samastipur",
-    fromCity: "Gaya",
-    toCity: "Samastipur",
+    slug: "samastipur-to-gaya",
+    fromCity: "Samastipur",
+    toCity: "Gaya",
     distance: 200,
     duration: "4.5 - 5.5 hrs",
   },
   {
-    slug: "gaya-to-hajipur",
-    fromCity: "Gaya",
-    toCity: "Hajipur",
+    slug: "hajipur-to-gaya",
+    fromCity: "Hajipur",
+    toCity: "Gaya",
     distance: 110,
     duration: "2.5 - 3 hrs",
   },
   {
-    slug: "gaya-to-chapra",
-    fromCity: "Gaya",
-    toCity: "Chapra",
+    slug: "chapra-to-gaya",
+    fromCity: "Chapra",
+    toCity: "Gaya",
     distance: 180,
     duration: "4 - 5 hrs",
   },
   {
-    slug: "gaya-to-siwan",
-    fromCity: "Gaya",
-    toCity: "Siwan",
+    slug: "siwan-to-gaya",
+    fromCity: "Siwan",
+    toCity: "Gaya",
     distance: 230,
     duration: "5 - 6 hrs",
   },
   {
-    slug: "gaya-to-bettiah",
-    fromCity: "Gaya",
-    toCity: "Bettiah",
+    slug: "bettiah-to-gaya",
+    fromCity: "Bettiah",
+    toCity: "Gaya",
     distance: 320,
     duration: "7 - 8 hrs",
   },
   {
-    slug: "gaya-to-motihari",
-    fromCity: "Gaya",
-    toCity: "Motihari",
+    slug: "motihari-to-gaya",
+    fromCity: "Motihari",
+    toCity: "Gaya",
     distance: 280,
     duration: "6 - 7 hrs",
   },
   {
-    slug: "gaya-to-purnia",
-    fromCity: "Gaya",
-    toCity: "Purnia",
+    slug: "purnia-to-gaya",
+    fromCity: "Purnia",
+    toCity: "Gaya",
     distance: 350,
     duration: "7.5 - 8.5 hrs",
   },
   {
-    slug: "gaya-to-katihar",
-    fromCity: "Gaya",
-    toCity: "Katihar",
+    slug: "katihar-to-gaya",
+    fromCity: "Katihar",
+    toCity: "Gaya",
     distance: 380,
     duration: "8 - 9 hrs",
   },
   {
-    slug: "gaya-to-kishanganj",
-    fromCity: "Gaya",
-    toCity: "Kishanganj",
+    slug: "kishanganj-to-gaya",
+    fromCity: "Kishanganj",
+    toCity: "Gaya",
     distance: 420,
     duration: "9 - 10 hrs",
   },
   {
-    slug: "gaya-to-saharsa",
-    fromCity: "Gaya",
-    toCity: "Saharsa",
+    slug: "saharsa-to-gaya",
+    fromCity: "Saharsa",
+    toCity: "Gaya",
     distance: 300,
     duration: "6.5 - 7.5 hrs",
   },
   {
-    slug: "gaya-to-madhepura",
-    fromCity: "Gaya",
-    toCity: "Madhepura",
+    slug: "madhepura-to-gaya",
+    fromCity: "Madhepura",
+    toCity: "Gaya",
     distance: 320,
     duration: "7 - 8 hrs",
   },
   {
-    slug: "gaya-to-supaul",
-    fromCity: "Gaya",
-    toCity: "Supaul",
+    slug: "supaul-to-gaya",
+    fromCity: "Supaul",
+    toCity: "Gaya",
     distance: 340,
     duration: "7.5 - 8.5 hrs",
   },
   {
-    slug: "gaya-to-araria",
-    fromCity: "Gaya",
-    toCity: "Araria",
+    slug: "araria-to-gaya",
+    fromCity: "Araria",
+    toCity: "Gaya",
     distance: 370,
     duration: "8 - 9 hrs",
   },
   {
-    slug: "gaya-to-jamui",
-    fromCity: "Gaya",
-    toCity: "Jamui",
+    slug: "jamui-to-gaya",
+    fromCity: "Jamui",
+    toCity: "Gaya",
     distance: 130,
     duration: "3 - 3.5 hrs",
   },
   {
-    slug: "gaya-to-banka",
-    fromCity: "Gaya",
-    toCity: "Banka",
+    slug: "banka-to-gaya",
+    fromCity: "Banka",
+    toCity: "Gaya",
     distance: 200,
     duration: "4.5 - 5.5 hrs",
   },
   {
-    slug: "gaya-to-lucknow",
-    fromCity: "Gaya",
-    toCity: "Lucknow",
+    slug: "lucknow-to-gaya",
+    fromCity: "Lucknow",
+    toCity: "Gaya",
     distance: 420,
     duration: "8 - 9 hrs",
   },
   {
-    slug: "gaya-to-ayodhya",
-    fromCity: "Gaya",
-    toCity: "Ayodhya",
+    slug: "ayodhya-to-gaya",
+    fromCity: "Ayodhya",
+    toCity: "Gaya",
     distance: 330,
     duration: "7 - 8 hrs",
   },
   {
-    slug: "gaya-to-gorakhpur",
-    fromCity: "Gaya",
-    toCity: "Gorakhpur",
+    slug: "gorakhpur-to-gaya",
+    fromCity: "Gorakhpur",
+    toCity: "Gaya",
     distance: 350,
     duration: "7.5 - 8.5 hrs",
   },
   {
-    slug: "gaya-to-kanpur",
-    fromCity: "Gaya",
-    toCity: "Kanpur",
+    slug: "kanpur-to-gaya",
+    fromCity: "Kanpur",
+    toCity: "Gaya",
     distance: 450,
     duration: "9 - 10 hrs",
   },
   {
-    slug: "gaya-to-delhi",
-    fromCity: "Gaya",
-    toCity: "Delhi",
+    slug: "delhi-to-gaya",
+    fromCity: "Delhi",
+    toCity: "Gaya",
     distance: 1000,
     duration: "16 - 18 hrs",
   },
   {
-    slug: "gaya-to-kolkata",
-    fromCity: "Gaya",
-    toCity: "Kolkata",
+    slug: "kolkata-to-gaya",
+    fromCity: "Kolkata",
+    toCity: "Gaya",
     distance: 460,
     duration: "9 - 10 hrs",
   },
   {
-    slug: "gaya-to-bhubaneswar",
-    fromCity: "Gaya",
-    toCity: "Bhubaneswar",
+    slug: "bhubaneswar-to-gaya",
+    fromCity: "Bhubaneswar",
+    toCity: "Gaya",
     distance: 650,
     duration: "12 - 14 hrs",
   },
   {
-    slug: "gaya-to-raipur",
-    fromCity: "Gaya",
-    toCity: "Raipur",
+    slug: "raipur-to-gaya",
+    fromCity: "Raipur",
+    toCity: "Gaya",
     distance: 600,
     duration: "11 - 12 hrs",
   },
   {
-    slug: "gaya-to-nagpur",
-    fromCity: "Gaya",
-    toCity: "Nagpur",
+    slug: "nagpur-to-gaya",
+    fromCity: "Nagpur",
+    toCity: "Gaya",
     distance: 800,
     duration: "14 - 16 hrs",
   },
   {
-    slug: "gaya-to-guwahati",
-    fromCity: "Gaya",
-    toCity: "Guwahati",
+    slug: "guwahati-to-gaya",
+    fromCity: "Guwahati",
+    toCity: "Gaya",
     distance: 850,
     duration: "16 - 18 hrs",
   },
   // --- Vindhyachal Popular Routes ---
+  // --- Routes FROM Vindhyachal ---
+
   {
     slug: "vindhyachal-to-mirzapur",
     fromCity: "Vindhyachal",
@@ -1954,6 +2401,7 @@ export const ROUTES: Route[] = [
     distance: 10,
     duration: "20 - 30 min",
   },
+
   {
     slug: "vindhyachal-to-varanasi",
     fromCity: "Vindhyachal",
@@ -1961,6 +2409,7 @@ export const ROUTES: Route[] = [
     distance: 70,
     duration: "1.5 - 2 hrs",
   },
+
   {
     slug: "vindhyachal-to-prayagraj",
     fromCity: "Vindhyachal",
@@ -1968,6 +2417,7 @@ export const ROUTES: Route[] = [
     distance: 85,
     duration: "2 hrs",
   },
+
   {
     slug: "vindhyachal-to-chunar",
     fromCity: "Vindhyachal",
@@ -1975,6 +2425,7 @@ export const ROUTES: Route[] = [
     distance: 30,
     duration: "45 min - 1 hr",
   },
+
   {
     slug: "vindhyachal-to-robertsganj",
     fromCity: "Vindhyachal",
@@ -1982,6 +2433,7 @@ export const ROUTES: Route[] = [
     distance: 80,
     duration: "2 - 2.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-chopan",
     fromCity: "Vindhyachal",
@@ -1989,6 +2441,7 @@ export const ROUTES: Route[] = [
     distance: 100,
     duration: "2.5 - 3 hrs",
   },
+
   {
     slug: "vindhyachal-to-obra",
     fromCity: "Vindhyachal",
@@ -1996,6 +2449,7 @@ export const ROUTES: Route[] = [
     distance: 110,
     duration: "2.5 - 3 hrs",
   },
+
   {
     slug: "vindhyachal-to-singrauli",
     fromCity: "Vindhyachal",
@@ -2003,6 +2457,7 @@ export const ROUTES: Route[] = [
     distance: 150,
     duration: "3.5 - 4.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-jaunpur",
     fromCity: "Vindhyachal",
@@ -2010,6 +2465,7 @@ export const ROUTES: Route[] = [
     distance: 70,
     duration: "1.5 - 2 hrs",
   },
+
   {
     slug: "vindhyachal-to-ghazipur",
     fromCity: "Vindhyachal",
@@ -2017,6 +2473,7 @@ export const ROUTES: Route[] = [
     distance: 120,
     duration: "2.5 - 3 hrs",
   },
+
   {
     slug: "vindhyachal-to-chandauli",
     fromCity: "Vindhyachal",
@@ -2024,6 +2481,7 @@ export const ROUTES: Route[] = [
     distance: 50,
     duration: "1 - 1.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-bhadohi",
     fromCity: "Vindhyachal",
@@ -2031,6 +2489,7 @@ export const ROUTES: Route[] = [
     distance: 60,
     duration: "1.5 - 2 hrs",
   },
+
   {
     slug: "vindhyachal-to-lucknow",
     fromCity: "Vindhyachal",
@@ -2038,6 +2497,7 @@ export const ROUTES: Route[] = [
     distance: 250,
     duration: "5 - 6 hrs",
   },
+
   {
     slug: "vindhyachal-to-kanpur",
     fromCity: "Vindhyachal",
@@ -2045,6 +2505,7 @@ export const ROUTES: Route[] = [
     distance: 280,
     duration: "6 - 7 hrs",
   },
+
   {
     slug: "vindhyachal-to-ayodhya",
     fromCity: "Vindhyachal",
@@ -2052,6 +2513,7 @@ export const ROUTES: Route[] = [
     distance: 230,
     duration: "5 - 6 hrs",
   },
+
   {
     slug: "vindhyachal-to-gorakhpur",
     fromCity: "Vindhyachal",
@@ -2059,6 +2521,7 @@ export const ROUTES: Route[] = [
     distance: 250,
     duration: "5.5 - 6.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-delhi",
     fromCity: "Vindhyachal",
@@ -2066,6 +2529,7 @@ export const ROUTES: Route[] = [
     distance: 750,
     duration: "12 - 14 hrs",
   },
+
   {
     slug: "vindhyachal-to-noida",
     fromCity: "Vindhyachal",
@@ -2073,6 +2537,7 @@ export const ROUTES: Route[] = [
     distance: 760,
     duration: "13 - 15 hrs",
   },
+
   {
     slug: "vindhyachal-to-agra",
     fromCity: "Vindhyachal",
@@ -2080,6 +2545,7 @@ export const ROUTES: Route[] = [
     distance: 550,
     duration: "10 - 11 hrs",
   },
+
   {
     slug: "vindhyachal-to-mathura",
     fromCity: "Vindhyachal",
@@ -2087,6 +2553,7 @@ export const ROUTES: Route[] = [
     distance: 530,
     duration: "10 - 11 hrs",
   },
+
   {
     slug: "vindhyachal-to-vrindavan",
     fromCity: "Vindhyachal",
@@ -2094,6 +2561,7 @@ export const ROUTES: Route[] = [
     distance: 535,
     duration: "10 - 11 hrs",
   },
+
   {
     slug: "vindhyachal-to-chitrakoot",
     fromCity: "Vindhyachal",
@@ -2101,6 +2569,7 @@ export const ROUTES: Route[] = [
     distance: 180,
     duration: "4 - 5 hrs",
   },
+
   {
     slug: "vindhyachal-to-banda",
     fromCity: "Vindhyachal",
@@ -2108,6 +2577,7 @@ export const ROUTES: Route[] = [
     distance: 160,
     duration: "3.5 - 4.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-satna",
     fromCity: "Vindhyachal",
@@ -2115,6 +2585,7 @@ export const ROUTES: Route[] = [
     distance: 200,
     duration: "4.5 - 5.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-rewa",
     fromCity: "Vindhyachal",
@@ -2122,6 +2593,7 @@ export const ROUTES: Route[] = [
     distance: 230,
     duration: "5 - 6 hrs",
   },
+
   {
     slug: "vindhyachal-to-jabalpur",
     fromCity: "Vindhyachal",
@@ -2129,6 +2601,7 @@ export const ROUTES: Route[] = [
     distance: 320,
     duration: "6.5 - 7.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-sasaram",
     fromCity: "Vindhyachal",
@@ -2136,6 +2609,7 @@ export const ROUTES: Route[] = [
     distance: 100,
     duration: "2 - 2.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-buxar",
     fromCity: "Vindhyachal",
@@ -2143,6 +2617,7 @@ export const ROUTES: Route[] = [
     distance: 150,
     duration: "3 - 4 hrs",
   },
+
   {
     slug: "vindhyachal-to-patna",
     fromCity: "Vindhyachal",
@@ -2150,6 +2625,7 @@ export const ROUTES: Route[] = [
     distance: 220,
     duration: "4.5 - 5.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-gaya",
     fromCity: "Vindhyachal",
@@ -2157,6 +2633,7 @@ export const ROUTES: Route[] = [
     distance: 240,
     duration: "5 - 6 hrs",
   },
+
   {
     slug: "vindhyachal-to-bodh-gaya",
     fromCity: "Vindhyachal",
@@ -2164,6 +2641,7 @@ export const ROUTES: Route[] = [
     distance: 255,
     duration: "5.5 - 6.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-ranchi",
     fromCity: "Vindhyachal",
@@ -2171,6 +2649,7 @@ export const ROUTES: Route[] = [
     distance: 380,
     duration: "8 - 9 hrs",
   },
+
   {
     slug: "vindhyachal-to-dhanbad",
     fromCity: "Vindhyachal",
@@ -2178,6 +2657,7 @@ export const ROUTES: Route[] = [
     distance: 260,
     duration: "5.5 - 6.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-kolkata",
     fromCity: "Vindhyachal",
@@ -2185,6 +2665,7 @@ export const ROUTES: Route[] = [
     distance: 650,
     duration: "12 - 14 hrs",
   },
+
   {
     slug: "vindhyachal-to-nalanda",
     fromCity: "Vindhyachal",
@@ -2192,6 +2673,7 @@ export const ROUTES: Route[] = [
     distance: 210,
     duration: "4.5 - 5.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-rajgir",
     fromCity: "Vindhyachal",
@@ -2199,6 +2681,7 @@ export const ROUTES: Route[] = [
     distance: 230,
     duration: "5 - 6 hrs",
   },
+
   {
     slug: "vindhyachal-to-deoghar",
     fromCity: "Vindhyachal",
@@ -2206,6 +2689,7 @@ export const ROUTES: Route[] = [
     distance: 350,
     duration: "7.5 - 8.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-sarnath",
     fromCity: "Vindhyachal",
@@ -2213,6 +2697,7 @@ export const ROUTES: Route[] = [
     distance: 75,
     duration: "1.5 - 2 hrs",
   },
+
   {
     slug: "vindhyachal-to-sultanpur",
     fromCity: "Vindhyachal",
@@ -2220,6 +2705,7 @@ export const ROUTES: Route[] = [
     distance: 160,
     duration: "3.5 - 4.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-amethi",
     fromCity: "Vindhyachal",
@@ -2227,6 +2713,7 @@ export const ROUTES: Route[] = [
     distance: 140,
     duration: "3 - 4 hrs",
   },
+
   {
     slug: "vindhyachal-to-rae-bareli",
     fromCity: "Vindhyachal",
@@ -2234,6 +2721,7 @@ export const ROUTES: Route[] = [
     distance: 160,
     duration: "3.5 - 4.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-fatehpur",
     fromCity: "Vindhyachal",
@@ -2241,6 +2729,7 @@ export const ROUTES: Route[] = [
     distance: 130,
     duration: "3 - 3.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-jhansi",
     fromCity: "Vindhyachal",
@@ -2248,6 +2737,7 @@ export const ROUTES: Route[] = [
     distance: 320,
     duration: "6.5 - 7.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-khajuraho",
     fromCity: "Vindhyachal",
@@ -2255,6 +2745,7 @@ export const ROUTES: Route[] = [
     distance: 280,
     duration: "6 - 7 hrs",
   },
+
   {
     slug: "vindhyachal-to-orchha",
     fromCity: "Vindhyachal",
@@ -2262,6 +2753,7 @@ export const ROUTES: Route[] = [
     distance: 330,
     duration: "7 - 8 hrs",
   },
+
   {
     slug: "vindhyachal-to-gwalior",
     fromCity: "Vindhyachal",
@@ -2269,6 +2761,7 @@ export const ROUTES: Route[] = [
     distance: 420,
     duration: "8.5 - 9.5 hrs",
   },
+
   {
     slug: "vindhyachal-to-bhopal",
     fromCity: "Vindhyachal",
@@ -2276,6 +2769,7 @@ export const ROUTES: Route[] = [
     distance: 580,
     duration: "11 - 12 hrs",
   },
+
   {
     slug: "vindhyachal-to-indore",
     fromCity: "Vindhyachal",
@@ -2283,6 +2777,7 @@ export const ROUTES: Route[] = [
     distance: 730,
     duration: "13 - 14 hrs",
   },
+
   {
     slug: "vindhyachal-to-jaipur",
     fromCity: "Vindhyachal",
@@ -2290,6 +2785,7 @@ export const ROUTES: Route[] = [
     distance: 680,
     duration: "12 - 13 hrs",
   },
+
   {
     slug: "vindhyachal-to-haridwar",
     fromCity: "Vindhyachal",
@@ -2297,6 +2793,7 @@ export const ROUTES: Route[] = [
     distance: 780,
     duration: "14 - 15 hrs",
   },
+
   // --- Missing Routes TO Ayodhya ---
   {
     slug: "gorakhpur-to-ayodhya",
@@ -2592,7 +3089,7 @@ export const ROUTES: Route[] = [
     distance: 750,
     duration: "14 - 15 hrs",
   },
-    // --- Agra Popular Routes ---
+  // --- Agra Popular Routes ---
   {
     slug: "agra-to-delhi",
     fromCity: "Agra",

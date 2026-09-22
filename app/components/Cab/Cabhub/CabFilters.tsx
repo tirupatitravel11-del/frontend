@@ -81,20 +81,20 @@ export default function CabFilters({
   };
 
   const handleSearch = async () => {
-   
+
     if (!currentFrom || !currentTo) {
       alert("Please select From and To city");
       return;
     }
 
     try {
-      const res = await axios.post(process.env.apiUrl+"/api/search-route", {
+      const res = await axios.post(process.env.apiUrl + "/api/search-route", {
         from: currentFrom,
         to: currentTo,
       });
 
       router.push(res.data.url);
-      
+
     } catch (error) {
       console.error("Route search failed:", error);
     }
@@ -106,207 +106,154 @@ export default function CabFilters({
   const vehicleTypes = ["Sedan", "SUV", "Tempo Traveller"];
 
   return (
-    <section className="w-full max-w-full overflow-hidden rounded-4xl border border-stone-200 bg-white  shadow-xl sm:p-6 min-h-140">
-      <div className="w-full">
-        <div className="w-full rounded-[28px] border border-stone-200 bg-white p-4 shadow-xl sm:p-6">
-          <div className="mb-6 flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              onClick={() => handleTripTypeChange("one-way")}
-              className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${
-                currentTripType === "one-way"
-                  ? "bg-gold text-white"
-                  : "bg-stone-100 text-stone-600 hover:bg-stone-200"
-              }`}
-            >
-              One-Way
-            </button>
+    <section className="w-full rounded-3xl border border-stone-200 bg-white p-4 shadow-lg sm:p-5">
+      {/* Trip Type Toggle */}
+      <div className="mb-4 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => handleTripTypeChange("one-way")}
+          className={`rounded-full px-4 py-1.5 text-xs font-semibold transition ${currentTripType === "one-way"
+            ? "bg-gold text-white"
+            : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+            }`}
+        >
+          One-Way
+        </button>
 
-            <button
-              type="button"
-              onClick={() => handleTripTypeChange("round-trip")}
-              className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${
-                currentTripType === "round-trip"
-                  ? "bg-gold text-white"
-                  : "bg-stone-100 text-stone-600 hover:bg-stone-200"
-              }`}
-            >
-              Round-Trip
-            </button>
+        <button
+          type="button"
+          onClick={() => handleTripTypeChange("round-trip")}
+          className={`rounded-full px-4 py-1.5 text-xs font-semibold transition ${currentTripType === "round-trip"
+            ? "bg-gold text-white"
+            : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+            }`}
+        >
+          Round-Trip
+        </button>
+      </div>
 
-            <span className="hidden text-sm text-stone-400 sm:block">
-              Select your journey details
-            </span>
+      {/* Form Fields */}
+      <div className="space-y-3">
+        {/* From */}
+        <div>
+          <label className="mb-1 block text-xs font-semibold text-stone-600">
+            From
+          </label>
+          <div className="relative">
+            <select
+              value={currentFrom}
+              onChange={(e) => handleFromChange(e.target.value)}
+              className="h-12 w-full appearance-none rounded-xl border border-stone-200 bg-stone-50 px-3 pr-9 text-sm font-semibold text-stone-900 outline-none transition focus:border-gold"
+            >
+              <option value="">Select pickup city</option>
+              {origins.map((origin) => (
+                <option key={origin} value={origin}>
+                  {origin}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              size={16}
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-stone-500"
+            />
+          </div>
+        </div>
+
+        {/* To */}
+        <div>
+          <label className="mb-1 block text-xs font-semibold text-stone-600">
+            To
+          </label>
+          <div className="relative">
+            <select
+              value={currentTo}
+              onChange={(e) => handleToChange(e.target.value)}
+              className="h-12 w-full appearance-none rounded-xl border border-stone-200 bg-stone-50 px-3 pr-9 text-sm font-semibold text-stone-900 outline-none transition focus:border-gold"
+            >
+              <option value="">Select destination city</option>
+              {destinations.map((destination) => (
+                <option key={destination} value={destination}>
+                  {destination}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              size={16}
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-stone-500"
+            />
+          </div>
+        </div>
+
+        {/* Dates Row */}
+        <div className="grid grid-cols-2 gap-3">
+          {/* Departure */}
+          <div>
+            <label className="mb-1 block text-xs font-semibold text-stone-600">
+              Departure
+            </label>
+            <div className="flex h-12 items-center gap-2 rounded-xl border border-stone-200 bg-stone-50 px-3">
+              <CalendarDays size={16} className="text-gold" />
+              <input
+                type="date"
+                className="w-full bg-transparent text-xs font-semibold text-stone-700 outline-none"
+              />
+            </div>
           </div>
 
-          <div className="flex flex-col">
-            <div className="min-w-0">
-              <label className="mb-2 block text-sm font-semibold text-stone-600">
-                From
-              </label>
-
-              <div className="relative">
-                <select
-                  value={currentFrom}
-                  onChange={(e) => handleFromChange(e.target.value)}
-                  className="h-16 w-full appearance-none rounded-2xl border border-stone-200 bg-stone-50 px-4 pr-10 text-lg font-semibold text-stone-900 outline-none transition focus:border-gold"
-                >
-                  <option value="">Select pickup city</option>
-
-                  {origins.map((origin) => (
-                    <option key={origin} value={origin}>
-                      {origin}
-                    </option>
-                  ))}
-                </select>
-
-                <ChevronDown
-                  size={20}
-                  className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-stone-500"
-                />
-              </div>
-            </div>
-
-            <button
-              type="button"
-              className="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-gold bg-white text-gold shadow-md transition hover:bg-gold mt-4  hover:text-white lg:mb-2"
-            >
-              <ArrowRightLeft size={18} />
-            </button>
-
-            <div className="min-w-0">
-              <label className="mb-2 block text-sm font-semibold text-stone-600">
-                To
-              </label>
-
-              <div className="relative">
-                <select
-                  value={currentTo}
-                  onChange={(e) => handleToChange(e.target.value)}
-                  className="h-16 w-full appearance-none rounded-2xl border border-stone-200 bg-stone-50 px-4 pr-10 text-lg font-semibold text-stone-900 outline-none transition focus:border-gold"
-                >
-                  <option value="">Select destination city</option>
-
-                  {destinations.map((destination) => (
-                    <option key={destination} value={destination}>
-                      {destination}
-                    </option>
-                  ))}
-                </select>
-
-                <ChevronDown
-                  size={20}
-                  className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-stone-500"
-                />
-              </div>
-            </div>
-
-            <div className="min-w-0">
-              <label className="mb-2 block text-sm font-semibold text-stone-600">
-                Departure
-              </label>
-
-              <div className="flex h-16 items-center gap-3 rounded-2xl border border-stone-200 bg-stone-50 px-4">
-                <CalendarDays size={20} className="text-gold" />
-
-                <input
-                  type="date"
-                  className="w-full bg-transparent text-sm font-semibold text-stone-700 outline-none"
-                />
-              </div>
-            </div>
-
-            <div className="min-w-0">
-              <label className="mb-2 block text-sm font-semibold text-stone-600">
-                Return
-              </label>
-
-              <div
-                className={`flex h-16 items-center gap-3 rounded-2xl border border-stone-200 bg-stone-50 px-4 ${
-                  currentTripType === "one-way"
-                    ? "cursor-not-allowed opacity-50"
-                    : ""
+          {/* Return */}
+          <div>
+            <label className="mb-1 block text-xs font-semibold text-stone-600">
+              Return
+            </label>
+            <div
+              className={`flex h-12 items-center gap-2 rounded-xl border border-stone-200 bg-stone-50 px-3 ${currentTripType === "one-way" ? "cursor-not-allowed opacity-50" : ""
                 }`}
-              >
-                <CalendarDays size={20} className="text-gold" />
-
-                <input
-                  type="date"
-                  disabled={currentTripType === "one-way"}
-                  className="w-full bg-transparent text-sm font-semibold text-stone-700 outline-none"
-                />
-              </div>
-            </div>
-
-            <button
-              type="button"
-              onClick={handleSearch}
-              className="flex h-16 items-center justify-center gap-2 rounded-2xl bg-gold px-6 font-bold text-white shadow-md transition hover:bg-[#c88912] mt-4 lg:mb-0"
             >
-              <Search size={20} />
-              Search
-            </button>
-          </div>
-
-          {/* <div className="mt-5 flex flex-wrap items-center gap-3 border-t border-stone-100 pt-5 text-sm text-stone-600">
-            <span className="flex items-center gap-2">
-              <Users size={16} />
-              Vehicle Type
-            </span>
-
-            {vehicleTypes.map((type) => (
-              <button
-                key={type}
-                type="button"
-                onClick={() => setVehicle(type)}
-                className={`rounded-full px-3 py-2 text-sm font-semibold transition ${
-                  vehicle === type
-                    ? "bg-gold text-white"
-                    : "bg-stone-100 text-stone-600 hover:bg-stone-200"
-                }`}
-              >
-                {type}
-              </button>
-            ))}
-
-            <button
-              type="button"
-              onClick={() => setVehicle("")}
-              className="rounded-full px-3 py-2 text-sm font-semibold text-stone-600 transition hover:bg-stone-200"
-            >
-              All
-            </button>
-          </div> */}
-          <div className="mt-5 border-t border-stone-100 pt-5">
-            <div className="max-w-xs">
-              <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-stone-600">
-                <Users size={16} className="text-gold" />
-                Vehicle Type
-              </label>
-
-              <div className="relative">
-                <select
-                  value={currentVehicle}
-                  onChange={(e) => handleVehicleChange(e.target.value)}
-                  className="h-14 w-full appearance-none rounded-2xl border border-stone-200 bg-stone-50 px-4 pr-10 text-base font-semibold text-stone-900 outline-none transition focus:border-gold"
-                >
-                  <option value="">All Vehicle Types</option>
-
-                  {vehicleTypes.map((type) => (
-                    <option key={type} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
-
-                <ChevronDown
-                  size={20}
-                  className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-stone-500"
-                />
-              </div>
+              <CalendarDays size={16} className="text-gold" />
+              <input
+                type="date"
+                disabled={currentTripType === "one-way"}
+                className="w-full bg-transparent text-xs font-semibold text-stone-700 outline-none"
+              />
             </div>
           </div>
         </div>
+
+        {/* Vehicle Type */}
+        <div>
+          <label className="mb-1 flex items-center gap-1.5 text-xs font-semibold text-stone-600">
+            <Users size={14} className="text-gold" />
+            Vehicle Type
+          </label>
+          <div className="relative">
+            <select
+              value={currentVehicle}
+              onChange={(e) => handleVehicleChange(e.target.value)}
+              className="h-12 w-full appearance-none rounded-xl border border-stone-200 bg-stone-50 px-3 pr-9 text-sm font-semibold text-stone-900 outline-none transition focus:border-gold"
+            >
+              <option value="">All Vehicle Types</option>
+              {vehicleTypes.map((type) => (
+                <option key={type} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              size={16}
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-stone-500"
+            />
+          </div>
+        </div>
+
+        {/* Search Button */}
+        <button
+          type="button"
+          onClick={handleSearch}
+          className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-gold px-4 text-sm font-bold text-white shadow-md transition hover:bg-[#c88912]"
+        >
+          <Search size={18} />
+          Book Your Cab
+        </button>
       </div>
     </section>
   );
