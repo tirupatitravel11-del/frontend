@@ -10,6 +10,11 @@ interface TwentyFourFaqProps {
   city?: string;
 }
 
+type Faq = {
+  question: string;
+  answer: string;
+};
+
 export default function TwentyFourSeaterTempoFaq({
   from,
   to,
