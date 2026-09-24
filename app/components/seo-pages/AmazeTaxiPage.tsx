@@ -169,7 +169,7 @@ export default function AmazeTaxiPage({ page }: { page: SeoPageData }) {
         )}
         <WhyChooseUs />
         <Testimonials />
-        <AmazeTaxiFaq />
+        <AmazeTaxiFaq city={city} />
       </div>
     </main>
   );

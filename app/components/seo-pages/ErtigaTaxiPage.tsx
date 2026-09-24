@@ -178,7 +178,7 @@ export default function ErtigaTaxiPage({ page }: { page: SeoPageData }) {
 
         <WhyChooseUs />
         <Testimonials />
-        <ErtigaTaxiFaq />
+        <ErtigaTaxiFaq city={city} />
 
         {/* <ErtigaFaq /> */}
       </div>

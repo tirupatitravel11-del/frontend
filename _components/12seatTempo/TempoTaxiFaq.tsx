@@ -5,65 +5,121 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 
 const PHONE_NUMBER = "+918726124680";
 
-const TEMPO_TRAVELLER_FAQS = [
-  {
-    question: "What seating options are available for Tempo Travellers?",
-    answer:
-      "We offer Tempo Travellers in multiple seating configurations to suit every group size. Whether you need a compact option for a small family or a larger vehicle for a big group, we have the right fit. Contact us with your passenger count and we'll recommend the best vehicle for your journey.",
-  },
-  {
-    question: "What amenities are included in the Tempo Traveller?",
-    answer:
-      "All our Tempo Travellers come with powerful air-conditioning, comfortable pusher seats, ample luggage space, and a clean, well-maintained interior. The vehicles are sanitized before every trip to ensure a safe and hygienic travel experience for you and your group.",
-  },
-  {
-    question: "How much luggage can a Tempo Traveller carry?",
-    answer:
-      "Our Tempo Travellers are designed with generous luggage compartments to handle suitcases, travel bags, and cabin luggage for your entire group. If you have extra or oversized luggage, please let us know during booking so we can suggest the most suitable vehicle.",
-  },
-  {
-    question: "Are the drivers experienced for long-distance and highway travel?",
-    answer:
-      "Yes, absolutely. All our drivers are professionally trained, verified, and have extensive experience in highway and long-distance driving. They are familiar with major routes, follow safe driving practices, and are courteous and punctual for every journey.",
-  },
-  {
-    question: "Can I book a Tempo Traveller for one-way trips?",
-    answer:
-      "Yes, we offer both one-way and round-trip bookings for Tempo Travellers. Whether it's a family vacation, pilgrimage, wedding, or corporate outing, we have flexible packages to suit your travel needs. Our team will share the best fare options based on your route and requirements.",
-  },
-  {
-    question: "What is included in the fare? Are there any extra charges?",
-    answer:
-      "Our base fare includes the vehicle, an experienced driver, fuel, and AC charges. However, tolls, parking fees, state permits, and applicable taxes are charged at actuals as per the route and journey requirements. We maintain full transparency with no hidden costs.",
-  },
-  {
-    question: "Can I customize the pickup time and add multiple stops?",
-    answer:
-      "Yes, we offer fully flexible scheduling. You can choose your preferred pickup time and add multiple stops along the route. Please share your complete itinerary during booking so we can plan the journey accordingly and provide an accurate quote.",
-  },
-  {
-    question: "How far in advance should I book a Tempo Traveller?",
-    answer:
-      "We recommend booking at least 3–7 days in advance, especially during peak seasons like weddings, festivals, and holidays. However, we do accept last-minute bookings subject to vehicle availability. Contact us immediately for urgent requirements.",
-  },
-  {
-    question: "Is the Tempo Traveller suitable for pilgrimages and religious tours?",
-    answer:
-      "Yes, our Tempo Travellers are very popular for pilgrimages and religious tours. The comfortable seating, powerful AC, and spacious luggage capacity make them ideal for long spiritual journeys with family or group. Our drivers are also experienced with hilly and remote routes.",
-  },
-  {
-    question: "What is the cancellation policy for Tempo Traveller bookings?",
-    answer:
-      "We understand that plans can change. Cancellation terms vary based on how close to the travel date you cancel. Generally, a full refund is provided for cancellations made well in advance, with partial or no refund for last-minute cancellations. Please confirm the exact policy with our team at the time of booking.",
-  },
-];
+interface TempoTaxiFaqProps {
+  city?: string;
+  from?: string;
+  to?: string;
+  title?: string;
+  subtitle?: string;
+}
 
-export default function TempoTaxiFaq() {
+const formatLocation = (city?: string, from?: string, to?: string) => {
+  const cap = (str?: string) =>
+    str
+      ? str
+          .trim()
+          .split(/[\s-]+/)
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(" ")
+      : "";
+
+  const fromCap = cap(from);
+  const toCap = cap(to);
+  if (fromCap && toCap) {
+    const loc = `${fromCap} to ${toCap}`;
+    return {
+      qCost: `How much does a ${loc} Tempo Traveller cost?`,
+      aCost: `Pricing for a Tempo Traveller from ${fromCap} to ${toCap} depends on seating capacity (such as 12-seater, 16-seater, 20-seater, 24-seater, or 26-seater) and trip duration. Base fare includes vehicle, driver allowance, fuel, and AC. Tolls, state permits, and parking charges are billed at actuals with no hidden fees.`,
+    };
+  }
+
+  const cityCap = cap(city) || fromCap || toCap;
+  if (cityCap) {
+    return {
+      qCost: `How much does a Tempo Traveller cost in ${cityCap}?`,
+      aCost: `Tempo Traveller rental fares in ${cityCap} depend on the seating capacity (12, 16, 20, 24, or 26 seater) and your trip requirement (local, outstation, or airport transfer). Base fare includes vehicle, driver allowance, fuel, and AC. Tolls, parking, and state permits are charged at actuals with complete transparency.`,
+    };
+  }
+
+  return {
+    qCost: `How much does a Tempo Traveller cost?`,
+    aCost: `Tempo Traveller rental fares depend on the seating capacity (12, 16, 20, 24, or 26 seater) and your trip requirement (local, outstation, or airport transfer). Base fare includes vehicle, driver allowance, fuel, and AC. Tolls, parking, and state permits are charged at actuals with complete transparency.`,
+  };
+};
+
+export default function TempoTaxiFaq({
+  city,
+  from,
+  to,
+  title,
+  subtitle,
+}: TempoTaxiFaqProps = {}) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const loc = formatLocation(city, from, to);
+
+  const TEMPO_TRAVELLER_FAQS = [
+    {
+      question: loc.qCost,
+      answer: loc.aCost,
+    },
+    {
+      question: "What seating options are available for Tempo Travellers?",
+      answer:
+        "We offer Tempo Travellers in multiple seating configurations including 9-seater, 12-seater, 16-seater, 20-seater, 24-seater, and 26-seater options to suit every group size. Contact us with your passenger count and we'll recommend the best vehicle for your journey.",
+    },
+    {
+      question: "What amenities are included in the Tempo Traveller?",
+      answer:
+        "All our Tempo Travellers come with powerful air-conditioning, comfortable pusher seats, ample luggage space, and a clean, well-maintained interior. The vehicles are sanitized before every trip to ensure a safe and hygienic travel experience for you and your group.",
+    },
+    {
+      question: "How much luggage can a Tempo Traveller carry?",
+      answer:
+        "Our Tempo Travellers are designed with generous luggage compartments to handle suitcases, travel bags, and cabin luggage for your entire group. If you have extra or oversized luggage, please let us know during booking so we can suggest the most suitable vehicle.",
+    },
+    {
+      question: "Are the drivers experienced for long-distance and highway travel?",
+      answer:
+        "Yes, absolutely. All our drivers are professionally trained, verified, and have extensive experience in highway and long-distance driving. They are familiar with major routes, follow safe driving practices, and are courteous and punctual for every journey.",
+    },
+    {
+      question: "Can I book a Tempo Traveller for one-way trips?",
+      answer:
+        "Yes, we offer both one-way and round-trip bookings for Tempo Travellers. Whether it's a family vacation, pilgrimage, wedding, or corporate outing, we have flexible packages to suit your travel needs. Our team will share the best fare options based on your route and requirements.",
+    },
+    {
+      question: "What is included in the fare? Are there any extra charges?",
+      answer:
+        "Our base fare includes the vehicle, an experienced driver, fuel, and AC charges. However, tolls, parking fees, state permits, and applicable taxes are charged at actuals as per the route and journey requirements. We maintain full transparency with no hidden costs.",
+    },
+    {
+      question: "Can I customize the pickup time and add multiple stops?",
+      answer:
+        "Yes, we offer fully flexible scheduling. You can choose your preferred pickup time and add multiple stops along the route. Please share your complete itinerary during booking so we can plan the journey accordingly and provide an accurate quote.",
+    },
+    {
+      question: "How far in advance should I book a Tempo Traveller?",
+      answer:
+        "We recommend booking at least 3–7 days in advance, especially during peak seasons like weddings, festivals, and holidays. However, we do accept last-minute bookings subject to vehicle availability. Contact us immediately for urgent requirements.",
+    },
+    {
+      question: "Is the Tempo Traveller suitable for pilgrimages and religious tours?",
+      answer:
+        "Yes, our Tempo Travellers are very popular for pilgrimages and religious tours. The comfortable seating, powerful AC, and spacious luggage capacity make them ideal for long spiritual journeys with family or group. Our drivers are also experienced with hilly and remote routes.",
+    },
+    {
+      question: "What is the cancellation policy for Tempo Traveller bookings?",
+      answer:
+        "We understand that plans can change. Cancellation terms vary based on how close to the travel date you cancel. Generally, a full refund is provided for cancellations made well in advance, with partial or no refund for last-minute cancellations. Please confirm the exact policy with our team at the time of booking.",
+    },
+  ];
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  const displayCity = city ? (city.charAt(0).toUpperCase() + city.slice(1)) : "";
 
   return (
     <section className="bg-white py-12 sm:py-16 lg:py-20">
@@ -72,17 +128,17 @@ export default function TempoTaxiFaq() {
         <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
           <p className="mb-2 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
             <HelpCircle size={16} className="shrink-0" />
-            Frequently Asked Questions
+            {title || "Frequently Asked Questions"}
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            Tempo Traveller —{" "}
+            Tempo Traveller {displayCity ? `in ${displayCity} ` : " "}—{" "}
             <span className="text-gold">Common Questions</span>
           </h2>
 
           <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
-            Everything you need to know about booking and travelling in our
-            Tempo Traveller fleet.
+            {subtitle ||
+              "Everything you need to know about booking and travelling in our Tempo Traveller fleet."}
           </p>
         </div>
 

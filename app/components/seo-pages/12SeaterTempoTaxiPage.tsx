@@ -196,9 +196,9 @@ Please share the detailed quote and availability.`;
             pagetype="tempo-traveller"
             title="tirupati travels"
           />
-          
+
         )}
-        <TempoTaxiFaq />
+        <TempoTaxiFaq city={city} />
       </div>
     </main>
   );

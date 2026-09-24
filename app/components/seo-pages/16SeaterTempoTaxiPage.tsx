@@ -178,7 +178,7 @@ Please share the detailed quote and availability.`;
             pagetype="tempo-traveller"
           />
         )}
-        <TempoTaxiFaq />
+        <TempoTaxiFaq seater="16" city={city} />
       </div>
     </main>
   );

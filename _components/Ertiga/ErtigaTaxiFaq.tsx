@@ -4,58 +4,76 @@ import { useState } from "react";
 
 const PHONE_NUMBER = "+918726124680";
 
-interface ErtigaFaqProps {
+interface ErtigaTaxiFaqProps {
   title?: string;
   subtitle?: string;
+  city?: string;
+  from?: string;
+  to?: string;
 }
 
+const formatLocation = (city?: string, from?: string, to?: string) => {
+  const cap = (str?: string) =>
+    str
+      ? str
+          .trim()
+          .split(/[\s-]+/)
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(" ")
+      : "";
+
+  const fromCap = cap(from);
+  const toCap = cap(to);
+  if (fromCap && toCap) {
+    const loc = `${fromCap} to ${toCap}`;
+    return {
+      titleText: loc,
+      qCost: `How much does a ${loc} Ertiga Taxi cost?`,
+      aCost: `Pricing depends on your choice of one way or round trip, plus toll and parking at actual. We give you the actuals upfront so there’s nothing hidden from you.`,
+      qBook: `How can I book a ${loc} Ertiga Taxi?`,
+      aBook: `Just call or WhatsApp us with your pickup point, date, and travel time. We'll confirm the vehicle, driver details, and fare for your ${loc} Ertiga taxi booking on the same call, for a one-way drop or a same-day return alike.`,
+      qTime: `How long does a ${loc} Ertiga Taxi take?`,
+      aTime: `Travel time on this route generally falls between 45 minutes and just over an hour, depending on your exact pickup point and traffic on main expressways. Our drivers track live conditions and pick the quickest path at the time of your trip.`,
+      qPass: `How many passengers can travel in a ${loc} Ertiga Taxi?`,
+      aPass: `The Ertiga seats six passengers plus the driver, with enough boot space for 3 to 4 medium bags. It's a solid pick for families or a small group heading from ${fromCap} to ${toCap} together, especially with extra luggage in tow.`,
+      qToll: `Does ${loc} Ertiga Taxi fare include toll and parking?`,
+      aToll: `No, toll and parking are charged at actual and shown separately from the base fare. Everything else, including driver allowance and fuel, is built into the quote you get when you book your ${loc} Ertiga cab.`,
+    };
+  }
+
+  const cityCap = cap(city) || fromCap || toCap || "your city";
+  return {
+    titleText: cityCap,
+    qCost: `How much does a ${cityCap} Ertiga Taxi cost?`,
+    aCost: `Pricing depends on your choice of one way or round trip, plus toll and parking at actual. We give you the actuals upfront so there’s nothing hidden from you.`,
+    qBook: `How can I book a ${cityCap} Ertiga Taxi?`,
+    aBook: `Just call or WhatsApp us with your pickup point, date, and travel time. We'll confirm the vehicle, driver details, and fare for your ${cityCap} Ertiga taxi booking on the same call, for a one-way drop or a same-day return alike.`,
+    qTime: `How long does a ${cityCap} Ertiga Taxi take?`,
+    aTime: `Travel time on this route generally falls between 45 minutes and just over an hour, depending on your exact pickup location and traffic. Our drivers track live conditions and pick the quickest path at the time of your trip.`,
+    qPass: `How many passengers can travel in a ${cityCap} Ertiga Taxi?`,
+    aPass: `The Ertiga seats six passengers plus the driver, with enough boot space for 3 to 4 medium bags. It's a solid pick for families or a small group heading to their destination in ${cityCap} together, especially with extra luggage in tow.`,
+    qToll: `Does ${cityCap} Ertiga Taxi fare include toll and parking?`,
+    aToll: `No, toll and parking are charged at actual and shown separately from the base fare. Everything else, including driver allowance and fuel, is built into the quote you get when you book your ${cityCap} Ertiga cab.`,
+  };
+};
+
 export default function ErtigaTaxiFaq({
-  title = "Frequently Asked Questions",
-  subtitle = "Everything you need to know about booking a Maruti Suzuki Ertiga for your travel needs.",
-}: ErtigaFaqProps) {
+  title,
+  subtitle,
+  city,
+  from,
+  to,
+}: ErtigaTaxiFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const loc = formatLocation(city, from, to);
+
   const FAQS = [
-    {
-      question: "What is the rental fare for a Maruti Suzuki Ertiga?",
-      answer: "The Ertiga fare depends on the distance, trip type (one-way or round-trip), and pickup location. As a highly fuel-efficient MPV, our Ertiga base fares are very competitive and include fuel and driver allowance. Tolls, parking, and applicable state taxes are charged at actuals.",
-    },
-    {
-      question: "How many passengers can travel comfortably in an Ertiga?",
-      answer: "A Maruti Suzuki Ertiga can comfortably accommodate up to 6 or 7 passengers. It is an excellent, budget-friendly choice for small families, weekend getaways, and small group travel where a standard sedan would be too cramped.",
-    },
-    {
-      question: "How much luggage can fit in an Ertiga?",
-      answer: "The Ertiga offers decent boot space and can comfortably accommodate 2 to 3 large suitcases along with a few cabin bags. If you are traveling with 6-7 people and heavy luggage, we recommend upgrading to an Innova Crysta for extra boot space.",
-    },
-    {
-      question: "What is the difference between a Sedan and an Ertiga?",
-      answer: "A standard Sedan (like a Dzire or Etios) is suitable for up to 4 passengers with moderate luggage. The Ertiga is an MPV that offers a third row of seats, accommodating up to 7 passengers, making it much more versatile for families while remaining highly fuel-efficient.",
-    },
-    {
-      question: "Is the Ertiga available for one-way drop trips?",
-      answer: "Yes. We offer complete flexibility with both one-way drops and round-trip packages. You can book a private Ertiga and travel directly from your pickup location to your final destination without paying for a return journey.",
-    },
-    {
-      question: "Is the Ertiga suitable for long-distance family trips?",
-      answer: "Absolutely. The Ertiga is widely loved for highway travel because of its excellent mileage, smooth suspension, and spacious cabin. It is a very popular and comfortable choice for long-distance family road trips.",
-    },
-    {
-      question: "Can I book an Ertiga for airport transfers?",
-      answer: "Yes. The Ertiga is a great option for airport transfers for small families or groups of up to 5 people with moderate luggage. We recommend scheduling your pickup well in advance of your flight to ensure a stress-free journey.",
-    },
-    {
-      question: "Is the Ertiga service available 24x7?",
-      answer: "Yes. Ertiga taxis can be booked for early morning, daytime, and late-night travel, subject to vehicle availability. You can contact us to check real-time availability for your preferred pickup time.",
-    },
-    {
-      question: "Can I request a specific Ertiga variant (6-seater vs 7-seater)?",
-      answer: "Yes. You can specifically request a 6-seater (with dual captain seats in the middle row) or a standard 7-seater variant while making your booking. Vehicle allocation is confirmed based on availability at the time of booking.",
-    },
-    {
-      question: "Can I cancel or reschedule my Ertiga booking?",
-      answer: "Yes. You can contact our support team to cancel or reschedule your booking. Please note that specific cancellation or modification terms may apply depending on how close the request is to the scheduled pickup time.",
-    },
+    { question: loc.qCost, answer: loc.aCost },
+    { question: loc.qBook, answer: loc.aBook },
+    { question: loc.qTime, answer: loc.aTime },
+    { question: loc.qPass, answer: loc.aPass },
+    { question: loc.qToll, answer: loc.aToll },
   ];
 
   const toggle = (index: number) => {
@@ -77,7 +95,7 @@ export default function ErtigaTaxiFaq({
   };
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16">
+    <section className="bg-slate-50 py-12 sm:py-16" id="faq">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
@@ -94,11 +112,12 @@ export default function ErtigaTaxiFaq({
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            {title}
+            {title || `${loc.titleText} Ertiga Taxi Questions, Answered`}
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
-            {subtitle}
+            {subtitle ||
+              `Everything you need to know about booking a Maruti Suzuki Ertiga taxi for ${loc.titleText}, including fares, timing, passenger capacity, and tolls.`}
           </p>
         </div>
 
@@ -157,7 +176,19 @@ export default function ErtigaTaxiFaq({
           })}
         </div>
 
-        
+        {/* ===== Bottom CTA ===== */}
+        <div className="mt-8 text-center sm:mt-10">
+          <p className="text-sm text-slate-600">
+            Need an Ertiga for your {loc.titleText} journey?
+          </p>
+
+          <a
+            href={`tel:${PHONE_NUMBER}`}
+            className="mt-4 inline-flex items-center justify-center rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
+          >
+            Call & Book Ertiga
+          </a>
+        </div>
       </div>
     </section>
   );

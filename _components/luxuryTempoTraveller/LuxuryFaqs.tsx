@@ -2,61 +2,79 @@
 
 import { useState } from "react";
 
+const PHONE_NUMBER = "+918726124680";
+
 interface LuxuryFaqProps {
-  from: string;
-  to: string;
+  from?: string;
+  to?: string;
+  city?: string;
+  title?: string;
+  subtitle?: string;
 }
 
+const formatLocation = (city?: string, from?: string, to?: string) => {
+  const cap = (str?: string) =>
+    str
+      ? str
+          .trim()
+          .split(/[\s-]+/)
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(" ")
+      : "";
 
+  const fromCap = cap(from);
+  const toCap = cap(to);
+  if (fromCap && toCap) {
+    const loc = `${fromCap} to ${toCap}`;
+    return {
+      titleText: loc,
+      qCost: `How much does a ${loc} Luxury Tempo Traveller cost?`,
+      aCost: `Pricing depends on seater capacity and vehicle type, calculated on a per-kilometer basis for the route. Toll, parking, and driver charges are billed separately and shown upfront before you confirm. Call us or check availability on the app for an exact quote tied to your travel dates and group size.`,
+      qBook: `How do I book a Luxury Tempo Traveller from ${fromCap} to ${toCap}?`,
+      aBook: `Reach out through our booking line or WhatsApp with your travel date, group size, and pickup point. We confirm the seater option that matches your headcount and send the fare breakdown before you finalize anything. Corporate and wedding bookings can also be arranged in advance for fixed time slots.`,
+      qPass: `How many passengers can travel in a ${loc} Luxury Tempo Traveller?`,
+      aPass: `Our fleet ranges from 12-seater to 26-seater Maharaja tempo travellers, so seating scales with your group. A 12-seater covers a small office team, while the 26-seater Maharaja suits large wedding parties or conference groups. Tell us your headcount and we'll point you to the right seater with matching luggage space.`,
+      qOneWay: `Can I book a one-way Luxury Tempo Traveller from ${fromCap} to ${toCap}?`,
+      aOneWay: `Yes, one way bookings work for single drops, be it a flight to catch or a visit from ${fromCap} to ${toCap} with no return needed the same day. You pay only for the distance covered, with no charge added for a return journey you don't need. This option suits travelers heading to ${toCap} without a same-day return.`,
+      qAirport: `Can I book a Luxury Tempo Traveller from ${fromCap} to ${toCap} Airport?`,
+      aAirport: `Yes, direct pickup and drop at major airports comes included with our tempo traveller service. Our drivers stay updated on your flight schedule and time the arrival so your group isn't stuck waiting at the terminal. Book it as part of a one way trip or as a stop within a larger round trip itinerary.`,
+    };
+  }
 
-export default function LuxuryTempoFaq({
+  const cityCap = cap(city) || fromCap || toCap || "your city";
+  return {
+    titleText: cityCap,
+    qCost: `How much does a ${cityCap} Luxury Tempo Traveller cost?`,
+    aCost: `Pricing depends on seater capacity and vehicle type, calculated on a per-kilometer basis for the route. Toll, parking, and driver charges are billed separately and shown upfront before you confirm. Call us or check availability on the app for an exact quote tied to your travel dates and group size.`,
+    qBook: `How do I book a Luxury Tempo Traveller in ${cityCap}?`,
+    aBook: `Reach out through our booking line or WhatsApp with your travel date, group size, and pickup point. We confirm the seater option that matches your headcount and send the fare breakdown before you finalize anything. Corporate and wedding bookings can also be arranged in advance for fixed time slots.`,
+    qPass: `How many passengers can travel in a ${cityCap} Luxury Tempo Traveller?`,
+    aPass: `Our fleet ranges from 12-seater to 26-seater Maharaja tempo travellers, so seating scales with your group. A 12-seater covers a small office team, while the 26-seater Maharaja suits large wedding parties or conference groups. Tell us your headcount and we'll point you to the right seater with matching luggage space.`,
+    qOneWay: `Can I book a one-way Luxury Tempo Traveller in ${cityCap}?`,
+    aOneWay: `Yes, one way bookings work for single drops, be it a flight to catch or an outstation visit in ${cityCap} with no return needed the same day. You pay only for the distance covered, with no charge added for a return journey you don't need. This option suits travelers heading to their destination without a same-day return.`,
+    qAirport: `Can I book a Luxury Tempo Traveller for ${cityCap} Airport transfers?`,
+    aAirport: `Yes, direct pickup and drop at major airports comes included with our tempo traveller service. Our drivers stay updated on your flight schedule and time the arrival so your group isn't stuck waiting at the terminal. Book it as part of a one way trip or as a stop within a larger round trip itinerary.`,
+  };
+};
+
+export default function LuxuryFaqs({
   from,
   to,
+  city,
+  title,
+  subtitle,
 }: LuxuryFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-const FAQS = [
-  {
-    question: `What is the Luxury Tempo Traveller fare from ${from} to ${to}?`,
-    answer: `Local day-tour fares start at ₹7,500 for the 12 seater, ₹8,500 for the 16 seater, ₹9,500 for the 20 seater and ₹11,000 for the 24 seater. Outstation trips from ${from} to ${to} are billed per km at ₹30–₹38/km depending on the model. Tolls, parking and state taxes are billed at actuals.`,
-  },
-  {
-    question: `How many passengers can travel in a Luxury Tempo Traveller from ${from} to ${to}?`,
-    answer: `We offer 12, 16, 20 and 24 seater options for travel from ${from} to ${to}, each with a +1 driver seat. Every model comes with Maharaja-style pusher seats, so each passenger gets a comfortable reclining seat with armrests.`,
-  },
-  {
-    question: `What luxury features are included in the Luxury Tempo Traveller from ${from} to ${to}?`,
-    answer: `Every Luxury Tempo Traveller includes reclining Maharaja pusher seats, powerful AC with individual vents, LED TV, premium music system, a mic for announcements, USB charging points and ambient LED lighting — all included in your fare at no extra cost.`,
-  },
-  {
-    question: `Is the Luxury Tempo Traveller suitable for weddings from ${from} to ${to}?`,
-    answer: `Yes. Our 20 and 24 seater Luxury Tempo Travellers are ideal for wedding groups, baraat and guest travel from ${from} to ${to}. We can also arrange decoration on request, and the driver stays with you according to your event schedule.`,
-  },
-  {
-    question: `Can I book a Luxury Tempo Traveller from ${from} to ${to} for hill trips?`,
-    answer: `Yes. Our Luxury Tempo Travellers can be booked for long-distance and hill journeys from ${from} to ${to}, subject to route requirements and vehicle availability. We can assist with travel planning and applicable permits for the journey.`,
-  },
-  {
-    question: `How much luggage can a Luxury Tempo Traveller carry from ${from} to ${to}?`,
-    answer: `Depending on the model, the rear boot can comfortably hold approximately 6–12 large suitcases along with cabin bags. This makes it a convenient option for group travel from ${from} to ${to}, allowing passengers and luggage to travel together.`,
-  },
-  {
-    question: `Are tolls, parking and driver allowance included in the fare from ${from} to ${to}?`,
-    answer: `Your fare generally includes fuel, AC and driver allowance for the trip. Tolls, parking, inter-state taxes and applicable permits may be charged separately at actuals and communicated during booking.`,
-  },
-  {
-    question: `What is the driver night allowance for multi-day trips from ${from} to ${to}?`,
-    answer: `For outstation trips from ${from} to ${to} that involve an overnight halt, a driver night allowance of ₹500–₹700 per day may apply depending on the vehicle model and trip requirements. The applicable charges are communicated at the time of booking.`,
-  },
-  {
-    question: `Can we play our own music or use the mic during the trip from ${from} to ${to}?`,
-    answer: `Yes. You can connect your phone to the music system via Bluetooth or USB, and the mic can be used for tours, family games or announcements during your journey from ${from} to ${to}.`,
-  },
-  {
-    question: `How early should I book a Luxury Tempo Traveller from ${from} to ${to}?`,
-    answer: `For weekday trips, booking at least 24 hours in advance is recommended. For weekends, wedding season and peak travel periods, booking 2–3 days or earlier is advisable because Luxury Tempo Traveller availability can be limited.`,
-  },
-];
+  const loc = formatLocation(city, from, to);
+
+  const FAQS = [
+    { question: loc.qCost, answer: loc.aCost },
+    { question: loc.qBook, answer: loc.aBook },
+    { question: loc.qPass, answer: loc.aPass },
+    { question: loc.qOneWay, answer: loc.aOneWay },
+    { question: loc.qAirport, answer: loc.aAirport },
+  ];
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -77,7 +95,7 @@ const FAQS = [
   };
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16">
+    <section className="bg-slate-50 py-12 sm:py-16" id="faq">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
@@ -94,12 +112,12 @@ const FAQS = [
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            {from} to {to} Luxury Tempo Traveller Questions, Answered
+            {title || `${loc.titleText} Luxury Tempo Traveller Questions, Answered`}
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
-            Everything you need to know about booking a Luxury Tempo Traveller
-            for weddings, pilgrimages, corporate events and group vacations.
+            {subtitle ||
+              `Everything you need to know about booking a Luxury Tempo Traveller for ${loc.titleText}, including fares, booking process, seating, and airport drops.`}
           </p>
         </div>
 
@@ -156,6 +174,20 @@ const FAQS = [
               </div>
             );
           })}
+        </div>
+
+        {/* ===== Bottom CTA ===== */}
+        <div className="mt-8 text-center sm:mt-10">
+          <p className="text-sm text-slate-600">
+            Need a Luxury Tempo Traveller for your {loc.titleText} journey?
+          </p>
+
+          <a
+            href={`tel:${PHONE_NUMBER}`}
+            className="mt-4 inline-flex items-center justify-center rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
+          >
+            Call & Book Tempo Traveller
+          </a>
         </div>
       </div>
     </section>

@@ -3,23 +3,36 @@
 import { useState } from "react";
 
 interface SixteenFaqProps {
-  from: string;
-  to: string;
+  from?: string;
+  to?: string;
+  city?: string;
 }
-
-
 
 export default function SixteenSeaterTempoFaq({
   from,
   to,
+  city,
 }: SixteenFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
- const FAQS = [
-  {
-    question: `What is the fare for a 16 seater Tempo Traveller from ${from} to ${to}?`,
-    answer: `The 16 seater Tempo Traveller one-way fare from ${from} to ${to} starts from ₹5,500. The final fare depends on the travel date, pickup location, drop location and trip requirements.`,
-  },
+  const locText = from && to ? `from ${from} to ${to}` : city ? `in ${city}` : "";
+  const costQuestion = from && to
+    ? `What is the fare for a 16 seater Tempo Traveller from ${from} to ${to}?`
+    : city
+    ? `How much does a 16 seater Tempo Traveller cost in ${city}?`
+    : `How much does a 16 seater Tempo Traveller cost?`;
+
+  const costAnswer = from && to
+    ? `The 16 seater Tempo Traveller one-way fare from ${from} to ${to} starts from ₹5,500. The final fare depends on the travel date, pickup location, drop location and trip requirements.`
+    : city
+    ? `The 16 seater Tempo Traveller fare in ${city} starts from competitive per-km rates for outstation or fixed packages for local tours. Tolls, parking, and state taxes are charged at actuals.`
+    : `The 16 seater Tempo Traveller fare starts from competitive per-km rates for outstation or fixed packages for local tours. Tolls, parking, and state taxes are charged at actuals.`;
+
+  const FAQS = [
+    {
+      question: costQuestion,
+      answer: costAnswer,
+    },
   {
     question: `How many passengers can travel in a 16 seater Tempo Traveller from ${from} to ${to}?`,
     answer: `A 16 seater Tempo Traveller is designed for up to 16 passengers and is suitable for family groups, corporate teams, wedding groups and tours travelling from ${from} to ${to}.`,

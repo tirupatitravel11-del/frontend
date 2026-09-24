@@ -3,23 +3,35 @@
 import { useState } from "react";
 
 interface TwentyFaqProps {
-  from: string;
-  to: string;
+  from?: string;
+  to?: string;
+  city?: string;
 }
-
-
 
 export default function TwentySeaterFaq({
   from,
   to,
+  city,
 }: TwentyFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-const FAQS = [
-  {
-    question: `What is the 20 Seater Tempo Traveller fare from ${from} to ${to}?`,
-    answer: `The 20 Seater Luxury Tempo Traveller starts at ₹9,500 for local day tours and ₹35 per km for outstation trips from ${from} to ${to}. The fare includes fuel, AC and driver allowance. Tolls, parking and applicable state taxes are billed at actuals. For weddings and multi-day events, custom packages may be available.`,
-  },
+  const costQuestion = from && to
+    ? `What is the 20 Seater Tempo Traveller fare from ${from} to ${to}?`
+    : city
+    ? `How much does a 20 Seater Tempo Traveller cost in ${city}?`
+    : `How much does a 20 Seater Tempo Traveller cost?`;
+
+  const costAnswer = from && to
+    ? `The 20 Seater Luxury Tempo Traveller starts at ₹9,500 for local day tours and ₹35 per km for outstation trips from ${from} to ${to}. The fare includes fuel, AC and driver allowance. Tolls, parking and applicable state taxes are billed at actuals. For weddings and multi-day events, custom packages may be available.`
+    : city
+    ? `The 20 Seater Luxury Tempo Traveller fare in ${city} starts at ₹9,500 for local day tours and per km rates for outstation trips. The fare includes fuel, AC and driver allowance. Tolls, parking and applicable state taxes are billed at actuals.`
+    : `The 20 Seater Luxury Tempo Traveller starts at ₹9,500 for local day tours and per km rates for outstation trips. The fare includes fuel, AC and driver allowance. Tolls, parking and applicable state taxes are billed at actuals.`;
+
+  const FAQS = [
+    {
+      question: costQuestion,
+      answer: costAnswer,
+    },
   {
     question: `How many passengers can travel in the 20 Seater Tempo Traveller from ${from} to ${to}?`,
     answer: `The 20 Seater Tempo Traveller comfortably accommodates up to 20 passengers plus 1 driver. It features a spacious seating layout with Maharaja-style pusher seats, making it suitable for weddings, family reunions and large group travel from ${from} to ${to}.`,

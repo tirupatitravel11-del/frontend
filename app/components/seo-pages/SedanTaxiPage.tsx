@@ -43,7 +43,7 @@ const SEDAN_MODELS = [
 type TripType = "one-way" | "round-trip";
 
 export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
-   const { slug, title, description, intro, highlights, popularTrips, city } =
+  const { slug, title, description, intro, highlights, popularTrips, city } =
     page;
   const popularRoutes = generatePopularRoutes(page.city, "");
 
@@ -143,18 +143,18 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
 
             {/* RIGHT SIDE: Booking Form */}
             <div className="relative">
-                 <UniversalSeoBookingForm
-                              page={{
-                                slug: slug,
-                                city: city,
-                                service: "taxi",
-                                title: title,
-                                description: description,
-                                intro: intro,
-                                highlights: highlights,
-                                popularTrips: popularTrips,
-                              }}
-                            />
+              <UniversalSeoBookingForm
+                page={{
+                  slug: slug,
+                  city: city,
+                  service: "taxi",
+                  title: title,
+                  description: description,
+                  intro: intro,
+                  highlights: highlights,
+                  popularTrips: popularTrips,
+                }}
+              />
             </div>
           </div>
         </div>
@@ -178,7 +178,7 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
         <HowItWorks />
         <Testimonials />
 
-        <SedanFaqTaxi />
+        <SedanFaqTaxi city={city} />
 
       </div>
     </main>

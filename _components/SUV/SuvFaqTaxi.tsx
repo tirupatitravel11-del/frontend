@@ -2,57 +2,85 @@
 
 import { useState } from "react";
 
-interface SuvFaqProps {
-  city?: string; // Optional: Pass a city name (e.g., "Delhi") or leave blank for generic "your city"
+const PHONE_NUMBER = "+918726124680";
+
+interface SuvTaxiFaqProps {
+  title?: string;
+  subtitle?: string;
+  city?: string;
+  from?: string;
+  to?: string;
 }
 
-export default function SuvFaqTaxi({ city = "your city" }: SuvFaqProps) {
+const formatLocation = (city?: string, from?: string, to?: string) => {
+  const cap = (str?: string) =>
+    str
+      ? str
+          .trim()
+          .split(/[\s-]+/)
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(" ")
+      : "";
+
+  const fromCap = cap(from);
+  const toCap = cap(to);
+  if (fromCap && toCap) {
+    const loc = `${fromCap} to ${toCap}`;
+    return {
+      titleText: loc,
+      qCost: `How much does a ${loc} SUV Taxi cost?`,
+      aCost: `Pricing for an SUV taxi from ${fromCap} to ${toCap} follows a transparent per-km rate (starting from ₹14/km depending on Innova/Ertiga selection). Tolls and parking are billed at actuals, with fuel and driver allowance included in your upfront fare quote.`,
+      qBook: `How can I book a ${loc} SUV Taxi?`,
+      aBook: `You can book your ${loc} SUV cab online through our website or by calling our support team directly. Share your pickup address, destination, travel time, and passenger count to confirm your booking instantly.`,
+      qTime: `How long does a ${loc} SUV Taxi take?`,
+      aTime: `Travel time from ${fromCap} to ${toCap} depends on pickup location and traffic flow. Our experienced drivers monitor traffic and choose optimal routes to get you to your destination comfortably and on time.`,
+      qPass: `How many passengers can travel in a ${loc} SUV Taxi?`,
+      aPass: `Our SUV fleet (including Ertiga, Innova Crysta, and Carens) comfortably seats 6 to 7 passengers with generous legroom and ample luggage space for group and family trips.`,
+      qToll: `Does ${loc} SUV Taxi fare include toll and parking?`,
+      aToll: `Tolls and parking fees are charged at actuals and listed transparently. Fuel, driver allowance, and AC charges are fully included upfront in your total quote.`,
+    };
+  }
+
+  const cityCap = cap(city) || fromCap || toCap || "your city";
+  return {
+    titleText: cityCap,
+    qCost: `How much does a ${cityCap} SUV Taxi cost?`,
+    aCost: `Pricing for an SUV taxi in ${cityCap} follows a transparent per-km rate (starting from ₹14/km depending on vehicle type). Tolls and parking are shown separately, and all driver allowances, fuel, and AC costs are included upfront.`,
+    qBook: `How can I book a ${cityCap} SUV Taxi?`,
+    aBook: `You can book your ${cityCap} SUV cab online via our booking form or by calling our helpline. Provide your pickup location, journey details, and preferred vehicle, and we will dispatch a driver right away.`,
+    qTime: `How long does a ${cityCap} SUV Taxi take?`,
+    aTime: `Trip duration depends on your exact pickup point and traffic in ${cityCap}. Our professional drivers select the best routes to avoid congestion and ensure a smooth ride.`,
+    qPass: `How many passengers can travel in a ${cityCap} SUV Taxi?`,
+    aPass: `Our SUV cabs accommodate 6 to 7 passengers plus driver comfortably, making them ideal for family outings, group outstation travel, and airport transfers with luggage.`,
+    qToll: `Does ${cityCap} SUV Taxi fare include toll and parking?`,
+    aToll: `Toll and parking charges are billed at actuals and specified in your booking summary. Fuel, AC, and driver allowances are included in your confirmed fare with no hidden fees.`,
+  };
+};
+
+export default function SuvFaqTaxi({
+  title,
+  subtitle,
+  city,
+  from,
+  to,
+}: SuvTaxiFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const loc = formatLocation(city, from, to);
+
   const FAQS = [
-    {
-      question: `What is the starting fare for an SUV taxi in ${city}?`,
-      answer: `The starting fare for an SUV taxi depends on the vehicle model (Ertiga, Innova, or Innova Crysta) and the distance of your trip. We offer transparent, all-inclusive fixed fares covering fuel, driver allowance, and AC, with no hidden charges. Round-trip and outstation fares are calculated based on distance or as a customized fixed package.`,
-    },
-    {
-      question: `How many passengers can travel in an SUV?`,
-      answer: `The Maruti Suzuki Ertiga and Toyota Innova comfortably seat 6 passengers, while the Innova Crysta and Hycross accommodate 6–7 passengers. All models offer ample legroom and dedicated space for luggage, making them ideal for family and group travel in ${city} and beyond.`,
-    },
-    {
-      question: `Which SUV models do you provide for travel?`,
-      answer: `We provide Maruti Suzuki Ertiga, Toyota Innova, Innova Crysta, and Innova Hycross. All vehicles are fully air-conditioned and meticulously maintained for comfortable travel. You can request a specific model while booking, subject to availability.`,
-    },
-    {
-      question: `How much luggage fits in an SUV?`,
-      answer: `Our SUVs offer generous luggage capacity. The Ertiga can accommodate around 3 large bags, the Innova around 4 bags, while the Innova Crysta and Hycross can comfortably hold approximately 5 large suitcases, depending on the passenger count and bag sizes.`,
-    },
-    {
-      question: `Is an SUV suitable for long outstation trips from ${city}?`,
-      answer: `Absolutely. SUVs are a highly popular choice for outstation trips. Their higher ride height, stable suspension, and spacious interiors make long highway journeys significantly more comfortable and less fatiguing for families and groups.`,
-    },
-    {
-      question: `Can I book an SUV for airport transfers in ${city}?`,
-      answer: `Yes. SUVs are ideal for airport transfers, especially for groups or passengers travelling with heavy or bulky luggage. You can travel together in one comfortable vehicle instead of splitting your group into multiple smaller cabs.`,
-    },
-    {
-      question: `What's the difference between Ertiga, Innova, and Crysta?`,
-      answer: `The Ertiga is an economical and compact option for up to 6 passengers. The standard Innova offers additional space and comfort, while the Innova Crysta and Hycross are premium options with enhanced interiors, superior luggage space, and advanced features. The right choice simply depends on your group size and travel requirements.`,
-    },
-    {
-      question: `Are SUVs available for night travel from ${city}?`,
-      answer: `Yes. SUVs can be booked for early morning, daytime, and late-night travel, subject to vehicle availability. Any applicable night charges or state border fees will be communicated transparently to you during the booking process.`,
-    },
-    {
-      question: `Can I cancel or reschedule my SUV booking?`,
-      answer: `Yes. You can easily contact us to cancel or reschedule your SUV booking. Specific cancellation and rescheduling conditions may apply depending on how close the request is to your scheduled pickup time.`,
-    },
+    { question: loc.qCost, answer: loc.aCost },
+    { question: loc.qBook, answer: loc.aBook },
+    { question: loc.qTime, answer: loc.aTime },
+    { question: loc.qPass, answer: loc.aPass },
+    { question: loc.qToll, answer: loc.aToll },
   ];
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  /* FAQ schema for Google rich results */
+  /* FAQ Schema for Google (SEO) */
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -67,26 +95,29 @@ export default function SuvFaqTaxi({ city = "your city" }: SuvFaqProps) {
   };
 
   return (
-    <section className="bg-slate-50 py-10 sm:py-16">
+    <section className="bg-slate-50 py-12 sm:py-16" id="faq">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
       />
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* ===== Header ===== */}
         <div className="mb-8 text-center sm:mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
-            SUV FAQs
+            SUV Taxi FAQs
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            SUV Taxi Questions, Answered
+            {title || `${loc.titleText} SUV Taxi Questions, Answered`}
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
-            Everything riders ask us about booking a premium SUV for their journey.
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
+            {subtitle ||
+              `Everything you need to know about booking an SUV taxi for ${loc.titleText}, including fares, timing, passenger capacity, and tolls.`}
           </p>
         </div>
 
@@ -98,8 +129,8 @@ export default function SuvFaqTaxi({ city = "your city" }: SuvFaqProps) {
             return (
               <div
                 key={faq.question}
-                className={`overflow-hidden rounded-2xl border bg-white shadow-sm transition-all duration-300 ${
-                  isOpen ? "border-gold/40" : "border-slate-200"
+                className={`overflow-hidden rounded-xl border bg-white shadow-sm transition-all duration-300 sm:rounded-2xl ${
+                  isOpen ? "border-gold/40 shadow-md" : "border-slate-200"
                 }`}
               >
                 <button
@@ -108,7 +139,7 @@ export default function SuvFaqTaxi({ city = "your city" }: SuvFaqProps) {
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-3 px-4 py-4 text-left sm:gap-4 sm:px-6 sm:py-5"
                 >
-                  <span className="text-sm font-semibold leading-6 text-slate-900 sm:text-base">
+                  <span className="min-w-0 text-sm font-semibold leading-6 text-slate-900 sm:text-base">
                     {faq.question}
                   </span>
 
@@ -143,6 +174,20 @@ export default function SuvFaqTaxi({ city = "your city" }: SuvFaqProps) {
               </div>
             );
           })}
+        </div>
+
+        {/* ===== Bottom CTA ===== */}
+        <div className="mt-8 text-center sm:mt-10">
+          <p className="text-sm text-slate-600">
+            Need an SUV taxi for your {loc.titleText} journey?
+          </p>
+
+          <a
+            href={`tel:${PHONE_NUMBER}`}
+            className="mt-4 inline-flex items-center justify-center rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
+          >
+            Call & Book SUV Taxi
+          </a>
         </div>
       </div>
     </section>
