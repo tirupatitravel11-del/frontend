@@ -12,6 +12,7 @@ import MobileStickyBar from "./components/Home/MobileStickyBar";
 import HotelCard from "./components/Home/HotelCard";
 import HotelSection from "./components/Home/HotelSection";
 import FeaturedBoats from "./components/Home/FeaturesBoats";
+import CabSearchBooking from "@/_components/CabSearchBooking";
 
 export const metadata: Metadata = {
   title: "Tirupati Travels | Taxi & Cab Service in India | Book Cabs Online",
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="h-full">
+      <CabSearchBooking />
       <Hero />
       <Services />
       <PopularRoutes />
