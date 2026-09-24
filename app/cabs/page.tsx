@@ -13,13 +13,11 @@ import CityWiseServices from "../components/Cab/Cabhub/CityWiseServices";
 import AyodhyaRoutesSection from "@/_components/AyodhyaRoutesSection";
 import CabFaq from "@/_components/CabFaq";
 
-
 export default function CabsPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-white">
       {/* Hero Section - Full Width */}
       <section className="relative w-full overflow-hidden py-24 lg:py-32">
-
         {/* Car Image - Anchored to the true left edge */}
         <img
           src="/ertiga_taxi.png"
@@ -34,7 +32,6 @@ export default function CabsPage() {
         {/* Content Container - Centered */}
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
-
             {/* LEFT SIDE — TEXT */}
             <div>
               <p className="font-semibold uppercase tracking-[4px] text-gold drop-shadow-lg">
@@ -46,8 +43,8 @@ export default function CabsPage() {
               </h1>
 
               <p className="mt-6 max-w-xl text-lg leading-8 text-white/90 drop-shadow-lg">
-                One-way or round-trip — choose your route, pick your vehicle, and
-                go. Transparent fares, no hidden charges.
+                One-way or round-trip — choose your route, pick your vehicle,
+                and go. Transparent fares, no hidden charges.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -74,7 +71,7 @@ export default function CabsPage() {
 
       <WhyBookWithUs />
       <Testimonials />
-      <CabFaq />
+      {/* <CabFaq /> */}
     </main>
   );
 }
