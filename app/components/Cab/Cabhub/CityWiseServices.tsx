@@ -5,6 +5,9 @@ const cities = [
     name: "Lucknow",
     slug: "lucknow",
     services: [
+      { label: "Taxi Service in Lucknow", href: "/taxi-service-in-lucknow" },
+      { label: "Airport Service in Lucknow", href: "/airport-taxi-in-lucknow" },
+      // { label: "Local Sightseeing in Lucknow", href: "/taxi-service-in-lucknow" },
       { label: "Sedan Taxi in Lucknow", href: "/sedan-taxi-in-lucknow" },
       { label: "SUV Taxi in Lucknow", href: "/suv-taxi-in-lucknow" },
       { label: "Amaze Taxi in Lucknow", href: "/amaze-taxi-in-lucknow" },
@@ -12,6 +15,7 @@ const cities = [
       { label: "Etios Taxi in Lucknow", href: "/etios-taxi-in-lucknow" },
       { label: "Ertiga Taxi in Lucknow", href: "/ertiga-taxi-in-lucknow" },
       { label: "Innova Crysta in Lucknow", href: "/innova-crysta-in-lucknow" },
+      { label: "Tempo Traveller in Lucknow", href: "/tempo-traveller-in-lucknow" },
       {
         label: "Urbania Rental in Lucknow",
         href: "/urbania-rental-in-lucknow",
@@ -46,6 +50,9 @@ const cities = [
     name: "Varanasi",
     slug: "varanasi",
     services: [
+      { label: "Taxi Service in Varanasi", href: "/taxi-service-in-varanasi" },
+      { label: "Airport Service in Varanasi", href: "/airport-taxi-in-varanasi" },
+      // { label: "Local Sightseeing in Varanasi", href: "/taxi-service-in-varanasi" },
       { label: "Sedan Taxi in Varanasi", href: "/sedan-taxi-in-varanasi" },
       { label: "SUV Taxi in Varanasi", href: "/suv-taxi-in-varanasi" },
       { label: "Amaze Taxi in Varanasi", href: "/amaze-taxi-in-varanasi" },
@@ -56,6 +63,7 @@ const cities = [
         label: "Innova Crysta in Varanasi",
         href: "/innova-crysta-in-varanasi",
       },
+      { label: "Tempo Traveller in Varanasi", href: "/tempo-traveller-in-varanasi" },
       {
         label: "Urbania Rental in Varanasi",
         href: "/urbania-rental-in-varanasi",
@@ -90,6 +98,9 @@ const cities = [
     name: "Ayodhya",
     slug: "ayodhya",
     services: [
+      { label: "Taxi Service in Ayodhya", href: "/taxi-service-in-ayodhya" },
+      { label: "Airport Service in Ayodhya", href: "/airport-taxi-in-ayodhya" },
+      // { label: "Local Sightseeing in Ayodhya", href: "/taxi-service-in-ayodhya" },
       { label: "Sedan Taxi in Ayodhya", href: "/sedan-taxi-in-ayodhya" },
       { label: "SUV Taxi in Ayodhya", href: "/suv-taxi-in-ayodhya" },
       { label: "Amaze Taxi in Ayodhya", href: "/amaze-taxi-in-ayodhya" },
@@ -97,6 +108,7 @@ const cities = [
       { label: "Etios Taxi in Ayodhya", href: "/etios-taxi-in-ayodhya" },
       { label: "Ertiga Taxi in Ayodhya", href: "/ertiga-taxi-in-ayodhya" },
       { label: "Innova Crysta in Ayodhya", href: "/innova-crysta-in-ayodhya" },
+      { label: "Tempo Traveller in Ayodhya", href: "/tempo-traveller-in-ayodhya" },
       {
         label: "Urbania Rental in Ayodhya",
         href: "/urbania-rental-in-ayodhya",
@@ -131,6 +143,9 @@ const cities = [
     name: "Prayagraj",
     slug: "prayagraj",
     services: [
+      { label: "Taxi Service in Prayagraj", href: "/taxi-service-in-prayagraj" },
+      { label: "Airport Service in Prayagraj", href: "/airport-taxi-in-prayagraj" },
+      // { label: "Local Sightseeing in Prayagraj", href: "/taxi-service-in-prayagraj" },
       { label: "Sedan Taxi in Prayagraj", href: "/sedan-taxi-in-prayagraj" },
       { label: "SUV Taxi in Prayagraj", href: "/suv-taxi-in-prayagraj" },
       { label: "Amaze Taxi in Prayagraj", href: "/amaze-taxi-in-prayagraj" },
@@ -141,6 +156,7 @@ const cities = [
         label: "Innova Crysta in Prayagraj",
         href: "/innova-crysta-in-prayagraj",
       },
+      { label: "Tempo Traveller in Prayagraj", href: "/tempo-traveller-in-prayagraj" },
       {
         label: "Urbania Rental in Prayagraj",
         href: "/urbania-rental-in-prayagraj",
@@ -171,10 +187,13 @@ const cities = [
       },
     ],
   },
-    {
+  {
     name: "Gaya",
     slug: "gaya",
     services: [
+      { label: "Taxi Service in Gaya", href: "/taxi-service-in-gaya" },
+      { label: "Airport Service in Gaya", href: "/airport-taxi-in-gaya" },
+      // { label: "Local Sightseeing in Gaya", href: "/taxi-service-in-gaya" },
       { label: "Sedan Taxi in Gaya", href: "/sedan-taxi-in-gaya" },
       { label: "SUV Taxi in Gaya", href: "/suv-taxi-in-gaya" },
       { label: "Amaze Taxi in Gaya", href: "/amaze-taxi-in-gaya" },
@@ -182,6 +201,7 @@ const cities = [
       { label: "Etios Taxi in Gaya", href: "/etios-taxi-in-gaya" },
       { label: "Ertiga Taxi in Gaya", href: "/ertiga-taxi-in-gaya" },
       { label: "Innova Crysta in Gaya", href: "/innova-crysta-in-gaya" },
+      { label: "Tempo Traveller in Gaya", href: "/tempo-traveller-in-gaya" },
       { label: "Urbania Rental in Gaya", href: "/urbania-rental-in-gaya" },
       {
         label: "12-Seater Tempo Traveller",
@@ -213,6 +233,9 @@ const cities = [
     name: "Vindhyachal",
     slug: "vindhyachal",
     services: [
+      { label: "Taxi Service in Vindhyachal", href: "/taxi-service-in-vindhyachal" },
+      { label: "Airport Service in Vindhyachal", href: "/airport-taxi-in-vindhyachal" },
+      // { label: "Local Sightseeing in Vindhyachal", href: "/taxi-service-in-vindhyachal" },
       { label: "Sedan Taxi in Vindhyachal", href: "/sedan-taxi-in-vindhyachal" },
       { label: "SUV Taxi in Vindhyachal", href: "/suv-taxi-in-vindhyachal" },
       { label: "Amaze Taxi in Vindhyachal", href: "/amaze-taxi-in-vindhyachal" },
@@ -223,6 +246,7 @@ const cities = [
         label: "Innova Crysta in Vindhyachal",
         href: "/innova-crysta-in-vindhyachal",
       },
+      { label: "Tempo Traveller in Vindhyachal", href: "/tempo-traveller-in-vindhyachal" },
       {
         label: "Urbania Rental in Vindhyachal",
         href: "/urbania-rental-in-vindhyachal",
@@ -254,49 +278,53 @@ const cities = [
     ],
   },
   {
-  name: "Agra",
-  slug: "agra",
-  services: [
-    { label: "Sedan Taxi in Agra", href: "/sedan-taxi-in-agra" },
-    { label: "SUV Taxi in Agra", href: "/suv-taxi-in-agra" },
-    { label: "Amaze Taxi in Agra", href: "/amaze-taxi-in-agra" },
-    { label: "Dzire Taxi in Agra", href: "/dzire-taxi-in-agra" },
-    { label: "Etios Taxi in Agra", href: "/etios-taxi-in-agra" },
-    { label: "Ertiga Taxi in Agra", href: "/ertiga-taxi-in-agra" },
-    {
-      label: "Innova Crysta in Agra",
-      href: "/innova-crysta-in-agra",
-    },
-    {
-      label: "Urbania Rental in Agra",
-      href: "/urbania-rental-in-agra",
-    },
-    {
-      label: "12-Seater Tempo Traveller",
-      href: "/12-seater-tempo-traveller-in-agra",
-    },
-    {
-      label: "16-Seater Tempo Traveller",
-      href: "/16-seater-tempo-traveller-in-agra",
-    },
-    {
-      label: "20-Seater Tempo Traveller",
-      href: "/20-seater-tempo-traveller-in-agra",
-    },
-    {
-      label: "24-Seater Tempo Traveller",
-      href: "/24-seater-tempo-traveller-in-agra",
-    },
-    {
-      label: "Luxury Tempo Traveller",
-      href: "/luxury-tempo-traveller-in-agra",
-    },
-    {
-      label: "Agra Taxi Contact Number",
-      href: "/agra-taxi-contact-number",
-    },
-  ],
-}
+    name: "Agra",
+    slug: "agra",
+    services: [
+      { label: "Taxi Service in Agra", href: "/taxi-service-in-agra" },
+      { label: "Airport Service in Agra", href: "/airport-taxi-in-agra" },
+      // { label: "Local Sightseeing in Agra", href: "/taxi-service-in-agra" },
+      { label: "Sedan Taxi in Agra", href: "/sedan-taxi-in-agra" },
+      { label: "SUV Taxi in Agra", href: "/suv-taxi-in-agra" },
+      { label: "Amaze Taxi in Agra", href: "/amaze-taxi-in-agra" },
+      { label: "Dzire Taxi in Agra", href: "/dzire-taxi-in-agra" },
+      { label: "Etios Taxi in Agra", href: "/etios-taxi-in-agra" },
+      { label: "Ertiga Taxi in Agra", href: "/ertiga-taxi-in-agra" },
+      {
+        label: "Innova Crysta in Agra",
+        href: "/innova-crysta-in-agra",
+      },
+      { label: "Tempo Traveller in Agra", href: "/tempo-traveller-in-agra" },
+      {
+        label: "Urbania Rental in Agra",
+        href: "/urbania-rental-in-agra",
+      },
+      {
+        label: "12-Seater Tempo Traveller",
+        href: "/12-seater-tempo-traveller-in-agra",
+      },
+      {
+        label: "16-Seater Tempo Traveller",
+        href: "/16-seater-tempo-traveller-in-agra",
+      },
+      {
+        label: "20-Seater Tempo Traveller",
+        href: "/20-seater-tempo-traveller-in-agra",
+      },
+      {
+        label: "24-Seater Tempo Traveller",
+        href: "/24-seater-tempo-traveller-in-agra",
+      },
+      {
+        label: "Luxury Tempo Traveller",
+        href: "/luxury-tempo-traveller-in-agra",
+      },
+      {
+        label: "Agra Taxi Contact Number",
+        href: "/agra-taxi-contact-number",
+      },
+    ],
+  }
 ];
 
 export default function CityWiseServices() {

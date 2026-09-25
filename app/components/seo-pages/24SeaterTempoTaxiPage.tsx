@@ -198,7 +198,7 @@ Please share the detailed quote and availability.`;
             pagetype="tempo-traveller"
           />
         )}
-        <TempoTaxiFaq />
+        <TempoTaxiFaq city={city} />
       </div>
     </main>
   );

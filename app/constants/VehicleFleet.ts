@@ -47,7 +47,7 @@ export const vehicleFleet = [
     id: 5,
     category: "PREMIUM",
     name: "Innova Crysta",
-    image: "/Innova.avif",
+    image: "/innova.avif",
     seating: "6+1 Seats",
     features: ["Premium Comfort", "Spacious"],
     buttonText: "Book Innova Crysta",

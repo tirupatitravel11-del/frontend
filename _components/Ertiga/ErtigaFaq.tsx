@@ -5,60 +5,77 @@ import { useState } from "react";
 const PHONE_NUMBER = "+918726124680";
 
 interface ErtigaFaqProps {
-  from: string;
-  to: string;
+  from?: string;
+  to?: string;
+  city?: string;
+  title?: string;
+  subtitle?: string;
 }
 
+const formatLocation = (city?: string, from?: string, to?: string) => {
+  const cap = (str?: string) =>
+    str
+      ? str
+          .trim()
+          .split(/[\s-]+/)
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(" ")
+      : "";
 
+  const fromCap = cap(from);
+  const toCap = cap(to);
+  if (fromCap && toCap) {
+    const loc = `${fromCap} to ${toCap}`;
+    return {
+      titleText: loc,
+      qCost: `How much does a ${loc} Ertiga Taxi cost?`,
+      aCost: `Pricing depends on your choice of one way or round trip, plus toll and parking at actual. We give you the actuals upfront so there’s nothing hidden from you.`,
+      qBook: `How can I book a ${loc} Ertiga Taxi?`,
+      aBook: `Just call or WhatsApp us with your pickup point, date, and travel time. We'll confirm the vehicle, driver details, and fare for your ${loc} Ertiga taxi booking on the same call, for a one-way drop or a same-day return alike.`,
+      qTime: `How long does a ${loc} Ertiga Taxi take?`,
+      aTime: `Travel time on this route generally falls between 45 minutes and just over an hour, depending on your exact pickup point and traffic on main expressways. Our drivers track live conditions and pick the quickest path at the time of your trip.`,
+      qPass: `How many passengers can travel in a ${loc} Ertiga Taxi?`,
+      aPass: `The Ertiga seats six passengers plus the driver, with enough boot space for 3 to 4 medium bags. It's a solid pick for families or a small group heading from ${fromCap} to ${toCap} together, especially with extra luggage in tow.`,
+      qToll: `Does ${loc} Ertiga Taxi fare include toll and parking?`,
+      aToll: `No, toll and parking are charged at actual and shown separately from the base fare. Everything else, including driver allowance and fuel, is built into the quote you get when you book your ${loc} Ertiga cab.`,
+    };
+  }
+
+  const cityCap = cap(city) || fromCap || toCap || "your city";
+  return {
+    titleText: cityCap,
+    qCost: `How much does a ${cityCap} Ertiga Taxi cost?`,
+    aCost: `Pricing depends on your choice of one way or round trip, plus toll and parking at actual. We give you the actuals upfront so there’s nothing hidden from you.`,
+    qBook: `How can I book a ${cityCap} Ertiga Taxi?`,
+    aBook: `Just call or WhatsApp us with your pickup point, date, and travel time. We'll confirm the vehicle, driver details, and fare for your ${cityCap} Ertiga taxi booking on the same call, for a one-way drop or a same-day return alike.`,
+    qTime: `How long does a ${cityCap} Ertiga Taxi take?`,
+    aTime: `Travel time on this route generally falls between 45 minutes and just over an hour, depending on your exact pickup location and traffic. Our drivers track live conditions and pick the quickest path at the time of your trip.`,
+    qPass: `How many passengers can travel in a ${cityCap} Ertiga Taxi?`,
+    aPass: `The Ertiga seats six passengers plus the driver, with enough boot space for 3 to 4 medium bags. It's a solid pick for families or a small group heading to their destination in ${cityCap} together, especially with extra luggage in tow.`,
+    qToll: `Does ${cityCap} Ertiga Taxi fare include toll and parking?`,
+    aToll: `No, toll and parking are charged at actual and shown separately from the base fare. Everything else, including driver allowance and fuel, is built into the quote you get when you book your ${cityCap} Ertiga cab.`,
+  };
+};
 
 export default function ErtigaFaq({
   from,
   to,
+  city,
+  title,
+  subtitle,
 }: ErtigaFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
- const FAQS = [
-  {
-    question: `What is the Ertiga taxi fare from ${from} to ${to}?`,
-    answer: `The one-way Ertiga fare from ${from} to ${to} starts at ₹1,800, while the round-trip fare starts at ₹3,300. The fare may vary depending on the pickup location, travel option and vehicle availability. Tolls, parking and applicable taxes are billed at actuals.`,
-  },
-  {
-    question: `How many passengers can travel in an Ertiga from ${from} to ${to}?`,
-    answer: `An Ertiga can comfortably accommodate up to 6–7 passengers with luggage. It is an ideal choice for families, small groups, business travel and airport transfers from ${from} to ${to}, where extra space and comfort are important without paying premium SUV fares.`,
-  },
-  {
-    question: `How much luggage can fit in an Ertiga for travel from ${from} to ${to}?`,
-    answer: `The Ertiga offers generous luggage space and can accommodate 3–4 large suitcases along with cabin bags. It is a much better option than a sedan when you are travelling from ${from} to ${to} with a family or carrying extra luggage.`,
-  },
-  {
-    question: `Is Ertiga available for ${from} to ${to} one-way trips?`,
-    answer: `Yes. Ertiga taxis are available for one-way trips from ${from} to ${to}. You can book a private Ertiga for your family or group and travel directly from your pickup location to your destination.`,
-  },
-  {
-    question: `Is Ertiga suitable for family trips from ${from} to ${to}?`,
-    answer: `Yes, the Ertiga is one of the most popular choices for family travel from ${from} to ${to}. It provides comfortable seating for 6–7 members, spacious interiors, powerful AC and enough luggage space for a family travelling together — all at an economical fare.`,
-  },
-  {
-    question: `Can I book an Ertiga from ${from} to ${to} Airport?`,
-    answer: `Yes. You can book an Ertiga for ${from} to ${to} airport transfers. It is especially suitable for families and small groups travelling with multiple suitcases. We recommend scheduling your pickup well in advance of your flight.`,
-  },
-  {
-    question: `What is the difference between a Sedan and Ertiga for travel from ${from} to ${to}?`,
-    answer: `A Sedan is generally suitable for up to 4 passengers with moderate luggage, while an Ertiga offers seating for 6–7 passengers, better legroom and greater luggage capacity. For families or groups of 5–7 passengers travelling from ${from} to ${to}, Ertiga is usually the more comfortable and practical option.`,
-  },
-  {
-    question: `Is Ertiga available 24x7 from ${from} to ${to}?`,
-    answer: `Yes. Ertiga taxis can be booked for early morning, daytime and late-night travel from ${from} to ${to}, subject to vehicle availability. You can contact us to check availability for your preferred pickup time.`,
-  },
-  {
-    question: `Can I request a specific Ertiga model for travel from ${from} to ${to}?`,
-    answer: `Yes. You can request an Ertiga while making your booking for travel from ${from} to ${to}. Vehicle allocation is subject to availability at the time of booking.`,
-  },
-  {
-    question: `Can I cancel or reschedule my Ertiga booking from ${from} to ${to}?`,
-    answer: `Yes. You can contact us to cancel or reschedule your Ertiga booking from ${from} to ${to}. Cancellation and rescheduling terms may depend on how close the request is to the scheduled pickup time.`,
-  },
-];
+  const loc = formatLocation(city, from, to);
+
+  const FAQS = [
+    { question: loc.qCost, answer: loc.aCost },
+    { question: loc.qBook, answer: loc.aBook },
+    { question: loc.qTime, answer: loc.aTime },
+    { question: loc.qPass, answer: loc.aPass },
+    { question: loc.qToll, answer: loc.aToll },
+  ];
+
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -78,7 +95,7 @@ export default function ErtigaFaq({
   };
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16">
+    <section className="bg-slate-50 py-12 sm:py-16" id="faq">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
@@ -95,12 +112,12 @@ export default function ErtigaFaq({
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            {from} to {to} Ertiga Taxi Questions, Answered
+            {title || `${loc.titleText} Ertiga Taxi Questions, Answered`}
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
-            Everything you need to know about booking an Ertiga taxi from {from}
-            to {to} for family trips, airport transfers and group travel.
+            {subtitle ||
+              `Everything you need to know about booking a Maruti Suzuki Ertiga taxi for ${loc.titleText}, including fares, timing, passenger capacity, and tolls.`}
           </p>
         </div>
 
@@ -157,6 +174,20 @@ export default function ErtigaFaq({
               </div>
             );
           })}
+        </div>
+
+        {/* ===== Bottom CTA ===== */}
+        <div className="mt-8 text-center sm:mt-10">
+          <p className="text-sm text-slate-600">
+            Need an Ertiga for your {loc.titleText} journey?
+          </p>
+
+          <a
+            href={`tel:${PHONE_NUMBER}`}
+            className="mt-4 inline-flex items-center justify-center rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
+          >
+            Call & Book Ertiga
+          </a>
         </div>
       </div>
     </section>

@@ -1,21 +1,35 @@
 "use client";
 
 /* ====== Assets: place your images in /public/images/urbania/ ====== */
-const MAIN_IMAGE = "/urbania.png";
+const MAIN_IMAGE = "/Urbania.png";
 const INTERIOR_IMAGE_1 = "/images/urbania/interior-1.png";
 const INTERIOR_IMAGE_2 = "/images/urbania/interior-2.png";
 
 const WEBSITE = "www.urbaniarent.com";
 const EMAIL = "info@urbaniarent.com";
-const CITY = "Lucknow";
+const formatCityName = (city?: string): string => {
+  if (!city) return "";
+  const cleaned = city.trim();
+  if (!cleaned) return "";
+  return cleaned
+    .split(/[\s-]+/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+};
 
-export default function UrbaniaCitySection() {
+interface UrbaniaCitySectionProps {
+  city?: string;
+}
+
+export default function UrbaniaCitySection({ city }: UrbaniaCitySectionProps) {
+  const cityName = formatCityName(city) || "Lucknow";
+
   return (
     <section className="bg-slate-50 py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* ===== Heading ===== */}
         <h2 className="text-center text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
-          <span className="text-gold">Urbania Van</span> on Rent
+          <span className="text-gold">Urbania Van</span> on Rent in {cityName}
         </h2>
 
         <div className="mt-10 grid items-stretch gap-10 lg:mt-14 lg:grid-cols-2 lg:gap-12">
@@ -23,7 +37,7 @@ export default function UrbaniaCitySection() {
           <div className="relative overflow-hidden rounded-xl shadow-lg">
             <img
               src={MAIN_IMAGE}
-              alt={`Urbania Van on Rent in ${CITY}`}
+              alt={`Urbania Van on Rent in ${cityName}`}
               className="h-full min-h-[420px] w-full object-cover sm:min-h-[520px]"
             />
 

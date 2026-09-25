@@ -4,58 +4,75 @@ import { useState } from "react";
 
 const PHONE_NUMBER = "+918726124680";
 
-interface DzireFaqProps {
+interface DzireTaxiFaqProps {
   title?: string;
   subtitle?: string;
+  city?: string;
+  from?: string;
+  to?: string;
 }
 
+const formatLocation = (city?: string, from?: string, to?: string) => {
+  const cap = (str?: string) =>
+    str
+      ? str
+        .trim()
+        .split(/[\s-]+/)
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+        .join(" ")
+      : "";
+
+  const fromCap = cap(from);
+  const toCap = cap(to);
+  if (fromCap && toCap) {
+    return {
+      titleText: `${fromCap} to ${toCap}`,
+      qFare: `What is the ${fromCap} to ${toCap} Dzire taxi fare?`,
+      aFare: `The prices its ${fromCap} to ${toCap} Dzire taxi fare with a full breakdown shared at the time of booking, covering base rate, distance charges, and any applicable toll. Call our team for the current rate before you confirm your ride.`,
+      qBook: `How do I book a Dzire taxi from ${fromCap} to ${toCap}?`,
+      aBook: `You can book a Dzire cab from ${fromCap} to ${toCap} through our website, or by calling our booking line directly. Share your pickup point and preferred time, and we'll confirm your driver and vehicle details within minutes.`,
+      qTime: `How long does a taxi from ${fromCap} to ${toCap} take?`,
+      aTime: `A ${fromCap} to ${toCap} Dzire taxi typically takes around 45 minutes to an hour, depending on the pickup sector and traffic on main routes and expressways. Peak hours can add extra time to your journey.`,
+      qOneWay: `Can I book a one-way Dzire taxi from ${fromCap} to ${toCap}?`,
+      aOneWay: `Yes, you can book a one-way Dzire taxi from ${fromCap} to ${toCap} with Tirupati Travels and pay only for the direction you travel, without covering a return fare. This works well if you need a single drop rather than a same-day round trip.`,
+      qToll: `Are toll and parking charges included in the ${fromCap} to ${toCap} taxi fare?`,
+      aToll: `Toll charges on the ${fromCap} to ${toCap} Dzire cab fare are listed separately at booking, so you know the full cost upfront. Parking charges, where applicable, are also communicated in advance rather than added as a surprise at drop-off.`,
+    };
+  }
+
+  const cityCap = cap(city) || fromCap || toCap || "your city";
+  return {
+    titleText: cityCap,
+    qFare: `What is the ${cityCap} Dzire taxi fare?`,
+    aFare: `The prices its ${cityCap} Dzire taxi fare with a full breakdown shared at the time of booking, covering base rate, distance charges, and any applicable toll. Call our team for the current rate before you confirm your ride.`,
+    qBook: `How do I book a Dzire taxi in ${cityCap}?`,
+    aBook: `You can book a Dzire cab in ${cityCap} through our website, or by calling our booking line directly. Share your pickup point and preferred time, and we'll confirm your driver and vehicle details within minutes.`,
+    qTime: `How long does a Dzire taxi ride in ${cityCap} take?`,
+    aTime: `A Dzire taxi in ${cityCap} typically takes around 45 minutes to an hour, depending on the pickup location and traffic on main routes. Peak hours can add extra time to your journey.`,
+    qOneWay: `Can I book a one-way Dzire taxi in ${cityCap}?`,
+    aOneWay: `Yes, you can book a one-way Dzire taxi in ${cityCap} with Tirupati Travels and pay only for the direction you travel, without covering a return fare. This works well if you need a single drop rather than a same-day round trip.`,
+    qToll: `Are toll and parking charges included in the ${cityCap} taxi fare?`,
+    aToll: `Toll charges on the ${cityCap} Dzire cab fare are listed separately at booking, so you know the full cost upfront. Parking charges, where applicable, are also communicated in advance rather than added as a surprise at drop-off.`,
+  };
+};
+
 export default function DzireTaxiFaq({
-  title = "Frequently Asked Questions",
-  subtitle = "Everything you need to know about booking a Maruti Suzuki Dzire for your travel needs.",
-}: DzireFaqProps) {
+  title,
+  subtitle,
+  city,
+  from,
+  to,
+}: DzireTaxiFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const loc = formatLocation(city, from, to);
+
   const FAQS = [
-    {
-      question: "What is the rental fare for a Maruti Suzuki Dzire?",
-      answer: "The Dzire is one of the most budget-friendly sedans available for hire. Our fares are highly competitive and include fuel and driver allowance. Tolls, parking, and applicable state taxes are charged at actuals. It is an excellent choice for travelers looking for comfort without stretching their budget.",
-    },
-    {
-      question: "How many passengers can travel comfortably in a Dzire?",
-      answer: "A Maruti Suzuki Dzire is a 4+1 seater sedan, meaning it can comfortably accommodate 4 passengers along with the driver. It is ideal for couples, small families, and business travelers who prefer a private, quiet, and premium ride.",
-    },
-    {
-      question: "How much luggage can fit in a Dzire?",
-      answer: "The Dzire has a very spacious boot for a sedan and can comfortably hold 2 to 3 large suitcases along with cabin bags. It is perfect for weekend trips, corporate travel, and airport transfers with moderate luggage.",
-    },
-    {
-      question: "What is the difference between a Dzire and an MPV like Ertiga or Innova?",
-      answer: "The Dzire is a compact sedan suitable for up to 4 passengers, offering the best fuel efficiency, smoothest ride, and lowest fares. MPVs like the Ertiga or Innova offer 3 rows of seats (6 to 7 passengers) and are better suited for larger families or groups with heavy luggage.",
-    },
-    {
-      question: "Is the Dzire available for one-way drop trips?",
-      answer: "Yes. We offer complete flexibility with both one-way drops and round-trip packages. You can book a private Dzire and travel directly from your pickup location to your final destination without paying for a return journey.",
-    },
-    {
-      question: "Is the Dzire suitable for long-distance travel?",
-      answer: "Absolutely. The Dzire is widely loved for highway travel because of its excellent fuel mileage (often exceeding 24 km/l), smooth suspension, and comfortable cabin. It is a very popular choice for long-distance trips where both budget and comfort matter.",
-    },
-    {
-      question: "Can I book a Dzire for airport transfers?",
-      answer: "Yes. The Dzire is one of the most popular choices for airport transfers, especially for couples, solo travelers, or small families with moderate luggage. We recommend scheduling your pickup well in advance of your flight to ensure a stress-free journey.",
-    },
-    {
-      question: "Is Dzire service available 24x7?",
-      answer: "Yes. Dzire taxis can be booked for early morning, daytime, and late-night travel, subject to vehicle availability. You can contact us to check real-time availability for your preferred pickup time.",
-    },
-    {
-      question: "Can I request a specific Dzire variant (VXI vs ZXI)?",
-      answer: "Yes. You can specifically request a Dzire VXI (standard model) or a Dzire ZXI (top-end model with extra features like a touchscreen infotainment system, steering-mounted controls, and alloy wheels) while making your booking. Vehicle allocation is confirmed based on availability.",
-    },
-    {
-      question: "Can I cancel or reschedule my Dzire booking?",
-      answer: "Yes. You can contact our support team to cancel or reschedule your booking. Please note that specific cancellation or modification terms may apply depending on how close the request is to the scheduled pickup time.",
-    },
+    { question: loc.qFare, answer: loc.aFare },
+    { question: loc.qBook, answer: loc.aBook },
+    { question: loc.qTime, answer: loc.aTime },
+    { question: loc.qOneWay, answer: loc.aOneWay },
+    { question: loc.qToll, answer: loc.aToll },
   ];
 
   const toggle = (index: number) => {
@@ -77,7 +94,7 @@ export default function DzireTaxiFaq({
   };
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16">
+    <section className="bg-slate-50 py-12 sm:py-16" id="faq">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
@@ -94,11 +111,12 @@ export default function DzireTaxiFaq({
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            {title}
+            {title || `${loc.titleText} Dzire Taxi Questions, Answered`}
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
-            {subtitle}
+            {subtitle ||
+              `Everything you need to know about booking a Swift Dzire taxi for ${loc.titleText}, including fares, timing, one-way travel, and tolls.`}
           </p>
         </div>
 
@@ -110,9 +128,8 @@ export default function DzireTaxiFaq({
             return (
               <div
                 key={faq.question}
-                className={`overflow-hidden rounded-xl border bg-white shadow-sm transition-all duration-300 sm:rounded-2xl ${
-                  isOpen ? "border-gold/40 shadow-md" : "border-slate-200"
-                }`}
+                className={`overflow-hidden rounded-xl border bg-white shadow-sm transition-all duration-300 sm:rounded-2xl ${isOpen ? "border-gold/40 shadow-md" : "border-slate-200"
+                  }`}
               >
                 <button
                   type="button"
@@ -125,11 +142,10 @@ export default function DzireTaxiFaq({
                   </span>
 
                   <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
-                      isOpen
-                        ? "border-gold bg-gold text-white"
-                        : "border-slate-300 text-slate-500"
-                    }`}
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen
+                      ? "border-gold bg-gold text-white"
+                      : "border-slate-300 text-slate-500"
+                      }`}
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -138,9 +154,8 @@ export default function DzireTaxiFaq({
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className={`h-4 w-4 transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
+                      className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                        }`}
                     >
                       <path d="M6 9l6 6 6-6" />
                     </svg>
@@ -160,7 +175,7 @@ export default function DzireTaxiFaq({
         {/* ===== Bottom CTA ===== */}
         <div className="mt-8 text-center sm:mt-10">
           <p className="text-sm text-slate-600">
-            Need a budget-friendly Dzire for your upcoming trip?
+            Need a Swift Dzire for your {loc.titleText} journey?
           </p>
 
           <a

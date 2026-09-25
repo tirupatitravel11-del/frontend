@@ -9,11 +9,12 @@ import OurServices from "@/_components/seo/OurServices";
 import HowToBook from "@/_components/Howtobook";
 import Testimonials from "../Home/Testimonials";
 import HowToBookIt from "@/_components/seo/HowToBookIt";
-import TaxiServiceFAQ from "@/_components/seo/TaxiServiceFaq";
+import TaxiFaq from "@/_components/TaxiFaq";
 import SafetyFeatures from "@/_components/seo/SafetyFeatures";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
+import AyodhyaRoutesSection from "@/_components/AyodhyaRoutesSection";
 
 export default function TaxiServicePage({ page }: { page: SeoPageData }) {
   return <ServicePage page={page} icon="CAR" />;
@@ -23,6 +24,8 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
   const { slug, title, description, intro, highlights, popularTrips, city } =
     page;
   const popularRoutes = generatePopularRoutes(page.city, "");
+  const isAyodhya =
+    city?.toLowerCase() === "ayodhya" || slug?.toLowerCase().includes("ayodhya");
 
   return (
     <section className="relative min-h-[80vh] overflow-hidden bg-white lg:min-h-screen">
@@ -101,7 +104,7 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
       </div>
       <VehicleFleet />
       <OurServices />
-      {popularRoutes.length > 0 && (
+      {!isAyodhya && popularRoutes.length > 0 && (
         <PopularRoutes
           routes={popularRoutes}
           from={popularRoutes[0].from}
@@ -109,11 +112,12 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
           pagetype="taxi"
         />
       )}
+      {isAyodhya && <AyodhyaRoutesSection />}
       <HowToBookIt />
       <SafetyFeatures />
       <Testimonials />
       <WhyChooseUs />
-      <TaxiServiceFAQ />
+      <TaxiFaq city={city} />
     </section>
   );
 }

@@ -311,7 +311,7 @@ const generateTimes = () => {
 export default function OneWayTaxiServiceTemplate({
   parsedData,
 }: {
-//   parsedData: ParsedRouteData;
+  //   parsedData: ParsedRouteData;
   parsedData: any;
 }) {
   const vehicle = parsedData?.vehicle || DEFAULT_VEHICLE;
@@ -405,15 +405,14 @@ export default function OneWayTaxiServiceTemplate({
 
 ⏰ Time: ${travelTime}
 
-🚗 Vehicle: ${
-      selectedVehicle || vehicleDetails.name
-    }
+🚗 Vehicle: ${selectedVehicle || vehicleDetails.name
+      }
 
 📏 Distance: ${distance} KM
 
 💰 Estimated Fare: ₹${estimatedPrice.toLocaleString(
-      "en-IN"
-    )}
+        "en-IN"
+      )}
 
 Please share the final fare and booking confirmation.
 `;
@@ -467,22 +466,22 @@ Please share the final fare and booking confirmation.
 
         <title>
           One Way Taxi Service | Affordable Outstation Cab |
-          Chiku Cabs
+          Tirupati Travels
         </title>
 
         <meta
           name="description"
-          content={`Book one way taxi service with Chiku Cabs. Affordable outstation cabs, verified drivers, clean cars and 24×7 support.`}
+          content={`Book one way taxi service with Tirupati Travels. Affordable outstation cabs, verified drivers, clean cars and 24×7 support.`}
         />
 
         <meta
           name="keywords"
-          content="one way taxi, one way cab, outstation taxi, one way outstation cab, taxi service, Chiku Cabs"
+          content="one way taxi, one way cab, outstation taxi, one way outstation cab, taxi service, Tirupati Travels"
         />
 
         <meta
           property="og:title"
-          content="One Way Taxi Service | Chiku Cabs"
+          content="One Way Taxi Service | Tirupati Travels"
         />
 
         <meta
@@ -492,7 +491,7 @@ Please share the final fare and booking confirmation.
 
         <meta
           property="og:image"
-          content={`https://chikucabs.com${vehicleDetails.image}`}
+          content={`https://tirupatitravels.com${vehicleDetails.image}`}
         />
 
         <meta
@@ -502,7 +501,7 @@ Please share the final fare and booking confirmation.
 
         <link
           rel="canonical"
-          href="https://chikucabs.com/one-way-taxi-service"
+          href="https://tirupatitravels.com/one-way-taxi-service"
         />
 
       </Head>
@@ -582,7 +581,7 @@ Please share the final fare and booking confirmation.
 
             <img
               src="/cab.png"
-              alt="Chiku Cabs one way taxi"
+              alt="Tirupati Travels one way taxi"
               className="w-full h-full object-cover"
             />
 
@@ -596,12 +595,12 @@ Please share the final fare and booking confirmation.
           {/* Floating circles */}
 
           <div
-          
+
             className="absolute right-[10%] top-20 w-32 h-32 rounded-full bg-primary/20 blur-2xl"
           />
 
           <div
-        
+
             className="absolute left-[40%] bottom-20 w-40 h-40 rounded-full bg-yellow-400/10 blur-3xl"
           />
 
@@ -614,12 +613,12 @@ Please share the final fare and booking confirmation.
               {/* LEFT */}
 
               <div
-            
+
                 className="text-white"
               >
 
                 <div
-                 
+
                   className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 px-4 py-2 rounded-full mb-6"
                 >
 
@@ -635,7 +634,7 @@ Please share the final fare and booking confirmation.
 
 
                 <h1
-                 
+
                   className="text-5xl md:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight"
                 >
 
@@ -649,7 +648,7 @@ Please share the final fare and booking confirmation.
 
 
                 <p
-                 
+
                   className="mt-7 text-lg md:text-xl text-white/75 max-w-xl leading-relaxed"
                 >
                   Travel from one city to another with
@@ -661,7 +660,7 @@ Please share the final fare and booking confirmation.
                 {/* Price */}
 
                 <div
-                
+
                   className="flex items-center gap-5 mt-8"
                 >
 
@@ -696,7 +695,7 @@ Please share the final fare and booking confirmation.
                 {/* CTA */}
 
                 <div
-                
+
                   className="flex flex-wrap gap-4 mt-9"
                 >
 
@@ -733,7 +732,7 @@ Please share the final fare and booking confirmation.
                 {/* Trust */}
 
                 <div
-                 
+
                   className="grid grid-cols-3 gap-5 mt-10 pt-8 border-t border-white/15 max-w-xl"
                 >
 
@@ -1006,7 +1005,7 @@ Please share the final fare and booking confirmation.
           <div className="max-w-6xl mx-auto px-4">
 
             <div
-           
+
               className="grid grid-cols-2 md:grid-cols-4 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
             >
 
@@ -1015,12 +1014,11 @@ Please share the final fare and booking confirmation.
 
                   <div
                     key={stat.label}
-                  
-                    className={`p-7 text-center ${
-                      index !== 3
-                        ? "md:border-r border-gray-100"
-                        : ""
-                    }`}
+
+                    className={`p-7 text-center ${index !== 3
+                      ? "md:border-r border-gray-100"
+                      : ""
+                      }`}
                   >
 
                     <div className="text-3xl md:text-4xl font-black text-primary">
@@ -1052,7 +1050,7 @@ Please share the final fare and booking confirmation.
           <div className="max-w-7xl mx-auto px-4">
 
             <div
-            
+
               className="text-center max-w-2xl mx-auto mb-14"
             >
 
@@ -1073,7 +1071,7 @@ Please share the final fare and booking confirmation.
 
 
             <div
-         
+
               className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
             >
 
@@ -1082,7 +1080,7 @@ Please share the final fare and booking confirmation.
 
                   <div
                     key={item.slug}
-                   
+
                     className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-shadow"
                   >
 
@@ -1172,7 +1170,7 @@ Please share the final fare and booking confirmation.
 
 
         {/* =================================================
-            WHY CHIKU
+            WHY Tirupati Travels
         ================================================= */}
 
         <section className="py-28">
@@ -1182,11 +1180,11 @@ Please share the final fare and booking confirmation.
             <div className="grid lg:grid-cols-2 gap-16 items-center">
 
               <div
-              
+
               >
 
                 <span className="text-primary font-bold text-sm tracking-widest">
-                  WHY CHIKU CABS
+                  WHY Tirupati Travels
                 </span>
 
                 <h2 className="text-4xl md:text-5xl font-black mt-3 leading-tight">
@@ -1236,7 +1234,7 @@ Please share the final fare and booking confirmation.
 
 
               <div
-           
+
                 className="grid sm:grid-cols-2 gap-5"
               >
 
@@ -1245,7 +1243,7 @@ Please share the final fare and booking confirmation.
 
                     <div
                       key={feature.title}
-                 
+
                       className="p-6 rounded-3xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-xl transition-all"
                     >
 
@@ -1284,7 +1282,7 @@ Please share the final fare and booking confirmation.
           <div className="max-w-5xl mx-auto px-4">
 
             <div
-         
+
               className="text-center"
             >
 
@@ -1305,7 +1303,7 @@ Please share the final fare and booking confirmation.
 
 
             <div
-           
+
               className="mt-14 bg-white/5 border border-white/10 rounded-[30px] p-6 md:p-10 backdrop-blur"
             >
 
@@ -1385,11 +1383,10 @@ Please share the final fare and booking confirmation.
                               value
                             )
                           }
-                          className={`py-3 rounded-xl text-sm font-bold transition ${
-                            distance === value
-                              ? "bg-primary text-white"
-                              : "bg-white/10 hover:bg-white/20"
-                          }`}
+                          className={`py-3 rounded-xl text-sm font-bold transition ${distance === value
+                            ? "bg-primary text-white"
+                            : "bg-white/10 hover:bg-white/20"
+                            }`}
                         >
                           {value} KM
                         </button>
@@ -1414,7 +1411,7 @@ Please share the final fare and booking confirmation.
                   <>
 
                     <div
-               
+
                       className="text-6xl md:text-7xl font-black text-primary mt-4"
                     >
                       ₹
@@ -1495,7 +1492,7 @@ Please share the final fare and booking confirmation.
               ].map((item, index) => (
 
                 <div
-                 
+
                   className="relative text-center"
                 >
 
@@ -1585,14 +1582,14 @@ Please share the final fare and booking confirmation.
                   route: "Lucknow → Ayodhya",
                   initials: "AS",
                   review:
-                    "Great experience with Chiku Cabs. Everything was handled professionally from pickup to drop.",
+                    "Great experience with Tirupati Travels. Everything was handled professionally from pickup to drop.",
                 },
               ].map(
                 (review, index) => (
 
                   <div
                     key={review.name}
-                
+
                     className="bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition"
                   >
 
@@ -1669,12 +1666,11 @@ Please share the final fare and booking confirmation.
                   return (
 
                     <div
-                  
-                      className={`rounded-2xl border overflow-hidden transition ${
-                        isOpen
-                          ? "border-primary shadow-lg"
-                          : "border-gray-200"
-                      }`}
+
+                      className={`rounded-2xl border overflow-hidden transition ${isOpen
+                        ? "border-primary shadow-lg"
+                        : "border-gray-200"
+                        }`}
                     >
 
                       <button
@@ -1693,7 +1689,7 @@ Please share the final fare and booking confirmation.
                         </span>
 
                         <span
-                       
+
                           className="text-primary"
                         >
                           <FaChevronDown />
@@ -1707,7 +1703,7 @@ Please share the final fare and booking confirmation.
                         {isOpen && (
 
                           <div
-                      
+
                           >
 
                             <div className="px-6 pb-6 text-gray-500 leading-relaxed">
@@ -1742,12 +1738,12 @@ Please share the final fare and booking confirmation.
           <div className="max-w-5xl mx-auto px-4">
 
             <div
-              
+
               className="bg-white rounded-[35px] p-8 md:p-12 shadow-sm"
             >
 
               <span className="text-primary font-bold text-sm tracking-widest">
-                ABOUT CHIKU CABS
+                ABOUT TIRUPATI TRAVELS
               </span>
 
               <h2 className="text-3xl md:text-4xl font-black mt-3">
@@ -1757,7 +1753,7 @@ Please share the final fare and booking confirmation.
               <div className="space-y-5 mt-7 text-gray-600 leading-relaxed">
 
                 <p>
-                  Chiku Cabs provides one-way taxi services
+                  Tirupati Travels provides one-way taxi services
                   for comfortable and convenient intercity
                   travel. Whether you are travelling for
                   business, family visits, airport transfers,
@@ -1796,7 +1792,7 @@ Please share the final fare and booking confirmation.
         <section className="py-24 px-4">
 
           <div
-        
+
             className="max-w-6xl mx-auto relative overflow-hidden rounded-[40px] bg-gray-950 p-10 md:p-16 text-center text-white"
           >
 
@@ -1877,7 +1873,7 @@ Please share the final fare and booking confirmation.
           {isScrolled && (
 
             <div
-            
+
               className="fixed bottom-0 left-0 right-0 z-50 p-3 md:hidden"
             >
 

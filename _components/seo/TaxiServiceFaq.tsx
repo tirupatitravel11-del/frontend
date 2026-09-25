@@ -88,7 +88,7 @@ export default function TaxiServiceFAQ({
                 >
                   <div className="flex items-center gap-4">
                     {/* Icon */}
-                  
+
                     {/* Question */}
                     <span className="text-base font-semibold text-slate-900 sm:text-lg">
                       {item.question}
@@ -96,17 +96,15 @@ export default function TaxiServiceFAQ({
                   </div>
                   {/* Chevron */}
                   <ChevronDown
-                    className={`h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-gold" : ""
-                    }`}
+                    className={`h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300 ${isOpen ? "rotate-180 text-gold" : ""
+                      }`}
                   />
                 </button>
 
                 {/* Answer */}
                 <div
-                  className={`grid transition-all duration-300 ease-in-out ${
-                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                  }`}
+                  className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    }`}
                 >
                   <div className="overflow-hidden">
                     <div className="px-6 pb-6 pl-[4.5rem] text-sm leading-relaxed text-slate-600">
@@ -119,7 +117,7 @@ export default function TaxiServiceFAQ({
           })}
         </div>
 
-      
+
       </div>
     </section>
   );

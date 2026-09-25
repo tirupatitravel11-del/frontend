@@ -172,10 +172,7 @@ function ServicePage({ page }: { page: SeoPageData }) {
         <HowItWorks />
 
         <WhyChooseUs />
-        <Testimonials />
-        <InnovaFaq />
-
-        {/* <InnovaCrystaFaq from={page.city} to="local destinations" /> */}
+        <InnovaCrystaFaq city={city} />
       </div>
     </section>
   );

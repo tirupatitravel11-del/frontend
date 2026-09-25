@@ -24,6 +24,10 @@ import UrbaniaFaq from "@/_components/urbaniaRental/UrbaniaFaq";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
+import UrbaniaPricingSection from "@/_components/urbaniaRental/UrbaniaPricingSection";
+import HowItWorks from "../AirportTransfer/HowItWorks";
+import Testimonials from "../Home/Testimonials";
+import UrbaniaSection from "@/_components/urbaniaRental/UrbaniaSection";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -158,21 +162,25 @@ function ServicePage({ page }: { page: SeoPageData }) {
 
       {/* ===== BELOW HERO SECTIONS ===== */}
       <div className="relative z-10 border-t border-slate-100 bg-white">
-        <UrbaniaCitySection />
+        <UrbaniaCitySection city={city} />
+        <WhyChooseUs />
+        <UrbaniaSection city={city} />
 
+        <UrbaniaPricingSection city={city} />
         <UrbaniaVariants />
 
         <UrbaniaUseCases />
-        {popularRoutes.length > 0 && (
+        {/* {popularRoutes.length > 0 && (
           <PopularRoutes
             routes={popularRoutes}
             from={popularRoutes[0].from}
             to="popular destinations"
             pagetype="urbania-rental"
           />
-        )}
-        <WhyChooseUs />
-        <UrbaniaFaq />
+        )} */}
+        <HowItWorks />
+        <Testimonials />
+        <UrbaniaFaq city={city} />
       </div>
     </section>
   );
@@ -226,11 +234,10 @@ Please share the fare and availability.`;
               key={type}
               type="button"
               onClick={() => setTripType(type)}
-              className={`rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 ${
-                tripType === type
-                  ? "bg-gold text-white shadow-sm"
-                  : "text-slate-600 hover:bg-slate-100"
-              }`}
+              className={`rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 ${tripType === type
+                ? "bg-gold text-white shadow-sm"
+                : "text-slate-600 hover:bg-slate-100"
+                }`}
             >
               {type === "one-way" ? "One Way" : "Round Trip"}
             </button>

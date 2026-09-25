@@ -5,64 +5,29 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "How do I find my driver at the airport?",
+    question: "How do I book an airport taxi for pickup or drop?",
     answer:
-      "Your professional chauffeur will be waiting in the arrivals hall holding a name board with your name. You'll receive their photo, contact number, and exact meeting point via SMS/WhatsApp 24 hours before your flight lands. For international arrivals, they'll meet you after customs clearance.",
+      "You can book instantly by calling us +918726124680  or sending a WhatsApp message. Our team will confirm your booking within 5 minutes and share driver details, vehicle information, and a live tracking link before your trip.",
   },
   {
-    question: "What happens if my flight is delayed or arrives early?",
+    question: "What is the starting fare for airport taxi service?",
     answer:
-      "We track your flight in real-time using your flight number. If your flight is delayed, your driver will adjust their arrival time automatically. You get up to 60 minutes of free waiting time after your actual landing time. If you arrive early, just call your driver and they'll come to the pickup point immediately.",
+      "Airport taxi fare starts from ₹10/km for Swift Dzire, ₹10/km for Amaze, ₹13/km for Maruti Ertiga, ₹16/km for  Innova Crysta, and ₹24/km for Tempo Traveller. Final fare depends on pickup location, drop point, vehicle type, waiting time, tolls, and travel timing. No surge pricing ever!",
   },
   {
-    question: "Do I need to provide my flight number when booking?",
+    question: "Do you provide 24x7 airport pickup and drop service?",
     answer:
-      "Yes, providing your flight number is essential for airport pickups. This allows us to track your flight status and adjust pickup times automatically. For airport drop-offs, the flight number is optional but recommended so we can plan the best route and timing.",
+      "Yes, we offer 24x7 airport taxi service for pickups, drops, late-night transfers, and early morning flights with professional drivers. Our team works round the clock, including public holidays and weekends. We never say 'no' to any time slot.",
   },
   {
-    question: "How much waiting time is included in my booking?",
+    question: "Is flight tracking included for airport pickups?",
     answer:
-      "For domestic flights, we include 30 minutes of free waiting time from the actual landing time. For international flights, you get 60 minutes free waiting time (to account for immigration and customs). After the free waiting period, additional charges of ₹200 per 30 minutes apply.",
+      "Absolutely! We offer free flight tracking for all airport pickups. Our drivers monitor your flight status in real-time and adjust pickup timing automatically in case of delays or early arrivals. You pay no extra waiting charges for flight delays.",
   },
   {
-    question: "Are tolls, parking fees, and taxes included in the price?",
+    question: "Are your drivers professionally trained and verified?",
     answer:
-      "Yes! Our quoted prices are all-inclusive. Airport parking fees, tolls, state taxes, and GST are already included in your booking price. There are absolutely no hidden charges. The price you see is the price you pay.",
-  },
-  {
-    question: "Can the driver help with my luggage?",
-    answer:
-      "Absolutely! Our drivers will help you load and unload all your luggage. They'll meet you at arrivals, assist with your bags, and escort you to the vehicle. For airport drop-offs, they'll help unload at the terminal entrance. Tip: Our vehicles can accommodate standard suitcases plus cabin bags.",
-  },
-  {
-    question: "What if I have an early morning or late-night flight?",
-    answer:
-      "We operate 24/7, 365 days a year. Whether your flight is at 3 AM or 11 PM, we'll be there. For early morning pickups, we recommend booking at least 24 hours in advance to ensure driver availability. Late-night arrivals are automatically tracked regardless of the hour.",
-  },
-  {
-    question: "Can I make multiple stops during my airport transfer?",
-    answer:
-      "Yes, you can add stops to your journey. For example, if you need to stop at a hotel or office before/after the airport, just mention it in the 'Special Instructions' during booking or call our support team. Additional stops may incur extra charges based on distance and time.",
-  },
-  {
-    question: "What if I can't find my driver at the pickup point?",
-    answer:
-      "Don't worry! You'll have your driver's direct phone number and our 24/7 support line (+91-XXX-XXX-XXXX). If you can't locate them, simply call or WhatsApp them with your exact location. Most drivers wait near the main exit/arrival gate with a clear name board. In rare cases, we'll send a replacement vehicle within 15 minutes.",
-  },
-  {
-    question: "Are child seats and booster seats available?",
-    answer:
-      "Yes! We provide child seats (0-4 years), booster seats (4-8 years), and regular seat belts for older children. Please request this during booking at no extra cost. We recommend specifying your child's age and weight to ensure we provide the appropriate safety seat.",
-  },
-  {
-    question: "What is your cancellation policy?",
-    answer:
-      "Free cancellation up to 6 hours before your scheduled pickup time. Cancellations within 6 hours incur a 50% charge. No-shows (when the driver arrives but you don't show up) are charged 100%. For flight cancellations, simply inform us and we'll reschedule or refund fully.",
-  },
-  {
-    question: "Can I pay the driver in cash or do I need to pay online?",
-    answer:
-      "You can choose your preferred payment method. Pay online while booking (credit/debit card, UPI, net banking, wallets) or pay directly to the driver in cash. For corporate clients, we also offer monthly billing accounts. Online payment is recommended to speed up the process.",
+      "Yes, all our drivers are licensed, background-verified, and undergo professional training in customer service, safety protocols, route navigation, and airport procedures. Many have over 5 years of experience in airport transfers. Your safety is our priority.",
   },
 ];
 
@@ -104,9 +69,8 @@ export default function AirportFAQ() {
                   {faq.question}
                 </span>
                 <ChevronDown
-                  className={`h-5 w-5 shrink-0 text-gold transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
+                  className={`h-5 w-5 shrink-0 text-gold transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 

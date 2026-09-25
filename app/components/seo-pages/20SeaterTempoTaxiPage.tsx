@@ -199,7 +199,7 @@ Please share the detailed quote and availability.`;
             pagetype="tempo-traveller"
           />
         )}  
-        <TempoTaxiFaq />
+        <TempoTaxiFaq seater="20" city={city} />
       </div>
     </main>
   );
