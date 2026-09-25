@@ -19,10 +19,10 @@ const formatLocation = (city?: string, from?: string, to?: string): string => {
   const cap = (str?: string) =>
     str
       ? str
-          .trim()
-          .split(/[\s-]+/)
-          .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
-          .join(" ")
+        .trim()
+        .split(/[\s-]+/)
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+        .join(" ")
       : "";
 
   const fromCap = cap(from);
@@ -60,11 +60,11 @@ export default function UrbaniaFaq({
     },
     {
       question: `Can I book a ${locationName} Urbania for airport transfer?`,
-      answer: `Yes, Chiku Cab handles direct pickup and drop at major airports along with key railway stations. Drivers adjust pickup timing around flight or train delays so your group and luggage move together in one vehicle.`,
+      answer: `Yes, We  handles direct pickup and drop at major airports along with key railway stations. Drivers adjust pickup timing around flight or train delays so your group and luggage move together in one vehicle.`,
     },
     {
       question: `Does ${locationName} Urbania Rental include a driver?`,
-      answer: `Every Urbania hire from Chiku Cab comes with an experienced driver who knows the expressways, highways, and local routes well enough to plan around peak hour congestion. There is no separate charge for the driver beyond what is already included in the fare you agree to.`,
+      answer: `Every Urbania hire from Tirupati Travels comes with an experienced driver who knows the expressways, highways, and local routes well enough to plan around peak hour congestion. There is no separate charge for the driver beyond what is already included in the fare you agree to.`,
     },
   ];
 
@@ -98,9 +98,8 @@ export default function UrbaniaFaq({
             return (
               <div
                 key={faq.question}
-                className={`overflow-hidden rounded-2xl border bg-white shadow-sm transition-all duration-300 ${
-                  isOpen ? "border-gold/40" : "border-slate-200"
-                }`}
+                className={`overflow-hidden rounded-2xl border bg-white shadow-sm transition-all duration-300 ${isOpen ? "border-gold/40" : "border-slate-200"
+                  }`}
               >
                 <button
                   type="button"
@@ -113,11 +112,10 @@ export default function UrbaniaFaq({
                   </span>
 
                   <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
-                      isOpen
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen
                         ? "border-gold bg-gold text-white"
                         : "border-slate-300 text-slate-500"
-                    }`}
+                      }`}
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -126,9 +124,8 @@ export default function UrbaniaFaq({
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className={`h-4 w-4 transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
+                      className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                        }`}
                     >
                       <path d="M6 9l6 6 6-6" />
                     </svg>

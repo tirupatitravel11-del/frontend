@@ -11,16 +11,17 @@ interface TempoTaxiFaqProps {
   to?: string;
   title?: string;
   subtitle?: string;
+  seater?: string;
 }
 
 const formatLocation = (city?: string, from?: string, to?: string) => {
   const cap = (str?: string) =>
     str
       ? str
-          .trim()
-          .split(/[\s-]+/)
-          .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
-          .join(" ")
+        .trim()
+        .split(/[\s-]+/)
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+        .join(" ")
       : "";
 
   const fromCap = cap(from);
@@ -53,6 +54,7 @@ export default function TempoTaxiFaq({
   to,
   title,
   subtitle,
+  seater,
 }: TempoTaxiFaqProps = {}) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -69,50 +71,22 @@ export default function TempoTaxiFaq({
         "We offer Tempo Travellers in multiple seating configurations including 9-seater, 12-seater, 16-seater, 20-seater, 24-seater, and 26-seater options to suit every group size. Contact us with your passenger count and we'll recommend the best vehicle for your journey.",
     },
     {
-      question: "What amenities are included in the Tempo Traveller?",
+      question: "How can I book a Noida to Delhi Tempo Traveller?",
       answer:
-        "All our Tempo Travellers come with powerful air-conditioning, comfortable pusher seats, ample luggage space, and a clean, well-maintained interior. The vehicles are sanitized before every trip to ensure a safe and hygienic travel experience for you and your group.",
+        "Call us at +918726124680 or send a message on WhatsApp  with your pickup point, group size, and travel date. We confirm the seater option, fare, and driver details before your trip starts, so you know exactly what to expect.",
     },
-    {
-      question: "How much luggage can a Tempo Traveller carry?",
-      answer:
-        "Our Tempo Travellers are designed with generous luggage compartments to handle suitcases, travel bags, and cabin luggage for your entire group. If you have extra or oversized luggage, please let us know during booking so we can suggest the most suitable vehicle.",
-    },
-    {
-      question: "Are the drivers experienced for long-distance and highway travel?",
-      answer:
-        "Yes, absolutely. All our drivers are professionally trained, verified, and have extensive experience in highway and long-distance driving. They are familiar with major routes, follow safe driving practices, and are courteous and punctual for every journey.",
-    },
+
+
+
     {
       question: "Can I book a Tempo Traveller for one-way trips?",
       answer:
         "Yes, we offer both one-way and round-trip bookings for Tempo Travellers. Whether it's a family vacation, pilgrimage, wedding, or corporate outing, we have flexible packages to suit your travel needs. Our team will share the best fare options based on your route and requirements.",
     },
-    {
-      question: "What is included in the fare? Are there any extra charges?",
-      answer:
-        "Our base fare includes the vehicle, an experienced driver, fuel, and AC charges. However, tolls, parking fees, state permits, and applicable taxes are charged at actuals as per the route and journey requirements. We maintain full transparency with no hidden costs.",
-    },
-    {
-      question: "Can I customize the pickup time and add multiple stops?",
-      answer:
-        "Yes, we offer fully flexible scheduling. You can choose your preferred pickup time and add multiple stops along the route. Please share your complete itinerary during booking so we can plan the journey accordingly and provide an accurate quote.",
-    },
-    {
-      question: "How far in advance should I book a Tempo Traveller?",
-      answer:
-        "We recommend booking at least 3–7 days in advance, especially during peak seasons like weddings, festivals, and holidays. However, we do accept last-minute bookings subject to vehicle availability. Contact us immediately for urgent requirements.",
-    },
-    {
-      question: "Is the Tempo Traveller suitable for pilgrimages and religious tours?",
-      answer:
-        "Yes, our Tempo Travellers are very popular for pilgrimages and religious tours. The comfortable seating, powerful AC, and spacious luggage capacity make them ideal for long spiritual journeys with family or group. Our drivers are also experienced with hilly and remote routes.",
-    },
-    {
-      question: "What is the cancellation policy for Tempo Traveller bookings?",
-      answer:
-        "We understand that plans can change. Cancellation terms vary based on how close to the travel date you cancel. Generally, a full refund is provided for cancellations made well in advance, with partial or no refund for last-minute cancellations. Please confirm the exact policy with our team at the time of booking.",
-    },
+
+
+
+
   ];
 
   const toggleFaq = (index: number) => {
@@ -132,8 +106,8 @@ export default function TempoTaxiFaq({
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            Tempo Traveller {displayCity ? `in ${displayCity} ` : " "}—{" "}
-            <span className="text-gold">Common Questions</span>
+            Tempo Traveller {displayCity ? `in ${displayCity} ` : " "}{" "}
+            <span className="text-gold">FAQs</span>
           </h2>
 
           <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
@@ -150,38 +124,34 @@ export default function TempoTaxiFaq({
             return (
               <div
                 key={faq.question}
-                className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
-                  isOpen
-                    ? "border-gold/40 bg-gold/5 shadow-md"
-                    : "border-slate-200 bg-white hover:border-gold/30"
-                }`}
+                className={`overflow-hidden rounded-2xl border transition-all duration-300 ${isOpen
+                  ? "border-gold/40 bg-gold/5 shadow-md"
+                  : "border-slate-200 bg-white hover:border-gold/30"
+                  }`}
               >
                 <button
                   onClick={() => toggleFaq(index)}
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left sm:px-6 sm:py-5"
                 >
                   <span
-                    className={`text-sm font-semibold transition-colors sm:text-base ${
-                      isOpen ? "text-gold" : "text-slate-900"
-                    }`}
+                    className={`text-sm font-semibold transition-colors sm:text-base ${isOpen ? "text-gold" : "text-slate-900"
+                      }`}
                   >
                     {faq.question}
                   </span>
 
                   <ChevronDown
                     size={20}
-                    className={`shrink-0 text-gold transition-transform duration-300 ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
+                    className={`shrink-0 text-gold transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
 
                 <div
-                  className={`grid transition-all duration-300 ease-in-out ${
-                    isOpen
-                      ? "grid-rows-[1fr] opacity-100"
-                      : "grid-rows-[0fr] opacity-0"
-                  }`}
+                  className={`grid transition-all duration-300 ease-in-out ${isOpen
+                    ? "grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0"
+                    }`}
                 >
                   <div className="overflow-hidden">
                     <p className="px-5 pb-5 text-sm leading-6 text-slate-600 sm:px-6 sm:text-[15px] sm:leading-7">
@@ -195,7 +165,7 @@ export default function TempoTaxiFaq({
         </div>
 
         {/* Still Have Questions */}
-        <div className="mt-10 rounded-2xl border border-gold/30 bg-gold/5 p-6 text-center sm:mt-12 sm:p-8">
+        {/* <div className="mt-10 rounded-2xl border border-gold/30 bg-gold/5 p-6 text-center sm:mt-12 sm:p-8">
           <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
             Still Have Questions?
           </h3>
@@ -211,7 +181,7 @@ export default function TempoTaxiFaq({
           >
             Call Us Now
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

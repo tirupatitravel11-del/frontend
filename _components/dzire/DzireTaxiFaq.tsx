@@ -28,13 +28,13 @@ const formatLocation = (city?: string, from?: string, to?: string) => {
     return {
       titleText: `${fromCap} to ${toCap}`,
       qFare: `What is the ${fromCap} to ${toCap} Dzire taxi fare?`,
-      aFare: `Chiku Cab prices its ${fromCap} to ${toCap} Dzire taxi fare with a full breakdown shared at the time of booking, covering base rate, distance charges, and any applicable toll. Call our team for the current rate before you confirm your ride.`,
+      aFare: `The prices its ${fromCap} to ${toCap} Dzire taxi fare with a full breakdown shared at the time of booking, covering base rate, distance charges, and any applicable toll. Call our team for the current rate before you confirm your ride.`,
       qBook: `How do I book a Dzire taxi from ${fromCap} to ${toCap}?`,
       aBook: `You can book a Dzire cab from ${fromCap} to ${toCap} through our website, or by calling our booking line directly. Share your pickup point and preferred time, and we'll confirm your driver and vehicle details within minutes.`,
       qTime: `How long does a taxi from ${fromCap} to ${toCap} take?`,
       aTime: `A ${fromCap} to ${toCap} Dzire taxi typically takes around 45 minutes to an hour, depending on the pickup sector and traffic on main routes and expressways. Peak hours can add extra time to your journey.`,
       qOneWay: `Can I book a one-way Dzire taxi from ${fromCap} to ${toCap}?`,
-      aOneWay: `Yes, you can book a one-way Dzire taxi from ${fromCap} to ${toCap} with Chiku Cab and pay only for the direction you travel, without covering a return fare. This works well if you need a single drop rather than a same-day round trip.`,
+      aOneWay: `Yes, you can book a one-way Dzire taxi from ${fromCap} to ${toCap} with Tirupati Travels and pay only for the direction you travel, without covering a return fare. This works well if you need a single drop rather than a same-day round trip.`,
       qToll: `Are toll and parking charges included in the ${fromCap} to ${toCap} taxi fare?`,
       aToll: `Toll charges on the ${fromCap} to ${toCap} Dzire cab fare are listed separately at booking, so you know the full cost upfront. Parking charges, where applicable, are also communicated in advance rather than added as a surprise at drop-off.`,
     };
@@ -44,13 +44,13 @@ const formatLocation = (city?: string, from?: string, to?: string) => {
   return {
     titleText: cityCap,
     qFare: `What is the ${cityCap} Dzire taxi fare?`,
-    aFare: `Chiku Cab prices its ${cityCap} Dzire taxi fare with a full breakdown shared at the time of booking, covering base rate, distance charges, and any applicable toll. Call our team for the current rate before you confirm your ride.`,
+    aFare: `The prices its ${cityCap} Dzire taxi fare with a full breakdown shared at the time of booking, covering base rate, distance charges, and any applicable toll. Call our team for the current rate before you confirm your ride.`,
     qBook: `How do I book a Dzire taxi in ${cityCap}?`,
     aBook: `You can book a Dzire cab in ${cityCap} through our website, or by calling our booking line directly. Share your pickup point and preferred time, and we'll confirm your driver and vehicle details within minutes.`,
     qTime: `How long does a Dzire taxi ride in ${cityCap} take?`,
     aTime: `A Dzire taxi in ${cityCap} typically takes around 45 minutes to an hour, depending on the pickup location and traffic on main routes. Peak hours can add extra time to your journey.`,
     qOneWay: `Can I book a one-way Dzire taxi in ${cityCap}?`,
-    aOneWay: `Yes, you can book a one-way Dzire taxi in ${cityCap} with Chiku Cab and pay only for the direction you travel, without covering a return fare. This works well if you need a single drop rather than a same-day round trip.`,
+    aOneWay: `Yes, you can book a one-way Dzire taxi in ${cityCap} with Tirupati Travels and pay only for the direction you travel, without covering a return fare. This works well if you need a single drop rather than a same-day round trip.`,
     qToll: `Are toll and parking charges included in the ${cityCap} taxi fare?`,
     aToll: `Toll charges on the ${cityCap} Dzire cab fare are listed separately at booking, so you know the full cost upfront. Parking charges, where applicable, are also communicated in advance rather than added as a surprise at drop-off.`,
   };
@@ -143,8 +143,8 @@ export default function DzireTaxiFaq({
 
                   <span
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen
-                        ? "border-gold bg-gold text-white"
-                        : "border-slate-300 text-slate-500"
+                      ? "border-gold bg-gold text-white"
+                      : "border-slate-300 text-slate-500"
                       }`}
                   >
                     <svg
