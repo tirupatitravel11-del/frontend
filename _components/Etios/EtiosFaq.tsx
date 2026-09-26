@@ -5,60 +5,77 @@ import { useState } from "react";
 const PHONE_NUMBER = "+918726124680";
 
 interface EtiosFaqProps {
-  from: string;
-  to: string;
+  from?: string;
+  to?: string;
+  city?: string;
+  title?: string;
+  subtitle?: string;
 }
 
+const formatLocation = (city?: string, from?: string, to?: string) => {
+  const cap = (str?: string) =>
+    str
+      ? str
+          .trim()
+          .split(/[\s-]+/)
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(" ")
+      : "";
 
+  const fromCap = cap(from);
+  const toCap = cap(to);
+  if (fromCap && toCap) {
+    const loc = `${fromCap} to ${toCap}`;
+    return {
+      titleText: loc,
+      qCost: `How much does a ${loc} Etios Taxi cost?`,
+      aCost: `Pricing for the ${loc} Etios cab is set on a per-km basis, confirmed with you at the time of booking so there's nothing added later. Family groups and solo commuters both get the same upfront rate, checked before the driver starts the trip.`,
+      qBook: `How can I book a ${loc} Etios Taxi?`,
+      aBook: `You can reserve your Etios taxi from ${fromCap} to ${toCap} over a call, on WhatsApp, or through online booking, whichever suits you. Give your pickup point, timing, and drop location, and we confirm the car and driver assignment right away.`,
+      qTime: `How long does a ${loc} Etios Taxi take?`,
+      aTime: `Travel time on this Etios cab from ${fromCap} to ${toCap} depends on traffic and your exact pickup point, but the drive usually falls within an hour under normal conditions. Drivers know which roads back up during peak hours and plan the quickest path accordingly.`,
+      qPass: `How many passengers can travel in a ${loc} Etios Taxi?`,
+      aPass: `The Toyota Etios seats up to four passengers, with space for two large bags and a cabin bag alongside them. It works well for small families, couples, or a pair of business travellers heading from ${fromCap} to ${toCap} together.`,
+      qToll: `Does ${loc} Etios Taxi fare include toll and parking?`,
+      aToll: `Toll charges are billed apart from the base per-km rate and shown to you separately, so the total stays clear from the start. Parking charges, where applicable, follow the same rule and get added only when incurred on the trip.`,
+    };
+  }
+
+  const cityCap = cap(city) || fromCap || toCap || "your city";
+  return {
+    titleText: cityCap,
+    qCost: `How much does a ${cityCap} Etios Taxi cost?`,
+    aCost: `Pricing for the ${cityCap} Etios cab is set on a per-km basis, confirmed with you at the time of booking so there's nothing added later. Family groups and solo commuters both get the same upfront rate, checked before the driver starts the trip.`,
+    qBook: `How can I book a ${cityCap} Etios Taxi?`,
+    aBook: `You can reserve your Etios taxi in ${cityCap} over a call, on WhatsApp, or through online booking, whichever suits you. Give your pickup point, timing, and drop location, and we confirm the car and driver assignment right away.`,
+    qTime: `How long does a ${cityCap} Etios Taxi take?`,
+    aTime: `Travel time on this Etios cab in ${cityCap} depends on traffic and your exact pickup point, but the drive usually falls within an hour under normal conditions. Drivers know which roads back up during peak hours and plan the quickest path accordingly.`,
+    qPass: `How many passengers can travel in a ${cityCap} Etios Taxi?`,
+    aPass: `The Toyota Etios seats up to four passengers, with space for two large bags and a cabin bag alongside them. It works well for small families, couples, or a pair of business travellers heading to their destination together.`,
+    qToll: `Does ${cityCap} Etios Taxi fare include toll and parking?`,
+    aToll: `Toll charges are billed apart from the base per-km rate and shown to you separately, so the total stays clear from the start. Parking charges, where applicable, follow the same rule and get added only when incurred on the trip.`,
+  };
+};
 
 export default function EtiosFaq({
   from,
   to,
+  city,
+  title,
+  subtitle,
 }: EtiosFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-const FAQS = [
-  {
-    question: `What is the Etios taxi fare from ${from} to ${to}?`,
-    answer: `The one-way Etios fare from ${from} to ${to} starts at ₹1,699, while the round-trip fare starts at ₹3,100. The fare may vary depending on the pickup location, travel option and vehicle availability. Tolls, parking and applicable taxes are billed at actuals.`,
-  },
-  {
-    question: `How many passengers can travel in an Etios from ${from} to ${to}?`,
-    answer: `An Etios can comfortably accommodate up to 4 passengers along with their luggage. It is an ideal choice for couples, small families, business travel and airport transfers from ${from} to ${to}, where a spacious sedan experience is preferred over a compact hatchback.`,
-  },
-  {
-    question: `How much luggage can fit in an Etios for travel from ${from} to ${to}?`,
-    answer: `The Etios features a massive 595-litre boot — one of the largest in its segment — and can comfortably accommodate 3–4 large suitcases along with cabin bags. It is a far better option than most sedans when you are travelling from ${from} to ${to} with heavy luggage.`,
-  },
-  {
-    question: `Is Etios available for ${from} to ${to} one-way trips?`,
-    answer: `Yes. Etios taxis are available for one-way trips from ${from} to ${to}. You can book a private Etios and travel directly from your pickup location to your destination at a very economical fare.`,
-  },
-  {
-    question: `Is Etios suitable for family trips from ${from} to ${to}?`,
-    answer: `Yes, the Etios is an excellent choice for small family travel from ${from} to ${to}. It provides comfortable seating for up to 4 members, a spacious rear cabin, a powerful AC and class-leading luggage space — all at a sedan-friendly fare.`,
-  },
-  {
-    question: `Can I book an Etios from ${from} to ${to} Airport?`,
-    answer: `Yes. You can book an Etios for ${from} to ${to} airport transfers. Thanks to its huge 595-litre boot, it is especially suitable for travellers carrying multiple suitcases. We recommend scheduling your pickup well in advance of your flight.`,
-  },
-  {
-    question: `What is the difference between an Etios and a Swift Dzire for travel from ${from} to ${to}?`,
-    answer: `Both are reliable sedans for up to 4 passengers, but the Etios offers a significantly larger boot of around 595 litres compared with around 378 litres in the Swift Dzire, along with more rear legroom. For airport trips and outstation drives from ${from} to ${to} with heavy luggage, the Etios is generally the more practical choice.`,
-  },
-  {
-    question: `Is Etios available 24x7 from ${from} to ${to}?`,
-    answer: `Yes. Etios taxis can be booked for early morning, daytime and late-night travel from ${from} to ${to}, subject to vehicle availability. You can contact us to check availability for your preferred pickup time.`,
-  },
-  {
-    question: `Can I request a specific Etios model for travel from ${from} to ${to}?`,
-    answer: `Yes. You can request a standard Toyota Etios sedan or an Etios Cross while making your booking for travel from ${from} to ${to}. Vehicle allocation is subject to availability at the time of booking.`,
-  },
-  {
-    question: `Can I cancel or reschedule my Etios booking from ${from} to ${to}?`,
-    answer: `Yes. You can contact us to cancel or reschedule your Etios booking from ${from} to ${to}. Cancellation and rescheduling terms may depend on how close the request is to the scheduled pickup time.`,
-  },
-];
+  const loc = formatLocation(city, from, to);
+
+  const FAQS = [
+    { question: loc.qCost, answer: loc.aCost },
+    { question: loc.qBook, answer: loc.aBook },
+    { question: loc.qTime, answer: loc.aTime },
+    { question: loc.qPass, answer: loc.aPass },
+    { question: loc.qToll, answer: loc.aToll },
+  ];
+
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -78,7 +95,7 @@ const FAQS = [
   };
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16">
+    <section className="bg-slate-50 py-12 sm:py-16" id="faq">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
@@ -95,13 +112,12 @@ const FAQS = [
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            {from} to {to} Etios Taxi Questions, Answered
+            {title || `${loc.titleText} Etios Taxi Questions, Answered`}
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
-            Everything you need to know about booking a Toyota Etios taxi from
-            {from} to {to} for airport transfers, outstation trips and small
-            family travel.
+            {subtitle ||
+              `Everything you need to know about booking a Toyota Etios taxi for ${loc.titleText}, including fares, timing, passenger capacity, and tolls.`}
           </p>
         </div>
 
@@ -158,6 +174,20 @@ const FAQS = [
               </div>
             );
           })}
+        </div>
+
+        {/* ===== Bottom CTA ===== */}
+        <div className="mt-8 text-center sm:mt-10">
+          <p className="text-sm text-slate-600">
+            Need a Toyota Etios for your {loc.titleText} journey?
+          </p>
+
+          <a
+            href={`tel:${PHONE_NUMBER}`}
+            className="mt-4 inline-flex items-center justify-center rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
+          >
+            Call & Book Etios
+          </a>
         </div>
       </div>
     </section>

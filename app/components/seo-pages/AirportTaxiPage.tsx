@@ -11,6 +11,7 @@ import LuggageCapacityAirport from "@/_components/seo/LuggageCapacityAirport";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 import PopularRoutes from "@/_components/PopularRoutes";
 import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
+import AyodhyaRoutesSection from "@/_components/AyodhyaRoutesSection";
 
 export default function AirportTaxiPage({ page }: { page: SeoPageData }) {
   return <ServicePage page={page} />;
@@ -20,6 +21,9 @@ function ServicePage({ page }: { page: SeoPageData }) {
   const { slug, title, description, intro, highlights, popularTrips, city } =
     page;
   const popularRoutes = generatePopularRoutes(page.city, "");
+  const isAyodhya =
+    city?.toLowerCase() === "ayodhya" || slug?.toLowerCase().includes("ayodhya");
+
   return (
     <>
       {/* ================= HERO SECTION ================= */}
@@ -106,7 +110,7 @@ function ServicePage({ page }: { page: SeoPageData }) {
       <VehicleFleet />
       <LuggageCapacityAirport />
       <AirportExperience />
-      {popularRoutes.length > 0 && (
+      {!isAyodhya && popularRoutes.length > 0 && (
         <PopularRoutes
           routes={popularRoutes}
           from={popularRoutes[0].from}
@@ -114,6 +118,7 @@ function ServicePage({ page }: { page: SeoPageData }) {
           pagetype="taxi"
         />
       )}
+      {isAyodhya && <AyodhyaRoutesSection />}
       <HowItWorks />
       <WhyChooseUs />
       <Testimonials />

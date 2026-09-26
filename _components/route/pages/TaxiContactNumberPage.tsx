@@ -57,7 +57,7 @@ export default function ContactPage({ data }: any) {
       <WhyChooseUs />
 
       {/* FAQ */}
-      <TaxiFaq faqs={page.faqs} />
+      <TaxiFaq from={route.fromCity} to={route.toCity} />
     </>
   );
 }

@@ -5,72 +5,81 @@ import { useState } from "react";
 const PHONE_NUMBER = "+918726124680";
 
 interface DzireFaqProps {
-  from: string;
-  to: string;
+  from?: string;
+  to?: string;
+  city?: string;
+  title?: string;
+  subtitle?: string;
 }
 
+const formatLocation = (city?: string, from?: string, to?: string) => {
+  const cap = (str?: string) =>
+    str
+      ? str
+        .trim()
+        .split(/[\s-]+/)
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+        .join(" ")
+      : "";
 
+  const fromCap = cap(from);
+  const toCap = cap(to);
+  if (fromCap && toCap) {
+    return {
+      titleText: `${fromCap} to ${toCap}`,
+      qFare: `What is the ${fromCap} to ${toCap} Dzire taxi fare?`,
+      aFare: `The prices its ${fromCap} to ${toCap} Dzire taxi fare with a full breakdown shared at the time of booking, covering base rate, distance charges, and any applicable toll. Call our team for the current rate before you confirm your ride.`,
+      qBook: `How do I book a Dzire taxi from ${fromCap} to ${toCap}?`,
+      aBook: `You can book a Dzire cab from ${fromCap} to ${toCap} through our website, or by calling our booking line directly. Share your pickup point and preferred time, and we'll confirm your driver and vehicle details within minutes.`,
+      qTime: `How long does a taxi from ${fromCap} to ${toCap} take?`,
+      aTime: `A ${fromCap} to ${toCap} Dzire taxi typically takes around 45 minutes to an hour, depending on the pickup sector and traffic on main routes and expressways. Peak hours can add extra time to your journey.`,
+      qOneWay: `Can I book a one-way Dzire taxi from ${fromCap} to ${toCap}?`,
+      aOneWay: `Yes, you can book a one-way Dzire taxi from ${fromCap} to ${toCap} with Tirupati Travels and pay only for the direction you travel, without covering a return fare. This works well if you need a single drop rather than a same-day round trip.`,
+      qToll: `Are toll and parking charges included in the ${fromCap} to ${toCap} taxi fare?`,
+      aToll: `Toll charges on the ${fromCap} to ${toCap} Dzire cab fare are listed separately at booking, so you know the full cost upfront. Parking charges, where applicable, are also communicated in advance rather than added as a surprise at drop-off.`,
+    };
+  }
 
-export default function DzireFaq({from,
+  const cityCap = cap(city) || fromCap || toCap || "your city";
+  return {
+    titleText: cityCap,
+    qFare: `What is the ${cityCap} Dzire taxi fare?`,
+    aFare: `The prices its ${cityCap} Dzire taxi fare with a full breakdown shared at the time of booking, covering base rate, distance charges, and any applicable toll. Call our team for the current rate before you confirm your ride.`,
+    qBook: `How do I book a Dzire taxi in ${cityCap}?`,
+    aBook: `You can book a Dzire cab in ${cityCap} through our website, or by calling our booking line directly. Share your pickup point and preferred time, and we'll confirm your driver and vehicle details within minutes.`,
+    qTime: `How long does a Dzire taxi ride in ${cityCap} take?`,
+    aTime: `A Dzire taxi in ${cityCap} typically takes around 45 minutes to an hour, depending on the pickup location and traffic on main routes. Peak hours can add extra time to your journey.`,
+    qOneWay: `Can I book a one-way Dzire taxi in ${cityCap}?`,
+    aOneWay: `Yes, you can book a one-way Dzire taxi in ${cityCap} with Tirupati Travels and pay only for the direction you travel, without covering a return fare. This works well if you need a single drop rather than a same-day round trip.`,
+    qToll: `Are toll and parking charges included in the ${cityCap} taxi fare?`,
+    aToll: `Toll charges on the ${cityCap} Dzire cab fare are listed separately at booking, so you know the full cost upfront. Parking charges, where applicable, are also communicated in advance rather than added as a surprise at drop-off.`,
+  };
+};
+
+export default function DzireFaq({
+  from,
   to,
+  city,
+  title,
+  subtitle,
 }: DzireFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-const FAQS = [
-  {
-    question: `What is the Dzire taxi fare from ${from} to ${to}?`,
-    answer: `The one-way Swift Dzire taxi fare from ${from} to ${to} starts at ₹1,599, while the round-trip fare starts at ₹2,699. The final fare may vary depending on the pickup location, trip type and travel requirements. Tolls, parking and applicable taxes are billed at actuals.`,
-  },
-  {
-    question: `How many passengers can travel in a Swift Dzire from ${from} to ${to}?`,
-    answer: `A Maruti Suzuki Swift Dzire can comfortably accommodate up to 4 passengers. It is a good choice for couples, families and small groups travelling from ${from} to ${to}.`,
-  },
-  {
-    question: `How much luggage can fit in a Swift Dzire for travel from ${from} to ${to}?`,
-    answer: `Swift Dzire offers a spacious boot of around 378 litres and can comfortably carry around 2–3 large suitcases along with smaller cabin bags, depending on the luggage size.`,
-  },
-  {
-    question: `Is Swift Dzire available for one-way travel from ${from} to ${to}?`,
-    answer: `Yes. You can book a private Swift Dzire for a one-way journey from ${from} to ${to}. The cab can pick you up from your preferred location in ${from} and drop you at your destination in ${to}.`,
-  },
-  {
-    question: `Can I book a Dzire from ${from} to ${to} Airport?`,
-    answer: `Yes, Swift Dzire is suitable for ${from} to ${to} airport transfers. It can accommodate up to 4 passengers with moderate luggage and is a practical choice for airport drops and pickups.`,
-  },
-  {
-    question: `Which Swift Dzire model do you provide for travel from ${from} to ${to}?`,
-    answer: `We provide Maruti Suzuki Swift Dzire taxis that are air-conditioned, well-maintained and suitable for local, airport and outstation travel from ${from} to ${to}. Specific vehicle allocation is subject to availability.`,
-  },
-  {
-    question: `Is the Dzire taxi fare from ${from} to ${to} per person or per car?`,
-    answer: `The fare is charged per private car, not per person. Whether 1 passenger or up to 4 passengers travel from ${from} to ${to}, the base fare remains the same for the booked Swift Dzire.`,
-  },
-  {
-    question: `Is Swift Dzire available 24x7 from ${from} to ${to}?`,
-    answer: `Swift Dzire taxis can be booked for early morning, daytime and late-night travel from ${from} to ${to}, subject to vehicle availability. Contact us to confirm your preferred pickup time.`,
-  },
-  {
-    question: `Is Swift Dzire suitable for family travel from ${from} to ${to}?`,
-    answer: `Yes. Swift Dzire is a practical option for small families travelling from ${from} to ${to} with up to 4 passengers. It offers comfortable seating, air conditioning and useful boot space for luggage.`,
-  },
-  {
-    question: `What if more than 4 people are travelling from ${from} to ${to}?`,
-    answer: `If more than 4 passengers are travelling from ${from} to ${to}, we recommend choosing a larger vehicle such as Ertiga or Innova Crysta. These vehicles provide additional seating and luggage space for families and groups.`,
-  },
-  {
-    question: `Can I request a Swift Dzire specifically while booking from ${from} to ${to}?`,
-    answer: `Yes. You can request a Swift Dzire while booking your ${from} to ${to} taxi. Vehicle allocation depends on availability at the time of your journey.`,
-  },
-  {
-    question: `Can I cancel or reschedule my Dzire taxi booking from ${from} to ${to}?`,
-    answer: `Yes. You can contact us to cancel or reschedule your Swift Dzire booking from ${from} to ${to}. Cancellation and rescheduling conditions may depend on how close the request is to the scheduled pickup time.`,
-  },
-];
+
+  const loc = formatLocation(city, from, to);
+
+  const FAQS = [
+    { question: loc.qFare, answer: loc.aFare },
+    { question: loc.qBook, answer: loc.aBook },
+    { question: loc.qTime, answer: loc.aTime },
+    { question: loc.qOneWay, answer: loc.aOneWay },
+    { question: loc.qToll, answer: loc.aToll },
+  ];
+
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  /* ================= FAQ SCHEMA ================= */
-
+  /* FAQ Schema for Google (SEO) */
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -85,7 +94,7 @@ const FAQS = [
   };
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16">
+    <section className="bg-slate-50 py-12 sm:py-16" id="faq">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
@@ -96,25 +105,22 @@ const FAQS = [
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* ================= HEADER ================= */}
-
         <div className="mb-8 text-center sm:mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
             Swift Dzire FAQs
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            {from} to {to} Dzire Taxi Questions, Answered
+            {title || `${loc.titleText} Dzire Taxi Questions, Answered`}
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
-            Everything you need to know about booking a Swift Dzire taxi from
-            {from} to {to}, including fares, luggage, passengers and airport
-            transfers.
+            {subtitle ||
+              `Everything you need to know about booking a Swift Dzire taxi for ${loc.titleText}, including fares, timing, one-way travel, and tolls.`}
           </p>
         </div>
 
         {/* ================= ACCORDION ================= */}
-
         <div className="space-y-3 sm:space-y-4">
           {FAQS.map((faq, index) => {
             const isOpen = openIndex === index;
@@ -122,9 +128,8 @@ const FAQS = [
             return (
               <div
                 key={faq.question}
-                className={`overflow-hidden rounded-xl border bg-white shadow-sm transition-all duration-300 sm:rounded-2xl ${
-                  isOpen ? "border-gold/40 shadow-md" : "border-slate-200"
-                }`}
+                className={`overflow-hidden rounded-xl border bg-white shadow-sm transition-all duration-300 sm:rounded-2xl ${isOpen ? "border-gold/40 shadow-md" : "border-slate-200"
+                  }`}
               >
                 {/* Question */}
                 <button
@@ -139,11 +144,10 @@ const FAQS = [
 
                   {/* Arrow */}
                   <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
-                      isOpen
-                        ? "border-gold bg-gold text-white"
-                        : "border-slate-300 text-slate-500"
-                    }`}
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen
+                      ? "border-gold bg-gold text-white"
+                      : "border-slate-300 text-slate-500"
+                      }`}
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -152,9 +156,8 @@ const FAQS = [
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className={`h-4 w-4 transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
+                      className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                        }`}
                     >
                       <path d="M6 9l6 6 6-6" />
                     </svg>
@@ -173,10 +176,9 @@ const FAQS = [
         </div>
 
         {/* ================= BOTTOM CTA ================= */}
-
         <div className="mt-8 text-center sm:mt-10">
           <p className="text-sm text-slate-600">
-            Need a Swift Dzire for your {from} to {to} journey?
+            Need a Swift Dzire for your {loc.titleText} journey?
           </p>
 
           <a

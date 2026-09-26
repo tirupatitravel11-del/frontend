@@ -5,65 +5,82 @@ import { useState } from "react";
 const PHONE_NUMBER = "+918726124680";
 
 interface InnovaCrystaFaqProps {
-  from: string;
-  to: string;
+  title?: string;
+  subtitle?: string;
+  city?: string;
+  from?: string;
+  to?: string;
 }
 
+const formatLocation = (city?: string, from?: string, to?: string) => {
+  const cap = (str?: string) =>
+    str
+      ? str
+          .trim()
+          .split(/[\s-]+/)
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(" ")
+      : "";
 
+  const fromCap = cap(from);
+  const toCap = cap(to);
+  if (fromCap && toCap) {
+    const loc = `${fromCap} to ${toCap}`;
+    return {
+      titleText: loc,
+      qCost: `How much does a ${loc} Innova Crysta Taxi cost?`,
+      aCost: `Pricing for a Toyota Innova Crysta taxi from ${fromCap} to ${toCap} follows a transparent per-km rate (starting from ₹18/km for 6/7 seater variants). Tolls and parking are billed at actuals, with fuel and driver allowance included in your upfront fare quote.`,
+      qBook: `How can I book a ${loc} Innova Crysta Taxi?`,
+      aBook: `You can book your ${loc} Innova Crysta cab online through our website or by calling our support team directly. Share your pickup address, destination, travel time, and passenger count to confirm your booking instantly.`,
+      qTime: `How long does a ${loc} Innova Crysta Taxi take?`,
+      aTime: `Travel time from ${fromCap} to ${toCap} depends on pickup location and traffic flow. Our experienced chauffeurs monitor traffic and choose optimal routes to get you to your destination comfortably and on time.`,
+      qPass: `How many passengers can travel in a ${loc} Innova Crysta Taxi?`,
+      aPass: `Our Toyota Innova Crysta cabs comfortably seat up to 6 or 7 passengers (available in Captain seat or 7-seater bench configurations) with generous boot space for 3-4 large suitcases.`,
+      qToll: `Does ${loc} Innova Crysta Taxi fare include toll and parking?`,
+      aToll: `Tolls and parking fees are charged at actuals and listed transparently. Fuel, driver allowance, and AC charges are fully included upfront in your total quote.`,
+    };
+  }
+
+  const cityCap = cap(city) || fromCap || toCap || "your city";
+  return {
+    titleText: cityCap,
+    qCost: `How much does a ${cityCap} Innova Crysta Taxi cost?`,
+    aCost: `Pricing for a Toyota Innova Crysta taxi in ${cityCap} follows a transparent per-km rate (starting from ₹18/km depending on variant). Tolls and parking are shown separately, and driver allowances, fuel, and AC costs are included upfront.`,
+    qBook: `How can I book a ${cityCap} Innova Crysta Taxi?`,
+    aBook: `You can book your ${cityCap} Innova Crysta cab online via our booking form or by calling our helpline. Provide your pickup location, journey details, and preferred seating layout, and we will dispatch a driver right away.`,
+    qTime: `How long does a ${cityCap} Innova Crysta Taxi take?`,
+    aTime: `Trip duration depends on your exact pickup point and traffic in ${cityCap}. Our professional chauffeurs select the best routes to avoid congestion and ensure a smooth ride.`,
+    qPass: `How many passengers can travel in a ${cityCap} Innova Crysta Taxi?`,
+    aPass: `Our Innova Crysta cabs accommodate 6 to 7 passengers plus driver comfortably, making them ideal for long-distance family trips, executive travel, and airport drops with heavy luggage.`,
+    qToll: `Does ${cityCap} Innova Crysta Taxi fare include toll and parking?`,
+    aToll: `Toll and parking charges are billed at actuals and specified in your booking summary. Fuel, AC, and driver allowances are included in your confirmed fare with no hidden fees.`,
+  };
+};
 
 export default function InnovaCrystaFaq({
+  title,
+  subtitle,
+  city,
   from,
   to,
 }: InnovaCrystaFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-const FAQS = [
-  {
-    question: `What is the Innova Crysta fare from ${from} to ${to}?`,
-    answer: `The one-way Innova Crysta fare from ${from} to ${to} starts at ₹2,799, while the round-trip fare starts at ₹5,000. The fare may vary depending on the pickup location, travel option and vehicle availability. Tolls, parking and applicable taxes are billed at actuals.`,
-  },
-  {
-    question: `How many passengers can travel in an Innova Crysta from ${from} to ${to}?`,
-    answer: `An Innova Crysta can comfortably accommodate up to 6 passengers with luggage. It is an ideal choice for families, small groups, business travel and airport transfers from ${from} to ${to}, where extra space and comfort are important.`,
-  },
-  {
-    question: `How much luggage can fit in an Innova Crysta for travel from ${from} to ${to}?`,
-    answer: `The Innova Crysta offers generous luggage space and can accommodate multiple large suitcases along with cabin bags. It is a better option than a sedan when you are travelling from ${from} to ${to} with a family or carrying extra luggage.`,
-  },
-  {
-    question: `Is Innova Crysta available for ${from} to ${to} one-way trips?`,
-    answer: `Yes. Innova Crysta taxis are available for one-way trips from ${from} to ${to}. You can book a private Innova Crysta for your family or group and travel directly from your pickup location to your destination.`,
-  },
-  {
-    question: `Is Innova Crysta suitable for family trips from ${from} to ${to}?`,
-    answer: `Yes, Innova Crysta is one of the best choices for family travel from ${from} to ${to}. It provides comfortable seating, spacious interiors, powerful AC and enough luggage space for a family travelling together.`,
-  },
-  {
-    question: `Can I book an Innova Crysta from ${from} to ${to} Airport?`,
-    answer: `Yes. You can book an Innova Crysta for ${from} to ${to} airport transfers. It is especially suitable for families and groups travelling with multiple suitcases. We recommend scheduling your pickup well in advance of your flight.`,
-  },
-  {
-    question: `What is the difference between a Sedan and Innova Crysta for travel from ${from} to ${to}?`,
-    answer: `A Sedan is generally suitable for up to 4 passengers with moderate luggage, while an Innova Crysta offers more passenger space, better legroom and greater luggage capacity. For families or groups of 5–6 passengers travelling from ${from} to ${to}, Innova Crysta is usually the more comfortable option.`,
-  },
-  {
-    question: `Is Innova Crysta available 24x7 from ${from} to ${to}?`,
-    answer: `Yes. Innova Crysta taxis can be booked for early morning, daytime and late-night travel from ${from} to ${to}, subject to vehicle availability. You can contact us to check availability for your preferred pickup time.`,
-  },
-  {
-    question: `Can I request a specific Innova Crysta model for travel from ${from} to ${to}?`,
-    answer: `Yes. You can request an Innova Crysta while making your booking for travel from ${from} to ${to}. Vehicle allocation is subject to availability at the time of booking.`,
-  },
-  {
-    question: `Can I cancel or reschedule my Innova Crysta booking from ${from} to ${to}?`,
-    answer: `Yes. You can contact us to cancel or reschedule your Innova Crysta booking from ${from} to ${to}. Cancellation and rescheduling terms may depend on how close the request is to the scheduled pickup time.`,
-  },
-];
+
+  const loc = formatLocation(city, from, to);
+
+  const FAQS = [
+    { question: loc.qCost, answer: loc.aCost },
+    { question: loc.qBook, answer: loc.aBook },
+    { question: loc.qTime, answer: loc.aTime },
+    { question: loc.qPass, answer: loc.aPass },
+    { question: loc.qToll, answer: loc.aToll },
+  ];
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  /* FAQ Schema for Google */
+  /* FAQ Schema for Google (SEO) */
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -78,7 +95,7 @@ const FAQS = [
   };
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16">
+    <section className="bg-slate-50 py-12 sm:py-16" id="faq">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
@@ -95,13 +112,12 @@ const FAQS = [
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            {from} to {to} Innova Crysta Taxi Questions, Answered
+            {title || `${loc.titleText} Innova Crysta Taxi Questions, Answered`}
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
-            Everything you need to know about booking an Innova Crysta taxi
-            from {from} to {to} for family trips, airport transfers and group
-            travel.
+            {subtitle ||
+              `Everything you need to know about booking a Toyota Innova Crysta taxi for ${loc.titleText}, including fares, timing, passenger capacity, and tolls.`}
           </p>
         </div>
 
@@ -114,9 +130,7 @@ const FAQS = [
               <div
                 key={faq.question}
                 className={`overflow-hidden rounded-xl border bg-white shadow-sm transition-all duration-300 sm:rounded-2xl ${
-                  isOpen
-                    ? "border-gold/40 shadow-md"
-                    : "border-slate-200"
+                  isOpen ? "border-gold/40 shadow-md" : "border-slate-200"
                 }`}
               >
                 <button
@@ -165,7 +179,7 @@ const FAQS = [
         {/* ===== Bottom CTA ===== */}
         <div className="mt-8 text-center sm:mt-10">
           <p className="text-sm text-slate-600">
-            Need an Innova Crysta for your {from} to Delhi trip?
+            Need an Innova Crysta for your {loc.titleText} journey?
           </p>
 
           <a

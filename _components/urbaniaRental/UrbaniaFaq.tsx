@@ -10,46 +10,61 @@ type Faq = {
 interface UrbaniaFaqProps {
   title?: string;
   subtitle?: string;
+  city?: string;
+  from?: string;
+  to?: string;
 }
+
+const formatLocation = (city?: string, from?: string, to?: string): string => {
+  const cap = (str?: string) =>
+    str
+      ? str
+        .trim()
+        .split(/[\s-]+/)
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+        .join(" ")
+      : "";
+
+  const fromCap = cap(from);
+  const toCap = cap(to);
+  if (fromCap && toCap) {
+    return `${fromCap} to ${toCap}`;
+  }
+  const cityCap = cap(city) || fromCap || toCap;
+  return cityCap || "your city";
+};
 
 export default function UrbaniaFaq({
   title = "Frequently Asked Questions",
   subtitle = "Everything you need to know about booking a premium Force Urbania for your travel needs.",
+  city,
+  from,
+  to,
 }: UrbaniaFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const locationName = formatLocation(city, from, to);
+
   const FAQS: Faq[] = [
     {
-      question: "What is a Force Urbania and who is it ideal for?",
-      answer: "The Force Urbania is a premium luxury minivan designed for ultimate comfort. It is ideal for family vacations, corporate group travel, wedding processions, and outstation trips, offering a first-class travel experience compared to standard tempo travellers.",
+      question: `How much does ${locationName} Urbania Rental cost?`,
+      answer: `Pricing works on a per kilometer basis, with the rate depending on which vehicle you pick, the 12 seater or the 17 seater. Toll, parking, and other applicable charges appear as separate line items, so the number you agree to over WhatsApp or a call matches what you pay at the end of the trip.`,
     },
     {
-      question: "How many passengers and bags can a Force Urbania accommodate?",
-      answer: "Depending on the variant you choose, the Force Urbania comfortably seats 9, 12, 13, or 14 passengers. It also features a dedicated, spacious boot area that can easily accommodate 6 to 8 large suitcases along with hand luggage.",
+      question: `How many passengers can travel in a ${locationName} Urbania?`,
+      answer: `You get a choice between two configurations. The smaller Urbania on rent seats up to 12 people, while the larger option holds up to 17, which works better for wedding groups or bigger corporate teams heading from ${locationName}.`,
     },
     {
-      question: "What luxury amenities are included inside the vehicle?",
-      answer: "The Urbania comes equipped with premium pushback reclining seats, individual AC vents for every row, ample legroom, mobile charging points, a smooth suspension system, and a well-maintained, hygienic interior.",
+      question: `Can I rent a ${locationName} Urbania for one way travel?`,
+      answer: `Yes. If your group only needs to travel in a single direction, a one way Urbania booking means you pay for the distance covered without carrying the cost of the driver's return drive. This suits travelers who already have a separate plan for getting back.`,
     },
     {
-      question: "Are toll and parking charges included in the rental fare?",
-      answer: "The quoted base fare includes the vehicle, fuel, driver allowance, and AC usage. However, toll taxes, parking fees, and any applicable state entry taxes are not included and are charged to the customer at actuals during the trip.",
+      question: `Can I book a ${locationName} Urbania for airport transfer?`,
+      answer: `Yes, We  handles direct pickup and drop at major airports along with key railway stations. Drivers adjust pickup timing around flight or train delays so your group and luggage move together in one vehicle.`,
     },
     {
-      question: "Can I book a one-way drop or only round trips?",
-      answer: "We offer complete flexibility. You can book a one-way drop, a round-trip package, or even a multi-day outstation rental based on your specific travel requirements.",
-    },
-    {
-      question: "Is doorstep pickup and drop-off available?",
-      answer: "Yes, we provide convenient doorstep pickup and drop-off. Our professional driver will arrive at your preferred location, whether it is your home, office, hotel, or the airport, at the scheduled time.",
-    },
-    {
-      question: "How far in advance should I book a Force Urbania?",
-      answer: "We recommend booking at least 2 to 3 days in advance. For weekends, public holidays, or peak wedding seasons, booking 1 to 2 weeks ahead is highly recommended to ensure the availability of your preferred seating configuration.",
-    },
-    {
-      question: "What payment methods do you accept?",
-      answer: "We accept payments via Cash, UPI, and online bank transfers. For corporate clients, we also provide GST invoices upon request. A small token advance may be required to confirm your booking.",
+      question: `Does ${locationName} Urbania Rental include a driver?`,
+      answer: `Every Urbania hire from Tirupati Travels comes with an experienced driver who knows the expressways, highways, and local routes well enough to plan around peak hour congestion. There is no separate charge for the driver beyond what is already included in the fare you agree to.`,
     },
   ];
 
@@ -58,7 +73,7 @@ export default function UrbaniaFaq({
   };
 
   return (
-    <section className="bg-slate-50 py-14">
+    <section className="bg-slate-50 py-14" id="faq">
       <div className="mx-auto max-w-4xl px-6">
         {/* ===== Header ===== */}
         <div className="mb-10 text-center">
@@ -83,9 +98,8 @@ export default function UrbaniaFaq({
             return (
               <div
                 key={faq.question}
-                className={`overflow-hidden rounded-2xl border bg-white shadow-sm transition-all duration-300 ${
-                  isOpen ? "border-gold/40" : "border-slate-200"
-                }`}
+                className={`overflow-hidden rounded-2xl border bg-white shadow-sm transition-all duration-300 ${isOpen ? "border-gold/40" : "border-slate-200"
+                  }`}
               >
                 <button
                   type="button"
@@ -98,11 +112,10 @@ export default function UrbaniaFaq({
                   </span>
 
                   <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
-                      isOpen
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen
                         ? "border-gold bg-gold text-white"
                         : "border-slate-300 text-slate-500"
-                    }`}
+                      }`}
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -111,9 +124,8 @@ export default function UrbaniaFaq({
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className={`h-4 w-4 transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
+                      className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                        }`}
                     >
                       <path d="M6 9l6 6 6-6" />
                     </svg>

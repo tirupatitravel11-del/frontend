@@ -178,7 +178,7 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
         <OutstationSpotlight />
         <HowItWorks />
         <Testimonials />
-        <SuvFaqTaxi />
+        <SuvFaqTaxi city={city} />
       </div>
     </main>
   );
@@ -232,11 +232,10 @@ Please share the fare and availability.`;
               key={type}
               type="button"
               onClick={() => setTripType(type)}
-              className={`rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 ${
-                tripType === type
+              className={`rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 ${tripType === type
                   ? "bg-gold text-white shadow-sm"
                   : "text-slate-600 hover:bg-slate-100"
-              }`}
+                }`}
             >
               {type === "one-way" ? "One Way" : "Round Trip"}
             </button>

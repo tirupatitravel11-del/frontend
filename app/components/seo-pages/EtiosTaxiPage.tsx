@@ -176,7 +176,7 @@ export default function EtiosTaxiPage({ page }: { page: SeoPageData }) {
         <HowItWorks />
         <Testimonials />
 
-        <EtiosTaxiFaq />
+        <EtiosTaxiFaq city={city} />
       </div>
     </main>
   );

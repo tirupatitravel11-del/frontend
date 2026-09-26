@@ -205,7 +205,7 @@ Please share the detailed quote and availability.`;
         )}
         <WhyChooseUs />
         <Testimonials />
-        <LuxuryTaxiFaqs />
+        <LuxuryTaxiFaqs city={city} />
       </div>
     </main>
   );

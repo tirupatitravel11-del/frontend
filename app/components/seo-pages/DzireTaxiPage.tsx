@@ -174,7 +174,7 @@ export default function DzireTaxiPage({ page }: { page: SeoPageData }) {
 
         <WhyChooseUs />
         <Testimonials />
-        <DzireTaxiFaq />
+        <DzireTaxiFaq city={city} />
       </div>
     </main>
   );

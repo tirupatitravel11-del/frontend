@@ -4,18 +4,41 @@ import { useState } from "react";
 
 const PHONE_NUMBER = "+918726124680";
 
+interface TwentyFourFaqProps {
+  from?: string;
+  to?: string;
+  city?: string;
+}
+
 type Faq = {
   question: string;
   answer: string;
 };
 
-const FAQS: Faq[] = [
-  {
-    question:
-      "What is the fare for a 24 seater Tempo Traveller from Noida to Delhi?",
-    answer:
-      "The 24 seater Tempo Traveller fare from Noida to Delhi starts from around ₹7,500 for one-way travel. The final fare depends on the travel date, pickup location, drop location and trip requirements.",
-  },
+export default function TwentyFourSeaterTempoFaq({
+  from,
+  to,
+  city,
+}: TwentyFourFaqProps = {}) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const costQuestion = from && to
+    ? `What is the fare for a 24 seater Tempo Traveller from ${from} to ${to}?`
+    : city
+    ? `How much does a 24 seater Tempo Traveller cost in ${city}?`
+    : `How much does a 24 seater Tempo Traveller cost?`;
+
+  const costAnswer = from && to
+    ? `The 24 seater Tempo Traveller fare from ${from} to ${to} starts from around ₹7,500 for one-way travel. The final fare depends on the travel date, pickup location, drop location and trip requirements.`
+    : city
+    ? `The 24 seater Tempo Traveller fare in ${city} starts from competitive per-km rates for outstation trips or fixed local day packages. Base fare includes vehicle, driver, fuel, and AC. Tolls, state permits, and parking fees are charged at actuals.`
+    : `The 24 seater Tempo Traveller fare starts from competitive per-km rates for outstation trips or fixed local day packages. Base fare includes vehicle, driver, fuel, and AC. Tolls, state permits, and parking fees are charged at actuals.`;
+
+  const FAQS: Faq[] = [
+    {
+      question: costQuestion,
+      answer: costAnswer,
+    },
   {
     question:
       "How many passengers can travel in a 24 seater Tempo Traveller?",
@@ -65,9 +88,6 @@ const FAQS: Faq[] = [
       "The booking is generally for the complete private vehicle rather than per passenger. Final pricing depends on the route and trip requirements.",
   },
 ];
-
-export default function TwentyFourSeaterTempoFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);

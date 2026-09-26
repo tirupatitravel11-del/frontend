@@ -114,8 +114,7 @@ function ServicePage({ page }: { page: SeoPageData }) {
       <HowItWorks />
       <PerfectFor />
       <WhyChooseUs />
-      <Testimonials />
-      <TempoTravellerFAQTaxi />
+      <TempoTravellerFAQTaxi city={city} />
     </>
   );
 }
