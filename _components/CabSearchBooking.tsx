@@ -64,54 +64,6 @@ const DARK_GOLD = "#A98212";
    Later replace this with API response
 ========================================================= */
 
-// const cars: Car[] = [
-//   {
-//     id: 1,
-//     name: "Maruti Dzire",
-//     type: "Sedan",
-//     image: "/images/cars/dzire.png",
-//     seats: 4,
-//     luggage: 2,
-//     price: 1499,
-//     ac: true,
-//     description:
-//       "Comfortable sedan suitable for small families and city/outstation travel.",
-//   },
-//   {
-//     id: 2,
-//     name: "Maruti Ertiga",
-//     type: "MUV",
-//     image: "/images/cars/ertiga.png",
-//     seats: 6,
-//     luggage: 3,
-//     price: 1999,
-//     ac: true,
-//     description:
-//       "Spacious MUV with comfortable seating for family and group travel.",
-//   },
-//   {
-//     id: 3,
-//     name: "Toyota Innova Crysta",
-//     type: "SUV",
-//     image: "/images/cars/innova.png",
-//     seats: 6,
-//     luggage: 4,
-//     price: 2999,
-//     ac: true,
-//     description: "Premium SUV with comfortable seats and extra luggage space.",
-//   },
-//   {
-//     id: 4,
-//     name: "Tempo Traveller",
-//     type: "Traveller",
-//     image: "/images/cars/tempo.png",
-//     seats: 12,
-//     luggage: 6,
-//     price: 4499,
-//     ac: true,
-//     description: "Ideal for family trips, group tours and outstation travel.",
-//   },
-// ];
 
 /* =========================================================
    MAIN COMPONENT
