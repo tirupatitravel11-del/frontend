@@ -266,3 +266,118 @@ export function findVehicleFromSlug(pageSlug: string): Vehicle | null {
 
   return null;
 }
+
+
+
+
+export interface FareCalculation {
+  baseFare: number;
+  driverAllowance: number;
+  nightCharge: number;
+  subtotal: number;
+  gst: number;
+  total: number;
+  distanceKm: number;
+  perKm: number;
+  days: number;
+  nights: number;
+}
+
+interface CalculateFareParams {
+  vehicle: Vehicle;
+  distanceKm: number;
+  tripType: "oneWay" | "roundTrip" | "local" | "airport";
+  pickupDate?: string;
+  returnDate?: string;
+}
+
+export function calculateCabFare({
+  vehicle,
+  distanceKm,
+  tripType,
+  pickupDate,
+  returnDate,
+}: CalculateFareParams): FareCalculation {
+  // -----------------------------
+  // DAYS & NIGHTS
+  // -----------------------------
+
+  let days = 1;
+  let nights = 0;
+
+  if (
+    tripType === "roundTrip" &&
+    pickupDate &&
+    returnDate
+  ) {
+    const start = new Date(`${pickupDate}T00:00:00`);
+    const end = new Date(`${returnDate}T00:00:00`);
+
+    const differenceInDays = Math.max(
+      0,
+      Math.ceil(
+        (end.getTime() - start.getTime()) /
+          (1000 * 60 * 60 * 24)
+      )
+    );
+
+    nights = differenceInDays;
+    days = differenceInDays + 1;
+  }
+
+  // -----------------------------
+  // BASE FARE
+  // distance × perKm × 1.5
+  // -----------------------------
+
+  const baseFare =
+    distanceKm * vehicle.perKm * 1.5;
+
+  // -----------------------------
+  // DRIVER ALLOWANCE
+  // ₹250 per day
+  // -----------------------------
+
+  const driverAllowance = days * 250;
+
+  // -----------------------------
+  // NIGHT CHARGE
+  // ₹250 per night
+  // -----------------------------
+
+  const nightCharge = nights * 250;
+
+  // -----------------------------
+  // SUBTOTAL
+  // -----------------------------
+
+  const subtotal =
+    baseFare +
+    driverAllowance +
+    nightCharge;
+
+  // -----------------------------
+  // GST 5%
+  // -----------------------------
+
+  const gst = subtotal * 0.05;
+
+  // -----------------------------
+  // FINAL TOTAL
+  // -----------------------------
+
+  const total = subtotal + gst;
+
+  return {
+    baseFare: Number(baseFare.toFixed(2)),
+    driverAllowance: Number(driverAllowance.toFixed(2)),
+    nightCharge: Number(nightCharge.toFixed(2)),
+    subtotal: Number(subtotal.toFixed(2)),
+    gst: Number(gst.toFixed(2)),
+    total: Number(total.toFixed(2)),
+    distanceKm: Number(distanceKm.toFixed(2)),
+    perKm: vehicle.perKm,
+    days,
+    nights,
+  };
+}
