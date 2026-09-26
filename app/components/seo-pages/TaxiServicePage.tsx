@@ -117,7 +117,7 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
       <SafetyFeatures />
       <Testimonials />
       <WhyChooseUs />
-      <TaxiFaq city={city} />
+      {/* <TaxiFaq city={city} /> */}
     </section>
   );
 }

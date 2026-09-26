@@ -23,6 +23,7 @@ import SixteenSeaterTempoTravellerTaxiPage from "../components/seo-pages/16Seate
 import TwelveSeaterTempoTravellerTaxiPage from "../components/seo-pages/12SeaterTempoTaxiPage";
 import TwentySeaterTempoTravellerTaxiPage from "../components/seo-pages/20SeaterTempoTaxiPage";
 import TwentyFourSeaterTempoTravellerTaxiPage from "../components/seo-pages/24SeaterTempoTaxiPage";
+import LocalSightseeingPage from "../components/seo-pages/LocalSightseeingPage";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -99,6 +100,11 @@ export async function generateMetadata({
     page.slug.includes("contact-number")
   ) {
     seoDescription = `Call Tirupati Travel to book verified taxis in ${city} for local sightseeing, outstation trips & airport transfers. Instant quotes & 24/7 support.`;
+  } else if (
+    page.service === "local-sightseeing" ||
+    page.slug.includes("local-sightseeing")
+  ) {
+    seoDescription = `Book verified local sightseeing cab in ${city} for temple tours, heritage walks, city shopping & full-day sightseeing. Expert local drivers & clean AC cabs.`;
   } else if (page.service === "taxi" || page.slug.includes("taxi")) {
     seoDescription = `Book verified taxi service in ${city} for local sightseeing, outstation journeys & airport transfers. City-expert drivers, clean AC cars.`;
   }
@@ -168,6 +174,8 @@ export default async function SeoPage({ params }: PageProps) {
         <TaxiContactNumberPage page={page} />
       ) : page.service === "luxury-tempo-traveller" ? (
         <LuxuryTempoTravellerTaxi page={page} />
+      ) : page.service === "local-sightseeing" ? (
+        <LocalSightseeingPage page={page} />
       ) : (
         <TaxiServicePage page={page} />
       )}
@@ -190,6 +198,7 @@ export default async function SeoPage({ params }: PageProps) {
         page.service !== "urbania-rental" &&
         page.service !== "luxury-tempo-traveller" &&
         page.service !== "taxi-contact-number" &&
+        page.service !== "local-sightseeing" &&
         popularRoutes.length > 0 && (
           <PopularRoutes
             routes={popularRoutes}
