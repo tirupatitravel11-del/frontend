@@ -11,7 +11,8 @@ export type SeoService =
   | "etios"
   | "amaze"
   | "taxi-contact-number"
-  | "luxury-tempo-traveller";
+  | "luxury-tempo-traveller"
+  | "local-sightseeing";
 
 export type SeoPageData = {
   slug: string;
@@ -295,6 +296,27 @@ const serviceDetails: Record<
       "Corporate outings and airport transfers",
     ],
   },
+  "local-sightseeing": {
+    title: "Local Sightseeing Taxi Services",
+    description:
+      "Book reliable local sightseeing Taxi Services with Tirupati Travel. Explore temples, forts, and tourist spots with our comfortable AC taxis, experienced drivers, and flexible tour packages.",
+    intro:
+      "Discover the spiritual and cultural heritage of the city with our dedicated local sightseeing taxi services. Whether you need a half-day or full-day cab, our experienced local drivers ensure a safe, comfortable, and hassle-free journey to all major tourist attractions.",
+    highlights: [
+      "Flexible half-day and full-day cab packages",
+      "Experienced, courteous, and local expert drivers",
+      "Clean, well-maintained, and air-conditioned vehicles",
+      "Customizable itineraries to suit your personal schedule",
+      "Transparent pricing with absolutely no hidden charges",
+    ],
+    popularTrips: [
+      "Tirumala Venkateswara Temple & surrounding viewpoints",
+      "Kapila Theertham and Sri Kalahasti Temple",
+      "Chandragiri Fort and Historical Museum",
+      "Silathoranam (Natural Arch) and Gardens",
+      "Sri Padmavathi Ammavari Temple (Tiruchanur)",
+    ],
+  },
 };
 
 const vehicleServices = [
@@ -370,10 +392,12 @@ export const seoPages: Record<string, SeoPageData> = Object.fromEntries(
                               ? `${city}-taxi-contact-number`
                               : service === "luxury-tempo-traveller"
                                 ? `${city}-luxury-tempo-traveller-taxi`
-                                : "airport-taxi";
+                                : service === "local-sightseeing"
+                                  ? "local-sightseeing"
+                                  : "airport-taxi";
       const slug =
         service === "taxi-contact-number" ||
-        service === "luxury-tempo-traveller"
+          service === "luxury-tempo-traveller"
           ? serviceSlug
           : `${serviceSlug}-in-${city}`;
 

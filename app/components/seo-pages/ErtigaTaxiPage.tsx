@@ -180,7 +180,7 @@ export default function ErtigaTaxiPage({ page }: { page: SeoPageData }) {
         <Testimonials />
         <ErtigaTaxiFaq city={city} />
 
-        {/* <ErtigaFaq /> */}
+       
       </div>
     </main>
   );

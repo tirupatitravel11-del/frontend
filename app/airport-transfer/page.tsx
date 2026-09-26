@@ -10,11 +10,7 @@ import AirportFAQ from "../components/AirportTransfer/airportFAQ";
 import AirportExperience from "../components/AirportTransfer/AirportExperience";
 
 
-// 👇 IMPORT YOUR COMPONENTS HERE AS YOU BUILD THEM 👇
-// import HowItWorks from "@/components/airport/HowItWorks";
-// import VehicleFleet from "@/components/airport/VehicleFleet";
-// import WhyChooseUs from "@/components/airport/WhyChooseUs";
-// import PopularRoutes from "@/components/airport/PopularRoutes";
+
 
 export default function AirportTransferPage() {
   return (

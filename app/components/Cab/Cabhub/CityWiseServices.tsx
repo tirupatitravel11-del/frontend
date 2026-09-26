@@ -7,7 +7,7 @@ const cities = [
     services: [
       { label: "Taxi Service in Lucknow", href: "/taxi-service-in-lucknow" },
       { label: "Airport Service in Lucknow", href: "/airport-taxi-in-lucknow" },
-      // { label: "Local Sightseeing in Lucknow", href: "/taxi-service-in-lucknow" },
+      { label: "Local Sightseeing in Lucknow", href: "/local-sightseeing-in-lucknow" },
       { label: "Sedan Taxi in Lucknow", href: "/sedan-taxi-in-lucknow" },
       { label: "SUV Taxi in Lucknow", href: "/suv-taxi-in-lucknow" },
       { label: "Amaze Taxi in Lucknow", href: "/amaze-taxi-in-lucknow" },
@@ -52,7 +52,7 @@ const cities = [
     services: [
       { label: "Taxi Service in Varanasi", href: "/taxi-service-in-varanasi" },
       { label: "Airport Service in Varanasi", href: "/airport-taxi-in-varanasi" },
-      // { label: "Local Sightseeing in Varanasi", href: "/taxi-service-in-varanasi" },
+      { label: "Local Sightseeing in Varanasi", href: "/local-sightseeing-in-varanasi" },
       { label: "Sedan Taxi in Varanasi", href: "/sedan-taxi-in-varanasi" },
       { label: "SUV Taxi in Varanasi", href: "/suv-taxi-in-varanasi" },
       { label: "Amaze Taxi in Varanasi", href: "/amaze-taxi-in-varanasi" },
@@ -100,7 +100,7 @@ const cities = [
     services: [
       { label: "Taxi Service in Ayodhya", href: "/taxi-service-in-ayodhya" },
       { label: "Airport Service in Ayodhya", href: "/airport-taxi-in-ayodhya" },
-      // { label: "Local Sightseeing in Ayodhya", href: "/taxi-service-in-ayodhya" },
+      { label: "Local Sightseeing in Ayodhya", href: "/local-sightseeing-in-ayodhya" },
       { label: "Sedan Taxi in Ayodhya", href: "/sedan-taxi-in-ayodhya" },
       { label: "SUV Taxi in Ayodhya", href: "/suv-taxi-in-ayodhya" },
       { label: "Amaze Taxi in Ayodhya", href: "/amaze-taxi-in-ayodhya" },
@@ -145,7 +145,7 @@ const cities = [
     services: [
       { label: "Taxi Service in Prayagraj", href: "/taxi-service-in-prayagraj" },
       { label: "Airport Service in Prayagraj", href: "/airport-taxi-in-prayagraj" },
-      // { label: "Local Sightseeing in Prayagraj", href: "/taxi-service-in-prayagraj" },
+      { label: "Local Sightseeing in Prayagraj", href: "/local-sightseeing-in-prayagraj" },
       { label: "Sedan Taxi in Prayagraj", href: "/sedan-taxi-in-prayagraj" },
       { label: "SUV Taxi in Prayagraj", href: "/suv-taxi-in-prayagraj" },
       { label: "Amaze Taxi in Prayagraj", href: "/amaze-taxi-in-prayagraj" },
@@ -193,7 +193,7 @@ const cities = [
     services: [
       { label: "Taxi Service in Gaya", href: "/taxi-service-in-gaya" },
       { label: "Airport Service in Gaya", href: "/airport-taxi-in-gaya" },
-      // { label: "Local Sightseeing in Gaya", href: "/taxi-service-in-gaya" },
+      { label: "Local Sightseeing in Gaya", href: "/local-sightseeing-in-gaya" },
       { label: "Sedan Taxi in Gaya", href: "/sedan-taxi-in-gaya" },
       { label: "SUV Taxi in Gaya", href: "/suv-taxi-in-gaya" },
       { label: "Amaze Taxi in Gaya", href: "/amaze-taxi-in-gaya" },
@@ -235,7 +235,7 @@ const cities = [
     services: [
       { label: "Taxi Service in Vindhyachal", href: "/taxi-service-in-vindhyachal" },
       { label: "Airport Service in Vindhyachal", href: "/airport-taxi-in-vindhyachal" },
-      // { label: "Local Sightseeing in Vindhyachal", href: "/taxi-service-in-vindhyachal" },
+      { label: "Local Sightseeing in Vindhyachal", href: "/local-sightseeing-in-vindhyachal" },
       { label: "Sedan Taxi in Vindhyachal", href: "/sedan-taxi-in-vindhyachal" },
       { label: "SUV Taxi in Vindhyachal", href: "/suv-taxi-in-vindhyachal" },
       { label: "Amaze Taxi in Vindhyachal", href: "/amaze-taxi-in-vindhyachal" },
@@ -283,7 +283,7 @@ const cities = [
     services: [
       { label: "Taxi Service in Agra", href: "/taxi-service-in-agra" },
       { label: "Airport Service in Agra", href: "/airport-taxi-in-agra" },
-      // { label: "Local Sightseeing in Agra", href: "/taxi-service-in-agra" },
+      { label: "Local Sightseeing in Agra", href: "/local-sightseeing-in-agra" },
       { label: "Sedan Taxi in Agra", href: "/sedan-taxi-in-agra" },
       { label: "SUV Taxi in Agra", href: "/suv-taxi-in-agra" },
       { label: "Amaze Taxi in Agra", href: "/amaze-taxi-in-agra" },
