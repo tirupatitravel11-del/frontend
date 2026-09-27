@@ -15,6 +15,8 @@ import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 import AyodhyaRoutesSection from "@/_components/AyodhyaRoutesSection";
+import LucknowRoutesSection from "@/_components/LucknowRoutesSection";
+import VaranasiRoutesSection from "@/_components/VaranasiRoutesSection";
 
 export default function TaxiServicePage({ page }: { page: SeoPageData }) {
   return <ServicePage page={page} icon="CAR" />;
@@ -26,6 +28,10 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
   const popularRoutes = generatePopularRoutes(page.city, "");
   const isAyodhya =
     city?.toLowerCase() === "ayodhya" || slug?.toLowerCase().includes("ayodhya");
+  const isLucknow =
+    city?.toLowerCase() === "lucknow" || slug?.toLowerCase().includes("lucknow");
+  const isVaranasi =
+    city?.toLowerCase() === "varanasi" || slug?.toLowerCase().includes("varanasi");
 
   return (
     <section className="relative min-h-[80vh] overflow-hidden bg-white lg:min-h-screen">
@@ -104,7 +110,7 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
       </div>
       <VehicleFleet />
       <OurServices />
-      {!isAyodhya && popularRoutes.length > 0 && (
+      {!isAyodhya && !isLucknow && !isVaranasi && popularRoutes.length > 0 && (
         <PopularRoutes
           routes={popularRoutes}
           from={popularRoutes[0].from}
@@ -113,6 +119,8 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
         />
       )}
       {isAyodhya && <AyodhyaRoutesSection />}
+      {isLucknow && <LucknowRoutesSection />}
+      {isVaranasi && <VaranasiRoutesSection />}
       <HowToBookIt />
       <SafetyFeatures />
       <Testimonials />
