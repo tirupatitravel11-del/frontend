@@ -7,7 +7,7 @@ type TaxiRoute = {
   duration: string;
   fare: number;
   tag?: string;
- 
+
 };
 
 const PHONE_NUMBER = "+918726124680";
@@ -52,7 +52,7 @@ export default function PopularRoutes({
           </p>
 
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-            {title || `Popular ${from} to ${to} Taxi Routes`}
+            {title || `Popular ${from} to ${to} Routes`}
           </h2>
 
           <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
@@ -123,8 +123,8 @@ export default function PopularRoutes({
                       ₹
                       {(
                         parseFloat(route?.distance?.split(" ")[0] || "0") *
-                          1.6 *
-                          10 +
+                        1.6 *
+                        10 +
                         500
                       ).toLocaleString("en-IN")}
                     </p>
