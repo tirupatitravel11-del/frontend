@@ -22,7 +22,7 @@ interface UrbaniaCitySectionProps {
 }
 
 export default function UrbaniaCitySection({ city }: UrbaniaCitySectionProps) {
-  const cityName = formatCityName(city) || "Lucknow";
+  const cityName = formatCityName(city);
 
   return (
     <section className="bg-slate-50 py-14 sm:py-20">
