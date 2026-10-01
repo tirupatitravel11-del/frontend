@@ -12,7 +12,7 @@ export default function Testimonials() {
   });
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-slate-50 py-12 md:py-12 border-b border-slate-300">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         {/* Header */}
         <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-center md:justify-between">

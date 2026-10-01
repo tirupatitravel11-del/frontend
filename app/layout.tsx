@@ -5,6 +5,9 @@ import "./globals.css";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Toast from "./utils/Toast";
+import { WhatsApp } from "@mui/icons-material";
+import WhatsAppFloat from "@/_components/WhatsAppFloat";
+import MobileStickyBar from "./components/Home/MobileStickyBar";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -35,10 +38,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <Navbar />
+        <div className="site-wrapper">
+          <Navbar />
         {children}
         <Toast />
         <Footer />
+
+        <WhatsAppFloat />
+        {/* <MobileStickyBar /> */}
+        </div>
+        
       </body>
     </html>
   );

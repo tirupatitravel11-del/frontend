@@ -6,8 +6,8 @@ import { featuredHotels } from "../../constants/hotels";
 
 export default function HotelsSection() {
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
+    <section className="bg-slate-50 py-12 sm:py-12 border-b border-slate-300">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Header */}
         <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
           <div className="text-center md:text-left">

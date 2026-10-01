@@ -1,32 +1,38 @@
 export const heroSlides = [
   {
     id: 1,
-    title: "Reliable Cab Services",
+    title: "Book",
+    highlight: "Tempo Traveller & Urbania",
+    titleEnd: "with Tirupati Travels",
     subtitle:
-      "Book affordable cabs for Tirupati, airport transfers, sightseeing and outstation trips.",
+      "Book comfortable and spacious vehicles for family trips, group tours, pilgrimages, sightseeing, weddings, and outstation journeys.",
     image: "/Hero-2.jpg",
   },
   {
     id: 2,
-    title: "Spiritual Destinations",
+    title: "Comfortable",
+    highlight: "Vehicles for Family & Group Travel",
+    titleEnd: "",
     subtitle:
-      "Discover Tirupati, Varanasi, Ayodhya, Gaya and more with our tour packages.",
+      "Choose a spacious vehicle that fits your group and travel plans, with convenient booking for local and outstation journeys.",
     image: "/Hero-4.jpg",
   },
   {
     id: 3,
-    title: "Comfortable Hotel Booking",
+    title: "Plan Your",
+    highlight: "Outstation Journey",
+    titleEnd: "with Tirupati Travels",
     subtitle:
-      "Budget, Deluxe and Premium hotels near temples at the best prices.",
-    image:
-      "/Hero-3.jpg",
+      "Book Tempo Traveller, Urbania, and other vehicles for one-way trips, round trips, sightseeing, and multi-city travel.",
+    image: "/Hero-3.jpg",
   },
   {
     id: 4,
-    title: "Boat Ride Experience",
+    title: "Travel Together.",
+    highlight: "Travel Comfortably.",
+    titleEnd: "",
     subtitle:
-      "Enjoy memorable boat rides with family and friends during your trip.",
-    image:
-      "/boat5.jpg",
+      "Make group travel easier with spacious vehicles for family vacations, religious tours, weddings, and long-distance journeys.",
+    image: "/boat5.jpg",
   },
 ];

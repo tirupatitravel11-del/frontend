@@ -12,7 +12,7 @@ export default function FeaturedPackages() {
   });
 
   return (
-    <section className="bg-stone-50 py-16 md:py-24">
+    <section className="bg-slate-50 py-12 md:py-12 border-b border-slate-300">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         {/* Header */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
