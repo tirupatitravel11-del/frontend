@@ -242,12 +242,12 @@ export default function UniversalSeoBookingForm({
     <div className="rounded-3xl border border-amber-100 bg-white p-5 shadow-2xl shadow-slate-200/60 sm:p-7">
       {/* Header */}
       <div className="mb-6">
-        <p className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
+        {/* <p className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
           BOOK YOUR CAB
-        </p>
+        </p> */}
 
         <h3 className="mt-1 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
-          Book Your {categoryTitle}
+          Book Your CAB
         </h3>
 
         <p className="mt-2 text-sm leading-6 text-slate-500">

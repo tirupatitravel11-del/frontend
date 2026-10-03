@@ -3,7 +3,7 @@ import { vehicleFleet } from "../../../constants/VehicleFleet";
 
 export default function VehicleFleet() {
   return (
-    <section id="vehicle-fleet" className="bg-stone-50 py-24">
+    <section id="vehicle-fleet" className="bg-stone-50 py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-6">
         {/* Added Heading */}
         <div className="text-center mb-12">

@@ -56,7 +56,7 @@ export default function TaxiFAQ({
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-white py-14 sm:py-16 lg:py-20">
+    <section className="bg-slate-50 py-12 lg:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">

@@ -47,7 +47,7 @@ export default function SafetyFeatures({
   features = defaultFeatures,
 }: SafetyFeaturesProps) {
   return (
-    <section className="bg-slate-50 py-20 lg:py-24">
+    <section className="bg-slate-50 py-12 lg:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Header */}
         <div className="mb-14 text-center">
