@@ -19,6 +19,7 @@ import LucknowRoutesSection from "@/_components/LucknowRoutesSection";
 import VaranasiRoutesSection from "@/_components/VaranasiRoutesSection";
 import PrayagrajRoutesSection from "@/_components/PrayagrajRoutesSection";
 import VindhyachalRoutesSection from "@/_components/VindhyachalRoutesSection";
+import TaxiFAQ from "../Cab/Cabhub/TaxiFAQ";
 
 export default function TaxiServicePage({ page }: { page: SeoPageData }) {
   return <ServicePage page={page} icon="CAR" />;
@@ -61,19 +62,21 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
       <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-7xl items-center px-4 py-20 sm:px-6 lg:min-h-screen">
         <div className="grid w-full items-center gap-12 lg:grid-cols-2">
           {/* LEFT SIDE */}
-          <div className="max-w-3xl">
-            {/* Accent line */}
-            <div className="mb-6 h-1 w-12 rounded-full bg-gold" />
+           <div className="max-w-3xl">
+  {/* Accent line */}
+  <div className="mb-6 h-1 w-12 rounded-full bg-gold" />
 
-            {/* Small Heading */}
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[3px] text-gold">
-              Reliable • Comfortable • Affordable
-            </p>
+  {/* Trust Rating */}
+  <p className="mb-4 text-sm font-semibold uppercase tracking-[3px] text-gold">
+    ⭐ 4.9/5 Rating • Trusted by 1,250+ Users
+  </p>
 
             {/* Main Heading */}
             <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl">
-              {page.title || "Taxi Service in Ayodhya"}
-            </h1>
+  {page.title.replace(` ${page.city}`, "")}{" "}
+  <span className="text-gold">{page.city}</span>
+        
+</h1>
 
             {/* Description */}
             <p className="mt-6 max-w-2xl text-base leading-7 text-slate-500 sm:text-lg sm:leading-8">
@@ -84,7 +87,7 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
             {/* Buttons */}
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
-                href="/"
+                href="#vehicle-fleet"
                 className="rounded-full bg-gold px-7 py-3.5 text-center text-sm font-bold text-white shadow-lg shadow-gold/25 transition-all hover:shadow-xl hover:shadow-gold/30 hover:brightness-110 sm:px-8 sm:py-4"
               >
                 Book a Taxi
@@ -133,6 +136,8 @@ function ServicePage({ page, icon }: { page: SeoPageData; icon: string }) {
       <SafetyFeatures />
       <Testimonials />
       <WhyChooseUs />
+
+      <TaxiFAQ cityName={city} />
       {/* <TaxiFaq city={city} /> */}
     </section>
   );

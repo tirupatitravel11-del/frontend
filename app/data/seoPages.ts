@@ -409,10 +409,19 @@ export const seoPages: Record<string, SeoPageData> = Object.fromEntries(
           service,
           ...details,
           title: `${details.title} in ${cityName}`,
-          description:
-            service === "taxi" && city === "ayodhya"
-              ? "Book reliable taxi service in Ayodhya for local, outstation and airport travel. Choose comfortable cabs with affordable fares and easy booking."
-              : `${details.description} ${cityName} bookings available for local and outstation travel.`,
+
+description:
+  service === "taxi"
+    ? `Book a reliable taxi in ${cityName} for local travel, sightseeing, airport transfers, one-way trips, and outstation journeys. Choose comfortable vehicles with convenient pickup and drop-off options.`
+    : service === "sedan"
+      ? `Book a comfortable sedan taxi in ${cityName} for family trips, airport transfers, sightseeing, and outstation journeys. Choose from suitable sedan options for your travel needs.`
+      : service === "suv"
+        ? `Book a spacious SUV taxi in ${cityName} for family travel, group journeys, airport transfers, sightseeing, and outstation trips.`
+        : service === "tempo"
+          ? `Hire a Tempo Traveller in ${cityName} for family trips, pilgrimages, sightseeing, weddings, and group tours with comfortable seating and convenient travel options.`
+          : service === "airport"
+            ? `Book an airport taxi in ${cityName} for convenient airport pickup and drop-off, hotel transfers, and scheduled travel with comfortable vehicles.`
+            : `${details.description} Book in ${cityName} for convenient local and outstation travel.`,
         },
       ];
     }),

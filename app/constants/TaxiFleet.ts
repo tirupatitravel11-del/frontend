@@ -8,6 +8,8 @@ export const taxiFleet = [
     features: ["Push-back Seats", "Powerful AC", "Group Travel"],
     buttonText: "Book Tempo Traveller",
     slug: "tempo-traveller-taxi",
+    price: "from ₹22/km",
+    offer: "10% Off",
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ export const taxiFleet = [
     features: ["Premium Comfort", "Recliner Seats", "Luxury Travel"],
     buttonText: "Book Urbania",
     slug: "urbania-rental-taxi",
+    price: "from ₹30/km",
+    offer: "10% Off",
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ export const taxiFleet = [
     features: ["Premium Comfort", "Spacious Interior", "Outstation Ready"],
     buttonText: "Book Innova Crysta",
     slug: "innova-crysta-taxi",
+    price: "from ₹18/km",
+    offer: "10% Off",
   },
   {
     id: 4,
@@ -38,6 +44,8 @@ export const taxiFleet = [
     features: ["Family Travel", "Extra Luggage", "All India Permit"],
     buttonText: "Book Ertiga",
     slug: "ertiga-taxi",
+    price: "from ₹14/km",
+    offer: "10% Off",
   },
   {
     id: 5,
@@ -48,6 +56,8 @@ export const taxiFleet = [
     features: ["Comfortable", "Budget Friendly", "Experienced Driver"],
     buttonText: "Book Dzire",
     slug: "dzire-taxi",
+    price: "from ₹11/km",
+    offer: "10% Off",
   },
   {
     id: 6,
@@ -58,6 +68,8 @@ export const taxiFleet = [
     features: ["Reliable", "Spacious Boot", "Smooth Highway Ride"],
     buttonText: "Book Etios",
     slug: "etios-taxi",
+    price: "from ₹12/km",
+    offer: "10% Off",
   },
   {
     id: 7,
@@ -68,5 +80,7 @@ export const taxiFleet = [
     features: ["Smooth Ride", "Budget Friendly", "AC Comfort"],
     buttonText: "Book Amaze",
     slug: "amaze-taxi",
+    price: "from ₹12/km",
+    offer: "10% Off",
   },
 ];

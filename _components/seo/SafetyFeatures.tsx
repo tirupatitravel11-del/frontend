@@ -17,23 +17,27 @@ interface SafetyFeaturesProps {
 const defaultFeatures: SafetyFeature[] = [
   {
     icon: Navigation,
-    title: "GPS Tracking",
-    description: "Real-time live tracking of your ride from pickup to drop-off, with route sharing for your loved ones.",
+    title: "Reliable Travel",
+    description:
+      "Enjoy a smooth and convenient journey with suitable vehicles for local travel, airport transfers, sightseeing, and outstation trips.",
   },
   {
     icon: ShieldAlert,
-    title: "Emergency SOS",
-    description: "Instant emergency SOS feature to alert local authorities and our 24/7 support team in case of urgent needs.",
+    title: "Travel Support",
+    description:
+      "Get assistance with your booking and travel requirements from our team throughout the booking process.",
   },
   {
     icon: UserCheck,
-    title: "Verified Drivers",
-    description: "Every driver is thoroughly background-checked, police-verified, and professionally trained for your safety.",
+    title: "Experienced Drivers",
+    description:
+      "Travel with experienced drivers who are familiar with local routes, popular destinations, airport transfers, and outstation journeys.",
   },
   {
     icon: Sparkles,
-    title: "Sanitized Vehicles",
-    description: "Rigorous cleaning and sanitization protocols followed before every trip to ensure a hygienic journey.",
+    title: "Comfortable Vehicles",
+    description:
+      "Choose from comfortable and well-maintained vehicle options suitable for individuals, families, and group travel.",
   },
 ];
 

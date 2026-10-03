@@ -73,25 +73,80 @@ export default function Navbar() {
             </Link>
           ))}
         </nav>
+        
 
         {/* Mobile Actions - Made bigger with better spacing */}
-        <div className="flex items-center gap-3">
-          <a
-            href="tel:+918726124680"
-            className="flex h-12 w-12 items-center justify-center rounded-full bg-gold text-white shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl lg:hidden"
-            aria-label="Call us"
-          >
-            <Phone size={24} />
-          </a>
+       {/* Actions */}
+<div className="flex items-center gap-2 sm:gap-3">
+  {/* Desktop Call Us */}
+  <a
+    href="tel:+918726124680"
+    aria-label="Call Tirupati Travels at 8726124680"
+    className="
+      hidden
+      items-center
+      gap-2
+      rounded-lg
+      bg-gold
+      px-4
+      py-2.5
+      text-sm
+      font-semibold
+      text-white
+      shadow-sm
+      transition-all
+      duration-200
+      hover:opacity-90
+      sm:flex
+      lg:px-5
+    "
+  >
+    <Phone size={18} />
+    <span>
+   <span className="font-bold">8726124680</span>
+    </span>
+  </a>
 
-          <button
-            className="rounded-lg p-3 text-stone-700 transition-colors hover:bg-stone-100 lg:hidden"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
-            {open ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
+  {/* Mobile Call Button */}
+  <a
+    href="tel:+918726124680"
+    aria-label="Call Tirupati Travels"
+    className="
+      flex
+      h-11
+      w-11
+      items-center
+      justify-center
+      rounded-full
+      bg-gold
+      text-white
+      shadow-md
+      transition-all
+      hover:scale-105
+      sm:hidden
+    "
+  >
+    <Phone size={21} />
+  </a>
+
+  {/* Menu Button */}
+  <button
+    type="button"
+    onClick={() => setOpen(!open)}
+    aria-label={open ? "Close menu" : "Open menu"}
+    aria-expanded={open}
+    className="
+      rounded-lg
+      p-2.5
+      text-stone-700
+      transition-colors
+      hover:bg-stone-100
+      lg:hidden
+    "
+  >
+    {open ? <X size={26} /> : <Menu size={26} />}
+  </button>
+</div>
       </div>
 
       {/* Mobile Menu Dropdown */}

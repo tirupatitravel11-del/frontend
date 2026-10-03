@@ -106,7 +106,7 @@ export async function generateMetadata({
   ) {
     seoDescription = `Book verified local sightseeing cab in ${city} for temple tours, heritage walks, city shopping & full-day sightseeing. Expert local drivers & clean AC cabs.`;
   } else if (page.service === "taxi" || page.slug.includes("taxi")) {
-    seoDescription = `Book verified taxi service in ${city} for local sightseeing, outstation journeys & airport transfers. City-expert drivers, clean AC cars.`;
+    seoDescription = `Book verified taxi service in ${city} for local sightseeing, outstation journeys & airport transfers. City-expert drivers, clean AC cars. Call 8726124680 for instant booking.`;
   }
 
   return createSeoMetadata({

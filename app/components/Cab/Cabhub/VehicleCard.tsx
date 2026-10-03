@@ -14,6 +14,8 @@ interface VehicleCardProps {
   name: string;
   image: string;
   seating: string;
+  price: string;
+  offer: string;
   features: string[];
   buttonText: string;
   slug: string;
@@ -27,10 +29,12 @@ export default function VehicleCard({
   image,
   seating,
   features,
+  price,
+  offer,
   buttonText,
   slug,
   linkPrefix = "/cabs/", // Default for backward compatibility
-  phone = "918726124680",
+  phone = "+918726124680",
 }: VehicleCardProps) {
   return (
     <div className="group overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
@@ -61,6 +65,22 @@ export default function VehicleCard({
       {/* Content */}
       <div className="p-7">
         <h3 className="text-2xl font-bold text-stone-900">{name}</h3>
+
+        <div className="mt-4 flex items-center justify-between gap-3">
+  <div>
+    <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
+      Starting From
+    </p>
+
+    <p className="mt-1 text-xl font-bold text-gold">
+      {price}
+    </p>
+  </div>
+
+  <span className="rounded-full bg-green-50 px-3 py-1.5 text-xs font-bold text-green-700">
+    {offer}
+  </span>
+</div>
 
         {/* Vehicle Details */}
         <div className="mt-6 grid grid-cols-2 gap-5">

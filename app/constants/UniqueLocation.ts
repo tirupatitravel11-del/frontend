@@ -22,10 +22,10 @@ export const uniqueLocations: UniqueLocation[] = [
   {
     slug: "varanasi",
     city: "Varanasi",
-    startingFare: 9,
+    startingFare: 11,
 
     title:
-      "Taxi Service in Varanasi – Fixed Fares, Reliable Cabs from ₹9/km & 24/7 Booking",
+      "Taxi Service in Varanasi @ ₹11/KM | Get 500 OFF Extra",
 
     description:
       "Tirupati Travel offers a reliable and transparent taxi service in Varanasi for local travel, airport transfers, sightseeing, outstation journeys, and intercity trips. Our fleet includes hatchbacks, sedans, SUVs, Innova cars, and larger vehicles, making it easy to choose a cab suited to your travel requirements. Whether you are visiting the ghats of Varanasi, travelling to nearby pilgrimage destinations, or planning a journey across Uttar Pradesh, you can choose from comfortable vehicles and flexible booking options. With clear pricing, verified drivers, well-maintained cabs, and dependable support, we make every journey from Varanasi simple and convenient.",

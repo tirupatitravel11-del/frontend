@@ -7,83 +7,90 @@ type Feature = {
 const FEATURES: Feature[] = [
   {
     icon: "💰",
-    title: "Fixed, Transparent Fares",
+    title: "Clear & Transparent Fares",
     description:
-      "The fare you see at booking is the fare you pay. No surge pricing, no meter surprises, no hidden charges.",
-  },
-  {
-    icon: "⏰",
-    title: "On-Time Pickup",
-    description:
-      "Our drivers reach your doorstep before the scheduled time — crucial for flights, trains and office travel.",
-  },
-  {
-    icon: "🛡️",
-    title: "Verified Drivers",
-    description:
-      "Every driver is background-verified and knows the Noida–Delhi routes, flyovers and traffic shortcuts well.",
-  },
-  {
-    icon: "✨",
-    title: "Clean & Sanitized Cabs",
-    description:
-      "Well-maintained, air-conditioned cars cleaned before every trip for a comfortable and hygienic ride.",
-  },
-  {
-    icon: "🕐",
-    title: "24×7 Availability",
-    description:
-      "Early morning airport drop or late night return from Delhi — we're available round the clock, all days.",
+      "Get clear fare details based on your vehicle, route, trip type, and travel requirements before confirming your booking.",
   },
   {
     icon: "📍",
-    title: "Doorstep Pickup",
+    title: "Convenient Pickup & Drop",
     description:
-      "Pickup from any Noida or Greater Noida sector — your home, office, hotel or the nearest metro station.",
+      "Choose convenient pickup and drop-off locations for local travel, airport transfers, railway stations, sightseeing, and outstation journeys.",
+  },
+  {
+    icon: "🧑‍✈️",
+    title: "Experienced Drivers",
+    description:
+      "Travel with experienced drivers who can assist you with local routes, sightseeing locations, airport transfers, and long-distance journeys.",
+  },
+  {
+    icon: "🚗",
+    title: "Comfortable Vehicles",
+    description:
+      "Choose from a range of comfortable vehicles suitable for solo travellers, families, groups, sightseeing, pilgrimages, and outstation trips.",
+  },
+  {
+    icon: "⏰",
+    title: "Flexible Travel Options",
+    description:
+      "Book a vehicle according to your travel requirements, whether you need a local taxi, airport transfer, one-way trip, round trip, or outstation cab.",
+  },
+  {
+    icon: "🛣️",
+    title: "Local & Outstation Travel",
+    description:
+      "Plan convenient journeys within the city or travel to nearby and distant destinations with suitable vehicle options for your trip.",
   },
 ];
 
 interface WhyChooseUsProps {
-  title?: string;
-  subtitle?: string;
+  cityName?: string;
 }
 
 export default function WhyChooseUs({
-  title,
-  subtitle = "Thousands of riders trust us for daily travel, airport drops and outstation trips between Noida and Delhi.",
+  cityName = "your destination",
 }: WhyChooseUsProps) {
   return (
-    <section className="bg-white py-14">
-      <div className="mx-auto max-w-7xl px-6">
-        {/* ===== Header ===== */}
-        <div className="mb-10 max-w-3xl">
+    <section className="bg-white py-14 sm:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
+        <div className="mx-auto mb-10 max-w-3xl text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
             Why Choose Us
           </p>
 
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            Why Book With Us?
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Why Book a Taxi with Tirupati Travels?
           </h2>
 
-          <p className="mt-4 text-base leading-7 text-slate-600">{subtitle}</p>
+          <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
+            Book comfortable and convenient taxi services in{" "}
+            <span className="font-semibold text-slate-900">
+              {cityName}
+            </span>{" "}
+            for local travel, airport transfers, sightseeing, family trips,
+            pilgrimages, and outstation journeys.
+          </p>
         </div>
 
-        {/* ===== Feature Cards ===== */}
+        {/* Features */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((feature) => (
             <article
               key={feature.title}
-              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-xl"
+              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-lg"
             >
-              {/* ===== Icon ===== */}
+              {/* Icon */}
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-2xl transition-transform duration-300 group-hover:scale-110">
                 {feature.icon}
               </div>
 
+              {/* Title */}
               <h3 className="mt-5 text-lg font-bold tracking-tight text-slate-900">
                 {feature.title}
               </h3>
 
+              {/* Description */}
               <p className="mt-3 text-[15px] leading-7 text-slate-600">
                 {feature.description}
               </p>
