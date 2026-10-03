@@ -40,7 +40,7 @@ const reasons = [
 
 export default function WhyOurExperiences() {
   return (
-    <section className="relative overflow-hidden bg-stone-50 py-20 md:py-28">
+    <section className="relative overflow-hidden bg-slate-50 py-12 md:py-12 border-b border-slate-200">
       {/* Subtle background pattern */}
       <div className="pointer-events-none absolute inset-0 opacity-40">
         <div

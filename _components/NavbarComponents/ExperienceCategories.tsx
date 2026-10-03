@@ -13,7 +13,7 @@ const categories = [
 
 export default function ExperienceCategories() {
   return (
-    <section className="bg-stone-50 py-20 md:py-28">
+    <section className="bg-slate-50 py-12 md:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-14 text-center">
           <span className="rounded-full bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">

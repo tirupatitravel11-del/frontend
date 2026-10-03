@@ -7,7 +7,7 @@ import HotelsCard from "./HotelsCard";
 
 export default function Hotels() {
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-slate-50 py-12 md:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mb-10 flex items-end justify-between gap-6">

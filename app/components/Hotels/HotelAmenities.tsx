@@ -54,10 +54,10 @@ const amenities = [
 
 export default function HotelAmenities() {
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-slate-50 py-12 md:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Heading */}
-        <div className="max-w-3xl">
+        <div className="max-w-7xl">
           <p className="font-semibold text-gold">Hotel Amenities</p>
 
           <h2 className="mt-3 text-3xl font-bold leading-tight text-stone-900 sm:text-4xl lg:text-5xl">

@@ -27,7 +27,7 @@ export default function CabsPage() {
 
         {/* Dark Gradient Overlay - Ensures text readability */}
         {/* w-[55%] ensures it covers the text area but fades out before the form */}
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/60 to-transparent z-[1] pointer-events-none lg:w-[55%]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/80 to-transparent z-[1] pointer-events-none lg:w-[55%]" />
 
         {/* Content Container - Centered */}
         <div className="relative z-10 mx-auto max-w-7xl px-6">
@@ -38,14 +38,14 @@ export default function CabsPage() {
                 500+ Routes · Verified Drivers
               </p>
 
-              <h1 className="mt-4 max-w-xl text-5xl font-bold leading-tight text-white drop-shadow-2xl md:text-6xl">
-                Cabs You Can <span className="text-gold">Trust.</span>
-              </h1>
+              <h1 className="mt-4 max-w-2xl text-4xl font-bold leading-tight text-white drop-shadow-2xl sm:text-5xl md:text-6xl">
+  Book Reliable <span className="text-gold">Cabs Across India</span>
+</h1>
 
-              <p className="mt-6 max-w-xl text-lg leading-8 text-white/90 drop-shadow-lg">
-                One-way or round-trip — choose your route, pick your vehicle,
-                and go. Transparent fares, no hidden charges.
-              </p>
+<p className="mt-6 max-w-2xl text-base leading-7 text-white/90 drop-shadow-lg sm:text-lg sm:leading-8">
+  Choose comfortable cabs for local, outstation, airport, and sightseeing
+  journeys. Sedan, SUV, Tempo Traveller, and Urbania options are available.
+</p>
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <button

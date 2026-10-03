@@ -45,7 +45,7 @@ export default function HotelOffers() {
   });
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-slate-50 py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mb-6 flex items-end justify-between gap-6">
@@ -60,10 +60,11 @@ export default function HotelOffers() {
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* Desktop Navigation */}
           <div className="hidden gap-3 md:flex">
             <button
               type="button"
+              aria-label="Previous hotel offer"
               onClick={() => emblaApi?.scrollPrev()}
               className="flex h-12 w-12 items-center justify-center rounded-full border border-gold text-gold transition hover:bg-gold hover:text-white"
             >
@@ -72,6 +73,7 @@ export default function HotelOffers() {
 
             <button
               type="button"
+              aria-label="Next hotel offer"
               onClick={() => emblaApi?.scrollNext()}
               className="flex h-12 w-12 items-center justify-center rounded-full border border-gold text-gold transition hover:bg-gold hover:text-white"
             >
@@ -88,7 +90,6 @@ export default function HotelOffers() {
                 key={offer.id}
                 className="min-w-0 flex-[0_0_100%] pl-4 md:flex-[0_0_50%] xl:flex-[0_0_33.333%]"
               >
-                {/* Card */}
                 <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   {/* Image */}
                   <div className="relative h-52 w-full overflow-hidden bg-stone-100">
@@ -106,25 +107,27 @@ export default function HotelOffers() {
 
                   {/* Content */}
                   <div className="flex flex-1 flex-col p-6">
-                    {/* Title */}
                     <h3 className="min-h-[50px] text-xl font-bold leading-7 text-stone-900">
                       {offer.title}
                     </h3>
 
-                    {/* Description */}
                     <p className="mt-3 min-h-[40px] text-sm leading-6 text-stone-600">
                       {offer.description}
                     </p>
 
                     {/* CTA */}
                     <div className="mt-auto border-t border-stone-100 pt-5">
-                      <button
-                        type="button"
-                        className="flex items-center gap-2 font-bold text-gold transition-all hover:gap-3"
+                      <a
+                        href="tel:+918726124680"
+                        aria-label="Call Tirupati Travels at 8726124680"
+                        className="inline-flex items-center gap-2 font-bold text-gold transition-all hover:gap-3"
                       >
-                        {offer.button}
+                        <span>{offer.button}</span>
+                        {/* <span className="font-semibold text-stone-700">
+                          8726124680
+                        </span> */}
                         <ArrowRight size={18} />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -137,16 +140,18 @@ export default function HotelOffers() {
         <div className="mt-7 flex justify-center gap-3 md:hidden">
           <button
             type="button"
+            aria-label="Previous hotel offer"
             onClick={() => emblaApi?.scrollPrev()}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-gold text-gold"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-gold text-gold transition hover:bg-gold hover:text-white"
           >
             <ChevronLeft size={20} />
           </button>
 
           <button
             type="button"
+            aria-label="Next hotel offer"
             onClick={() => emblaApi?.scrollNext()}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-gold text-gold"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-gold text-gold transition hover:bg-gold hover:text-white"
           >
             <ChevronRight size={20} />
           </button>

@@ -48,7 +48,7 @@ const trustFeatures = [
 
 export default function WhyBookWithUsHotels() {
   return (
-    <section className="border-t border-stone-100 bg-stone-50 py-16 md:py-20">
+    <section className="border-t border-stone-100 bg-slate-50 py-12 md:py-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Heading */}
         <div className="max-w-3xl">

@@ -128,7 +128,7 @@ const popularDestinations = [
 ];
 export default function PopularDestinations() {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-slate-50 py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div>
@@ -152,7 +152,7 @@ export default function PopularDestinations() {
             <Link
               key={destination.id}
               href={`/hotel/${destination.slug}`}
-              className="group flex items-start gap-4 rounded-lg p-3 transition-all duration-300 hover:bg-stone-50"
+              className="group flex items-start gap-4 rounded-lg p-3 transition-all duration-300 hover:bg-stone-50 bg-white/90"
             >
               {/* Circular icon for city */}
               <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-stone-200 bg-stone-50 shadow-sm transition-all duration-300 group-hover:border-gold/40 group-hover:bg-gold/5 group-hover:shadow-md">

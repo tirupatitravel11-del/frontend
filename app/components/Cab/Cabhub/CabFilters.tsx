@@ -106,7 +106,7 @@ export default function CabFilters({
   const vehicleTypes = ["Sedan", "SUV", "Tempo Traveller"];
 
   return (
-    <section className="w-full rounded-3xl border border-stone-200 bg-white p-4 shadow-lg sm:p-5">
+    <section className="w-full rounded-3xl border border-stone-200 bg-stone-100 p-4 shadow-lg sm:p-5">
       {/* Trip Type Toggle */}
       <div className="mb-4 flex items-center gap-2">
         <button

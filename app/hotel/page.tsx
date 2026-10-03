@@ -19,37 +19,37 @@ export default function HotelsPage() {
   return (
     <main>
       {/* Hero + Hotel Filter */}
-      <section className="bg-white">
+      <section className="bg-slate-50 relative overflow-hidden border-b border-slate-200">
         {/* Hero */}
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-16">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-12">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_1.1fr] lg:gap-16">
             {/* LEFT SIDE — TEXT */}
             <div className="max-w-xl">
               <p className="font-semibold uppercase tracking-[3px] text-gold">
                 500+ Hotels · Verified Stays
               </p>
 
-              <h1 className="mt-5 text-5xl font-bold leading-[1.05] tracking-tight text-stone-900 md:text-6xl">
-                Hotels You Can
-                <br />
-                Trust.
-              </h1>
+              <h1 className="mt-5 max-w-2xl text-3xl font-bold leading-[1.05] tracking-tight text-stone-900 sm:text-3xl md:text-3xl">
+  Book Comfortable
+  <br />
+  <span className="text-gold">Hotels Across India</span>
+</h1>
 
-              <p className="mt-6 max-w-lg text-lg leading-8 text-stone-600">
-                Find comfortable hotels at the best prices. Choose your
-                destination, select your stay, and enjoy a hassle-free booking
-                experience with no hidden charges.
-              </p>
+<p className="mt-6 max-w-xl text-base leading-7 text-stone-600 sm:text-lg sm:leading-8">
+  Discover comfortable stays in popular destinations across India. Choose a
+  hotel that suits your trip and get convenient booking assistance from
+  Tirupati Travels.
+</p>
 
               <div className="mt-8 flex flex-wrap gap-4">
          
 
-                <button
-                  type="button"
-                  className="rounded-full border-2 border-gold px-8 py-4 font-bold text-gold transition hover:bg-gold hover:text-white"
-                >
-                  Call to Book
-                </button>
+               <a
+  href="tel:+918726124680"
+  className="inline-flex items-center gap-2 rounded-full border-2 border-gold px-8 py-4 font-bold text-gold transition hover:bg-gold hover:text-white"
+>
+  <span>Call to Book</span>
+</a>
               </div>
             </div>
 

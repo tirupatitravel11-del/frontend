@@ -73,7 +73,7 @@ export default function PopularPackages() {
   return (
     <section
       id="packages-section"
-      className="relative overflow-hidden bg-linear-to-b from-stone-50 to-white py-24"
+      className="relative overflow-hidden bg-stone-50 py-12 border-b border-slate-200"
     >
       {/* Subtle background pattern */}
       <div className="pointer-events-none absolute inset-0 opacity-40">
@@ -113,12 +113,12 @@ export default function PopularPackages() {
           </p>
 
           {/* Page indicator - pill style */}
-          <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-stone-100 px-5 py-2 text-sm font-medium text-stone-700 shadow-sm">
+          {/* <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-stone-100 px-5 py-2 text-sm font-medium text-stone-700 shadow-sm">
             <span className="h-2 w-2 rounded-full bg-gold" />
             Showing {startIndex + 1} -{" "}
             {Math.min(endIndex, popularPackages.length)} of{" "}
             {popularPackages.length} packages
-          </div>
+          </div> */}
         </div>
 
         {/* Cards Grid - 3 columns */}

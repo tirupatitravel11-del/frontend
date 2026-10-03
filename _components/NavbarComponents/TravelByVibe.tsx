@@ -61,7 +61,7 @@ const categories = [
 
 export default function TravelCategories() {
   return (
-    <section className="bg-stone-50 py-20 md:py-28">
+    <section className="bg-stone-50 py-12 md:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mb-14 text-center">

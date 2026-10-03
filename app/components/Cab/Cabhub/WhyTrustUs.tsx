@@ -1,68 +1,69 @@
 import {
   BadgeCheck,
-  Ban,
+  MapPinned,
   Car,
-  DoorOpen,
-  PhoneCall,
-  UserRound,
+  Route,
+  Headphones,
+  CalendarCheck,
 } from "lucide-react";
 
 const trustFeatures = [
   {
     icon: BadgeCheck,
-    title: "Pay Only One Way",
+    title: "Comfortable Travel",
     description:
-      "You pay only for the journey you take. No charges for the driver's empty return trip, helping you save significantly on your one-way fare.",
+      "Choose comfortable vehicles for sightseeing, local travel, airport transfers, and complete destination tours.",
   },
   {
-    icon: DoorOpen,
-    title: "Door-to-Door Service",
+    icon: MapPinned,
+    title: "Explore More Places",
     description:
-      "We pick you up from your doorstep and drop you safely at your destination for a smooth and convenient journey.",
-  },
-  {
-    icon: UserRound,
-    title: "Expert Outstation Drivers",
-    description:
-      "Our experienced drivers are trained for highway and outstation travel, ensuring a safe, comfortable, and timely journey.",
+      "Visit popular attractions, hidden gems, temples, beaches, hill stations, and other must-see places at your destination.",
   },
   {
     icon: Car,
-    title: "Clean & Comfortable Vehicles",
+    title: "Choose Your Vehicle",
     description:
-      "Choose from well-maintained vehicles that are regularly serviced and prepared for a comfortable long-distance journey.",
+      "Select a vehicle that suits your trip, from comfortable sedans and SUVs to spacious Tempo Travellers and Urbania.",
   },
   {
-    icon: Ban,
-    title: "No Hidden Charges",
+    icon: Route,
+    title: "Flexible Travel Plans",
     description:
-      "The price you see is transparent. We avoid unexpected booking charges and clearly communicate applicable tolls and fees.",
+      "Plan your journey your way with flexible sightseeing, one-way, round-trip, and multi-destination travel options.",
   },
   {
-    icon: PhoneCall,
-    title: "24/7 Customer Support",
+    icon: CalendarCheck,
+    title: "Easy Trip Planning",
     description:
-      "Our support team is available to assist you before, during, and after your journey whenever you need help.",
+      "Plan your destination trip with convenient pickup and drop-off options based on your travel schedule.",
+  },
+  {
+    icon: Headphones,
+    title: "Booking Assistance",
+    description:
+      "Get help with vehicle selection, travel plans, route details, and booking requirements from our travel team.",
   },
 ];
 
 export default function WhyBookWithUs() {
   return (
-    <section className="bg-stone-50 px-4 py-16 sm:px-6 lg:py-24">
+    <section className="bg-stone-50 px-4 py-12 sm:px-6 lg:py-12">
       <div className="mx-auto max-w-7xl">
+
         {/* Heading */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <p className="font-semibold uppercase tracking-[4px] text-gold">
-            Travel With Confidence
+            Travel Made Simple
           </p>
 
           <h2 className="mt-3 text-3xl font-bold leading-tight text-stone-900 sm:text-4xl lg:text-5xl">
-            Why Book Your One-Way Cab With Us?
+            Make the Most of Your Journey
           </h2>
 
           <p className="mt-5 text-base leading-7 text-stone-600 sm:text-lg">
-            From transparent pricing to experienced drivers, we make your
-            outstation journey safe, comfortable, and completely hassle-free.
+            From comfortable vehicles to flexible travel plans, enjoy a
+            convenient way to explore your destination with Tirupati Travels.
           </p>
         </div>
 

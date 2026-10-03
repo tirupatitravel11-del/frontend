@@ -87,7 +87,7 @@ const moreHotels = [
 
 export default function MoreHotels() {
   return (
-    <section className="bg-stone-50 py-16 md:py-20">
+    <section className="bg-stone-50 py-12 md:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">

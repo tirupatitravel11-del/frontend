@@ -73,7 +73,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="bg-slate-50 border-b border-slate-300 py-16 sm:py-20 lg:py-24">
+    <section className="bg-slate-50 border-b border-slate-300 py-12 sm:py-12 lg:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
         {/* Heading */}
         <div className="mb-10 gap-6 md:mb-14 md:flex-row md:items-center md:justify-between text-center md:text-left">

@@ -148,38 +148,41 @@ export default function DestinationsPage() {
   });
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen">
       {/* Premium Hero Section */}
-    <section className="relative border-b border-gray-100 bg-white py-20 md:py-28 overflow-hidden">
-  {/* Subtle Background Gradient */}
-  <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-white" />
+   <section className="relative overflow-hidden border-b border-slate-100 bg-gradient-to-b from-amber-400/80 via-white/90 to-amber-400/80 py-12 md:py-12">
+  {/* Soft Background Glow */}
+  <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
 
-  {/* Decorative Soft Glows */}
-  <div className="absolute top-0 right-0 -mr-20 -mt-20 h-64 w-64 rounded-full bg-gold/5 blur-3xl" />
-  <div className="absolute bottom-0 left-0 -ml-20 -mb-20 h-64 w-64 rounded-full bg-gray-100 blur-3xl" />
+  <div className="pointer-events-none absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-amber-100/40 blur-3xl" />
 
-  {/* Elegant Top Gold Glow Line */}
-  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-60" />
+  {/* Subtle Center Glow */}
+  <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/5 blur-3xl" />
+
+  {/* Elegant Top Line */}
+  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
   <div className="relative mx-auto max-w-4xl px-4 text-center md:px-6">
-    {/* Modern Premium Badge */}
-    <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold mb-8 backdrop-blur-sm">
-      <Compass className="h-3.5 w-3.5" />
-      Curated Journeys
+
+    {/* Premium Badge */}
+    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[2px] text-gold shadow-sm backdrop-blur-sm">
+      <Compass className="h-4 w-4" />
+      Discover & Explore
     </div>
 
     {/* Refined Typography */}
     <h1 className="text-4xl font-bold tracking-tight text-gray-900 md:text-6xl md:leading-tight">
-      Explore Curated {" "}
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-gold">
-        Destinations
-      </span>
-    </h1>
+  Explore
+  <span className="bg-gradient-to-r from-amber-500 to-gold bg-clip-text text-transparent">
+    {" "}Amazing Destinations
+  </span>
+</h1>
 
-    <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-      From misty hill stations to vibrant cities, discover our handpicked holiday 
-      packages and top destinations designed for families, couples, groups, and solo travelers.
-    </p>
+    <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-800">
+  Discover beautiful destinations, spiritual places, and memorable getaways
+  with thoughtfully planned travel experiences for families, couples, groups,
+  and solo travelers.
+</p>
   </div>
 </section>
 
@@ -189,6 +192,42 @@ export default function DestinationsPage() {
        <TravelByVibe/>
        <PopularDestinations/>
        <WhyBookWithUs/>
+
+       {/* 5. Final CTA */}
+      <section className="bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white/10">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-[3px] text-gold">
+            Start Your Journey
+          </p>
+
+          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+            Ready to Explore Your Next Destination?
+          </h2>
+
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+            Choose your destination, select a travel package, and plan a
+            comfortable journey with Tirupati Travels.
+          </p>
+
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+           <a
+  href="https://wa.me/918726124680?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20plan%20a%20trip."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="rounded-full bg-gold px-7 py-3 text-sm font-bold text-white transition hover:bg-gold/90"
+>
+  Plan Your Trip
+</a>
+
+<a
+  href="tel:+918726124680"
+  className="rounded-full border border-white/20 px-7 py-3 text-sm font-bold text-white transition hover:bg-white/10"
+>
+  Call Us
+</a>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

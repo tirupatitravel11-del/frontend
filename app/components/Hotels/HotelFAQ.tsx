@@ -67,7 +67,7 @@ export default function HotelFAQ() {
   };
 
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-slate-50 py-12 md:py-12 border-b border-slate-200">
       {/* FAQ Schema Markup */}
       <script
         type="application/ld+json"
@@ -76,9 +76,9 @@ export default function HotelFAQ() {
         }}
       />
 
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
-        <div className="text-center">
+        <div className="">
           <p className="font-semibold uppercase tracking-[4px] text-gold">
             Frequently Asked Questions
           </p>
@@ -87,7 +87,7 @@ export default function HotelFAQ() {
             Hotel Booking FAQs
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-stone-600">
+          <p className=" mt-5 max-w-7xl text-lg leading-8 text-stone-600">
             Find answers to common questions about hotel bookings, rooms,
             amenities, prices, cancellations, and your stay.
           </p>

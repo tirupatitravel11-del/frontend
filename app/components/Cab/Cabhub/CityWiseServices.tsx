@@ -329,7 +329,7 @@ const cities = [
 
 export default function CityWiseServices() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-stone-50 py-12 border-b border-stone-200">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
