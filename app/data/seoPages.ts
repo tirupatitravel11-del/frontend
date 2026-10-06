@@ -420,7 +420,9 @@ description:
         : service === "tempo"
           ? `Hire a Tempo Traveller in ${cityName} for family trips, pilgrimages, sightseeing, weddings, and group tours with comfortable seating and convenient travel options.`
           : service === "airport"
-            ? `Book an airport taxi in ${cityName} for convenient airport pickup and drop-off, hotel transfers, and scheduled travel with comfortable vehicles.`
+            ? ` Book a reliable airport taxi in {cityName} for convenient airport
+  pickup and drop-off, hotel transfers, and scheduled travel. Choose
+  comfortable vehicles for a smooth and hassle-free airport journey.`
             : `${details.description} Book in ${cityName} for convenient local and outstation travel.`,
         },
       ];

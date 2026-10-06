@@ -33,7 +33,7 @@ const ALTERNATIVES = [
 
 export default function SuvFitGuideTaxi() {
   return (
-    <section className="bg-slate-50 py-10 sm:py-16">
+    <section className="bg-stone-50 py-10 sm:py-12 lg:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* ===== Header ===== */}
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">

@@ -95,7 +95,7 @@ export default function EtiosFaq({
   };
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16" id="faq">
+    <section className="bg-stone-50 py-12 sm:py-16" id="faq">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
@@ -104,7 +104,7 @@ export default function EtiosFaq({
         }}
       />
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* ===== Header ===== */}
         <div className="mb-8 text-center sm:mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
@@ -115,7 +115,7 @@ export default function EtiosFaq({
             {title || `${loc.titleText} Etios Taxi Questions, Answered`}
           </h2>
 
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
+          <p className="mx-auto mt-3 max-w-7xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
             {subtitle ||
               `Everything you need to know about booking a Toyota Etios taxi for ${loc.titleText}, including fares, timing, passenger capacity, and tolls.`}
           </p>
@@ -177,18 +177,7 @@ export default function EtiosFaq({
         </div>
 
         {/* ===== Bottom CTA ===== */}
-        <div className="mt-8 text-center sm:mt-10">
-          <p className="text-sm text-slate-600">
-            Need a Toyota Etios for your {loc.titleText} journey?
-          </p>
-
-          <a
-            href={`tel:${PHONE_NUMBER}`}
-            className="mt-4 inline-flex items-center justify-center rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
-          >
-            Call & Book Etios
-          </a>
-        </div>
+        
       </div>
     </section>
   );

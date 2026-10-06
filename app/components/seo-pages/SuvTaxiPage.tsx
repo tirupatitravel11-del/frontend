@@ -52,7 +52,7 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
   return (
     <main className="flex flex-col gap-0">
       {/* ===== HERO SECTION ===== */}
-      <section className="relative min-h-screen overflow-hidden bg-white">
+      <section className="relative min-h-screen overflow-hidden bg-stone-50 border-b border-slate-200">
         {/* Decorative Background */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gold/5 blur-3xl" />
@@ -70,15 +70,25 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
           }}
         />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-12">
           <div className="grid w-full items-center gap-12 lg:grid-cols-2">
             {/* LEFT SIDE: Content */}
             <div className="max-w-3xl">
-              <span className="mb-4 inline-block rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-gold">
-                Premium & Spacious SUV
-              </span>
+              <div className="mt-2 flex items-center gap-5 text-sm text-gold">
+                <div>
+                  <span className="font-bold text-gold">★ 4.9/5</span>
+                  <span className="ml-2">Rating</span>
+                </div>
 
-              <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
+                <div className="h-5 w-px bg-white/30" />
+
+                <div>
+                  <span className="font-bold text-gold">1,250+</span>{" "}
+                  Customers
+                </div>
+              </div>
+
+              <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-5xl">
                 {page.title || "Premium SUV Taxi Rental"}{" "}
                 <span className="text-gold">at Fixed Fares</span>
               </h1>
@@ -163,7 +173,7 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
       </section>
 
       {/* ===== BELOW HERO SECTIONS ===== */}
-      <div className="relative z-10 border-t border-slate-100 bg-white">
+     
         <SUVStorySection />
         <SuvFitGuideTaxi />
 
@@ -179,7 +189,50 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
         <HowItWorks />
         <Testimonials />
         <SuvFaqTaxi city={city} />
-      </div>
+
+        <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
+  {/* Background Decorations */}
+  <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+  <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+
+  <div className="relative mx-auto max-w-4xl text-center">
+    
+    <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+      Ready for a{" "}
+      <span className="text-gold">Spacious SUV Ride?</span>
+    </h2>
+
+    <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
+      Book a comfortable SUV for family trips, airport transfers, sightseeing,
+      one-way travel, or outstation journeys. Enjoy extra space for passengers
+      and luggage with a vehicle suited to your travel needs.
+    </p>
+
+    <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+      <a
+        href="https://wa.me/918726124680?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20an%20SUV%20taxi."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full rounded-full bg-gold px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-gold/90 sm:w-auto"
+      >
+        Book SUV on WhatsApp
+      </a>
+
+      <a
+        href="tel:+918726124680"
+        className="w-full rounded-full border border-white/20 px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
+      >
+        Call Now
+      </a>
+    </div>
+
+    <p className="mt-6 text-sm text-stone-400">
+      Family Travel • Airport Transfer • Sightseeing • One Way • Round Trip •
+      Outstation
+    </p>
+  </div>
+</section>
+      
     </main>
   );
 }

@@ -48,9 +48,9 @@ const BENEFITS = [
 
 export default function TwentyFourSeaterGroupBenefits() {
   return (
-    <section className="bg-white py-12 sm:py-16 lg:py-20">
+    <section className="bg-stone-50 py-12 sm:py-12 lg:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
             Group Travel
           </p>

@@ -48,10 +48,10 @@ export default function BoatRatesSection({
   accent = "Rates & Charges",
 }: BoatRatesSectionProps) {
   return (
-    <section className="bg-white px-5 py-16 md:py-20">
-      <div className="mx-auto max-w-6xl">
+    <section className="bg-stone-50 px-5 py-12 md:py-12 border-b border-slate-200">
+      <div className="mx-auto max-w-7xl">
         {/* ===== Section Header ===== */}
-        <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
+        <div className="mx-auto mb-10 max-w-7xl text-center md:mb-12">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
             Pricing
           </span>

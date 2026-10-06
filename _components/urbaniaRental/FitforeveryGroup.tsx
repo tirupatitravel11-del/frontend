@@ -49,10 +49,10 @@ const USE_CASES: UseCase[] = [
 ];
 export default function UrbaniaUseCases() {
   return (
-    <section className="bg-slate-50 py-14 sm:py-16 lg:py-20">
+    <section className="bg-stone-50 py-12 sm:py-12 lg:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
+        <div className="mx-auto mb-10 max-w-7xl text-center sm:mb-14">
           <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
             Who Travels With Us
           </p>
@@ -61,7 +61,7 @@ export default function UrbaniaUseCases() {
             Perfect for Every Group Journey
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
+          <p className="mx-auto mt-4 max-w-7xl text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
             From family holidays and weddings to corporate events and
             pilgrimages, Force Urbania offers a comfortable and convenient way
             to travel together.

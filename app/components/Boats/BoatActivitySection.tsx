@@ -128,7 +128,7 @@ export default function BoatActivitySection({
   const infiniteActivities = [...activities, ...activities, ...activities];
 
   return (
-    <section className="bg-white py-14">
+    <section className="bg-stone-50 py-12 border-b border-slate-200">
       {/* ===== Header ===== */}
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-8 flex items-end justify-between gap-6">

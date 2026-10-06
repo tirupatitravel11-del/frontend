@@ -67,7 +67,7 @@ export default function CabFAQ() {
   };
 
   return (
-    <section className="bg-stone-50 py-24 ">
+    <section className="bg-stone-50 py-12">
       {/* FAQ Schema Markup */}
       <script
         type="application/ld+json"
@@ -76,7 +76,7 @@ export default function CabFAQ() {
         }}
       />
 
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="text-center">
           <p className="font-semibold uppercase tracking-[4px] text-gold ">
@@ -87,7 +87,7 @@ export default function CabFAQ() {
             Cab Booking FAQs
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-stone-600">
+          <p className="mx-auto mt-5 max-w-5xl text-lg leading-8 text-stone-600">
             Find answers to common questions about fares, toll charges,
             cancellations, invoices, and cab bookings.
           </p>

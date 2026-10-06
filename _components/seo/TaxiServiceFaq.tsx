@@ -57,7 +57,7 @@ export default function TaxiServiceFAQ({
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First item open by default
 
   return (
-    <section className="bg-white py-20 lg:py-24">
+    <section className="bg-stone-50 py-20 lg:py-24 border-b border-slate-200">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* Header */}
         <div className="mb-14 text-center">
@@ -67,7 +67,7 @@ export default function TaxiServiceFAQ({
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
             {title}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-slate-500 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-7xl text-base text-slate-500 sm:text-lg">
             {subtitle}
           </p>
         </div>

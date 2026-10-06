@@ -77,7 +77,7 @@ export default function BoatFAQ() {
   };
 
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-stone-50 py-12 md:py-12 border-b border-slate-200">
       {/* FAQ Schema Markup */}
       <script
         type="application/ld+json"
@@ -86,7 +86,7 @@ export default function BoatFAQ() {
         }}
       />
 
-      <div className="mx-auto max-w-4xl px-5 sm:px-6">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
         {/* Header */}
         <div className="text-center">
           <p className="font-semibold uppercase tracking-[4px] text-gold">
@@ -97,7 +97,7 @@ export default function BoatFAQ() {
             Boat Ride FAQs
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-600 md:text-lg">
+          <p className="mx-auto mt-5 max-w-7xl text-base leading-7 text-stone-600 md:text-lg">
             Find answers to common questions about boat rides, safety,
             bookings, private boats, timings, cancellations, and more.
           </p>

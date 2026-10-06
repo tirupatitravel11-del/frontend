@@ -45,7 +45,7 @@ const routes = [
 
 export default function AyodhyaRoutesSection() {
     return (
-        <section className="py-12 px-4 bg-gray-50">
+        <section className="py-12 px-4 bg-stone-50 border-b border-slate-200">
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-3xl font-bold text-center text-gray-900 mb-2">
                     Book Cab to Ayodhya from 40+ Cities

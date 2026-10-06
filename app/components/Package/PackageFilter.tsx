@@ -7,20 +7,20 @@ import {
   Compass,
   MapPin,
   Search,
-  ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 
 const ROW =
-  "flex items-center gap-4 px-6 py-4 transition-colors hover:bg-stone-50 focus-within:bg-stone-50";
+  "flex items-center gap-4 px-5 py-4 transition-colors hover:bg-stone-50 focus-within:bg-stone-50";
 
 const ICON_CIRCLE =
-  "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold";
+  "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gold/10 text-gold";
 
 const LABEL =
-  "block text-[11px] font-bold uppercase tracking-[0.14em] text-stone-400";
+  "block text-[10px] font-bold uppercase tracking-[0.16em] text-stone-400";
 
 const INPUT =
-  "mt-0.5 w-full bg-transparent text-lg font-bold text-stone-800 outline-none placeholder:font-medium placeholder:text-stone-300";
+  "mt-1 w-full bg-transparent text-base font-bold text-stone-800 outline-none placeholder:font-medium placeholder:text-stone-300";
 
 export default function PackageFilter() {
   const [fromCity, setFromCity] = useState("New Delhi");
@@ -35,109 +35,135 @@ export default function PackageFilter() {
   };
 
   const handleSearch = () => {
-    console.log({ fromCity, destination, departureDate });
+    console.log({
+      fromCity,
+      destination,
+      departureDate,
+    });
   };
 
   return (
-    <div className="w-full overflow-hidden rounded-2xl bg-white shadow-[0_24px_60px_-24px_rgba(28,25,23,0.25)] ring-1 ring-stone-200/80">
-      {/* ---------- HEADER ---------- */}
-      <div className="flex items-center justify-between gap-3 border-b border-stone-200/80 px-6 py-4">
-        <p className="text-sm font-bold uppercase tracking-wider text-stone-900">
-          Plan Your Trip
-        </p>
-        <p className="flex items-center gap-1.5 text-xs font-semibold text-gold">
-          <ShieldCheck size={14} />
-          No hidden fees
-        </p>
+    <div className="w-full overflow-hidden rounded-3xl bg-white shadow-[0_25px_70px_-25px_rgba(0,0,0,0.45)] ring-1 ring-white/30">
+      {/* HEADER */}
+      <div className="border-b border-stone-200 px-5 py-5 sm:px-6">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[3px] text-gold">
+              Trip Planner
+            </p>
+
+            <h2 className="mt-1 text-2xl font-bold text-stone-900">
+              Plan Your Holiday
+            </h2>
+
+            <p className="mt-1.5 text-sm leading-5 text-stone-500">
+              Tell us where you want to go and when.
+            </p>
+          </div>
+
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold">
+            <Sparkles className="h-5 w-5" />
+          </div>
+        </div>
       </div>
 
-      {/* ---------- FROM / TO (with swap) ---------- */}
+      {/* FROM / DESTINATION */}
       <div className="relative">
         {/* FROM */}
         <div className={ROW}>
           <span className={ICON_CIRCLE}>
-            <MapPin size={18} />
+            <MapPin className="h-5 w-5" />
           </span>
+
           <div className="min-w-0 flex-1 pr-10">
             <label htmlFor="from-city" className={LABEL}>
-              From City
+              Starting From
             </label>
+
             <input
               id="from-city"
               value={fromCity}
               onChange={(e) => setFromCity(e.target.value)}
-              placeholder="Enter city"
+              placeholder="Enter starting city"
               className={INPUT}
             />
           </div>
         </div>
 
-        <div className="mx-6 h-px bg-stone-200/80" />
+        <div className="mx-5 h-px bg-stone-200" />
 
-        {/* TO */}
+        {/* DESTINATION */}
         <div className={ROW}>
           <span className={ICON_CIRCLE}>
-            <Compass size={18} />
+            <Compass className="h-5 w-5" />
           </span>
+
           <div className="min-w-0 flex-1 pr-10">
             <label htmlFor="destination" className={LABEL}>
-              Destination
+              Where Do You Want to Go?
             </label>
+
             <input
               id="destination"
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
-              placeholder="Where to?"
+              placeholder="Enter destination"
               className={INPUT}
             />
           </div>
         </div>
 
-        {/* SWAP BUTTON */}
+        {/* SWAP */}
         <button
           type="button"
           onClick={swap}
-          aria-label="Swap from and destination"
-          className="absolute right-5 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white text-stone-500 shadow-sm ring-1 ring-stone-200 transition hover:text-gold hover:ring-gold/50 active:scale-95"
+          aria-label="Swap starting city and destination"
+          className="absolute right-5 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white text-stone-500 shadow-md ring-1 ring-stone-200 transition hover:text-gold hover:ring-gold/50 active:scale-95"
         >
-          <ArrowRightLeft size={15} />
+          <ArrowRightLeft className="h-4 w-4" />
         </button>
       </div>
 
-      <div className="mx-6 h-px bg-stone-200/80" />
+      <div className="mx-5 h-px bg-stone-200" />
 
-      {/* ---------- DEPARTURE DATE ---------- */}
+      {/* DATE */}
       <div className={ROW}>
         <span className={ICON_CIRCLE}>
-          <CalendarDays size={18} />
+          <CalendarDays className="h-5 w-5" />
         </span>
+
         <div className="min-w-0 flex-1">
           <label htmlFor="departure" className={LABEL}>
-            Tour Date
+            Travel Date
           </label>
+
           <input
             id="departure"
             type="date"
             min={today}
             value={departureDate}
             onChange={(e) => setDepartureDate(e.target.value)}
-            className={`mt-0.5 w-full bg-transparent text-base font-semibold outline-none [color-scheme:light] [&::-webkit-calendar-picker-indicator]:cursor-pointer ${
+            className={`mt-1 w-full bg-transparent text-base font-bold outline-none [color-scheme:light] [&::-webkit-calendar-picker-indicator]:cursor-pointer ${
               departureDate ? "text-stone-800" : "text-stone-400"
             }`}
           />
         </div>
       </div>
 
-      {/* ---------- CTA ---------- */}
-      <div className="border-t border-stone-200/80 p-4">
+      {/* CTA */}
+      <div className="border-t border-stone-200 bg-stone-50 p-4">
         <button
           type="button"
           onClick={handleSearch}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-gold px-6 py-4 text-base font-bold text-white shadow-lg shadow-gold/30 transition-all hover:bg-[#c88912] hover:shadow-gold/40 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 active:scale-[0.98]"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-gold px-6 py-4 text-base font-bold text-white shadow-lg shadow-gold/20 transition hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 active:scale-[0.98]"
         >
-          <Search size={19} strokeWidth={2.75} />
-          Search Packages
+          <Search className="h-5 w-5" strokeWidth={2.5} />
+          Find Holiday Packages
         </button>
+
+        <p className="mt-3 text-center text-xs text-stone-400">
+          Choose your destination and travel date to explore available packages.
+        </p>
       </div>
     </div>
   );

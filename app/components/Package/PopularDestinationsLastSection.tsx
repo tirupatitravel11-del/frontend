@@ -8,7 +8,7 @@ const popularDestinations = [
   {
     id: 1,
     city: "Goa",
-    image: "/packages/goa_package.jpg",
+    image: "/packages/goa_package.webp",
     slug: "goa",
     description:
       "Golden beaches, nightlife, water sports and luxury beach resorts.",
@@ -17,7 +17,7 @@ const popularDestinations = [
   {
     id: 2,
     city: "Kashmir",
-    image: "/packages/kashmir_package.jpg",
+    image: "/packages/kashmir_package.webp",
     slug: "kashmir",
     description:
       "Snow-capped mountains, houseboats, valleys and scenic landscapes.",
@@ -26,7 +26,7 @@ const popularDestinations = [
   {
     id: 3,
     city: "Kerala",
-    image: "/packages/Kerala_boats.jpg",
+    image: "/packages/Kerala_boats.webp",
     slug: "kerala",
     description: "Backwaters, tea gardens, beaches and luxury houseboat stays.",
     packages: "40+ Packages",
@@ -34,7 +34,7 @@ const popularDestinations = [
   {
     id: 4,
     city: "Rajasthan",
-    image: "/packages/Rajasthan_package.jpg",
+    image: "/packages/Rajasthan_package.webp",
     slug: "rajasthan",
     description:
       "Royal palaces, forts, desert safaris and cultural experiences.",
@@ -43,7 +43,7 @@ const popularDestinations = [
   {
     id: 5,
     city: "Himachal",
-    image: "/packages/Himachal_package.jpg",
+    image: "/packages/Himachal_package.webp",
     slug: "himachal",
     description:
       "Snowy mountains, adventure sports and beautiful hill stations.",
@@ -53,7 +53,7 @@ const popularDestinations = [
   {
     id: 7,
     city: "Ladakh",
-    image: "/packages/Himachal_package.jpg",
+    image: "/packages/Himachal_package.webp",
     slug: "ladakh",
     description:
       "High-altitude lakes, monasteries and unforgettable road trips.",
@@ -62,7 +62,7 @@ const popularDestinations = [
   {
     id: 8,
     city: "Sikkim",
-    image: "/packages/Sikkim_package.jpg",
+    image: "/packages/Sikkim_package.webp",
     slug: "sikkim",
     description: "Himalayan beauty, monasteries and breathtaking landscapes.",
     packages: "18+ Packages",
@@ -76,7 +76,7 @@ export default function PopularDestinationsLastSection() {
   });
 
   return (
-    <section className="relative overflow-hidden bg-stone-50 py-24">
+    <section className="relative overflow-hidden bg-stone-50 py-12">
       {/* Decorative Background */}
       <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 bottom-16 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
@@ -84,7 +84,7 @@ export default function PopularDestinationsLastSection() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mb-14 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
+          <div className="max-w-7xl">
             <span className="inline-flex items-center rounded-full border border-gold/20 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-gold shadow-sm">
               Popular Destinations
             </span>

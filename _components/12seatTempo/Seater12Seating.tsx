@@ -75,16 +75,13 @@ const SEATING_SPECS = [
 
 export default function TwelveSeaterSeating() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-amber-50/30 py-16 sm:py-24">
-      {/* Background decoration */}
-      <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
-
-      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
+    <section className="relative overflow-hidden bg-stone-50 py-12 sm:py-12 lg:py-12 border-b border-slate-200">
+      
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ================= HEADER ================= */}
 
-        <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-20">
+        <div className="mx-auto mb-4 max-w-7xl text-center sm:mb-20">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/10 px-4 py-2">
             <Sparkles className="h-4 w-4 text-gold" />
 
@@ -101,7 +98,7 @@ export default function TwelveSeaterSeating() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+          <p className="mx-auto mt-7 max-w-7xl text-base leading-8 text-slate-600 sm:text-lg">
             Every seat inside our 12 Seater Luxury Tempo Traveller is designed
             to make group travel more relaxing, spacious and enjoyable.
           </p>

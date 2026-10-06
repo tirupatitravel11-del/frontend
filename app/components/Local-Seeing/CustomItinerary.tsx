@@ -20,7 +20,7 @@ const steps = [
 
 export default function CustomItinerary() {
   return (
-    <section className="bg-stone-50 py-16 md:py-24">
+    <section className="bg-stone-50 py-12 md:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           

@@ -92,26 +92,26 @@ export default function Footer() {
               className="rounded-lg bg-white p-2"
             />
 
-            <p className="mt-6 leading-8 text-stone-300">
+            <p className="mt-4 leading-8 text-stone-300">
               Experience safe, affordable and comfortable travel with Tirupati
               Travel. We provide Cab Booking, Tour Packages, Hotel Booking and
               Boat Ride services.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
+            <div className="mt-4 mb-4 flex flex-wrap gap-2">
+              {/* <a
                 href="tel:+918726124680"
                 className="flex items-center gap-2 rounded-full border border-stone-500 px-5 py-3 transition hover:bg-gold"
               >
                 <Phone size={18} />
-              </a>
+              </a> */}
 
-              <a
+              {/* <a
                 href="https://wa.me/918726124680"
                 className="flex items-center gap-2 rounded-full border border-stone-500 px-5 py-3 transition hover:bg-green-600"
               >
                 <MessageCircle size={18} />
-              </a>
+              </a> */}
 
               {/* Twitter/X */}
               <a
@@ -184,7 +184,7 @@ export default function Footer() {
           {/* Services */}
 
           <div>
-            <h3 className="mb-6 text-xl font-bold uppercase text-gold">
+            <h3 className="mb-4 text-xl font-bold uppercase text-gold">
               Our Services
             </h3>
 
@@ -259,13 +259,13 @@ export default function Footer() {
 
         {/* Bottom */}
 
-        <div className="mt-14 border-t border-stone-700 pt-8">
+        <div className="mt-4 border-t border-stone-700 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 text-center text-stone-400 md:flex-row">
             <p>
               © {new Date().getFullYear()} Tirupati Travel. All Rights Reserved.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-5">
+            {/* <div className="flex flex-wrap justify-center gap-5">
               <Link href="/privacy-policy" className="hover:text-gold">
                 Privacy Policy
               </Link>
@@ -273,7 +273,7 @@ export default function Footer() {
               <Link href="/terms-and-conditions" className="hover:text-gold">
                 Terms & Conditions
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -115,10 +115,10 @@ const occasions = [
 
 export default function SpecialOccasions() {
   return (
-    <section className="bg-stone-50 py-16 md:py-24">
+    <section className="bg-stone-50 py-12 md:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         {/* Header */}
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="font-semibold uppercase tracking-[4px] text-gold">
             For Every Occasion
           </p>

@@ -33,10 +33,10 @@ const ETIOS_ADVANTAGES = [
 
 export default function EtiosAdvantages() {
   return (
-    <section className="bg-white py-16 sm:py-24">
+    <section className="bg-stone-50 py-12 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
             The Etios Advantage
           </p>

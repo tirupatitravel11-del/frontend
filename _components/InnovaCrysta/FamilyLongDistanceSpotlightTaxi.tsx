@@ -35,7 +35,7 @@ const JOURNEY_PLAN = [
 
 export default function FamilyLongDistanceSpotlightTaxi() {
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-12 sm:py-16 lg:py-20">
+    <section className="relative overflow-hidden bg-stone-50 py-12 sm:py-16 lg:py-12 border-b border-slate-200">
       {/* Decorative Glow */}
       <div className="pointer-events-none absolute -top-24 right-0 h-64 w-64 rounded-full bg-gold/10 blur-3xl sm:h-96 sm:w-96" />
 

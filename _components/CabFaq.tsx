@@ -76,8 +76,8 @@ export default function CabFaq({
     };
 
     return (
-        <section className="bg-slate-50 py-14">
-            <div className="mx-auto max-w-4xl px-6">
+        <section className="bg-slate-50 py-12">
+            <div className="mx-auto max-w-7xl px-6">
                 {/* ===== Header ===== */}
                 <div className="mb-10 text-center">
                     <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">

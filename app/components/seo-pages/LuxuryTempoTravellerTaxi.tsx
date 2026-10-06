@@ -95,23 +95,28 @@ Please share the detailed quote and availability.`;
   return (
     <main>
       {/* ===== HERO SECTION ===== */}
-      <section className="relative overflow-hidden bg-white">
+      <section className="relative overflow-hidden bg-stone-50 border-b border-slate-200">
         {/* Decorative Gold Glow */}
         <div className="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-16 lg:grid-cols-2 lg:py-24">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-12 lg:grid-cols-2 lg:py-12  ">
           {/* ================= LEFT: Content ================= */}
           <div>
             {/* Luxury Badge */}
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-gold">
-              <Star className="h-3 w-3 fill-current" />
-              Premium Luxury Fleet
-            </div>
+            <div className="mt-2 flex items-center text-sm text-gold">
+              <div className="flex items-center gap-2 bg-gold/10 px-3 py-1 rounded-full">
+                <span className="font-bold text-gold">★ 4.9/5</span>
+                <span className="ml-1">Rating</span>
+              </div>
 
-            <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
-              Group & Family Travel Specialists
-            </p>
+              <div className="h-5 w-px bg-white/30" />
+
+              <div className="flex items-center gap-2 bg-gold/10 px-3 py-1 rounded-full">
+                <span className="font-bold text-gold">1,250+</span>{" "}
+                Customers
+              </div>
+            </div>
 
             {/* UPDATED H1 HERE */}
             <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:leading-tight">
@@ -126,27 +131,7 @@ Please share the detailed quote and availability.`;
             </p>
 
             {/* Seater Quick Filters */}
-            <div className="mt-8">
-              <p className="mb-3 text-sm font-semibold text-slate-700">
-                Choose Your Seater Capacity:
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {SEATER_OPTIONS.map((option) => (
-                  <button
-                    key={option.id}
-                    type="button"
-                    onClick={() => setSelectedSeater(option.id)}
-                    className={`rounded-lg border px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
-                      selectedSeater === option.id
-                        ? "border-gold bg-gold text-white shadow-md"
-                        : "border-slate-200 bg-white text-slate-700 hover:border-gold/40 hover:bg-gold/5"
-                    }`}
-                  >
-                    {option.label}
-                  </button>
-                ))}
-              </div>
-            </div>
+            
 
             {/* CTA Buttons */}
             <div className="mt-9 flex flex-wrap gap-4">
@@ -185,11 +170,11 @@ Please share the detailed quote and availability.`;
           />
         </div>
       </section>
+      
 
       {/* ========================================================= */}
       {/* ===== ADD THE REST OF YOUR COMPONENTS BELOW THIS LINE ===== */}
       {/* ========================================================= */}
-      <div className="bg-slate-50">
         <LuxuryTempoTravellerCitySection />
 
         {/* <LuxuryTaxiFleet /> */}
@@ -206,7 +191,50 @@ Please share the detailed quote and availability.`;
         <WhyChooseUs />
         <Testimonials />
         <LuxuryTaxiFaqs city={city} />
-      </div>
+
+        <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
+  {/* Decorative Background */}
+  <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+  <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+
+  <div className="relative mx-auto max-w-4xl text-center">
+   
+
+    <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+      Travel Together in{" "}
+      <span className="text-gold">Urbania Comfort</span>
+    </h2>
+
+    <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
+      Book a spacious Urbania for family trips, group
+      tours, pilgrimages, weddings, sightseeing, and outstation journeys.
+      Enjoy comfortable travel with enough seating for larger groups.
+    </p>
+
+    <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+      <a
+        href="https://wa.me/918726124680?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20a%2020%20seater%20Urbania."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full rounded-full bg-gold px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-gold/90 sm:w-auto"
+      >
+        Book Urbania on WhatsApp
+      </a>
+
+      <a
+        href="tel:+918726124680"
+        className="w-full rounded-full border border-white/20 px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
+      >
+        Call Now
+      </a>
+    </div>
+
+    <p className="mt-6 text-sm text-stone-400">
+      Family Trips • Group Tours • Pilgrimage • Weddings • Sightseeing •
+      Outstation
+    </p>
+  </div>
+</section>
     </main>
   );
 }

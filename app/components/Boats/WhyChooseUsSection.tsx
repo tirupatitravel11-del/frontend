@@ -104,10 +104,10 @@ export default function WhyChooseUsSection({
   subtitle = "We are committed to making every ride safe, comfortable and unforgettable — here is what sets us apart.",
 }: WhyChooseUsSectionProps) {
   return (
-    <section className="bg-[#fffaf2] py-16 md:py-20">
+    <section className="bg-stone-50 py-12 md:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* ===== Section Header ===== */}
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="font-semibold uppercase tracking-[4px] text-gold">
             Why Choose Us
           </p>

@@ -40,7 +40,7 @@ export default function UrbaniaPricingSection({ city }: UrbaniaPricingProps) {
   const cityName = formatCityName(city);
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16" id="pricing">
+    <section className="bg-stone-50 py-12 sm:py-16 border-b border-slate-200" id="pricing">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* ===== Header ===== */}
         <div className="mb-10 text-center sm:mb-12">

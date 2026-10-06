@@ -40,7 +40,7 @@ export default function OutstationSpotlight({
   from = "Your City",
 }: OutstationSpotlightProps) {
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-10 sm:py-16 lg:py-20">
+    <section className="relative overflow-hidden bg-stone-50 py-10 sm:py-12 lg:py-12 border-b border-slate-200">
       {/* Decorative glow */}
       <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
 

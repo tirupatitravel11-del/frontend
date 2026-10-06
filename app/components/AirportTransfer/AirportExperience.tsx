@@ -43,7 +43,7 @@ export default function AirportExperience({
   airportName = "the Airport",
 }: AirportExperienceProps) {
   return (
-    <section className="relative overflow-hidden bg-stone-50 py-12 sm:py-16 lg:py-20">
+    <section className="relative overflow-hidden bg-stone-50 py-12 sm:py-12 lg:py-12 border-b border-slate-200">
       {/* Decorative glow */}
       <div className="pointer-events-none absolute -top-24 right-0 h-64 w-64 rounded-full bg-gold/10 blur-3xl sm:h-96 sm:w-96" />
       <div className="pointer-events-none absolute -bottom-24 left-0 h-64 w-64 rounded-full bg-gold/5 blur-3xl sm:h-96 sm:w-96" />

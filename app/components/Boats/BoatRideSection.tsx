@@ -1,6 +1,6 @@
 export default function BoatRideSection() {
   return (
-    <section className="bg-[#f4f6fb] px-5 py-16 md:py-20">
+    <section className="bg-stone-50 px-5 py-12 md:py-12 border-b border-slate-200">
       <div className="mx-auto grid max-w-[1250px] grid-cols-1 items-start gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
         {/* ===== Left : Text Content ===== */}
         <div>

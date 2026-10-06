@@ -48,9 +48,9 @@ const BENEFITS = [
 
 export default function SixteenSeaterGroupBenefits() {
   return (
-    <section className="bg-white py-12 sm:py-16">
+    <section className="bg-stone-50 py-12 sm:py-16 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
             Why Choose 16 Seater?
           </p>

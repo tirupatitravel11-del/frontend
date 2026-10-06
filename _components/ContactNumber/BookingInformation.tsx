@@ -54,10 +54,10 @@ const GOOD_TO_KNOW = [
 
 export default function BookingInformation() {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-stone-50 py-12 sm:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* ===== Header ===== */}
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <div className="mx-auto mb-12 max-w-7xl text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
             Booking Information
           </p>

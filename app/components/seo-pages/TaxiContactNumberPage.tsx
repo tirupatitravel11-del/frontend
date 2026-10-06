@@ -23,10 +23,10 @@ const WHATSAPP_NUMBER = "918726124680";
 type TripType = "one-way" | "round-trip";
 
 const HIGHLIGHTS = [
-  "Zero wait time — our team picks up instantly",
-  "Custom quotes for outstation & multi-stop trips",
-  "24×7 human support for flight & station pickups",
-  "Verified and experienced drivers for every route",
+  "Taxi booking assistance by phone and WhatsApp",
+  "Fare enquiries for local and outstation trips",
+  "One-way and round-trip travel options",
+  "Airport pickup, drop-off, and sightseeing enquiries",
 ];
 
 export default function TaxiContactNumberPage({ page }: { page: SeoPageData }) {
@@ -51,20 +51,20 @@ export default function TaxiContactNumberPage({ page }: { page: SeoPageData }) {
   return (
     <main>
       {/* ===== 1. HERO & BOOKING SECTION ===== */}
-      <section className="relative overflow-hidden bg-white">
+      <section className="relative overflow-hidden bg-stone-50 border-b border-slate-200">
         <div className="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-16 lg:grid-cols-2 lg:py-24">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-12 lg:grid-cols-2 lg:py-12">
           {/* Left: Content */}
           <div>
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
               24/7 Taxi Dispatch Team
             </p>
-            <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:leading-tight">
-              Talk to Our <span className="text-gold">Taxi Booking</span>{" "}
-              Support Team
-            </h1>
+           <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:leading-tight">
+  Contact Us for{" "}
+  <span className="text-gold">Taxi Booking</span> & Fare Enquiries
+</h1>
             <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
               Speak directly to our human dispatchers for instant bookings,
               custom multi-stop quotes, and 24/7 emergency support.
@@ -128,7 +128,52 @@ export default function TaxiContactNumberPage({ page }: { page: SeoPageData }) {
           />
         )}
         <HowItWorks />
-        <TaxiServiceFAQ />
+        <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
+  {/* Decorative Background */}
+  <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+  <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+
+  <div className="relative mx-auto max-w-4xl text-center">
+    <p className="text-sm font-semibold uppercase tracking-[4px] text-gold">
+      Get in Touch
+    </p>
+
+    <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+      Planning a Trip?{" "}
+      <span className="text-gold">Let&apos;s Talk</span>
+    </h2>
+
+    <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
+      Have a question about cab booking, Tempo Traveller, Urbania, hotels,
+      sightseeing, or tour packages? Send us your enquiry and our team will
+      help you plan your journey.
+    </p>
+
+    <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+      
+
+      <a
+        href="https://wa.me/918726124680?text=Hello%20Tirupati%20Travels%2C%20I%20have%20a%20travel%20enquiry."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full rounded-full border border-white/20 px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
+      >
+        WhatsApp Us
+      </a>
+
+      <a
+        href="tel:+918726124680"
+        className="w-full rounded-full border border-white/20 px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
+      >
+        Call Now
+      </a>
+    </div>
+
+    <p className="mt-6 text-sm text-stone-400">
+      Cab Booking • Tempo Traveller • Urbania • Hotel Booking • Tour Packages
+    </p>
+  </div>
+</section>
       </div>
     </main>
   );

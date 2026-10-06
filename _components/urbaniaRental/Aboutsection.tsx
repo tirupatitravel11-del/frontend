@@ -25,7 +25,7 @@ export default function UrbaniaCitySection({ city }: UrbaniaCitySectionProps) {
   const cityName = formatCityName(city);
 
   return (
-    <section className="bg-slate-50 py-14 sm:py-20">
+    <section className="bg-stone-50 py-12 sm:py-12 lg:py-20 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* ===== Heading ===== */}
         <h2 className="text-center text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">

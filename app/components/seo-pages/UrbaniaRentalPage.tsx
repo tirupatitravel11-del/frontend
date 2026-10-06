@@ -51,126 +51,137 @@ function ServicePage({ page }: { page: SeoPageData }) {
   const popularRoutes = generatePopularRoutes(page.city, "");
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-white">
-      {/* Decorative Background */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gold/5 blur-3xl" />
-        <div className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-gold/5 blur-3xl" />
-        <div className="absolute top-1/2 right-1/4 h-64 w-64 rounded-full bg-slate-100/80 blur-2xl" />
-      </div>
+    <>
+      <section className="relative min-h-screen overflow-hidden bg-stone-50 border-b border-slate-200">
+        {/* Decorative Background */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gold/5 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-gold/5 blur-3xl" />
+          <div className="absolute top-1/2 right-1/4 h-64 w-64 rounded-full bg-slate-100/80 blur-2xl" />
+        </div>
 
-      {/* Subtle grid pattern */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
+        {/* Subtle grid pattern */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
 
-      {/* Hero Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
-        <div className="grid w-full items-center gap-12 lg:grid-cols-2">
-          {/* ===== LEFT SIDE: Content ===== */}
-          <div className="max-w-3xl">
-            <span className="mb-4 inline-block rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-gold">
-              Premium Force Urbania Available
-            </span>
+        {/* Hero Content */}
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-12">
+          <div className="grid w-full items-center gap-12 lg:grid-cols-2">
+            {/* ===== LEFT SIDE: Content ===== */}
+            <div className="max-w-3xl">
+              <div className="mt-2 flex items-center gap-5 text-sm text-gold">
+                <div>
+                  <span className="font-bold text-gold">★ 4.9/5</span>
+                  <span className="ml-2">Rating</span>
+                </div>
 
-            <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
-              {page.title || "Luxury Force Urbania Rental"}{" "}
-              <span className="text-gold">at Fixed Fares</span>
-            </h1>
+                <div className="h-5 w-px bg-white/30" />
 
-            <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-              {page.description ||
-                "Experience ultimate luxury travel with reclining pushback seats, individual AC vents, and premium interiors. Ideal for weddings, corporate events, and large group journeys."}
-            </p>
-
-            {/* Urbania Specs Grid */}
-            <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
-              <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
-                <Users className="mx-auto mb-2 h-6 w-6 text-gold" />
-                <p className="text-lg font-bold text-slate-900 sm:text-xl">
-                  9–14
-                </p>
-                <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
-                  Pushback Seats
-                </p>
+                <div>
+                  <span className="font-bold text-gold">1,250+</span>{" "}
+                  Customers
+                </div>
               </div>
 
-              <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
-                <Briefcase className="mx-auto mb-2 h-6 w-6 text-gold" />
-                <p className="text-lg font-bold text-slate-900 sm:text-xl">
-                  6–8
-                </p>
-                <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
-                  Large Bags
-                </p>
+              <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
+                {page.title || "Luxury Force Urbania Rental"}{" "}
+                <span className="text-gold">at Fixed Fares</span>
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+                {page.description ||
+                  "Experience ultimate luxury travel with reclining pushback seats, individual AC vents, and premium interiors. Ideal for weddings, corporate events, and large group journeys."}
+              </p>
+
+              {/* Urbania Specs Grid */}
+              <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
+                <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
+                  <Users className="mx-auto mb-2 h-6 w-6 text-gold" />
+                  <p className="text-lg font-bold text-slate-900 sm:text-xl">
+                    9–14
+                  </p>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
+                    Pushback Seats
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
+                  <Briefcase className="mx-auto mb-2 h-6 w-6 text-gold" />
+                  <p className="text-lg font-bold text-slate-900 sm:text-xl">
+                    6–8
+                  </p>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
+                    Large Bags
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
+                  <Van className="mx-auto mb-2 h-6 w-6 text-gold" />
+                  <p className="text-lg font-bold text-slate-900 sm:text-xl">
+                    Luxury
+                  </p>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
+                    AC Van
+                  </p>
+                </div>
               </div>
 
-              <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
-                <Van className="mx-auto mb-2 h-6 w-6 text-gold" />
-                <p className="text-lg font-bold text-slate-900 sm:text-xl">
-                  Luxury
-                </p>
-                <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
-                  AC Van
-                </p>
+              {/* CTA Buttons */}
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
+                <a
+                  href={`tel:${PHONE_NUMBER}`}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
+                >
+                  <Phone className="h-4 w-4" />
+                  Call to Book
+                </a>
+
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-900 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-slate-900 transition-all duration-300 hover:bg-slate-900 hover:text-white hover:shadow-lg"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  WhatsApp Us
+                </a>
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
-              <a
-                href={`tel:${PHONE_NUMBER}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
-              >
-                <Phone className="h-4 w-4" />
-                Call to Book
-              </a>
-
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-900 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-slate-900 transition-all duration-300 hover:bg-slate-900 hover:text-white hover:shadow-lg"
-              >
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp Us
-              </a>
+            {/* ===== RIGHT SIDE: Booking Form ===== */}
+            <div className="relative">
+              <UniversalSeoBookingForm
+                page={{
+                  slug: slug,
+                  city: city,
+                  service: "taxi",
+                  title: title,
+                  description: description,
+                  intro: intro,
+                  highlights: highlights,
+                  popularTrips: popularTrips,
+                }}
+              />
             </div>
-          </div>
-
-          {/* ===== RIGHT SIDE: Booking Form ===== */}
-          <div className="relative">
-            <UniversalSeoBookingForm
-              page={{
-                slug: slug,
-                city: city,
-                service: "taxi",
-                title: title,
-                description: description,
-                intro: intro,
-                highlights: highlights,
-                popularTrips: popularTrips,
-              }}
-            />
           </div>
         </div>
-      </div>
-
+      </section>
       {/* ===== BELOW HERO SECTIONS ===== */}
-      <div className="relative z-10 border-t border-slate-100 bg-white">
-        <UrbaniaCitySection city={city} />
-        <WhyChooseUs />
-        <UrbaniaSection city={city} />
 
-        <UrbaniaPricingSection city={city} />
-        <UrbaniaVariants />
+      <UrbaniaCitySection city={city} />
+      <WhyChooseUs />
+      <UrbaniaSection city={city} />
 
-        <UrbaniaUseCases />
-        {/* {popularRoutes.length > 0 && (
+      <UrbaniaPricingSection city={city} />
+      <UrbaniaVariants />
+
+      <UrbaniaUseCases />
+      {/* {popularRoutes.length > 0 && (
           <PopularRoutes
             routes={popularRoutes}
             from={popularRoutes[0].from}
@@ -178,11 +189,55 @@ function ServicePage({ page }: { page: SeoPageData }) {
             pagetype="urbania-rental"
           />
         )} */}
-        <HowItWorks />
-        <Testimonials />
-        <UrbaniaFaq city={city} />
-      </div>
-    </section>
+      <HowItWorks />
+      <Testimonials />
+      <UrbaniaFaq city={city} />
+
+      <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
+  {/* Decorative Background */}
+  <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+  <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+
+  <div className="relative mx-auto max-w-4xl text-center">
+    
+    <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+      Travel in <span className="text-gold">Premium Urbania Comfort</span>
+    </h2>
+
+    <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
+      Book a spacious Force Urbania for family trips, group tours,
+      pilgrimages, weddings, sightseeing, and outstation journeys. Enjoy
+      comfortable seating, generous space, and a premium travel experience
+      for your group.
+    </p>
+
+    <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+      <a
+        href="https://wa.me/918726124680?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20a%20Force%20Urbania."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full rounded-full bg-gold px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-gold/90 sm:w-auto"
+      >
+        Book Urbania on WhatsApp
+      </a>
+
+      <a
+        href="tel:+918726124680"
+        className="w-full rounded-full border border-white/20 px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
+      >
+        Call Now
+      </a>
+    </div>
+
+    <p className="mt-6 text-sm text-stone-400">
+      Family Trips • Group Tours • Pilgrimage • Weddings • Sightseeing •
+      Outstation
+    </p>
+  </div>
+</section>
+
+
+    </>
   );
 }
 
