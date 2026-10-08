@@ -6,7 +6,7 @@ const PHONE_NUMBER = "+918726124680";
 
 export default function TempoTravellerStorySection() {
   return (
-    <section className="bg-slate-50 py-14 sm:py-20">
+    <section className="bg-stone-50 py-12 sm:py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* ===== Heading ===== */}
         <h2 className="text-center text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
@@ -39,12 +39,7 @@ export default function TempoTravellerStorySection() {
             together in one air-conditioned cabin. Equipped with an LED TV, a 
             premium music system, and charging points, the journey becomes as 
             enjoyable as the destination itself.
-          </p>
-        </div>
-
-        {/* ===== Bottom Full-Width Paragraph ===== */}
-        <p className="mt-10 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
-          Booking our Tempo Traveller means you get more than just a reliable 
+            Booking our Tempo Traveller means you get more than just a reliable 
           vehicle; you get a complete peace-of-mind experience. Our professional, 
           experienced chauffeurs handle the navigation, tolls, parking, and 
           inter-state permits, allowing your group to fully relax and enjoy 
@@ -53,7 +48,11 @@ export default function TempoTravellerStorySection() {
           meticulously sanitized interiors before every single trip. From the 
           moment you step in to the final drop-off, we ensure your group stays 
           together, comfortable, and perfectly on time.
-        </p>
+          </p>
+        </div>
+
+        {/* ===== Bottom Full-Width Paragraph ===== */}
+        
       </div>
     </section>
   );

@@ -15,6 +15,7 @@ import {
 import { useState } from "react";
 
 import { popularPackages } from "@/app/constants/packages";
+import Image from "next/image";
 
 const ITEMS_PER_PAGE = 9;
 
@@ -39,8 +40,8 @@ export default function PopularPackages() {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
       document.getElementById("packages-section")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+        behavior: "auto",
+
       });
     }
   };
@@ -107,7 +108,7 @@ export default function PopularPackages() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-stone-600">
+          <p className="mx-auto mt-5 max-w-7xl text-lg leading-8 text-stone-600">
             Explore India's most loved destinations with curated holiday
             packages designed for families, couples, groups and solo travellers.
           </p>
@@ -132,11 +133,16 @@ export default function PopularPackages() {
               <div className="flex h-full flex-col overflow-hidden rounded-2xl border-2 border-stone-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-gold/60 hover:shadow-2xl hover:shadow-gold/20">
                 {/* Image Section */}
                 <div className="relative h-64 overflow-hidden bg-stone-100">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                  />
+                  <div className="relative h-64 overflow-hidden bg-stone-100">
+  <Image
+    src={item.image}
+    alt={item.title}
+    fill
+    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+    className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+    loading="lazy"
+  />
+</div>
 
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-linear-to-t from-stone-900/70 via-stone-900/20 to-transparent" />
@@ -224,11 +230,10 @@ export default function PopularPackages() {
               <button
                 onClick={goToPreviousPage}
                 disabled={currentPage === 1}
-                className={`flex items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all w-full md:w-auto ${
-                  currentPage === 1
+                className={`flex items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all w-full md:w-auto ${currentPage === 1
                     ? "cursor-not-allowed bg-stone-100 text-stone-400"
                     : "bg-white text-stone-700 ring-1 ring-stone-200 hover:bg-gold hover:text-white hover:ring-gold hover:shadow-lg"
-                }`}
+                  }`}
                 aria-label="Previous page"
               >
                 <ChevronLeft className="h-4 w-4" />
@@ -242,13 +247,12 @@ export default function PopularPackages() {
                     key={index}
                     onClick={() => typeof page === "number" && goToPage(page)}
                     disabled={typeof page !== "number"}
-                    className={`min-w-11 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
-                      typeof page !== "number"
+                    className={`min-w-11 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${typeof page !== "number"
                         ? "cursor-default text-stone-400"
                         : page === currentPage
                           ? "bg-linear-to-r from-gold to-[#c88912] text-white shadow-lg shadow-gold/30"
                           : "bg-white text-stone-700 ring-1 ring-stone-200 hover:bg-stone-50 hover:text-gold hover:ring-gold"
-                    }`}
+                      }`}
                   >
                     {page}
                   </button>
@@ -258,11 +262,10 @@ export default function PopularPackages() {
               <button
                 onClick={goToNextPage}
                 disabled={currentPage === totalPages}
-                className={`flex items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all w-full md:w-auto ${
-                  currentPage === totalPages
+                className={`flex items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all w-full md:w-auto ${currentPage === totalPages
                     ? "cursor-not-allowed bg-stone-100 text-stone-400"
                     : "bg-white text-stone-700 ring-1 ring-stone-200 hover:bg-gold hover:text-white hover:ring-gold hover:shadow-lg"
-                }`}
+                  }`}
                 aria-label="Next page"
               >
                 Next

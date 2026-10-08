@@ -54,8 +54,8 @@ export default function TempoTravellerFaq({
   };
 
   return (
-    <section className="bg-slate-50 py-14 sm:py-20">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+    <section className="bg-stone-50 py-12 sm:py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-10 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
             FAQs
@@ -65,7 +65,7 @@ export default function TempoTravellerFaq({
             {title}
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600">
+          <p className="mx-auto mt-4 max-w-7xl text-base leading-7 text-slate-600">
             {subtitle}
           </p>
         </div>

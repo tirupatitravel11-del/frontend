@@ -95,7 +95,7 @@ export default function ErtigaFaq({
   };
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16" id="faq">
+    <section className="bg-stone-50 py-12 sm:py-12 border-t border-slate-200" id="faq">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
@@ -104,7 +104,7 @@ export default function ErtigaFaq({
         }}
       />
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* ===== Header ===== */}
         <div className="mb-8 text-center sm:mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
@@ -115,7 +115,7 @@ export default function ErtigaFaq({
             {title || `${loc.titleText} Ertiga Taxi Questions, Answered`}
           </h2>
 
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
+          <p className="mx-auto mt-3 max-w-7xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
             {subtitle ||
               `Everything you need to know about booking a Maruti Suzuki Ertiga taxi for ${loc.titleText}, including fares, timing, passenger capacity, and tolls.`}
           </p>
@@ -177,7 +177,7 @@ export default function ErtigaFaq({
         </div>
 
         {/* ===== Bottom CTA ===== */}
-        <div className="mt-8 text-center sm:mt-10">
+        {/* <div className="mt-8 text-center sm:mt-10">
           <p className="text-sm text-slate-600">
             Need an Ertiga for your {loc.titleText} journey?
           </p>
@@ -188,7 +188,7 @@ export default function ErtigaFaq({
           >
             Call & Book Ertiga
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

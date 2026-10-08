@@ -155,13 +155,13 @@ Fare: ₹${(fare?.tripType === "one-way"
     }
   };
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section className="relative overflow-hidden bg-stone-50 border-b border-slate-200">
       {/* Decorative Gold Glow */}
-      <div className="pointer-events-none absolute -top-32 right-0 h-72 w-72 rounded-full bg-gold/10 blur-3xl sm:h-96 sm:w-96" />
+      <div className="pointer-events-none absolute -top-32 right-0 h-72 w-72 rounded-full bg-gold/50 blur-3xl sm:h-96 sm:w-96" />
 
-      <div className="pointer-events-none absolute bottom-0 left-0 h-56 w-56 rounded-full bg-gold/5 blur-3xl sm:h-72 sm:w-72" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-56 w-56 rounded-full bg-gold/50 blur-3xl sm:h-72 sm:w-72" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:gap-14 sm:px-6 sm:py-16 lg:grid-cols-2 lg:py-24">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:gap-14 sm:px-6 sm:py-12 lg:grid-cols-2 lg:py-12">
         {/* Left: Content */}
         <div>
           <span className="mb-4 inline-block rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-gold sm:px-4 sm:text-xs">

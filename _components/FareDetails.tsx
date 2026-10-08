@@ -80,10 +80,10 @@ export default function FareDetails({
   subtitle = "Transparent, fixed pricing — the fare you see is the fare you pay. No surge pricing, no hidden charges.",
 }: FareDetailsProps) {
   return (
-    <section className="bg-white py-14">
+    <section className="bg-stone-50 py-12 border-b border-stone-200">
       <div className="mx-auto max-w-7xl px-6">
         {/* ===== Header ===== */}
-        <div className="mb-10 max-w-3xl">
+        <div className="mb-10 max-w-7xl">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
             Transparent Pricing
           </p>
