@@ -181,7 +181,9 @@ Please share the detailed quote and availability.`;
         <TwentySeaterStorySection />
         <TwentySeaterSeating />
 
-        <WhyChooseUs />
+        <WhyChooseUs  cityName={city}
+  pageSlug={slug}
+  service="tempo-traveller"/>
         <Testimonials />
         {popularRoutes.length > 0 && (
           <PopularRoutes

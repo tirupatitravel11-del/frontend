@@ -26,6 +26,8 @@ import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator"
 import type { SeoPageData } from "@/app/data/seoPages";
 import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 import VehicleFeatures from "@/_components/16seatTempo/VehicleFeatures";
+import WhyChooseUs from "@/_components/WhyChooseUs";
+import Testimonials from "../Home/Testimonials";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -169,6 +171,11 @@ Please share the detailed quote and availability.`;
             pagetype="tempo-traveller"
           />
         )}
+
+        <WhyChooseUs  cityName={city}
+          pageSlug={slug}
+          service="tempo-traveller"/>
+                <Testimonials />
         <TempoTaxiFaq  city={city} />
 
         <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">

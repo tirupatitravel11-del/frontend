@@ -4,45 +4,6 @@ type Feature = {
   description: string;
 };
 
-const FEATURES: Feature[] = [
-  {
-    icon: "💰",
-    title: "Clear & Transparent Fares",
-    description:
-      "Get clear fare details based on your vehicle, route, trip type, and travel requirements before confirming your booking.",
-  },
-  {
-    icon: "📍",
-    title: "Convenient Pickup & Drop",
-    description:
-      "Choose convenient pickup and drop-off locations for local travel, airport transfers, railway stations, sightseeing, and outstation journeys.",
-  },
-  {
-    icon: "🧑‍✈️",
-    title: "Experienced Drivers",
-    description:
-      "Travel with experienced drivers who can assist you with local routes, sightseeing locations, airport transfers, and long-distance journeys.",
-  },
-  {
-    icon: "🚗",
-    title: "Comfortable Vehicles",
-    description:
-      "Choose from comfortable vehicles suitable for solo travellers, families, groups, sightseeing, pilgrimages, and outstation trips.",
-  },
-  {
-    icon: "⏰",
-    title: "Flexible Travel Options",
-    description:
-      "Choose a vehicle according to your travel requirements, whether you need local travel, airport transfers, one-way trips, round trips, or outstation journeys.",
-  },
-  {
-    icon: "🛣️",
-    title: "Local & Outstation Travel",
-    description:
-      "Plan convenient journeys within the city or travel to nearby and distant destinations with suitable vehicle options for your trip.",
-  },
-];
-
 interface WhyChooseUsProps {
   cityName?: string;
   pageSlug?: string;
@@ -62,13 +23,6 @@ export default function WhyChooseUs({
 
   /**
    * Detect Tempo Traveller pages
-   *
-   * Examples:
-   * /tempo-traveller
-   * /12-seater-tempo-traveller
-   * /16-seater-tempo-traveller
-   * /luxury-tempo-traveller
-   * service = "tempo"
    */
   const isTempoTraveller =
     slug.includes("tempo-traveller") ||
@@ -103,10 +57,46 @@ export default function WhyChooseUs({
     serviceType === "suv";
 
   /**
+   * Detect specific Tempo Traveller seating capacity
+   */
+  const is12Seater =
+    slug.includes("12-seater") ||
+    slug.includes("12-seater-tempo") ||
+    slug.includes("12-seater-tempo-traveller");
+
+  const is16Seater =
+    slug.includes("16-seater") ||
+    slug.includes("16-seater-tempo") ||
+    slug.includes("16-seater-tempo-traveller");
+
+  const is20Seater =
+    slug.includes("20-seater") ||
+    slug.includes("20-seater-tempo") ||
+    slug.includes("20-seater-tempo-traveller");
+
+  const is24Seater =
+    slug.includes("24-seater") ||
+    slug.includes("24-seater-tempo") ||
+    slug.includes("24-seater-tempo-traveller");
+
+  /**
+   * Determine Tempo Traveller seating label
+   */
+  const tempoSeater = is12Seater
+    ? "12 Seater Tempo Traveller"
+    : is16Seater
+      ? "16 Seater Tempo Traveller"
+      : is20Seater
+        ? "20 Seater Tempo Traveller"
+        : is24Seater
+          ? "24 Seater Tempo Traveller"
+          : "Tempo Traveller";
+
+  /**
    * Decide the vehicle/service name
    */
   const serviceName = isTempoTraveller
-    ? "Tempo Traveller"
+    ? tempoSeater
     : isUrbania
       ? "Urbania"
       : isSedan
@@ -119,7 +109,7 @@ export default function WhyChooseUs({
    * Dynamic heading
    */
   const heading = isTempoTraveller
-    ? `Why Book a Tempo Traveller with Tirupati Travels?`
+    ? `Why Book a ${serviceName} with Tirupati Travels?`
     : isUrbania
       ? `Why Book an Urbania with Tirupati Travels?`
       : isSedan
@@ -132,10 +122,88 @@ export default function WhyChooseUs({
    * Dynamic description
    */
   const description = isTempoTraveller
-    ? `Book a comfortable ${serviceName} in ${cityName} for family trips, group travel, sightseeing, pilgrimages, airport transfers, and outstation journeys.`
+    ? `Book a comfortable ${serviceName} in ${cityName} for family trips, group travel, sightseeing, pilgrimages, weddings, airport transfers, and outstation journeys.`
     : isUrbania
-      ? `Book a comfortable ${serviceName} in ${cityName} for premium group travel, sightseeing, airport transfers, pilgrimages, and outstation journeys.`
+      ? `Book a comfortable Urbania in ${cityName} for premium group travel, sightseeing, airport transfers, pilgrimages, weddings, and outstation journeys.`
       : `Book comfortable and convenient ${serviceName.toLowerCase()} services in ${cityName} for local travel, airport transfers, sightseeing, family trips, pilgrimages, and outstation journeys.`;
+
+  /**
+   * Dynamic features
+   */
+  const FEATURES: Feature[] = isTempoTraveller
+    ? [
+        {
+          icon: "💰",
+          title: "Clear & Transparent Fares",
+          description: `Get clear fare details for ${serviceName} based on your route, trip type, travel date, and group requirements before confirming your booking.`,
+        },
+        {
+          icon: "👥",
+          title: "Multiple Seating Options",
+          description:
+            "Choose the right Tempo Traveller for your group with 12-seater, 16-seater, 20-seater, and 24-seater options.",
+        },
+        {
+          icon: "🧳",
+          title: "Spacious & Comfortable",
+          description: `Enjoy spacious seating and ample luggage space in ${serviceName}, making it suitable for family trips, group tours, pilgrimages, and long-distance journeys.`,
+        },
+        {
+          icon: "🧑‍✈️",
+          title: "Experienced Drivers",
+          description:
+            "Travel with experienced drivers who understand local routes, sightseeing locations, pilgrimage destinations, airport transfers, and outstation journeys.",
+        },
+        {
+          icon: "📍",
+          title: "Convenient Pickup & Drop",
+          description:
+            "Choose convenient pickup and drop-off locations for hotels, homes, airports, railway stations, sightseeing points, and pilgrimage destinations.",
+        },
+        {
+          icon: "🛣️",
+          title: "Local & Outstation Travel",
+          description: `Book ${serviceName} for local sightseeing, airport transfers, family functions, group tours, pilgrimages, weddings, and outstation travel.`,
+        },
+      ]
+    : [
+        {
+          icon: "💰",
+          title: "Clear & Transparent Fares",
+          description:
+            "Get clear fare details based on your vehicle, route, trip type, and travel requirements before confirming your booking.",
+        },
+        {
+          icon: "📍",
+          title: "Convenient Pickup & Drop",
+          description:
+            "Choose convenient pickup and drop-off locations for local travel, airport transfers, railway stations, sightseeing, and outstation journeys.",
+        },
+        {
+          icon: "🧑‍✈️",
+          title: "Experienced Drivers",
+          description:
+            "Travel with experienced drivers who can assist you with local routes, sightseeing locations, airport transfers, and long-distance journeys.",
+        },
+        {
+          icon: "🚗",
+          title: "Comfortable Vehicles",
+          description:
+            "Choose from comfortable vehicles suitable for solo travellers, families, groups, sightseeing, pilgrimages, and outstation trips.",
+        },
+        {
+          icon: "⏰",
+          title: "Flexible Travel Options",
+          description:
+            "Choose a vehicle according to your travel requirements, whether you need local travel, airport transfers, one-way trips, round trips, or outstation journeys.",
+        },
+        {
+          icon: "🛣️",
+          title: "Local & Outstation Travel",
+          description:
+            "Plan convenient journeys within the city or travel to nearby and distant destinations with suitable vehicle options for your trip.",
+        },
+      ];
 
   return (
     <section className="border-b border-slate-200 bg-stone-50 py-12 lg:py-12">
