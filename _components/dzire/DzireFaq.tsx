@@ -94,7 +94,7 @@ export default function DzireFaq({
   };
 
   return (
-    <section className="bg-slate-50 py-12 sm:py-16" id="faq">
+    <section className="bg-stone-50 py-12 sm:py-12" id="faq">
       {/* FAQ Schema for Google */}
       <script
         type="application/ld+json"
@@ -103,7 +103,7 @@ export default function DzireFaq({
         }}
       />
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* ================= HEADER ================= */}
         <div className="mb-8 text-center sm:mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
@@ -176,18 +176,7 @@ export default function DzireFaq({
         </div>
 
         {/* ================= BOTTOM CTA ================= */}
-        <div className="mt-8 text-center sm:mt-10">
-          <p className="text-sm text-slate-600">
-            Need a Swift Dzire for your {loc.titleText} journey?
-          </p>
-
-          <a
-            href={`tel:${PHONE_NUMBER}`}
-            className="mt-4 inline-flex items-center justify-center rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
-          >
-            Call & Book Dzire
-          </a>
-        </div>
+       
       </div>
     </section>
   );

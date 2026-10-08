@@ -39,11 +39,11 @@ const MMT_STEPS = [
 
 export default function HowToBook({ from, to }: FareProps) {
   return (
-    <section className="bg-white py-10 sm:py-14">
+    <section className="bg-stone-50 py-10 sm:py-12 border-b border-stone-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         {/* ===== Header ===== */}
-        <div className="mb-8 max-w-3xl sm:mb-10">
+        <div className="mb-8 max-w-7xl sm:mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
             Booking Guide
           </p>

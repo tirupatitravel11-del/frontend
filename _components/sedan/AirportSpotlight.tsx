@@ -45,7 +45,7 @@ export default function AirportSpotlight({
   travelTime = "50–70 minutes",
 }: AirportSpotlightProps) {
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-12 sm:py-16 lg:py-20">
+    <section className="relative overflow-hidden bg-stone-50 py-12 sm:py-12 lg:py-12 border-b border-slate-200">
       {/* Decorative glow */}
       <div className="pointer-events-none absolute -top-24 right-0 h-64 w-64 rounded-full bg-gold/10 blur-3xl sm:h-96 sm:w-96" />
 
@@ -61,7 +61,7 @@ export default function AirportSpotlight({
             <span className="text-gold">Never Miss a Flight</span>
           </h2>
 
-          <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7">
+          <p className="mt-4 max-w-7xl text-sm leading-6 text-slate-600 sm:mt-5 sm:text-base sm:leading-7">
             The {distance} ride from {from} to {airportName} takes around{" "}
             {travelTime}. Our sedans are the most booked choice for flyers —
             spacious boot, strong AC and on-time discipline.

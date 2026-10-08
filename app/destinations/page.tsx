@@ -9,6 +9,51 @@ import PopularPackages from "../components/Package/PopularPackages";
 import WhyBookWithUs from "../components/Cab/Cabhub/WhyTrustUs";
 import TravelByVibe from "@/_components/NavbarComponents/TravelByVibe";
 
+
+const DESTINATION_FAQS = [
+  {
+    question: "Which destinations can I visit with Tirupati Travels?",
+    answer:
+      "You can explore popular destinations across India, including Ooty, Munnar, Goa, Manali, Shimla, Tirupati, Varanasi, Pondicherry, and Darjeeling. We offer travel packages and cab services based on your destination and travel requirements.",
+  },
+  {
+    question: "How can I book a trip to a destination?",
+    answer:
+      "You can choose your preferred destination and travel package from our website and contact Tirupati Travels to plan your trip. Our team can help you with cab booking, travel requirements, and package details.",
+  },
+  {
+    question: "Do you provide cab services for destination trips?",
+    answer:
+      "Yes. Tirupati Travels provides comfortable cab services for local sightseeing, outstation travel, airport transfers, and destination trips. You can choose a vehicle based on your group size and travel requirements.",
+  },
+  {
+    question: "Can I customize my destination travel package?",
+    answer:
+      "Yes, travel plans can be customized based on your destination, number of travelers, trip duration, sightseeing requirements, and preferred vehicle.",
+  },
+  {
+    question: "Are destination packages suitable for families and groups?",
+    answer:
+      "Yes. Our travel experiences are suitable for families, couples, groups, and solo travelers. Vehicle and travel options can be selected according to the number of passengers.",
+  },
+  {
+    question: "Which hill station destinations are available?",
+    answer:
+      "Popular hill station destinations listed on our page include Ooty, Munnar, Manali, Shimla, and Darjeeling. These destinations are suitable for sightseeing, family holidays, couples, and leisure trips.",
+  },
+  {
+    question: "Can I book a pilgrimage trip to Tirupati or Varanasi?",
+    answer:
+      "Yes. Tirupati and Varanasi are among the pilgrimage destinations available on our destination page. You can contact us to plan transportation and sightseeing according to your travel schedule.",
+  },
+  {
+    question: "How do I get the price for my destination trip?",
+    answer:
+      "Destination package prices vary depending on the destination, duration, vehicle, number of travelers, and travel requirements. Contact Tirupati Travels for the latest price and trip details.",
+  },
+];
+
+
 const DESTINATIONS = [
   {
     id: 1,
@@ -192,6 +237,46 @@ export default function DestinationsPage() {
        <TravelByVibe/>
        <PopularDestinations/>
        <WhyBookWithUs/>
+      {/* 5. FAQs */}
+       <section className="border-b border-stone-200 bg-stone-50 px-4 py-14 sm:px-6 lg:py-16">
+  <div className="mx-auto max-w-7xl">
+    <div className="text-center">
+      <p className="text-xs font-bold uppercase tracking-[3px] text-gold">
+        Frequently Asked Questions
+      </p>
+
+      <h2 className="mt-3 text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+        Destination Travel FAQs
+      </h2>
+
+      <p className="mx-auto mt-4 max-w-7xl text-base leading-7 text-stone-600">
+        Find answers to common questions about destinations, travel packages,
+        cab services, and trip planning with Tirupati Travels.
+      </p>
+    </div>
+
+    <div className="mt-10 space-y-3">
+      {DESTINATION_FAQS.map((faq, index) => (
+        <details
+          key={index}
+          className="group rounded-xl border border-stone-200 bg-white px-5 py-4 shadow-sm"
+        >
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-stone-900">
+            <span>{faq.question}</span>
+
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-stone-100 text-lg font-medium text-stone-600 transition-transform duration-200 group-open:rotate-45">
+              +
+            </span>
+          </summary>
+
+          <p className="mt-3 pr-8 text-sm leading-7 text-stone-600">
+            {faq.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
 
        {/* 5. Final CTA */}
       <section className="bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white/10">

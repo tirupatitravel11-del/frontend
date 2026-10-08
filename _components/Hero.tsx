@@ -137,12 +137,12 @@ Fare: ₹${(fare?.tripType === "one-way"
   };
 
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section className="relative overflow-hidden border-b border-slate-200 bg-stone-50">
       {/* Decorative Gold Glow */}
-      <div className="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
+      <div className="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-gold/50 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/50 blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-16 lg:grid-cols-2 lg:py-24">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-12 lg:grid-cols-2 lg:py-12">
         {/* Left: Content */}
         <div>
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
@@ -197,7 +197,7 @@ Fare: ₹${(fare?.tripType === "one-way"
         </div>
 
         {/* Right: Booking Card */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl sm:p-8">
+        <div className="rounded-2xl border border-slate-200 bg-slate-100 p-6 shadow-xl sm:p-8">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
             Quick Booking
           </p>
