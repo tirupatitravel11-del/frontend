@@ -39,7 +39,7 @@
     pagetype,
     subtitle = "Fixed fares for the most booked routes. Actual time may vary with traffic conditions.",
   }: PopularRoutesProps) {
-    console.log(from, to, routes, title, "sdfsdf");
+    
 
     return (
       <section className="bg-stone-50 py-12 sm:py-12 lg:py-12 border-b border-slate-200">

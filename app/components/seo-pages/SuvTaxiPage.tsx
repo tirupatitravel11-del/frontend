@@ -187,13 +187,18 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
         )}
         <OutstationSpotlight />
         <HowItWorks />
+        <WhyChooseUs
+          cityName={city}
+          pageSlug={slug}
+          service="SUV Taxi"
+        />
         <Testimonials />
         <SuvFaqTaxi city={city} />
 
         <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
   {/* Background Decorations */}
-  <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
-  <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+  <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/50 blur-3xl" />
+  <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/50 blur-3xl" />
 
   <div className="relative mx-auto max-w-4xl text-center">
     

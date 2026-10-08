@@ -65,7 +65,7 @@ export default function PerfectFor({
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
             {title}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-slate-500 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-7xl text-base text-slate-500 sm:text-lg">
             {subtitle}
           </p>
         </div>

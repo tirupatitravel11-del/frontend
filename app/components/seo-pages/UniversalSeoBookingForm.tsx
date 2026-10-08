@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import {
   MapPin,
   Calendar,
@@ -8,6 +8,7 @@ import {
   Clock,
   ArrowRight,
 } from "lucide-react";
+
 import type { SeoPageData } from "@/app/data/seoPages";
 
 import {
@@ -22,16 +23,27 @@ const WHATSAPP_NUMBER = "918726124680";
 
 type JourneyType = "one-way" | "round-trip";
 
+/**
+ * Get vehicles according to the current SEO page / URL.
+ *
+ * URL is treated as the main source of truth for vehicle-specific pages.
+ */
 export function getVehiclesForPage(page: SeoPageData): Vehicle[] {
   const service = (page.service || "").toLowerCase();
   const slug = (page.slug || "").toLowerCase();
 
+  /**
+   * First try the existing vehicle slug matcher.
+   */
   const matchedVehicle = findVehicleFromSlug(slug);
 
   if (matchedVehicle) {
     return [matchedVehicle];
   }
 
+  /**
+   * Sedan / individual vehicle pages
+   */
   if (slug.includes("dzire") || service.includes("dzire")) {
     return VEHICLES.filter((v) => v.slug === "dzire");
   }
@@ -52,6 +64,9 @@ export function getVehiclesForPage(page: SeoPageData): Vehicle[] {
     return VEHICLES.filter((v) => v.slug === "ertiga");
   }
 
+  /**
+   * Tempo Traveller pages
+   */
   if (slug.includes("12-seater")) {
     return VEHICLES.filter(
       (v) => v.slug === "12-seater-tempo-traveller",
@@ -85,28 +100,71 @@ export function getVehiclesForPage(page: SeoPageData): Vehicle[] {
     );
   }
 
-  if (slug.includes("urbania") || service.includes("urbania")) {
-    return VEHICLES.filter((v) => v.slug === "urbania");
-  }
-
-  if (service === "sedan" || slug.includes("sedan")) {
-    return VEHICLES.filter(
-      (v) => v.cabType.toLowerCase() === "sedan",
-    );
-  }
-
-  if (service === "suv" || slug.includes("suv")) {
-    return VEHICLES.filter((v) =>
-      v.cabType.toLowerCase().includes("suv"),
-    );
-  }
-
-  if (service === "tempo" || slug.includes("tempo")) {
+  /**
+   * Force Tempo Traveller category pages.
+   */
+  if (
+    slug.includes("tempo-traveller") ||
+    slug.includes("tempo-traveler") ||
+    service.includes("tempo-traveller") ||
+    service.includes("tempo traveller") ||
+    service.includes("tempo-traveler") ||
+    service.includes("tempo traveler")
+  ) {
     return VEHICLES.filter((v) =>
       v.cabType.toLowerCase().includes("tempo"),
     );
   }
 
+  /**
+   * Urbania
+   */
+  if (
+    slug.includes("urbania") ||
+    service.includes("urbania")
+  ) {
+    return VEHICLES.filter((v) => v.slug === "urbania");
+  }
+
+  /**
+   * Sedan category
+   */
+  if (
+    service === "sedan" ||
+    slug.includes("sedan")
+  ) {
+    return VEHICLES.filter(
+      (v) => v.cabType.toLowerCase() === "sedan",
+    );
+  }
+
+  /**
+   * SUV category
+   */
+  if (
+    service === "suv" ||
+    slug.includes("suv")
+  ) {
+    return VEHICLES.filter((v) =>
+      v.cabType.toLowerCase().includes("suv"),
+    );
+  }
+
+  /**
+   * Generic Tempo category
+   */
+  if (
+    service === "tempo" ||
+    slug.includes("tempo")
+  ) {
+    return VEHICLES.filter((v) =>
+      v.cabType.toLowerCase().includes("tempo"),
+    );
+  }
+
+  /**
+   * Default
+   */
   return VEHICLES;
 }
 
@@ -135,36 +193,197 @@ export default function UniversalSeoBookingForm({
   const [time, setTime] = useState("");
   const [returnDate, setReturnDate] = useState("");
 
+  /**
+   * Keep selected vehicle synced whenever the page changes.
+   */
+  useEffect(() => {
+    if (vehicleOptions.length > 0) {
+      setSelectedVehicle(vehicleOptions[0].name);
+    }
+  }, [vehicleOptions]);
+
   const today = new Date().toISOString().split("T")[0];
 
-  const categoryTitle = useMemo(() => {
-    const firstVehicle = vehicleOptions[0];
+  /**
+   * Detect the actual category from URL/service first.
+   *
+   * This prevents a Tempo Traveller page from falling back
+   * to "Cab" even if vehicle data changes.
+   */
+  const vehicleLabel = useMemo(() => {
+    const slug = (page.slug || "").toLowerCase();
+    const service = (page.service || "").toLowerCase();
 
-    if (!firstVehicle) return "Cab";
-
-    if (firstVehicle.slug === "dzire") return "Dzire";
-    if (firstVehicle.slug === "etios") return "Etios";
-    if (firstVehicle.slug === "amaze") return "Amaze";
-    if (firstVehicle.slug === "innova-crysta") return "Innova";
-    if (firstVehicle.slug === "ertiga") return "Ertiga";
-    if (firstVehicle.slug === "urbania") return "Urbania";
-
-    if (firstVehicle.cabType.toLowerCase() === "sedan") {
-      return "Sedan";
-    }
-
-    if (firstVehicle.cabType.toLowerCase().includes("suv")) {
-      return "SUV";
-    }
-
-    if (firstVehicle.cabType.toLowerCase().includes("tempo")) {
+    /**
+     * TEMPO TRAVELLER
+     *
+     * Highest priority because this is the main issue:
+     * URLs containing tempo / tempo-traveller should always
+     * display Tempo Traveller.
+     */
+    if (
+      slug.includes("tempo-traveller") ||
+      slug.includes("tempo-traveler") ||
+      slug.includes("tempo") ||
+      service.includes("tempo-traveller") ||
+      service.includes("tempo traveller") ||
+      service.includes("tempo-traveler") ||
+      service.includes("tempo traveler") ||
+      service === "tempo" ||
+      service.includes("tempo")
+    ) {
       return "Tempo Traveller";
     }
 
-    return "Cab";
-  }, [vehicleOptions]);
+    /**
+     * URBANIA
+     */
+    if (
+      slug.includes("urbania") ||
+      service.includes("urbania")
+    ) {
+      return "Urbania";
+    }
 
-  const handleBookNow = (e: React.FormEvent<HTMLFormElement>) => {
+    /**
+     * Specific vehicles
+     */
+    if (
+      slug.includes("dzire") ||
+      service.includes("dzire")
+    ) {
+      return "Dzire";
+    }
+
+    if (
+      slug.includes("etios") ||
+      service.includes("etios")
+    ) {
+      return "Etios";
+    }
+
+    if (
+      slug.includes("amaze") ||
+      service.includes("amaze")
+    ) {
+      return "Amaze";
+    }
+
+    if (
+      slug.includes("innova") ||
+      service.includes("innova")
+    ) {
+      return "Innova";
+    }
+
+    if (
+      slug.includes("ertiga") ||
+      service.includes("ertiga")
+    ) {
+      return "Ertiga";
+    }
+
+    /**
+     * Category pages
+     */
+    if (
+      service === "sedan" ||
+      slug.includes("sedan")
+    ) {
+      return "Sedan";
+    }
+
+    if (
+      service === "suv" ||
+      slug.includes("suv")
+    ) {
+      return "SUV";
+    }
+
+    /**
+     * Fall back to the vehicle list.
+     */
+    const firstVehicle = vehicleOptions[0];
+
+    if (!firstVehicle) {
+      return "Cab";
+    }
+
+    if (firstVehicle.slug === "dzire") {
+      return "Dzire";
+    }
+
+    if (firstVehicle.slug === "etios") {
+      return "Etios";
+    }
+
+    if (firstVehicle.slug === "amaze") {
+      return "Amaze";
+    }
+
+    if (firstVehicle.slug === "innova-crysta") {
+      return "Innova";
+    }
+
+    if (firstVehicle.slug === "ertiga") {
+      return "Ertiga";
+    }
+
+    if (firstVehicle.slug === "urbania") {
+      return "Urbania";
+    }
+
+    if (
+      firstVehicle.cabType
+        .toLowerCase()
+        .includes("tempo")
+    ) {
+      return "Tempo Traveller";
+    }
+
+    if (
+      firstVehicle.cabType.toLowerCase() === "sedan"
+    ) {
+      return "Sedan";
+    }
+
+    if (
+      firstVehicle.cabType
+        .toLowerCase()
+        .includes("suv")
+    ) {
+      return "SUV";
+    }
+
+    return "Cab";
+  }, [
+    page.slug,
+    page.service,
+    vehicleOptions,
+  ]);
+
+  /**
+   * Dynamic lowercase label for sentences.
+   *
+   * Example:
+   * Tempo Traveller -> tempo traveller
+   * Cab -> cab
+   */
+  const vehicleLabelLower = vehicleLabel.toLowerCase();
+
+  /**
+   * Category heading.
+   *
+   * Examples:
+   * Select Tempo Traveller Model
+   * Select Sedan Model
+   * Select SUV Model
+   */
+  const categoryTitle = vehicleLabel;
+
+  const handleBookNow = (
+    e: React.FormEvent<HTMLFormElement>,
+  ) => {
     e.preventDefault();
 
     if (!pickup.trim()) {
@@ -177,8 +396,13 @@ export default function UniversalSeoBookingForm({
       return;
     }
 
-    if (pickup.trim().toLowerCase() === drop.trim().toLowerCase()) {
-      toast.error("Pickup and drop location cannot be the same");
+    if (
+      pickup.trim().toLowerCase() ===
+      drop.trim().toLowerCase()
+    ) {
+      toast.error(
+        "Pickup and drop location cannot be the same",
+      );
       return;
     }
 
@@ -188,7 +412,9 @@ export default function UniversalSeoBookingForm({
     }
 
     if (date < today) {
-      toast.error("Travel date cannot be in the past");
+      toast.error(
+        "Travel date cannot be in the past",
+      );
       return;
     }
 
@@ -197,23 +423,42 @@ export default function UniversalSeoBookingForm({
       return;
     }
 
-    if (journeyType === "round-trip" && !returnDate) {
+    if (
+      journeyType === "round-trip" &&
+      !returnDate
+    ) {
       toast.error("Please select return date");
       return;
     }
 
-    if (journeyType === "round-trip" && returnDate < date) {
-      toast.error("Return date cannot be before travel date");
+    if (
+      journeyType === "round-trip" &&
+      returnDate < date
+    ) {
+      toast.error(
+        "Return date cannot be before travel date",
+      );
       return;
     }
 
     const journey =
-      journeyType === "one-way" ? "One Way" : "Round Trip";
+      journeyType === "one-way"
+        ? "One Way"
+        : "Round Trip";
 
+    /**
+     * Dynamic WhatsApp message.
+     *
+     * Tempo page:
+     * "I want to book a tempo traveller."
+     *
+     * Cab page:
+     * "I want to book a cab."
+     */
     const message = [
       "Hello Tirupati Travels 👋",
       "",
-      "I want to book a cab.",
+      `I want to book a ${vehicleLabelLower}.`,
       "",
       "*Booking Details*",
       "",
@@ -227,14 +472,16 @@ export default function UniversalSeoBookingForm({
         ? [`*Return Date:* ${returnDate}`]
         : []),
       "",
-      "Please confirm vehicle availability and fare.",
+      `Please confirm ${vehicleLabelLower} availability and fare.`,
     ].join("\n");
 
     const whatsappUrl =
       `https://wa.me/${WHATSAPP_NUMBER}` +
       `?text=${encodeURIComponent(message)}`;
 
-    // Open WhatsApp
+    /**
+     * Open WhatsApp
+     */
     window.location.href = whatsappUrl;
   };
 
@@ -242,21 +489,21 @@ export default function UniversalSeoBookingForm({
     <div className="rounded-3xl border border-amber-100 bg-white p-5 shadow-2xl shadow-slate-200/60 sm:p-7">
       {/* Header */}
       <div className="mb-6">
-        {/* <p className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
-          BOOK YOUR CAB
-        </p> */}
-
         <h3 className="mt-1 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
-          Book Your CAB
+          Book Your {vehicleLabel}
         </h3>
 
         <p className="mt-2 text-sm leading-6 text-slate-500">
-          Enter your journey details and continue on WhatsApp to
-          confirm availability and fare.
+          Enter your journey details and continue on
+          WhatsApp to confirm {vehicleLabelLower}{" "}
+          availability and fare.
         </p>
       </div>
 
-      <form onSubmit={handleBookNow} className="space-y-4">
+      <form
+        onSubmit={handleBookNow}
+        className="space-y-4"
+      >
         {/* Journey Type */}
         <div>
           <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700">
@@ -281,7 +528,9 @@ export default function UniversalSeoBookingForm({
 
             <button
               type="button"
-              onClick={() => setJourneyType("round-trip")}
+              onClick={() =>
+                setJourneyType("round-trip")
+              }
               className={`rounded-lg py-2.5 text-sm font-bold transition ${
                 journeyType === "round-trip"
                   ? "bg-amber-500 text-white shadow"
@@ -321,7 +570,8 @@ export default function UniversalSeoBookingForm({
               </select>
             ) : (
               <div className="w-full rounded-full border border-amber-300/80 bg-slate-50 py-3 pl-11 pr-4 text-sm font-bold text-slate-900">
-                {vehicleOptions[0]?.name || selectedVehicle}
+                {vehicleOptions[0]?.name ||
+                  selectedVehicle}
               </div>
             )}
           </div>
@@ -340,8 +590,13 @@ export default function UniversalSeoBookingForm({
               <input
                 type="text"
                 value={pickup}
-                onChange={(e) => setPickup(e.target.value)}
-                placeholder={page.city || "Enter pickup location"}
+                onChange={(e) =>
+                  setPickup(e.target.value)
+                }
+                placeholder={
+                  page.city ||
+                  "Enter pickup location"
+                }
                 className="w-full rounded-full border border-slate-200 bg-white py-3 pl-11 pr-4 text-sm font-medium text-slate-900 outline-none placeholder:text-slate-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20"
               />
             </div>
@@ -358,7 +613,9 @@ export default function UniversalSeoBookingForm({
               <input
                 type="text"
                 value={drop}
-                onChange={(e) => setDrop(e.target.value)}
+                onChange={(e) =>
+                  setDrop(e.target.value)
+                }
                 placeholder="Enter drop location"
                 className="w-full rounded-full border border-slate-200 bg-white py-3 pl-11 pr-4 text-sm font-medium text-slate-900 outline-none placeholder:text-slate-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20"
               />
@@ -379,7 +636,9 @@ export default function UniversalSeoBookingForm({
               <input
                 type="date"
                 value={date}
-                onChange={(e) => setDate(e.target.value)}
+                onChange={(e) =>
+                  setDate(e.target.value)
+                }
                 min={today}
                 className="w-full rounded-full border border-slate-200 bg-white py-3 pl-11 pr-4 text-sm font-medium text-slate-900 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20"
               />
@@ -397,7 +656,9 @@ export default function UniversalSeoBookingForm({
               <input
                 type="time"
                 value={time}
-                onChange={(e) => setTime(e.target.value)}
+                onChange={(e) =>
+                  setTime(e.target.value)
+                }
                 className="w-full rounded-full border border-slate-200 bg-white py-3 pl-11 pr-4 text-sm font-medium text-slate-900 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20"
               />
             </div>
@@ -417,7 +678,9 @@ export default function UniversalSeoBookingForm({
               <input
                 type="date"
                 value={returnDate}
-                onChange={(e) => setReturnDate(e.target.value)}
+                onChange={(e) =>
+                  setReturnDate(e.target.value)
+                }
                 min={date || today}
                 className="w-full rounded-full border border-slate-200 bg-white py-3 pl-11 pr-4 text-sm font-medium text-slate-900 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20"
               />
@@ -425,18 +688,12 @@ export default function UniversalSeoBookingForm({
           </div>
         )}
 
-        {/* WhatsApp Notice */}
-        {/* <div className="rounded-xl bg-green-50 px-4 py-3 text-sm leading-5 text-green-800">
-          Your booking details will be sent to Tirupati Travels
-          on WhatsApp. We will confirm availability and fare.
-        </div> */}
-
         {/* Book Now */}
         <button
           type="submit"
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-gold py-3.5 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-gold/90 active:scale-[0.99]"
         >
-          Book Cab Now
+          Book {vehicleLabel} Now
           <ArrowRight size={18} />
         </button>
       </form>

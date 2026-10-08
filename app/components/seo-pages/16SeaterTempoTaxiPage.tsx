@@ -26,6 +26,8 @@ import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator"
 import type { SeoPageData } from "@/app/data/seoPages";
 import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 import VehicleFeatures from "@/_components/16seatTempo/VehicleFeatures";
+import WhyChooseUs from "@/_components/WhyChooseUs";
+import Testimonials from "../Home/Testimonials";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
@@ -81,8 +83,8 @@ Please share the detailed quote and availability.`;
       {/* ===== HERO SECTION ===== */}
       <section className="relative overflow-hidden bg-stone-50 border-b border-slate-200">
         {/* Decorative Gold Glow */}
-        <div className="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-gold/50 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/50 blur-3xl" />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-12 lg:grid-cols-2 lg:py-12">
           {/* ================= LEFT: Content ================= */}
@@ -169,6 +171,11 @@ Please share the detailed quote and availability.`;
             pagetype="tempo-traveller"
           />
         )}
+
+        <WhyChooseUs  cityName={city}
+          pageSlug={slug}
+          service="tempo-traveller"/>
+                <Testimonials />
         <TempoTaxiFaq  city={city} />
 
         <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
