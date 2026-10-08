@@ -32,9 +32,25 @@ export default function WhyChooseUs({
     serviceType.includes("tempo traveller") ||
     serviceType.includes("tempo-traveler") ||
     serviceType.includes("tempo traveler") ||
+    serviceType.includes("luxury-tempo-traveller") ||
+  serviceType.includes("luxury tempo traveller") ||
+  serviceType.includes("luxury-tempo-traveler") ||
+  serviceType.includes("luxury tempo traveler") ||
     serviceType === "tempo" ||
     serviceType.includes("tempo");
 
+
+
+    /**
+     * luxury tempo
+     */
+    const isLuxuryTempoTraveller =
+  slug.includes("luxury-tempo-traveller") ||
+  slug.includes("luxury-tempo-traveler") ||
+  serviceType.includes("luxury-tempo-traveller") ||
+  serviceType.includes("luxury tempo traveller") ||
+  serviceType.includes("luxury-tempo-traveler") ||
+  serviceType.includes("luxury tempo traveler");
   /**
    * Detect Urbania pages
    */
@@ -95,7 +111,9 @@ export default function WhyChooseUs({
   /**
    * Decide the vehicle/service name
    */
-  const serviceName = isTempoTraveller
+  const serviceName = isLuxuryTempoTraveller
+  ? "Luxury Tempo Traveller"
+  : isTempoTraveller
     ? tempoSeater
     : isUrbania
       ? "Urbania"
@@ -108,25 +126,28 @@ export default function WhyChooseUs({
   /**
    * Dynamic heading
    */
-  const heading = isTempoTraveller
+ const heading = isLuxuryTempoTraveller
+  ? "Why Book a Luxury Tempo Traveller with Tirupati Travels?"
+  : isTempoTraveller
     ? `Why Book a ${serviceName} with Tirupati Travels?`
     : isUrbania
-      ? `Why Book an Urbania with Tirupati Travels?`
+      ? "Why Book an Urbania with Tirupati Travels?"
       : isSedan
-        ? `Why Book a Sedan with Tirupati Travels?`
+        ? "Why Book a Sedan with Tirupati Travels?"
         : isSUV
-          ? `Why Book an SUV with Tirupati Travels?`
-          : `Why Book a Taxi with Tirupati Travels?`;
+          ? "Why Book an SUV with Tirupati Travels?"
+          : "Why Book a Taxi with Tirupati Travels?";
 
   /**
    * Dynamic description
    */
-  const description = isTempoTraveller
+  const description = isLuxuryTempoTraveller
+  ? `Book a premium Luxury Tempo Traveller in ${cityName} for comfortable group travel, family trips, sightseeing, pilgrimages, weddings, corporate travel, airport transfers, and outstation journeys.`
+  : isTempoTraveller
     ? `Book a comfortable ${serviceName} in ${cityName} for family trips, group travel, sightseeing, pilgrimages, weddings, airport transfers, and outstation journeys.`
     : isUrbania
       ? `Book a comfortable Urbania in ${cityName} for premium group travel, sightseeing, airport transfers, pilgrimages, weddings, and outstation journeys.`
       : `Book comfortable and convenient ${serviceName.toLowerCase()} services in ${cityName} for local travel, airport transfers, sightseeing, family trips, pilgrimages, and outstation journeys.`;
-
   /**
    * Dynamic features
    */
