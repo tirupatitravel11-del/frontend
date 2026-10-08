@@ -71,15 +71,15 @@ const BOOKING_STEPS = [
 
 export default function ContactUsPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen">
       {/* =====================================================
           HERO
       ===================================================== */}
-      <section className="relative overflow-hidden border-b border-slate-100 bg-white">
-        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl" />
-        <div className="pointer-events-none absolute -left-32 -bottom-32 h-96 w-96 rounded-full bg-amber-500/5 blur-3xl" />
+      <section className="relative overflow-hidden border-b border-slate-200 bg-stone-50 py-12 sm:py-12 lg:py-12">
+        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-amber-500/50 blur-3xl" />
+        <div className="pointer-events-none absolute -left-32 -bottom-32 h-96 w-96 rounded-full bg-amber-500/50 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 ">
           <div className="mx-auto max-w-4xl text-center">
             <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600">
               <Headphones size={28} />
@@ -105,7 +105,7 @@ export default function ContactUsPage() {
       {/* =====================================================
           CONTACT METHODS HIGHLIGHTS
       ===================================================== */}
-      <section className="border-b border-slate-100 bg-slate-50/50 py-12 sm:py-16">
+      <section className="border-b border-slate-200 bg-stone-50 py-12 sm:py-12">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-3">
           {CONTACT_METHODS.map((item, index) => {
             const Icon = item.icon;
@@ -141,8 +141,8 @@ export default function ContactUsPage() {
       {/* =====================================================
           HOW TO BOOK (REPLACES FAQ)
       ===================================================== */}
-      <section className="bg-white py-14 sm:py-16 lg:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <section className="bg-slate-50 py-12 sm:py-12 lg:py-12 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center">
             <p className="text-xs font-semibold uppercase tracking-widest text-amber-600 sm:text-sm">
               Simple & Easy
@@ -150,7 +150,7 @@ export default function ContactUsPage() {
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
               How to Book Your Trip
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+            <p className="mx-auto mt-4 max-w-7xl text-sm leading-7 text-slate-600 sm:text-base">
               Booking with Tirupati Travels is quick, transparent, and hassle-free. Here's how it works in four simple steps.
             </p>
           </div>
@@ -195,8 +195,8 @@ export default function ContactUsPage() {
       {/* =====================================================
           DETAILED CONTACT INFO
       ===================================================== */}
-      <section id="contact-details" className="border-t border-slate-100 bg-slate-50/50 py-14 sm:py-16 lg:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+      <section id="contact-details" className="border-b border-slate-200 bg-stone-50 py-12 sm:py-12 lg:py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
               We&apos;re Here to Help
@@ -257,8 +257,8 @@ export default function ContactUsPage() {
       {/* =====================================================
           WHATSAPP / CALL CTA
       ===================================================== */}
-      <section className="border-t border-slate-100 bg-white py-14 sm:py-16 lg:py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <section className="border-b border-slate-200 bg-stone-50 py-12 sm:py-12 lg:py-12">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600">
             <MessageSquare size={26} />
           </div>

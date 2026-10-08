@@ -28,8 +28,8 @@ function ServicePage({ page }: { page: SeoPageData }) {
       <section className="relative min-h-[80vh] overflow-hidden bg-stone-50 border-b border-slate-200 lg:min-h-screen">
         {/* Decorative Background */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gold/5 blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-gold/5 blur-3xl" />
+          <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gold/50 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-gold/50 blur-3xl" />
           <div className="absolute top-1/2 right-1/4 h-64 w-64 rounded-full bg-slate-100/80 blur-2xl" />
         </div>
 
@@ -123,7 +123,13 @@ function ServicePage({ page }: { page: SeoPageData }) {
       )}
       <HowItWorks />
       <PerfectFor />
-      <WhyChooseUs />
+      <WhyChooseUs
+  cityName={city}
+  pageSlug={slug}
+  service="tempo-traveller"
+/>
+
+<Testimonials />
       <TempoTravellerFAQTaxi city={city} />
 
       <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">

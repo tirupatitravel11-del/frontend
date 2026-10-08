@@ -3363,6 +3363,7 @@ export const ROUTES: Route[] = [
     distance: 450,
     duration: "8 - 9 hrs",
   },
+  
   {
     slug: "agra-to-varanasi",
     fromCity: "Agra",

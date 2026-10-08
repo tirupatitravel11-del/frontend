@@ -51,8 +51,8 @@ export default function ErtigaTaxiPage({ page }: { page: SeoPageData }) {
       <section className="relative min-h-screen overflow-hidden bg-stone-50 border-b border-slate-200">
         {/* Decorative Background */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gold/5 blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-gold/5 blur-3xl" />
+          <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gold/50 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-gold/50 blur-3xl" />
           <div className="absolute top-1/2 right-1/4 h-64 w-64 rounded-full bg-slate-100/80 blur-2xl" />
         </div>
 

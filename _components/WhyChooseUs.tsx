@@ -27,13 +27,13 @@ const FEATURES: Feature[] = [
     icon: "🚗",
     title: "Comfortable Vehicles",
     description:
-      "Choose from a range of comfortable vehicles suitable for solo travellers, families, groups, sightseeing, pilgrimages, and outstation trips.",
+      "Choose from comfortable vehicles suitable for solo travellers, families, groups, sightseeing, pilgrimages, and outstation trips.",
   },
   {
     icon: "⏰",
     title: "Flexible Travel Options",
     description:
-      "Book a vehicle according to your travel requirements, whether you need a local taxi, airport transfer, one-way trip, round trip, or outstation cab.",
+      "Choose a vehicle according to your travel requirements, whether you need local travel, airport transfers, one-way trips, round trips, or outstation journeys.",
   },
   {
     icon: "🛣️",
@@ -45,13 +45,100 @@ const FEATURES: Feature[] = [
 
 interface WhyChooseUsProps {
   cityName?: string;
+  pageSlug?: string;
+  service?: string;
 }
 
 export default function WhyChooseUs({
   cityName = "your destination",
+  pageSlug = "",
+  service = "",
 }: WhyChooseUsProps) {
+  /**
+   * Normalize URL/service values
+   */
+  const slug = pageSlug.toLowerCase();
+  const serviceType = service.toLowerCase();
+
+  /**
+   * Detect Tempo Traveller pages
+   *
+   * Examples:
+   * /tempo-traveller
+   * /12-seater-tempo-traveller
+   * /16-seater-tempo-traveller
+   * /luxury-tempo-traveller
+   * service = "tempo"
+   */
+  const isTempoTraveller =
+    slug.includes("tempo-traveller") ||
+    slug.includes("tempo-traveler") ||
+    slug.includes("tempo") ||
+    serviceType.includes("tempo-traveller") ||
+    serviceType.includes("tempo traveller") ||
+    serviceType.includes("tempo-traveler") ||
+    serviceType.includes("tempo traveler") ||
+    serviceType === "tempo" ||
+    serviceType.includes("tempo");
+
+  /**
+   * Detect Urbania pages
+   */
+  const isUrbania =
+    slug.includes("urbania") ||
+    serviceType.includes("urbania");
+
+  /**
+   * Detect Sedan pages
+   */
+  const isSedan =
+    slug.includes("sedan") ||
+    serviceType === "sedan";
+
+  /**
+   * Detect SUV pages
+   */
+  const isSUV =
+    slug.includes("suv") ||
+    serviceType === "suv";
+
+  /**
+   * Decide the vehicle/service name
+   */
+  const serviceName = isTempoTraveller
+    ? "Tempo Traveller"
+    : isUrbania
+      ? "Urbania"
+      : isSedan
+        ? "Sedan"
+        : isSUV
+          ? "SUV"
+          : "Taxi";
+
+  /**
+   * Dynamic heading
+   */
+  const heading = isTempoTraveller
+    ? `Why Book a Tempo Traveller with Tirupati Travels?`
+    : isUrbania
+      ? `Why Book an Urbania with Tirupati Travels?`
+      : isSedan
+        ? `Why Book a Sedan with Tirupati Travels?`
+        : isSUV
+          ? `Why Book an SUV with Tirupati Travels?`
+          : `Why Book a Taxi with Tirupati Travels?`;
+
+  /**
+   * Dynamic description
+   */
+  const description = isTempoTraveller
+    ? `Book a comfortable ${serviceName} in ${cityName} for family trips, group travel, sightseeing, pilgrimages, airport transfers, and outstation journeys.`
+    : isUrbania
+      ? `Book a comfortable ${serviceName} in ${cityName} for premium group travel, sightseeing, airport transfers, pilgrimages, and outstation journeys.`
+      : `Book comfortable and convenient ${serviceName.toLowerCase()} services in ${cityName} for local travel, airport transfers, sightseeing, family trips, pilgrimages, and outstation journeys.`;
+
   return (
-    <section className="bg-stone-50 py-12 lg:py-12 border-b border-slate-200">
+    <section className="border-b border-slate-200 bg-stone-50 py-12 lg:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mx-auto mb-10 max-w-7xl text-center">
@@ -60,16 +147,11 @@ export default function WhyChooseUs({
           </p>
 
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Why Book a Taxi with Tirupati Travels?
+            {heading}
           </h2>
 
           <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
-            Book comfortable and convenient taxi services in{" "}
-            <span className="font-semibold text-slate-900">
-              {cityName}
-            </span>{" "}
-            for local travel, airport transfers, sightseeing, family trips,
-            pilgrimages, and outstation journeys.
+            {description}
           </p>
         </div>
 
