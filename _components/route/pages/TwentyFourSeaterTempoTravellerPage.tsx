@@ -14,18 +14,18 @@ export default function TwentyFourSeaterTempoTravellerPage({
 }: {
   data: any;
 }) {
-  const { route,page } = data;
+  const { route, page } = data;
 
   return (
     <>
       <TwentyFourSeaterTempoHero
-  from={route.fromCity}
+        from={route.fromCity}
         to={route.toCity}
-       fare={data.fares[0]} 
+        fare={data.fares[0]}
       />
 
       <TwentyFourDetails />
-      <TwentyFourSeaterSeating/>
+      <TwentyFourSeaterSeating />
 
       <TwentyFourSeaterTempoDetails />
 
@@ -48,9 +48,9 @@ export default function TwentyFourSeaterTempoTravellerPage({
       <WhyChooseUs />
 
       <TempoTravellerFaq
-            from={data.route.fromCity}
-              to={data.route.toCity}
-            />
+        from={data.route.fromCity}
+        to={data.route.toCity}
+      />
     </>
   );
 }

@@ -53,7 +53,7 @@ const TEMPO_FARES = [
 ];
 
 export default function LuxuryTempoTravellerPage({ data }: any) {
-  const { route, page,vehicles,fares } = data;
+  const { route, page, vehicles, fares } = data;
   const tempoVehicles = VEHICLES.filter(
     (vehicle) =>
       vehicle.cabType === "Tempo Traveller" ||
@@ -61,40 +61,40 @@ export default function LuxuryTempoTravellerPage({ data }: any) {
   );
 
   // Route distance ke according fare
-const tempoFares = tempoVehicles.map((vehicle) => ({
-  slug: vehicle.slug,
-  vehicle: vehicle.name,
-  seats: `${vehicle.passengerCapacity}+1`,
-  oneWay: calculateFare(
-    route.distance,
-    
-    vehicle.perKm
-  ),
-  roundTrip: calculateFare(
-    route.distance,
-   
-    vehicle.perKm
-  ),
-  perKm: vehicle.perKm,
-  image: vehicle.image,
-  popular: vehicle.slug === "12-seater-tempo-traveller",
-}));
-const luxuryTableFares = tempoFares.map((fare) => ({
-  vehicle: fare.vehicle,
-  seats: fare.seats,
-  oneWay: fare.oneWay.oneWayFare,
-  roundTrip: fare.roundTrip.roundTripFare,
-  perKm: fare.perKm,
-  popular: fare.popular,
-}));
+  const tempoFares = tempoVehicles.map((vehicle) => ({
+    slug: vehicle.slug,
+    vehicle: vehicle.name,
+    seats: `${vehicle.passengerCapacity}+1`,
+    oneWay: calculateFare(
+      route.distance,
+
+      vehicle.perKm
+    ),
+    roundTrip: calculateFare(
+      route.distance,
+
+      vehicle.perKm
+    ),
+    perKm: vehicle.perKm,
+    image: vehicle.image,
+    popular: vehicle.slug === "12-seater-tempo-traveller",
+  }));
+  const luxuryTableFares = tempoFares.map((fare) => ({
+    vehicle: fare.vehicle,
+    seats: fare.seats,
+    oneWay: fare.oneWay.oneWayFare,
+    roundTrip: fare.roundTrip.roundTripFare,
+    perKm: fare.perKm,
+    popular: fare.popular,
+  }));
   return (
     <>
-      <LuxuryTempoHero   from={route.fromCity}
-  to={route.toCity}
-  fares={tempoFares}/>
+      <LuxuryTempoHero from={route.fromCity}
+        to={route.toCity}
+        fares={tempoFares} />
       <LuxuryTempoTravellerCitySection />
-      <LuxuryFleetDetails    fares={tempoFares}
-  vehicles={tempoVehicles} />
+      <LuxuryFleetDetails fares={tempoFares}
+        vehicles={tempoVehicles} />
 
       <LuxuryFareTable
         from={route.fromCity}
@@ -102,16 +102,16 @@ const luxuryTableFares = tempoFares.map((fare) => ({
         title={page.h1}
         fares={luxuryTableFares}
       />
-         <PopularRoutes
-              routes={data.popularRoutes}
-              from={route.fromCity}
-              to={route.toCity}
-              pagetype={page.pageType}
-            />
+      <PopularRoutes
+        routes={data.popularRoutes}
+        from={route.fromCity}
+        to={route.toCity}
+        pagetype={page.pageType}
+      />
       <WhyChooseUs />
       <Testimonials />
       <LuxuryTempoFaq from={data.route.fromCity}
-        to={data.route.toCity}/>
+        to={data.route.toCity} />
     </>
   );
 }

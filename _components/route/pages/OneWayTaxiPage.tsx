@@ -8,7 +8,7 @@ import TaxiFaq from "@/_components/TaxiFaq";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 
 export default function OneWayTaxiPage({ data }: any) {
-  const { route, page,vehicles,fares } = data;
+  const { route, page, vehicles, fares } = data;
 
   return (
     <>
@@ -17,10 +17,10 @@ export default function OneWayTaxiPage({ data }: any) {
         fare={data.fares[0]} />
       <OneWayAdvantage oneWayFare={1599} roundTripFare={2699} />
       <OneWayFareTable from={route.fromCity} to={route.toCity} />
-      <CabSelector    from={route.fromCity}
-  to={route.toCity}
-  vehicles={vehicles}
-  fares={fares}/>
+      <CabSelector from={route.fromCity}
+        to={route.toCity}
+        vehicles={vehicles}
+        fares={fares} />
       <HowToBook from={route.fromCity} to={route.toCity} />
       <WhyChooseUs />
       <TaxiFaq />

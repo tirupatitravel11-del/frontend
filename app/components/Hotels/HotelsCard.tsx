@@ -32,6 +32,7 @@ export default function HotelsCard({
           src={image}
           alt={name}
           fill
+          unoptimized={image.startsWith("data:")}
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
 

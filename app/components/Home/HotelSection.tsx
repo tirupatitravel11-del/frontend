@@ -20,13 +20,13 @@ export default function HotelsSection() {
             </h2>
 
             <p className="mt-5 max-w-2xl text-base text-gray-600 md:text-lg">
-              Discover handpicked hotels for a comfortable stay across India's
+              Discover handpicked hotels for a comfortable stay across India&apos;s
               top destinations.
             </p>
           </div>
 
           <Link
-            href="/hotel"
+            href="/hotel#all-hotels"
             className="flex items-center justify-center gap-2 font-semibold text-gold md:hidden"
           >
             View All Hotels
@@ -34,7 +34,7 @@ export default function HotelsSection() {
           </Link>
 
           <Link
-            href="/hotel"
+            href="/hotel#all-hotels"
             className="hidden items-center gap-2 font-semibold text-gold md:flex"
           >
             View All Hotels
