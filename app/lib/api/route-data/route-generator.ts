@@ -228,7 +228,7 @@ export function generatePopularRoutes(
       route.fromCity.toLowerCase() === normalizedFromCity &&
       route.slug !== currentRouteSlug,
   )
-    .slice(0, 10)
+    .slice(0, 12)
     .map((route, index) => ({
       id: index + 1,
       from: route.fromCity,

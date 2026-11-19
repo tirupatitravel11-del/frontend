@@ -12,22 +12,109 @@ import {
   Star,
   Heart,
 } from "lucide-react";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useMemo, useState } from "react";
 
 import { popularPackages } from "@/app/constants/packages";
 import Image from "next/image";
 
 const ITEMS_PER_PAGE = 9;
 
+interface BackendPackage {
+  _id: string;
+  title: string;
+  slug: string;
+  shortDescription?: string;
+  description?: string;
+  featuredImage?: string;
+  days?: number;
+  nights?: number;
+  startingPrice?: number;
+  tags?: string[];
+  cab_page_id?: { slug?: string; cityName?: string } | string | null;
+}
+
 export default function PopularPackages() {
   const [currentPage, setCurrentPage] = useState(1);
   const [favorites, setFavorites] = useState<number[]>([]);
+  const [databasePackages, setDatabasePackages] = useState<BackendPackage[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [apiError, setApiError] = useState("");
 
-  // Calculate pagination
-  const totalPages = Math.ceil(popularPackages.length / ITEMS_PER_PAGE);
+  useEffect(() => {
+    let active = true;
+
+    axios
+      .get<{ success: boolean; data: BackendPackage[] }>(
+        `${process.env.apiUrl}/api/packages`,
+        { withCredentials: true },
+      )
+      .then(({ data }) => {
+        if (!data.success || !Array.isArray(data.data)) {
+          throw new Error("The package API returned an invalid response.");
+        }
+
+        if (active) {
+          setDatabasePackages(data.data);
+          setApiError("");
+        }
+      })
+      .catch((error: unknown) => {
+        console.error("GET ALL PACKAGES API ERROR:", error);
+        if (active) {
+          setApiError(
+            "Packages from the CRM could not be loaded. Showing curated packages instead.",
+          );
+        }
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const allPackages = useMemo(() => {
+    const crmPackages = databasePackages.flatMap((item) => {
+      const citySlug =
+        typeof item.cab_page_id === "object"
+          ? item.cab_page_id?.slug
+          : undefined;
+      if (!citySlug) return [];
+
+      return [
+        {
+          id: item._id,
+          title: item.title,
+          image: item.featuredImage || "/Packages_goa.jpg",
+          price: `₹${Number(item.startingPrice || 0).toLocaleString("en-IN")}`,
+          description:
+            item.shortDescription || item.description || "Plan your next trip.",
+          slug: item.slug,
+          citySlug,
+          duration: `${item.days || 0} Days / ${item.nights || 0} Nights`,
+          groupSize: "2-8 People",
+          tags: item.tags || [],
+        },
+      ];
+    });
+
+    const crmTitles = new Set(
+      crmPackages.map((item) => item.title.trim().toLowerCase()),
+    );
+    const curatedPackages = popularPackages.filter(
+      (item) => !crmTitles.has(item.title.trim().toLowerCase()),
+    );
+
+    return [...crmPackages, ...curatedPackages];
+  }, [databasePackages]);
+
+  const totalPages = Math.ceil(allPackages.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentPackages = popularPackages.slice(startIndex, endIndex);
+  const currentPackages = allPackages.slice(startIndex, endIndex);
 
   const toggleFavorite = (id: number, e: React.MouseEvent) => {
     e.preventDefault();
@@ -109,7 +196,7 @@ export default function PopularPackages() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-7xl text-lg leading-8 text-stone-600">
-            Explore India's most loved destinations with curated holiday
+            Explore India&apos;s most loved destinations with curated holiday
             packages designed for families, couples, groups and solo travellers.
           </p>
 
@@ -122,11 +209,26 @@ export default function PopularPackages() {
           </div> */}
         </div>
 
+        {loading && (
+          <p role="status" className="mb-6 text-center text-sm text-stone-600">
+            Loading packages...
+          </p>
+        )}
+        {apiError && (
+          <p role="alert" className="mb-6 text-center text-sm text-amber-700">
+            {apiError}
+          </p>
+        )}
+
         {/* Cards Grid - 3 columns */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {currentPackages.map((item) => (
             <Link
-              href={`/packages/${item.slug}`}
+              href={
+                "citySlug" in item
+                  ? `/packages/${item.citySlug}/${item.slug}`
+                  : `/packages/${item.slug}`
+              }
               key={item.id}
               className="group relative block"
             >
@@ -138,6 +240,7 @@ export default function PopularPackages() {
     src={item.image}
     alt={item.title}
     fill
+    unoptimized={item.image.startsWith("data:")}
     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
     className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
     loading="lazy"

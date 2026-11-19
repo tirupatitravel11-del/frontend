@@ -8,28 +8,28 @@ import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
 
 export default function AmazeTaxiPage({ data }: any) {
-    const { route, page } = data;
+  const { route, page } = data;
 
   return (
     <>
-      <AmazeHero  from={data.route.fromCity}
+      <AmazeHero from={data.route.fromCity}
         to={data.route.toCity}
         fare={data.fares[0]} />
-      <AmazeFleetDetails  fares={data.fares}
-  vehicles={data.vehicles}/>
-      <AmazeFitGuide fares={data.fares[0]}/>
-        <PopularRoutes
-              routes={data.popularRoutes}
-              from={route.fromCity}
-              to={route.toCity}
-              pagetype={page.pageType}
-            />
+      <AmazeFleetDetails fares={data.fares}
+        vehicles={data.vehicles} />
+      <AmazeFitGuide fares={data.fares[0]} />
+      <PopularRoutes
+        routes={data.popularRoutes}
+        from={route.fromCity}
+        to={route.toCity}
+        pagetype={page.pageType}
+      />
       <HowToBook from={route.fromCity} to={route.toCity} />
       <WhyChooseUs />
       <Testimonials />
       <AmazeFaq from={data.route.fromCity}
         to={data.route.toCity} />
-        <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white ">
+      <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white ">
         {/* Decorative Background */}
         <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />

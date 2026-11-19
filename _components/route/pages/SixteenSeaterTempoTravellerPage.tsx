@@ -14,14 +14,14 @@ export default function SixteenSeaterTempoTravellerPage({
 }: {
   data: any;
 }) {
-  const { route,page } = data;
+  const { route, page } = data;
 
   return (
     <>
       <SixteenSeaterTempoHero
         from={route.fromCity}
         to={route.toCity}
-       fare={data.fares[0]} 
+        fare={data.fares[0]}
       />
       <SixteenSeaterDetails />
       {/* <SeaterDetails /> */}
@@ -48,7 +48,7 @@ export default function SixteenSeaterTempoTravellerPage({
       <WhyChooseUs />
 
       <SixteenSeaterTempoFaq from={data.route.fromCity}
-        to={data.route.toCity}/>
+        to={data.route.toCity} />
     </>
   );
 }

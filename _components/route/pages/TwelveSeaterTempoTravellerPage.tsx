@@ -20,10 +20,10 @@ export default function TempoTravellerPage({ data }: any) {
   const { route, page } = data;
   return (
     <>
-      <TwelveSeaterTempoHero  from={data.route.fromCity}
+      <TwelveSeaterTempoHero from={data.route.fromCity}
         to={data.route.toCity}
-        fare={data.fares[0]}  />
-        <TwelveSeaterStorySection/>
+        fare={data.fares[0]} />
+      <TwelveSeaterStorySection />
       {/* <SeaterDetails/> */}
       <TwelveSeaterSeating />
       {/* <Seater12Seating/> */}
@@ -45,10 +45,10 @@ export default function TempoTravellerPage({ data }: any) {
       />
 
       <WhyChooseUs />
-      <Testimonials/>
+      <Testimonials />
 
       <TempoTravellerFaq from={data.route.fromCity}
-        to={data.route.toCity}/>
+        to={data.route.toCity} />
     </>
   );
 }

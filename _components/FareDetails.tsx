@@ -95,63 +95,63 @@ export default function FareDetails({
         </div>
 
         {/* ===== Fare Table ===== */}
-   <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-  <div className="overflow-x-auto">
-    <table className="w-full min-w-[640px] text-left text-sm">
-      <caption className="sr-only">
-        {from} to {to} taxi fares for one-way and round trips by cab type
-      </caption>
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[640px] text-left text-sm">
+              <caption className="sr-only">
+                {from} to {to} taxi fares for one-way and round trips by cab type
+              </caption>
 
-      <thead>
-        <tr className="bg-slate-900 text-white">
-          <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-            Cab Type
-          </th>
+              <thead>
+                <tr className="bg-slate-900 text-white">
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
+                    Cab Type
+                  </th>
 
-          <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-            One Way
-          </th>
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
+                    One Way
+                  </th>
 
-          <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-            Round Trip
-          </th>
-        </tr>
-      </thead>
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
+                    Round Trip
+                  </th>
+                </tr>
+              </thead>
 
-      <tbody className="divide-y divide-slate-200">
-        {fares.filter(
-    (fare) =>
-      [
-        "luxury-tempo-traveller",
-        "12-seater-tempo-traveller",
-        "16-seater-tempo-traveller",
-        "20-seater-tempo-traveller",
-        "24-seater-tempo-traveller",
-      ].includes(fare.vehicleId)
-  ).map((row) => (
-          <tr
-            key={row._id}
-            className="transition-colors hover:bg-slate-50"
-          >
-            <td className="px-6 py-5">
-              <span className="font-semibold text-slate-900">
-                {row.vehicleName}
-              </span>
-            </td>
+              <tbody className="divide-y divide-slate-200">
+                {fares.filter(
+                  (fare) =>
+                    [
+                      "luxury-tempo-traveller",
+                      "12-seater-tempo-traveller",
+                      "16-seater-tempo-traveller",
+                      "20-seater-tempo-traveller",
+                      "24-seater-tempo-traveller",
+                    ].includes(fare.vehicleId)
+                ).map((row) => (
+                  <tr
+                    key={row._id}
+                    className="transition-colors hover:bg-slate-50"
+                  >
+                    <td className="px-6 py-5">
+                      <span className="font-semibold text-slate-900">
+                        {row.vehicleName}
+                      </span>
+                    </td>
 
-            <td className="px-6 py-5 text-lg font-bold text-slate-900">
-              ₹{row.oneWayPrice.toLocaleString("en-IN")}
-            </td>
+                    <td className="px-6 py-5 text-lg font-bold text-slate-900">
+                      ₹{row.oneWayPrice.toLocaleString("en-IN")}
+                    </td>
 
-            <td className="px-6 py-5 text-lg font-bold text-gold">
-              ₹{row.roundTripPrice.toLocaleString("en-IN")}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</div>
+                    <td className="px-6 py-5 text-lg font-bold text-gold">
+                      ₹{row.roundTripPrice.toLocaleString("en-IN")}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
 
         {/* ===== Included vs Extras ===== */}
         <div className="mt-8 grid gap-6 md:grid-cols-2">

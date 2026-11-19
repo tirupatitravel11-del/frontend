@@ -56,12 +56,12 @@ export function getRoutePage(pageSlug: string) {
   ]);
 
   const normalizedSlug = pageSlug.toLowerCase().replace(/^\/|\/$/g, "");
-  const isAyodhyaTaxiOnly = Array.from(ayodhyaTaxiOnlySlugs).some(baseSlug => 
+  const isAyodhyaTaxiOnly = Array.from(ayodhyaTaxiOnlySlugs).some(baseSlug =>
     normalizedSlug.startsWith(baseSlug)
   );
 
   if (isAyodhyaTaxiOnly) {
-    const matchedBaseSlug = Array.from(ayodhyaTaxiOnlySlugs).find(baseSlug => 
+    const matchedBaseSlug = Array.from(ayodhyaTaxiOnlySlugs).find(baseSlug =>
       normalizedSlug.startsWith(baseSlug)
     );
     // Only allow the exact format `${baseSlug}-taxi`
@@ -108,8 +108,7 @@ export function getRoutePage(pageSlug: string) {
 
           slug: pageSlug,
 
-          h1: `${route.fromCity} to ${route.toCity} ${
-            pageType === "taxi"
+          h1: `${route.fromCity} to ${route.toCity} ${pageType === "taxi"
               ? "Taxi"
               : pageType === "taxi-fare"
                 ? "Taxi Fare"
@@ -120,10 +119,9 @@ export function getRoutePage(pageSlug: string) {
                     : pageType === "taxi-contact-number"
                       ? "Taxi Contact Number"
                       : "Distance & Travel Time"
-          }`,
+            }`,
 
-          metaTitle: `Tirupati Travel ${route.fromCity} to ${route.toCity} ${
-            pageType === "taxi"
+          metaTitle: `Tirupati Travel ${route.fromCity} to ${route.toCity} ${pageType === "taxi"
               ? "Premium Taxi Service – Book Now"
               : pageType === "taxi-fare"
                 ? "Taxi Fare & Charges – Check Fare"
@@ -134,7 +132,7 @@ export function getRoutePage(pageSlug: string) {
                     : pageType === "taxi-contact-number"
                       ? "Taxi Contact Number – Call Now"
                       : "Distance & Travel Time – Taxi Route"
-          }`,
+            }`,
           metaDescription: `Book a premium taxi from ${route.fromCity} to ${route.toCity} with Tirupati Travel. Get reliable taxi service, route distance, travel time and easy booking options.`,
 
           faqs: [],
