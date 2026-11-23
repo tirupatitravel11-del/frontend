@@ -1,46 +1,33 @@
 "use client";
 
-import { useState } from "react";
 import {
-  MapPin,
-  Calendar,
-  Clock,
-  Phone,
-  MessageCircle,
-  Car,
   Users,
   Briefcase,
-  ShieldCheck,
   Zap,
+  Phone,
+  MessageCircle,
 } from "lucide-react";
 import type { SeoPageData } from "@/app/data/seoPages";
-
-
-
 import HowItWorks from "../AirportTransfer/HowItWorks";
 import Testimonials from "@/app/components/Home/Testimonials";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
-import AirportExperience from "../AirportTransfer/AirportExperience";
-
 import SedanFaqTaxi from "@/_components/sedan/SedanFaqTaxi";
 import SedanFitGuideTaxi from "@/_components/sedan/SedanFitGuideTaxi";
 import SedanStorySection from "@/_components/sedan/SedanStorySection";
 import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
-
-
-
+import VehicleFleet from "../Cab/Cabhub/VehicleFleet";
+import {
+  ServiceOverviewAndMap,
+  ServiceFareCalculator,
+  ServiceDestinationsAndStops,
+  ServiceRouteDetails,
+  ServicePurposesAndPickups,
+  ServiceBookingInfo,
+} from "./ServiceFormatSections";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
-
-const SEDAN_MODELS = [
-  "Maruti Suzuki Dzire (4+1 Seater)",
-  "Honda Amaze (4+1 Seater)",
-  "Hyundai Aura (4+1 Seater)",
-];
-
-type TripType = "one-way" | "round-trip";
 
 export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
   const { slug, title, description, intro, highlights, popularTrips, city } =
@@ -49,16 +36,14 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
 
   return (
     <main className="flex flex-col gap-0">
-      {/* ===== HERO SECTION ===== */}
+      {/* 1. HERO SECTION: Route-specific heading, pickup, destination */}
       <section className="relative min-h-screen overflow-hidden bg-stone-50 border-b border-slate-200">
-        {/* Decorative Background */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gold/5 blur-3xl" />
           <div className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-gold/5 blur-3xl" />
           <div className="absolute top-1/2 right-1/4 h-64 w-64 rounded-full bg-slate-100/80 blur-2xl" />
         </div>
 
-        {/* Subtle grid pattern */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
@@ -70,19 +55,15 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-12">
           <div className="grid w-full items-center gap-12 lg:grid-cols-2">
-            {/* LEFT SIDE: Content */}
             <div className="max-w-3xl">
               <div className="mt-2 flex items-center gap-5 text-sm text-gold">
                 <div>
                   <span className="font-bold text-gold">★ 4.9/5</span>
                   <span className="ml-2">Rating</span>
                 </div>
-
                 <div className="h-5 w-px bg-white/30" />
-
                 <div>
-                  <span className="font-bold text-gold">1,250+</span>{" "}
-                  Customers
+                  <span className="font-bold text-gold">1,250+</span> Customers
                 </div>
               </div>
 
@@ -93,18 +74,17 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
                 {page.description ||
-                  "Experience smooth, reliable, and budget-friendly travel with our premium sedan fleet. Perfect for small families, couples, and solo travelers seeking a comfortable ride with ample boot space for airport transfers and outstation trips."}
+                  "Experience smooth, reliable, and budget-friendly travel with our premium sedan fleet in " +
+                    city +
+                    ". Perfect for small families, couples, and solo travelers seeking a comfortable ride with ample boot space for airport transfers and outstation trips."}
               </p>
 
-              {/* Sedan Specs Grid */}
               <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
                 <div className="rounded-lg border border-slate-200 bg-white px-2 py-3 text-center shadow-sm sm:px-3 sm:py-3">
                   <Users className="mx-auto mb-1.5 h-5 w-5 text-gold" />
-
                   <p className="text-base font-bold text-slate-900 sm:text-lg">
                     4+1
                   </p>
-
                   <p className="mt-0.5 text-sm font-medium uppercase leading-3 tracking-wide text-slate-500 sm:text-sm">
                     Comfortable Seats
                   </p>
@@ -112,11 +92,9 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
 
                 <div className="rounded-lg border border-slate-200 bg-white px-2 py-3 text-center shadow-sm sm:px-3 sm:py-3">
                   <Briefcase className="mx-auto mb-1.5 h-5 w-5 text-gold" />
-
                   <p className="text-base font-bold text-slate-900 sm:text-lg">
                     2-3
                   </p>
-
                   <p className="mt-0.5 text-sm font-medium uppercase leading-3 tracking-wide text-slate-500 sm:text-sm">
                     Large Bags
                   </p>
@@ -124,18 +102,15 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
 
                 <div className="rounded-lg border border-slate-200 bg-white px-2 py-3 text-center shadow-sm sm:px-3 sm:py-3">
                   <Zap className="mx-auto mb-1.5 h-5 w-5 text-gold" />
-
                   <p className="text-base font-bold text-slate-900 sm:text-lg">
                     AC
                   </p>
-
                   <p className="mt-0.5 text-sm font-medium uppercase leading-3 tracking-wide text-slate-500 sm:text-sm">
                     Fuel Efficient
                   </p>
                 </div>
               </div>
 
-              {/* CTA Buttons */}
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <a
                   href={`tel:${PHONE_NUMBER}`}
@@ -157,13 +132,12 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
               </div>
             </div>
 
-            {/* RIGHT SIDE: Booking Form */}
             <div className="relative">
               <UniversalSeoBookingForm
                 page={{
                   slug: slug,
                   city: city,
-                  service: "taxi",
+                  service: "sedan",
                   title: title,
                   description: description,
                   intro: intro,
@@ -176,240 +150,86 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
         </div>
       </section>
 
+      {/* 2 & 3. Route Overview (Distance, estimated travel time) & Route Map (Actual route and important highways) */}
+      <ServiceOverviewAndMap city={city} mode="taxi" />
 
-      
+      {/* 4. Fare Calculator: Vehicle-wise route-specific starting fares */}
+      <ServiceFareCalculator city={city} mode="taxi" />
 
-        <SedanStorySection />
-        <SedanFitGuideTaxi />
+      {/* 5 & 6. Popular Destinations (Destination ke aas-paas ke locations) & Major Stops (Highway stops, food breaks) */}
+      <ServiceDestinationsAndStops city={city} mode="taxi" />
 
-        {popularRoutes.length > 0 && (
-          <PopularRoutes
-            routes={popularRoutes}
-            from={popularRoutes[0].from}
-            to="popular destinations"
-            pagetype="sedan-taxi"
-          />
-        )}
+      {/* 7. Route Details: Toll, expressway, road conditions */}
+      <ServiceRouteDetails city={city} mode="taxi" />
 
-        <HowItWorks />
-        <Testimonials />
+      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
+      <VehicleFleet />
+      <SedanFitGuideTaxi />
 
-        <SedanFaqTaxi city={city} />
+      {/* 9 & 10. Travel Purposes (Airport, office, family, business) & Nearby Pickup Areas (Localities) */}
+      <ServicePurposesAndPickups city={city} mode="taxi" />
 
-        <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
-  {/* Background Decorations */}
-  <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
-  <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+      {/* 11. FAQs: Route/city-specific questions and answers */}
+      <SedanFaqTaxi city={city} />
 
-  <div className="relative mx-auto max-w-4xl text-center">
-    {/* <p className="text-sm font-semibold uppercase tracking-[4px] text-gold">
-      Sedan Taxi Booking
-    </p> */}
+      {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
+      <ServiceBookingInfo city={city} mode="taxi" />
 
-    <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-      Ready to Book a{" "}
-      <span className="text-gold">Comfortable Sedan?</span>
-    </h2>
+      {/* Supporting Sections */}
+      <SedanStorySection />
 
-    <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
-      Book a comfortable sedan for local travel, airport transfers,
-      sightseeing, one-way trips, or outstation journeys. Choose a vehicle
-      that fits your travel needs and get quick booking assistance from
-      Tirupati Travels.
-    </p>
+      {popularRoutes.length > 0 && (
+        <PopularRoutes
+          routes={popularRoutes}
+          from={popularRoutes[0].from}
+          to="popular destinations"
+          pagetype="sedan-taxi"
+        />
+      )}
 
-    <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-      <a
-        href="https://wa.me/918726124680?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20a%20sedan%20taxi."
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full rounded-full bg-gold px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-gold/90 sm:w-auto"
-      >
-        Book Sedan on WhatsApp
-      </a>
+      <HowItWorks />
+      <Testimonials />
 
-      <a
-        href="tel:+918726124680"
-        className="w-full rounded-full border border-white/20 px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
-      >
-        Call Now
-      </a>
-    </div>
+      {/* Final CTA Banner */}
+      <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
 
-    <p className="mt-6 text-sm text-stone-400">
-      Local Travel • One Way • Round Trip • Airport Transfer • Outstation
-    </p>
-  </div>
-</section>
+        <div className="relative mx-auto max-w-4xl text-center">
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+            Ready to Book a <span className="text-gold">Comfortable Sedan in {city}?</span>
+          </h2>
 
-      
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
+            Book a comfortable sedan for local travel, airport transfers,
+            sightseeing, one-way trips, or outstation journeys. Choose a vehicle
+            that fits your travel needs and get quick booking assistance from
+            Tirupati Travels.
+          </p>
+
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20a%20sedan%20taxi%20in%20${city}.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full rounded-full bg-gold px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-gold/90 sm:w-auto"
+            >
+              Book Sedan on WhatsApp
+            </a>
+
+            <a
+              href={`tel:${PHONE_NUMBER}`}
+              className="w-full rounded-full border border-white/20 px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
+            >
+              Call Now
+            </a>
+          </div>
+
+          <p className="mt-6 text-sm text-stone-400">
+            Local Travel • One Way • Round Trip • Airport Transfer • Outstation
+          </p>
+        </div>
+      </section>
     </main>
-  );
-}
-
-// ===== CLIENT COMPONENT: BOOKING FORM =====
-function SedanBookingForm() {
-  const [tripType, setTripType] = useState<TripType>("one-way");
-  const [model, setModel] = useState(SEDAN_MODELS[0]);
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [pickup, setPickup] = useState("");
-  const [drop, setDrop] = useState("");
-
-  const today = new Date().toISOString().split("T")[0];
-
-  const handleBook = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const message = `Hello, I want to book a Premium Sedan Taxi.
-
-Trip Type: ${tripType === "one-way" ? "One Way" : "Round Trip"}
-Vehicle Model: ${model}
-Pickup Location: ${pickup || "Not specified"}
-Drop Location: ${drop || "Not specified"}
-Travel Date: ${date || "Not specified"}
-Pickup Time: ${time || "Not specified"}
-
-Please share the fare and availability.`;
-
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
-  };
-
-  return (
-    <div className="rounded-3xl border border-slate-200/60 bg-white p-6 shadow-2xl shadow-slate-200/50 sm:p-8">
-      <div className="mb-6">
-        <h3 className="text-2xl font-bold text-slate-900">Book Your Sedan</h3>
-        <p className="mt-1 text-sm text-slate-500">
-          Get instant confirmation on WhatsApp
-        </p>
-      </div>
-
-      <form onSubmit={handleBook} className="space-y-4">
-        {/* Trip Type Toggle */}
-        <div className="grid grid-cols-2 rounded-xl border border-slate-200 bg-slate-50 p-1">
-          {(["one-way", "round-trip"] as TripType[]).map((type) => (
-            <button
-              key={type}
-              type="button"
-              onClick={() => setTripType(type)}
-              className={`rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 ${tripType === type
-                ? "bg-gold text-white shadow-sm"
-                : "text-slate-600 hover:bg-slate-100"
-                }`}
-            >
-              {type === "one-way" ? "One Way" : "Round Trip"}
-            </button>
-          ))}
-        </div>
-
-        {/* Model Selection */}
-        <div>
-          <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-            Select Vehicle Model
-          </label>
-          <div className="relative">
-            <Car className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-            <select
-              value={model}
-              onChange={(e) => setModel(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-            >
-              {SEDAN_MODELS.map((m) => (
-                <option key={m} value={m}>
-                  {m}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        {/* Locations */}
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-              Pickup Location
-            </label>
-            <div className="relative">
-              <MapPin className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-              <input
-                type="text"
-                value={pickup}
-                onChange={(e) => setPickup(e.target.value)}
-                required
-                placeholder="Enter pickup address"
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-              Drop Location
-            </label>
-            <div className="relative">
-              <MapPin className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-              <input
-                type="text"
-                value={drop}
-                onChange={(e) => setDrop(e.target.value)}
-                required
-                placeholder="Enter destination"
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Date and Time */}
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-              Travel Date
-            </label>
-            <div className="relative">
-              <Calendar className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-              <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                required
-                min={today}
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-              />
-            </div>
-          </div>
-          <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-              Pickup Time
-            </label>
-            <div className="relative">
-              <Clock className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-              <input
-                type="time"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-                required
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full rounded-xl bg-gold py-4 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-gold/25 transition-all hover:bg-gold/90 hover:shadow-xl hover:shadow-gold/30"
-        >
-          Book Sedan Now →
-        </button>
-
-        <p className="text-center text-xs text-slate-500">
-          No advance payment • Instant confirmation on WhatsApp
-        </p>
-      </form>
-    </div>
   );
 }

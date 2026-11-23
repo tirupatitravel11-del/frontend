@@ -12,6 +12,14 @@ import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator"
 import PopularRoutes from "@/_components/PopularRoutes";
 import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 import AyodhyaRoutesSection from "@/_components/AyodhyaRoutesSection";
+import {
+  ServiceOverviewAndMap,
+  ServiceFareCalculator,
+  ServiceDestinationsAndStops,
+  ServiceRouteDetails,
+  ServicePurposesAndPickups,
+  ServiceBookingInfo,
+} from "./ServiceFormatSections";
 
 export default function AirportTaxiPage({ page }: { page: SeoPageData }) {
   return <ServicePage page={page} />;
@@ -111,9 +119,31 @@ function ServicePage({ page }: { page: SeoPageData }) {
       </section>
       {/* ================= END HERO SECTION ================= */}
 
-      {/* Add your fleet/other sections below */}
+      {/* 2 & 3. Route Overview (Distance, estimated travel time) & Route Map (Actual route and important highways) */}
+      <ServiceOverviewAndMap city={city} mode="airport" />
 
+      {/* 4. Fare Calculator: Vehicle-wise starting fares */}
+      <ServiceFareCalculator city={city} mode="airport" />
+
+      {/* 5 & 6. Popular Destinations & Major Stops */}
+      <ServiceDestinationsAndStops city={city} mode="airport" />
+
+      {/* 7. Route Details: Toll, expressway, road conditions */}
+      <ServiceRouteDetails city={city} mode="airport" />
+
+      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
       <VehicleFleet />
+
+      {/* 9 & 10. Travel Purposes & Nearby Pickup Areas */}
+      <ServicePurposesAndPickups city={city} mode="airport" />
+
+      {/* 11. FAQs: Route/city-specific questions and answers */}
+      <AirportFAQ />
+
+      {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
+      <ServiceBookingInfo city={city} mode="airport" />
+
+      {/* Supporting Sections */}
       <LuggageCapacityAirport />
       <AirportExperience />
       {!isAyodhya && popularRoutes.length > 0 && (
@@ -128,7 +158,6 @@ function ServicePage({ page }: { page: SeoPageData }) {
       <HowItWorks />
       <WhyChooseUs />
       <Testimonials />
-      <AirportFAQ />
 
       <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
   {/* Background Decoration */}
