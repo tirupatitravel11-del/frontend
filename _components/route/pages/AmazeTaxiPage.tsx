@@ -56,7 +56,7 @@ export default function AmazeTaxiPage({ data }: any) {
       <RouteDetailsSection route={route} />
 
       {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
-      <AmazeFleetDetails fares={fares || data.fares} vehicles={vehicles || data.vehicles} />
+      {/* <AmazeFleetDetails fares={fares || data.fares} vehicles={vehicles || data.vehicles} /> */}
       <CabSelector
         from={route.fromCity}
         to={route.toCity}
@@ -70,23 +70,26 @@ export default function AmazeTaxiPage({ data }: any) {
       {/* 10. Nearby Pickup Areas: Relevant pickup localities */}
       <RouteNearbyPickupAreasSection route={route} />
 
-      {/* 11. FAQs: Route-specific questions and answers */}
-      <AmazeFaq from={data.route.fromCity} to={data.route.toCity} />
+     
 
       {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
       <RouteBookingInfoSection route={route} />
 
       {/* Supporting Sections */}
       <AmazeFitGuide fares={amazeFare} />
+      <HowToBook from={route.fromCity} to={route.toCity} />
+
       <PopularRoutes
         routes={popularRoutes || data.popularRoutes}
         from={route.fromCity}
         to={route.toCity}
         pagetype={page.pageType}
       />
-      <HowToBook from={route.fromCity} to={route.toCity} />
       <WhyChooseUs />
       <Testimonials />
+
+       {/* 11. FAQs: Route-specific questions and answers */}
+      <AmazeFaq from={data.route.fromCity} to={data.route.toCity} />
 
       {/* Final CTA Banner */}
       <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">

@@ -3,35 +3,91 @@ import EtiosComparison from "@/_components/Etios/EtiosComparison";
 import EtiosFaq from "@/_components/Etios/EtiosFaq";
 import EtiosHero from "@/_components/Etios/EtiosHero";
 import EtiosStorySection from "@/_components/Etios/EtiosStorySection";
+import FareDetails from "@/_components/FareDetails";
+import CabSelector from "@/_components/CabSelector";
 import HowToBook from "@/_components/Howtobook";
 import PopularRoutes from "@/_components/PopularRoutes";
 import Testimonials from "@/app/components/Home/Testimonials";
+import {
+  RouteOverviewSection,
+  RouteMapSection,
+  RoutePopularDestinationsSection,
+  RouteMajorStopsSection,
+  RouteDetailsSection,
+  RouteTravelPurposesSection,
+  RouteNearbyPickupAreasSection,
+  RouteBookingInfoSection,
+} from "@/_components/route/RouteFormatSections";
 
-
-export default function ErtigaTaxiPage({ data }: any) {
-  const { route, page } = data;
-
-  const sedanVehicles = data.vehicles.filter(
-    (vehicle: any) => vehicle.cabType === "Sedan",
-  );
+export default function EtiosTaxiPage({ data }: any) {
+  const { route, page, vehicles, fares, popularRoutes } = data;
+  const etiosFare = fares?.[0];
 
   return (
     <>
-      <EtiosHero from={route.fromCity} to={route.toCity} fare={data.fares[0]} />
+      {/* 1. Hero Section: Route-specific heading, pickup, destination */}
+      <EtiosHero
+        from={route.fromCity}
+        to={route.toCity}
+        fare={etiosFare}
+      />
+
+      {/* 2. Route Overview: Distance, estimated travel time */}
+      <RouteOverviewSection route={route} />
+
+      {/* 3. Route Map: Actual route and important highways */}
+      <RouteMapSection route={route} />
+
+      {/* 4. Fare Calculator: Vehicle-wise route-specific fare */}
+      <FareDetails
+        from={route.fromCity}
+        to={route.toCity}
+        title={page.h1}
+        fares={fares}
+      />
+
+      {/* 5. Popular Destinations: Destination ke aas-paas ke locations */}
+      <RoutePopularDestinationsSection route={route} />
+
+      {/* 6. Major Stops: Actual highway stops, food breaks */}
+      <RouteMajorStopsSection route={route} />
+
+      {/* 7. Route Details: Toll, expressway, road conditions */}
+      <RouteDetailsSection route={route} />
+
+      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
+      <EtiosComparison fares={etiosFare} />
+      <CabSelector
+        from={route.fromCity}
+        to={route.toCity}
+        vehicles={vehicles}
+        fares={fares}
+      />
+
+      {/* 9. Travel Purposes: Airport, office, family, business travel */}
+      <RouteTravelPurposesSection route={route} />
+
+      {/* 10. Nearby Pickup Areas: Relevant pickup localities */}
+      <RouteNearbyPickupAreasSection route={route} />
+
+      
+
+      {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
+      <RouteBookingInfoSection route={route} />
+
+      {/* Supporting Sections */}
       <EtiosStorySection />
-      <EtiosComparison fares={data.fares[0]} />
+      <EtiosAirport />
       <PopularRoutes
-        routes={data.popularRoutes}
+        routes={popularRoutes || data.popularRoutes}
         from={route.fromCity}
         to={route.toCity}
         pagetype={page.pageType}
       />
-      <EtiosAirport />
       <Testimonials />
-      <HowToBook from={route.fromCity}
-        to={route.toCity} />
-      <EtiosFaq from={data.route.fromCity}
-        to={data.route.toCity} />
+      {/* 11. FAQs: Route-specific questions and answers */}
+      <EtiosFaq from={route.fromCity} to={route.toCity} />
+      <HowToBook from={route.fromCity} to={route.toCity} />
 
       <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white ">
         {/* Decorative Background */}
@@ -39,28 +95,26 @@ export default function ErtigaTaxiPage({ data }: any) {
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-4xl text-center">
-
-
           <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
             Ready to Travel from{" "}
-            <span className="text-gold">{data.route.fromCity}</span> to{" "}
-            <span className="text-gold">{data.route.toCity}</span>?
+            <span className="text-gold">{route.fromCity}</span> to{" "}
+            <span className="text-gold">{route.toCity}</span>?
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
-            Book a comfortable etios from {data.route.fromCity} to {data.route.toCity} for a convenient
+            Book a comfortable etios from {route.fromCity} to {route.toCity} for a convenient
             intercity journey. Choose a suitable vehicle for your family, group,
             or personal travel and get booking assistance from Tirupati Travels.
           </p>
 
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <a
-              href={`https://wa.me/918726124680?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20a%20etios%20from%20${data.route.fromCity}%20to%20${data.route.toCity}.`}
+              href={`https://wa.me/918726124680?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20a%20etios%20from%20${route.fromCity}%20to%20${route.toCity}.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center rounded-full bg-gold px-8 py-3.5 text-sm font-bold text-white transition hover:bg-gold/90 sm:w-auto"
             >
-              Book {data.route.fromCity} to {data.route.toCity} Etios
+              Book {route.fromCity} to {route.toCity} Etios
             </a>
 
             <a
@@ -72,7 +126,7 @@ export default function ErtigaTaxiPage({ data }: any) {
           </div>
 
           <p className="mt-6 text-sm text-stone-400">
-            {data.route.fromCity} to {data.route.toCity} • One Way • Round Trip • Family Travel • Group Travel
+            {route.fromCity} to {route.toCity} • One Way • Round Trip • Family Travel • Group Travel
           </p>
         </div>
       </section>

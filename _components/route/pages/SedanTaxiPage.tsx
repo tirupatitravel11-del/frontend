@@ -59,12 +59,12 @@ export default function SedansedanPage({ data }: any) {
 
       {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
       <SedanFleetDetails fares={sedanFare} />
-      <CabSelector
+      {/* <CabSelector
         from={route.fromCity}
         to={route.toCity}
         vehicles={vehicles}
         fares={fares}
-      />
+      /> */}
 
       {/* 9. Travel Purposes: Airport, office, family, business travel */}
       <RouteTravelPurposesSection route={route} />
@@ -72,14 +72,15 @@ export default function SedansedanPage({ data }: any) {
       {/* 10. Nearby Pickup Areas: Relevant pickup localities */}
       <RouteNearbyPickupAreasSection route={route} />
 
-      {/* 11. FAQs: Route-specific questions and answers */}
-      <SedanFaq from={data.route.fromCity} to={data.route.toCity} />
+      
 
       {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
       <RouteBookingInfoSection route={route} />
 
       {/* Supporting Sections */}
       <SedanFitGuide fares={fares || data.fares} />
+      <HowToBook from={route.fromCity} to={route.toCity} />
+
       <PopularRoutes
         routes={popularRoutes || data.popularRoutes}
         from={route.fromCity}
@@ -88,7 +89,8 @@ export default function SedansedanPage({ data }: any) {
       />
       <AirportSpotlight />
       <Testimonials />
-      <HowToBook from={route.fromCity} to={route.toCity} />
+      {/* 11. FAQs: Route-specific questions and answers */}
+      <SedanFaq from={data.route.fromCity} to={data.route.toCity} />
       <WhyChooseUs />
 
       {/* Final CTA Banner */}

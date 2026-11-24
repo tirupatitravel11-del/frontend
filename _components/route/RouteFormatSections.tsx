@@ -41,9 +41,9 @@ export function RouteOverviewSection({ route }: RouteProps) {
   );
 
   return (
-    <section className="border-b border-slate-200 bg-white py-12 sm:py-16">
+    <section className="border-b border-slate-200 bg-stone-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[3px] text-gold sm:text-sm">
             <RouteIcon className="h-4 w-4" />
             Route Overview &amp; Key Details
@@ -258,9 +258,9 @@ export function RoutePopularDestinationsSection({ route }: RouteProps) {
   );
 
   return (
-    <section className="border-b border-slate-200 bg-white py-12 sm:py-16">
+    <section className="border-b border-slate-200 bg-stone-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[3px] text-gold sm:text-sm">
             <Map className="h-4 w-4" />
             Explore Around {route.toCity}
@@ -313,7 +313,7 @@ export function RouteMajorStopsSection({ route }: RouteProps) {
   return (
     <section className="border-b border-slate-200 bg-stone-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[3px] text-gold sm:text-sm">
             <UtensilsCrossed className="h-4 w-4" />
             Highway Halts &amp; Rest Areas
@@ -368,7 +368,7 @@ export function RouteDetailsSection({ route }: RouteProps) {
   return (
     <section className="border-b border-slate-200 bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[3px] text-gold sm:text-sm">
             <FileText className="h-4 w-4" />
             Highway Specifications
@@ -450,7 +450,7 @@ export function RouteTravelPurposesSection({ route }: RouteProps) {
   return (
     <section className="border-b border-slate-200 bg-stone-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[3px] text-gold sm:text-sm">
             <Workflow className="h-4 w-4" />
             Suitable For Every Journey

@@ -618,7 +618,7 @@ export function getRouteDetails(
 
 export function getCityDetails(
   city: string,
-  mode: "taxi" | "airport" | "sightseeing" = "taxi"
+  mode: "taxi" | "airport" | "sightseeing" | "tempo" = "taxi"
 ): CityDetails {
   const normCity = (city || "").trim().toLowerCase();
 
@@ -699,6 +699,29 @@ export function getCityDetails(
       "Paved city heritage roads, temple corridors, and clean tourist routes with convenient parking spots.";
     tollInfo =
       "City parking and monument entry fees to be borne directly by traveler. No hidden taxes.";
+  } else if (mode === "tempo") {
+    stops = [
+      "Highway Food Court & Family Restaurant Break",
+      "Major Expressways & Toll Plaza Interchanges",
+      "Restroom & Refreshment Waypoints for Groups",
+      "Pilgrimage Circuit Entry Points & Fuel Halts",
+    ];
+    highways = [
+      `Primary National Highways & Expressways from ${city}`,
+      "Intercity 4/6 Lane Corridors with Dedicated Bus/Van Lanes",
+      "State Highway Connecting Arterial Routes",
+    ];
+    highwayDescription =
+      `${city} offers excellent high-speed connectivity via multi-lane expressways and national corridors, ideally suited for smooth Tempo Traveller group journeys.`;
+    distanceOverview = {
+      distanceRange: "50 km - 500+ km depending on route",
+      durationRange: "1 hr - 12+ hrs depending on destination",
+      type: "Group Travel, Pilgrimage & Luxury Outstation Van",
+    };
+    roadCondition =
+      "Broad 4-to-6 lane highways with smooth asphalt and minimal turbulence, ideal for group passenger comfort.";
+    tollInfo =
+      "Commercial vehicle toll & state border permit charges billed transparently at actuals.";
   } else {
     // Taxi mode
     stops = [
@@ -737,6 +760,14 @@ export function getCityDetails(
           "Senior Citizen & Group Sightseeing with easy boarding",
           "Cultural Exploration, Shopping & Ghat Aarti Visits",
           "Corporate Team Outings & Educational Excursions",
+        ]
+      : mode === "tempo"
+      ? [
+          "Family Vacations & Large Group Holiday Tours",
+          "Pilgrimage Circuits (Char Dham, Ayodhya, Varanasi, Mathura)",
+          "Wedding Guest Transfers & Baraat Conveyance",
+          "Corporate Offsites, Team Tours & Conferences",
+          "School & College Educational Excursions",
         ]
       : [
           "Airport & Railway Station Commutes",

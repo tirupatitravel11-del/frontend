@@ -3,109 +3,125 @@ import TwentySeaterHero from "@/_components/20SeaterTempo/20SeaterHero";
 import TwentySeaterFaq from "@/_components/20SeaterTempo/TwentySeaterFaq";
 import TwentySeaterSeating from "@/_components/20SeaterTempo/TwentySeaterSeating";
 import HowToBook from "@/_components/Howtobook";
-import FamilyLongDistanceSpotlight from "@/_components/InnovaCrysta/FamilyLongDistanceSpotlight";
-import InnovaCrystaFaq from "@/_components/InnovaCrysta/InnovaCrystaFaq";
-import InnovaCrystaFitGuide from "@/_components/InnovaCrysta/InnovaCrystaFitGuide";
-import InnovaCrystaHero from "@/_components/InnovaCrysta/InnovaCrystaHero";
-import InnovaFleetDetails from "@/_components/InnovaCrysta/InnovaFleetDetails";
-import LuxuryTempoFaq from "@/_components/luxuryTempoTraveller/LuxuryFaqs";
-import LuxuryFareTable from "@/_components/luxuryTempoTraveller/LuxuryFareTable";
-import TempoTravellerFleetDetails from "@/_components/luxuryTempoTraveller/LuxuryFleetDetails";
-
-import LuxuryFleetDetails from "@/_components/luxuryTempoTraveller/LuxuryFleetDetails";
-import LuxuryTempoTravellerCitySection from "@/_components/luxuryTempoTraveller/LuxuryTempoTravellerCitySection";
-import LuxuryTempoHero from "@/_components/luxuryTempoTraveller/LuxxuryTempoHero";
 import PopularRoutes from "@/_components/PopularRoutes";
-import TaxiFaq from "@/_components/TaxiFaq";
+import FareDetails from "@/_components/FareDetails";
+import CabSelector from "@/_components/CabSelector";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
-
-const NOIDA_DELHI_ROUTES: any = [
-  {
-    from: "Noida",
-    to: "Delhi",
-    km: "25 km",
-    time: "45 min–1.5 hr",
-    fare: 1200,
-    tag: "Popular",
-  },
-  {
-    from: "Noida",
-    to: "New Delhi Railway Station",
-    km: "30 km",
-    time: "1–1.5 hr",
-    fare: 1299,
-    tag: "Railway",
-  },
-  {
-    from: "Noida",
-    to: "Delhi Airport",
-    km: "35 km",
-    time: "1–2 hr",
-    fare: 1499,
-    tag: "Airport",
-  },
-];
-
-const TEMPO_FARES = [
-  {
-    vehicle: "12 Seater Tempo Traveller",
-    seats: "12+1",
-    oneWay: 7500,
-    roundTrip: 14000,
-    perKm: 30,
-    popular: true,
-  },
-  {
-    vehicle: "16 Seater Tempo Traveller",
-    seats: "16+1",
-    oneWay: 8500,
-    roundTrip: 16000,
-    perKm: 32,
-  },
-  {
-    vehicle: "20 Seater Tempo Traveller",
-    seats: "20+1",
-    oneWay: 9500,
-    roundTrip: 18000,
-    perKm: 35,
-  },
-  {
-    vehicle: "24 Seater Tempo Traveller",
-    seats: "24+1",
-    oneWay: 11000,
-    roundTrip: 21000,
-    perKm: 38,
-  },
-];
+import {
+  RouteOverviewSection,
+  RouteMapSection,
+  RoutePopularDestinationsSection,
+  RouteMajorStopsSection,
+  RouteDetailsSection,
+  RouteTravelPurposesSection,
+  RouteNearbyPickupAreasSection,
+  RouteBookingInfoSection,
+} from "@/_components/route/RouteFormatSections";
 
 export default function Seater20TempoTravellerPage({ data }: any) {
-  const { route, page } = data;
-
-  const sedanVehicles = data.vehicles.filter(
-    (vehicle: any) => vehicle.cabType === "Sedan",
-  );
+  const { route, page, vehicles, fares, popularRoutes } = data;
+  const tempoFare = fares?.[0];
 
   return (
     <>
+      {/* 1. Hero Section: Route-specific heading, pickup, destination */}
       <TwentySeaterHero
         from={route.fromCity}
         to={route.toCity}
-        fare={data.fares[0]}
+        fare={tempoFare}
       />
-      <TwentySeaterStorySection />
+
+      {/* 2. Route Overview: Distance, estimated travel time */}
+      <RouteOverviewSection route={route} />
+
+      {/* 3. Route Map: Actual route and important highways */}
+      <RouteMapSection route={route} />
+
+      {/* 4. Fare Calculator: Vehicle-wise route-specific fare */}
+      <FareDetails
+        from={route.fromCity}
+        to={route.toCity}
+        title={page.h1}
+        fares={fares}
+      />
+
+      {/* 5. Popular Destinations: Destination ke aas-paas ke locations */}
+      <RoutePopularDestinationsSection route={route} />
+
+      {/* 6. Major Stops: Actual highway stops, food breaks */}
+      <RouteMajorStopsSection route={route} />
+
+      {/* 7. Route Details: Toll, expressway, road conditions */}
+      <RouteDetailsSection route={route} />
+
+      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
       <TwentySeaterSeating />
+      <CabSelector
+        from={route.fromCity}
+        to={route.toCity}
+        vehicles={vehicles}
+        fares={fares}
+      />
+
+      {/* 9. Travel Purposes: Airport, office, family, business travel */}
+      <RouteTravelPurposesSection route={route} />
+
+      {/* 10. Nearby Pickup Areas: Relevant pickup localities */}
+      <RouteNearbyPickupAreasSection route={route} />
+
+      {/* 11. FAQs: Route-specific questions and answers */}
+      <TwentySeaterFaq from={route.fromCity} to={route.toCity} />
+
+      {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
+      <RouteBookingInfoSection route={route} />
+
+      {/* Supporting Sections */}
+      <TwentySeaterStorySection />
       <PopularRoutes
-        routes={data.popularRoutes}
+        routes={popularRoutes || data.popularRoutes}
         from={route.fromCity}
         to={route.toCity}
         pagetype={page.pageType}
       />
-
-      <WhyChooseUs />
       <Testimonials />
-      <TwentySeaterFaq from={data.route.fromCity} to={data.route.toCity} />
+      <HowToBook from={route.fromCity} to={route.toCity} />
+      <WhyChooseUs />
+
+      <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white ">
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+
+        <div className="relative mx-auto max-w-4xl text-center">
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+            Book 20 Seater Tempo Traveller from{" "}
+            <span className="text-gold">{route.fromCity}</span> to{" "}
+            <span className="text-gold">{route.toCity}</span>
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
+            Large group journeys made luxurious and hassle-free. Featuring 20 pushback seats, individual AC vents, and expert drivers for hills and highways.
+          </p>
+
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href={`https://wa.me/918726124680?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20a%2020%20Seater%20Tempo%20Traveller%20from%20${route.fromCity}%20to%20${route.toCity}.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-full bg-gold px-8 py-3.5 text-sm font-bold text-white transition hover:bg-gold/90 sm:w-auto"
+            >
+              Book 20 Seater Now
+            </a>
+
+            <a
+              href={`tel:+918726124680`}
+              className="inline-flex w-full items-center justify-center rounded-full border border-white/20 px-8 py-3.5 text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
+            >
+              Call Now
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
-// sjushdhs

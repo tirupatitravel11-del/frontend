@@ -18,6 +18,7 @@ interface CabSelectorProps {
     oneWayPrice: number;
     roundTripPrice: number;
   }[];
+  defaultCabType?: CabType;
 }
 
 type CabOption = {
@@ -193,10 +194,21 @@ export default function CabSelector({
   to,
   vehicles,
   fares,
+  defaultCabType, // 2. Destructure it here
 }: CabSelectorProps) {
-  const [types, setTypes] = useState<string[]>([]);
+  const [types, setTypes] = useState<string[]>(defaultCabType ? [defaultCabType] : []);
   const [models, setModels] = useState<string[]>([]);
   const [fuels, setFuels] = useState<string[]>([]);
+
+  // 3. PASTE THE BLOCK RIGHT HERE (above `const cabs`)
+  const visibleVehicles = defaultCabType
+    ? vehicles.filter((v) =>
+        defaultCabType === "SUV"
+          ? v.cabType === "SUV" || v.cabType === "Premium SUV"
+          : v.cabType?.toUpperCase() === defaultCabType
+      )
+    : vehicles;
+    
 const cabs: CabOption[] = vehicles.map((vehicle) => {
   const fare = fares.find(
     (item) => item.vehicleId === vehicle.slug

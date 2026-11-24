@@ -154,7 +154,10 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
       <ServiceOverviewAndMap city={city} mode="taxi" />
 
       {/* 4. Fare Calculator: Vehicle-wise route-specific starting fares */}
-      <ServiceFareCalculator city={city} mode="taxi" />
+      {/* <ServiceFareCalculator city={city} mode="taxi" /> */}
+
+      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
+      <VehicleFleet category="SEDAN" />
 
       {/* 5 & 6. Popular Destinations (Destination ke aas-paas ke locations) & Major Stops (Highway stops, food breaks) */}
       <ServiceDestinationsAndStops city={city} mode="taxi" />
@@ -162,21 +165,19 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
       {/* 7. Route Details: Toll, expressway, road conditions */}
       <ServiceRouteDetails city={city} mode="taxi" />
 
-      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
-      <VehicleFleet />
+      
       <SedanFitGuideTaxi />
 
       {/* 9 & 10. Travel Purposes (Airport, office, family, business) & Nearby Pickup Areas (Localities) */}
       <ServicePurposesAndPickups city={city} mode="taxi" />
 
-      {/* 11. FAQs: Route/city-specific questions and answers */}
-      <SedanFaqTaxi city={city} />
+      
 
       {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
       <ServiceBookingInfo city={city} mode="taxi" />
 
       {/* Supporting Sections */}
-      <SedanStorySection />
+      {/* <SedanStorySection /> */}
 
       {popularRoutes.length > 0 && (
         <PopularRoutes
@@ -189,6 +190,9 @@ export default function SedanTaxiPage({ page }: { page: SeoPageData }) {
 
       <HowItWorks />
       <Testimonials />
+
+      {/* 11. FAQs: Route/city-specific questions and answers */}
+      <SedanFaqTaxi city={city} />
 
       {/* Final CTA Banner */}
       <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">

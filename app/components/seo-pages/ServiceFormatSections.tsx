@@ -22,7 +22,7 @@ import {
 import { getCityDetails } from "@/app/lib/api/route-data/route-details-helper";
 import VehicleFleet from "../Cab/Cabhub/VehicleFleet";
 
-export type ServiceFormatMode = "taxi" | "airport" | "sightseeing";
+export type ServiceFormatMode = "taxi" | "airport" | "sightseeing" | "tempo";
 
 interface ServiceProps {
   city: string;
@@ -93,7 +93,7 @@ export function ServiceOverviewAndMap({ city, mode }: ServiceProps) {
       : `${normCity} city tourist destinations`;
 
   return (
-    <section className="border-b border-slate-200 bg-white py-12 sm:py-16">
+    <section className="border-b border-slate-200 bg-stone-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] items-center">
           {/* Left Column: Route Overview with Distance & Time */}
@@ -195,7 +195,7 @@ export function ServiceFareCalculator({ city, mode }: ServiceProps) {
   return (
     <section className="border-b border-slate-200 bg-stone-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[3px] text-gold sm:text-sm">
             <Calculator className="h-4 w-4" />
             Fare Calculator &amp; Pricing
@@ -265,7 +265,7 @@ export function ServiceDestinationsAndStops({ city, mode }: ServiceProps) {
   const cityDetails = getCityDetails(normCity, mode);
 
   return (
-    <section className="border-b border-slate-200 bg-white py-12 sm:py-16">
+    <section className="border-b border-slate-200 bg-stone-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-8 lg:grid-cols-2">
           {/* 5. Popular destinations (Destination ke aas-paas ke locations) */}
@@ -349,7 +349,7 @@ export function ServiceRouteDetails({ city, mode }: ServiceProps) {
   return (
     <section className="border-b border-slate-200 bg-stone-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-7xl text-center">
           <p className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[3px] text-gold sm:text-sm">
             <FileText className="h-4 w-4" />
             Route &amp; Highway Specifications

@@ -123,7 +123,10 @@ function ServicePage({ page }: { page: SeoPageData }) {
       <ServiceOverviewAndMap city={city} mode="airport" />
 
       {/* 4. Fare Calculator: Vehicle-wise starting fares */}
-      <ServiceFareCalculator city={city} mode="airport" />
+      {/* <ServiceFareCalculator city={city} mode="airport" /> */}
+
+      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
+      <VehicleFleet />
 
       {/* 5 & 6. Popular Destinations & Major Stops */}
       <ServiceDestinationsAndStops city={city} mode="airport" />
@@ -131,8 +134,7 @@ function ServicePage({ page }: { page: SeoPageData }) {
       {/* 7. Route Details: Toll, expressway, road conditions */}
       <ServiceRouteDetails city={city} mode="airport" />
 
-      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
-      <VehicleFleet />
+      
 
       {/* 9 & 10. Travel Purposes & Nearby Pickup Areas */}
       <ServicePurposesAndPickups city={city} mode="airport" />
@@ -144,7 +146,7 @@ function ServicePage({ page }: { page: SeoPageData }) {
       <ServiceBookingInfo city={city} mode="airport" />
 
       {/* Supporting Sections */}
-      <LuggageCapacityAirport />
+      {/* <LuggageCapacityAirport /> */}
       <AirportExperience />
       {!isAyodhya && popularRoutes.length > 0 && (
         <PopularRoutes

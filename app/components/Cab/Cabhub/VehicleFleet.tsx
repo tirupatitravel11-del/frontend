@@ -1,7 +1,16 @@
 import VehicleCard from "./VehicleCard";
 import { vehicleFleet } from "../../../constants/VehicleFleet";
 
-export default function VehicleFleet() {
+interface VehicleFleetProps {
+  category?: string;
+}
+
+export default function VehicleFleet({ category }: VehicleFleetProps) {
+  const filteredVehicles = category
+    ? vehicleFleet.filter(
+        (car) => car.category.toUpperCase() === category.toUpperCase()
+      )
+    : vehicleFleet;
   return (
     <section id="vehicle-fleet" className="bg-stone-50 py-12 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-6">
@@ -17,7 +26,7 @@ export default function VehicleFleet() {
         </div>
 
         <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {vehicleFleet.map((vehicle) => (
+          {filteredVehicles.map((vehicle) => (
             // No linkPrefix = defaults to "/cabs/"
             <VehicleCard key={vehicle.id} {...vehicle} />
           ))}

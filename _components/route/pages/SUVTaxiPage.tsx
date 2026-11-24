@@ -24,6 +24,8 @@ export default function SUVTaxiPage({ data }: any) {
   const { route, page, vehicles, fares, popularRoutes } = data;
   const suvFare = data.fares?.[4] || data.fares?.[0];
 
+  
+
   return (
     <>
       {/* 1. Hero Section: Route-specific heading, pickup, destination */}
@@ -31,6 +33,14 @@ export default function SUVTaxiPage({ data }: any) {
 
       {/* 2. Route Overview: Distance, estimated travel time */}
       <RouteOverviewSection route={route} />
+
+      <CabSelector
+        from={route.fromCity}
+        to={route.toCity}
+        vehicles={vehicles}
+        fares={fares}
+        defaultCabType="SUV"
+      />
 
       {/* 3. Route Map: Actual route and important highways */}
       <RouteMapSection route={route} />
@@ -53,13 +63,8 @@ export default function SUVTaxiPage({ data }: any) {
       <RouteDetailsSection route={route} />
 
       {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
-      <SuvFleetDetails fares={suvFare} />
-      <CabSelector
-        from={route.fromCity}
-        to={route.toCity}
-        vehicles={vehicles}
-        fares={fares}
-      />
+      {/* <SuvFleetDetails fares={suvFare} /> */}
+
 
       {/* 9. Travel Purposes: Airport, office, family, business travel */}
       <RouteTravelPurposesSection route={route} />
@@ -67,14 +72,14 @@ export default function SUVTaxiPage({ data }: any) {
       {/* 10. Nearby Pickup Areas: Relevant pickup localities */}
       <RouteNearbyPickupAreasSection route={route} />
 
-      {/* 11. FAQs: Route-specific questions and answers */}
-      <SuvFaq from={data.route.fromCity} to={data.route.toCity} />
 
       {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
       <RouteBookingInfoSection route={route} />
 
       {/* Supporting Sections */}
       <SuvFitGuide />
+      <HowToBook from={route.fromCity} to={route.toCity} />
+
       <PopularRoutes
         routes={popularRoutes || data.popularRoutes}
         from={route.fromCity}
@@ -83,7 +88,10 @@ export default function SUVTaxiPage({ data }: any) {
       />
       <OutstationSpotlight />
       <Testimonials />
-      <HowToBook from={route.fromCity} to={route.toCity} />
+
+      
+      {/* 11. FAQs: Route-specific questions and answers */}
+      <SuvFaq from={data.route.fromCity} to={data.route.toCity} />
       <WhyChooseUs />
 
       {/* Final CTA Banner */}

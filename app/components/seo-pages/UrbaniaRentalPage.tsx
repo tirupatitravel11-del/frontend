@@ -1,20 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import {
-  MapPin,
-  Calendar,
-  Clock,
+  Users,
+  ShieldCheck,
   Phone,
   MessageCircle,
-  Van,
-  Users,
   Briefcase,
+  Sparkles,
 } from "lucide-react";
 import type { SeoPageData } from "@/app/data/seoPages";
-
-// Keep your existing section imports (uncomment/use as needed)
 import VehicleFleet from "../Cab/Cabhub/VehicleFleet";
 import UrbaniaVariants from "@/_components/urbaniaRental/seatingsection";
 import UrbaniaCitySection from "@/_components/urbaniaRental/Aboutsection";
@@ -24,109 +18,97 @@ import UrbaniaFaq from "@/_components/urbaniaRental/UrbaniaFaq";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
-import UrbaniaPricingSection from "@/_components/urbaniaRental/UrbaniaPricingSection";
 import HowItWorks from "../AirportTransfer/HowItWorks";
 import Testimonials from "../Home/Testimonials";
-import UrbaniaSection from "@/_components/urbaniaRental/UrbaniaSection";
+import {
+  ServiceOverviewAndMap,
+  ServiceFareCalculator,
+  ServiceDestinationsAndStops,
+  ServiceRouteDetails,
+  ServicePurposesAndPickups,
+  ServiceBookingInfo,
+} from "./ServiceFormatSections";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
 
-const URBANIA_MODELS = [
-  "Force Urbania 9 Seater",
-  "Force Urbania 12 Seater",
-  "Force Urbania 13 Seater",
-  "Force Urbania 14 Seater",
-];
-
-type TripType = "one-way" | "round-trip";
-
 export default function UrbaniaRentalPage({ page }: { page: SeoPageData }) {
-  return <ServicePage page={page} />;
-}
-
-function ServicePage({ page }: { page: SeoPageData }) {
   const { slug, title, description, intro, highlights, popularTrips, city } =
     page;
   const popularRoutes = generatePopularRoutes(page.city, "");
 
   return (
-    <>
+    <main className="flex flex-col gap-0">
+      {/* 1. HERO SECTION: Route-specific heading, pickup, destination */}
       <section className="relative min-h-screen overflow-hidden bg-stone-50 border-b border-slate-200">
-        {/* Decorative Background */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gold/5 blur-3xl" />
           <div className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-gold/5 blur-3xl" />
           <div className="absolute top-1/2 right-1/4 h-64 w-64 rounded-full bg-slate-100/80 blur-2xl" />
         </div>
 
-        {/* Subtle grid pattern */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)",
+            backgroundImage:
+              "radial-gradient(circle, #000 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />
 
-        {/* Hero Content */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-12">
           <div className="grid w-full items-center gap-12 lg:grid-cols-2">
-            {/* ===== LEFT SIDE: Content ===== */}
             <div className="max-w-3xl">
               <div className="mt-2 flex items-center gap-5 text-sm text-gold">
                 <div>
                   <span className="font-bold text-gold">★ 4.9/5</span>
                   <span className="ml-2">Rating</span>
                 </div>
-
-                <div className="h-5 w-px bg-white/30" />
-
+                <div className="h-5 w-px bg-slate-300" />
                 <div>
-                  <span className="font-bold text-gold">1,250+</span>{" "}
-                  Customers
+                  <span className="font-bold text-gold">Next-Gen Van</span>
                 </div>
               </div>
 
               <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
-                {page.title || "Luxury Force Urbania Rental"}{" "}
-                <span className="text-gold">at Fixed Fares</span>
+                {title || `Force Urbania Rental in ${city}`}{" "}
+                <span className="text-gold">Next-Gen Luxury</span>
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-                {page.description ||
-                  "Experience ultimate luxury travel with reclining pushback seats, individual AC vents, and premium interiors. Ideal for weddings, corporate events, and large group journeys."}
+                {description ||
+                  `Experience world-class luxury with Force Urbania rentals in ${city}. 9, 12, 13, and 17-seater variants with European aerodynamics, reclining bucket seats, and ultra-smooth highway ride.`}
               </p>
 
-              {/* Urbania Specs Grid */}
+              {/* Specs Grid */}
               <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
+                <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
+                  <Sparkles className="mx-auto mb-2 h-6 w-6 text-gold" />
+                  <p className="text-lg font-bold text-slate-900 sm:text-xl">
+                    Next-Gen
+                  </p>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
+                    European Design
+                  </p>
+                </div>
+
                 <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
                   <Users className="mx-auto mb-2 h-6 w-6 text-gold" />
                   <p className="text-lg font-bold text-slate-900 sm:text-xl">
-                    9–14
+                    9–17
                   </p>
                   <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
-                    Pushback Seats
+                    Bucket Seats
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
-                  <Briefcase className="mx-auto mb-2 h-6 w-6 text-gold" />
+                  <ShieldCheck className="mx-auto mb-2 h-6 w-6 text-gold" />
                   <p className="text-lg font-bold text-slate-900 sm:text-xl">
-                    6–8
+                    ESP / ABS
                   </p>
                   <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
-                    Large Bags
-                  </p>
-                </div>
-
-                <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
-                  <Van className="mx-auto mb-2 h-6 w-6 text-gold" />
-                  <p className="text-lg font-bold text-slate-900 sm:text-xl">
-                    Luxury
-                  </p>
-                  <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
-                    AC Van
+                    Airbags & Safety
                   </p>
                 </div>
               </div>
@@ -153,13 +135,12 @@ function ServicePage({ page }: { page: SeoPageData }) {
               </div>
             </div>
 
-            {/* ===== RIGHT SIDE: Booking Form ===== */}
             <div className="relative">
               <UniversalSeoBookingForm
                 page={{
                   slug: slug,
                   city: city,
-                  service: "taxi",
+                  service: "urbania-rental",
                   title: title,
                   description: description,
                   intro: intro,
@@ -171,239 +152,84 @@ function ServicePage({ page }: { page: SeoPageData }) {
           </div>
         </div>
       </section>
-      {/* ===== BELOW HERO SECTIONS ===== */}
 
+      {/* 2 & 3. Route Overview (Distance, estimated travel time) & Route Map (Actual route and important highways) */}
+      <ServiceOverviewAndMap city={city} mode="tempo" />
+
+      {/* 4. Fare Calculator: Vehicle-wise route-specific starting fares */}
+      {/* <ServiceFareCalculator city={city} mode="tempo" /> */}
+
+      {/* 5 & 6. Popular Destinations (Destination ke aas-paas ke locations) & Major Stops (Highway stops, food breaks) */}
+      <ServiceDestinationsAndStops city={city} mode="tempo" />
+
+      {/* 7. Route Details: Toll, expressway, road conditions */}
+      <ServiceRouteDetails city={city} mode="tempo" />
+
+      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
+      {/* <VehicleFleet /> */}
       <UrbaniaCitySection city={city} />
-      <WhyChooseUs />
-      <UrbaniaSection city={city} />
-
-      <UrbaniaPricingSection city={city} />
       <UrbaniaVariants />
+      
 
+      {/* 9 & 10. Travel Purposes (Airport, office, family, business) & Nearby Pickup Areas (Localities) */}
+      <ServicePurposesAndPickups city={city} mode="tempo" />
+
+      
+
+      {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
+      <ServiceBookingInfo city={city} mode="tempo" />
+
+      {/* Supporting Sections */}
       <UrbaniaUseCases />
-      {/* {popularRoutes.length > 0 && (
-          <PopularRoutes
-            routes={popularRoutes}
-            from={popularRoutes[0].from}
-            to="popular destinations"
-            pagetype="urbania-rental"
-          />
-        )} */}
+
+      {popularRoutes.length > 0 && (
+        <PopularRoutes
+          routes={popularRoutes}
+          from={popularRoutes[0].from}
+          to="popular destinations"
+          pagetype="urbania-rental"
+        />
+      )}
+
       <HowItWorks />
       <Testimonials />
-      <UrbaniaFaq city={city} />
+      {/* 11. FAQs: Route/city-specific questions and answers */}
+      <UrbaniaFaq from={city} to="outstation destinations" />
+      <WhyChooseUs />
 
+      {/* Final CTA Banner */}
       <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
-  {/* Decorative Background */}
-  <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
-  <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
 
-  <div className="relative mx-auto max-w-4xl text-center">
-    
-    <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-      Travel in <span className="text-gold">Premium Urbania Comfort</span>
-    </h2>
+        <div className="relative mx-auto max-w-4xl text-center">
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+            Book Force Urbania in <span className="text-gold">{city}</span>
+          </h2>
 
-    <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
-      Book a spacious Force Urbania for family trips, group tours,
-      pilgrimages, weddings, sightseeing, and outstation journeys. Enjoy
-      comfortable seating, generous space, and a premium travel experience
-      for your group.
-    </p>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
+            World-class luxury van rental with European styling, world-class safety features, and dedicated chauffeurs from {city}.
+          </p>
 
-    <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-      <a
-        href="https://wa.me/918726124680?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20a%20Force%20Urbania."
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full rounded-full bg-gold px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-gold/90 sm:w-auto"
-      >
-        Book Urbania on WhatsApp
-      </a>
-
-      <a
-        href="tel:+918726124680"
-        className="w-full rounded-full border border-white/20 px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
-      >
-        Call Now
-      </a>
-    </div>
-
-    <p className="mt-6 text-sm text-stone-400">
-      Family Trips • Group Tours • Pilgrimage • Weddings • Sightseeing •
-      Outstation
-    </p>
-  </div>
-</section>
-
-
-    </>
-  );
-}
-
-// ===== CLIENT COMPONENT: BOOKING FORM =====
-function UrbaniaBookingForm() {
-  const [tripType, setTripType] = useState<TripType>("one-way");
-  const [model, setModel] = useState(URBANIA_MODELS[0]);
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [pickup, setPickup] = useState("");
-  const [drop, setDrop] = useState("");
-
-  const today = new Date().toISOString().split("T")[0];
-
-  const handleBook = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const message = `Hello, I want to book a Force Urbania.
-
-Trip Type: ${tripType === "one-way" ? "One Way" : "Round Trip"}
-Van Model: ${model}
-Pickup Location: ${pickup || "Not specified"}
-Drop Location: ${drop || "Not specified"}
-Travel Date: ${date || "Not specified"}
-Pickup Time: ${time || "Not specified"}
-
-Please share the fare and availability.`;
-
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank",
-    );
-  };
-
-  return (
-    <div className="rounded-3xl border border-slate-200/60 bg-white p-6 shadow-2xl shadow-slate-200/50 sm:p-8">
-      <div className="mb-6">
-        <h3 className="text-2xl font-bold text-slate-900">Book Your Urbania</h3>
-        <p className="mt-1 text-sm text-slate-500">
-          Get instant confirmation on WhatsApp
-        </p>
-      </div>
-
-      <form onSubmit={handleBook} className="space-y-4">
-        {/* Trip Type Toggle */}
-        <div className="grid grid-cols-2 rounded-xl border border-slate-200 bg-slate-50 p-1">
-          {(["one-way", "round-trip"] as TripType[]).map((type) => (
-            <button
-              key={type}
-              type="button"
-              onClick={() => setTripType(type)}
-              className={`rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 ${tripType === type
-                ? "bg-gold text-white shadow-sm"
-                : "text-slate-600 hover:bg-slate-100"
-                }`}
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20a%20Force%20Urbania%20in%20${city}.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full rounded-full bg-gold px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-gold/90 sm:w-auto"
             >
-              {type === "one-way" ? "One Way" : "Round Trip"}
-            </button>
-          ))}
-        </div>
+              Book Urbania on WhatsApp
+            </a>
 
-        {/* Model Selection */}
-        <div>
-          <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-            Select Urbania Model
-          </label>
-          <div className="relative">
-            <Van className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-            <select
-              value={model}
-              onChange={(e) => setModel(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
+            <a
+              href={`tel:${PHONE_NUMBER}`}
+              className="w-full rounded-full border border-white/20 px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
             >
-              {URBANIA_MODELS.map((m) => (
-                <option key={m} value={m}>
-                  {m}
-                </option>
-              ))}
-            </select>
+              Call Now
+            </a>
           </div>
         </div>
-
-        {/* Locations */}
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-              Pickup Location
-            </label>
-            <div className="relative">
-              <MapPin className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-              <input
-                type="text"
-                value={pickup}
-                onChange={(e) => setPickup(e.target.value)}
-                required
-                placeholder="Enter pickup address"
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-              Drop Location
-            </label>
-            <div className="relative">
-              <MapPin className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-              <input
-                type="text"
-                value={drop}
-                onChange={(e) => setDrop(e.target.value)}
-                required
-                placeholder="Enter destination"
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Date and Time */}
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-              Travel Date
-            </label>
-            <div className="relative">
-              <Calendar className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-              <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                required
-                min={today}
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-              />
-            </div>
-          </div>
-          <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-              Pickup Time
-            </label>
-            <div className="relative">
-              <Clock className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-              <input
-                type="time"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-                required
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-900 focus:border-gold focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full rounded-xl bg-gold py-4 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-gold/25 transition-all hover:bg-gold/90 hover:shadow-xl hover:shadow-gold/30"
-        >
-          Book Urbania Now →
-        </button>
-
-        <p className="text-center text-xs text-slate-500">
-          No advance payment • Instant confirmation on WhatsApp
-        </p>
-      </form>
-    </div>
+      </section>
+    </main>
   );
 }

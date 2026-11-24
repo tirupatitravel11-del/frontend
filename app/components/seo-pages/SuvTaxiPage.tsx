@@ -157,7 +157,7 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
       <ServiceOverviewAndMap city={city} mode="taxi" />
 
       {/* 4. Fare Calculator: Vehicle-wise route-specific starting fares */}
-      <ServiceFareCalculator city={city} mode="taxi" />
+      {/* <ServiceFareCalculator city={city} mode="taxi" /> */}
 
       {/* 5 & 6. Popular Destinations (Destination ke aas-paas ke locations) & Major Stops (Highway stops, food breaks) */}
       <ServiceDestinationsAndStops city={city} mode="taxi" />
@@ -166,20 +166,19 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
       <ServiceRouteDetails city={city} mode="taxi" />
 
       {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
-      <VehicleFleet />
+      <VehicleFleet category="SUV"/>
       <SuvFitGuideTaxi />
 
       {/* 9 & 10. Travel Purposes (Airport, office, family, business) & Nearby Pickup Areas (Localities) */}
       <ServicePurposesAndPickups city={city} mode="taxi" />
 
-      {/* 11. FAQs: Route/city-specific questions and answers */}
-      <SuvFaqTaxi city={city} />
+      
 
       {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
       <ServiceBookingInfo city={city} mode="taxi" />
 
       {/* Supporting Sections */}
-      <SUVStorySection />
+      {/* <SUVStorySection /> */}
 
       {popularRoutes.length > 0 && (
         <PopularRoutes
@@ -193,6 +192,9 @@ export default function SuvTaxiPage({ page }: { page: SeoPageData }) {
       <HowItWorks />
       <WhyChooseUs cityName={city} pageSlug={slug} service="SUV Taxi" />
       <Testimonials />
+
+      {/* 11. FAQs: Route/city-specific questions and answers */}
+      <SuvFaqTaxi city={city} />
 
       {/* Final CTA Banner */}
       <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
