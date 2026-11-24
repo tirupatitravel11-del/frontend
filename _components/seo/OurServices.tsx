@@ -45,7 +45,7 @@ export default function OurServices() {
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
             Our  Services
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-slate-500 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-7xl text-base text-slate-500 sm:text-lg">
             Comprehensive travel solutions tailored to your needs, ensuring a 
             safe and comfortable journey every time.
           </p>

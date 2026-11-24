@@ -7,37 +7,99 @@ import SuvFleetDetails from "@/_components/SUV/SuvFleetDetails";
 import SuvHero from "@/_components/SUV/SuvHero";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "@/app/components/Home/Testimonials";
-
+import FareDetails from "@/_components/FareDetails";
+import CabSelector from "@/_components/CabSelector";
+import {
+  RouteOverviewSection,
+  RouteMapSection,
+  RoutePopularDestinationsSection,
+  RouteMajorStopsSection,
+  RouteDetailsSection,
+  RouteTravelPurposesSection,
+  RouteNearbyPickupAreasSection,
+  RouteBookingInfoSection,
+} from "@/_components/route/RouteFormatSections";
 
 export default function SUVTaxiPage({ data }: any) {
-  const { route, page } = data;
+  const { route, page, vehicles, fares, popularRoutes } = data;
+  const suvFare = data.fares?.[4] || data.fares?.[0];
+
+  
 
   return (
     <>
-      <SuvHero from={route.fromCity} to={route.toCity} fare={data.fares[4]} />
-      <SuvFleetDetails fares={data.fares[4]} />
+      {/* 1. Hero Section: Route-specific heading, pickup, destination */}
+      <SuvHero from={route.fromCity} to={route.toCity} fare={suvFare} />
+
+      {/* 2. Route Overview: Distance, estimated travel time */}
+      <RouteOverviewSection route={route} />
+
+      <CabSelector
+        from={route.fromCity}
+        to={route.toCity}
+        vehicles={vehicles}
+        fares={fares}
+        defaultCabType="SUV"
+      />
+
+      {/* 3. Route Map: Actual route and important highways */}
+      <RouteMapSection route={route} />
+
+      {/* 4. Fare Calculator: Vehicle-wise route-specific fare */}
+      <FareDetails
+        from={route.fromCity}
+        to={route.toCity}
+        title={page.h1}
+        fares={fares}
+      />
+
+      {/* 5. Popular Destinations: Destination ke aas-paas ke locations */}
+      <RoutePopularDestinationsSection route={route} />
+
+      {/* 6. Major Stops: Actual highway stops, food breaks */}
+      <RouteMajorStopsSection route={route} />
+
+      {/* 7. Route Details: Toll, expressway, road conditions */}
+      <RouteDetailsSection route={route} />
+
+      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
+      {/* <SuvFleetDetails fares={suvFare} /> */}
+
+
+      {/* 9. Travel Purposes: Airport, office, family, business travel */}
+      <RouteTravelPurposesSection route={route} />
+
+      {/* 10. Nearby Pickup Areas: Relevant pickup localities */}
+      <RouteNearbyPickupAreasSection route={route} />
+
+
+      {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
+      <RouteBookingInfoSection route={route} />
+
+      {/* Supporting Sections */}
       <SuvFitGuide />
+      <HowToBook from={route.fromCity} to={route.toCity} />
+
       <PopularRoutes
-        routes={data.popularRoutes}
+        routes={popularRoutes || data.popularRoutes}
         from={route.fromCity}
         to={route.toCity}
         pagetype={page.pageType}
       />
       <OutstationSpotlight />
       <Testimonials />
-      <HowToBook from={route.fromCity} to={route.toCity} />
-      <WhyChooseUs />
-      <SuvFaq from={data.route.fromCity}
-        to={data.route.toCity} />
 
-      <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white ">
-        {/* Decorative Background */}
+      
+      {/* 11. FAQs: Route-specific questions and answers */}
+      <SuvFaq from={data.route.fromCity} to={data.route.toCity} />
+      <WhyChooseUs />
+
+      {/* Final CTA Banner */}
+      <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
         <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-4xl text-center">
-
-
           <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
             Ready to Travel from{" "}
             <span className="text-gold">{data.route.fromCity}</span> to{" "}

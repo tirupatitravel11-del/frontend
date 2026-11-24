@@ -8,6 +8,7 @@ import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "../components/Home/Testimonials";
 import AirportFAQ from "../components/AirportTransfer/airportFAQ";
 import AirportExperience from "../components/AirportTransfer/AirportExperience";
+import ServiceFormatSections from "../components/seo-pages/ServiceFormatSections";
 
 
 
@@ -68,6 +69,7 @@ export default function AirportTransferPage() {
       <HowItWorks />
 
       <VehicleFleet />
+      <ServiceFormatSections city="Ayodhya" mode="airport" />
       <AirportExperience/>
 
       <WhyChooseUs />

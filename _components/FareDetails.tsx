@@ -50,6 +50,7 @@ const EXTRAS = [
 ];
 
 interface FareDetailsProps {
+  fares: Fare[];
   from: string;
   to: string;
   title?: string;
@@ -64,14 +65,6 @@ type Fare = {
   roundTripPrice: number;
 };
 
-interface FareDetailsProps {
-  fares: Fare[];
-  from: string;
-  to: string;
-  title?: string;
-  subtitle?: string;
-}
-
 export default function FareDetails({
   fares,
   to,
@@ -79,13 +72,31 @@ export default function FareDetails({
   title,
   subtitle = "Transparent, fixed pricing — the fare you see is the fare you pay. No surge pricing, no hidden charges.",
 }: FareDetailsProps) {
+  const includedList = [
+    "Fuel & driver allowance",
+    "Clean AC in all vehicles",
+    `Doorstep pickup from any location in ${from}`,
+    "On-time pickup guarantee",
+    "Free cancellation up to 2 hours before pickup",
+  ];
+
+  const extraCharges = [
+    "Tolls & state taxes (at actuals via Fastag)",
+    "Night allowance if driving between 10 PM – 6 AM",
+    "Extra kilometers beyond route package",
+    "Airport parking & entry fees (if applicable)",
+  ];
+
+  // Prefer distinct vehicle categories if multiple duplicate names exist
+  const displayFares = fares.length > 0 ? fares : [];
+
   return (
     <section className="bg-stone-50 py-12 border-b border-stone-200">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4">
         {/* ===== Header ===== */}
-        <div className="mb-10 max-w-7xl">
+        <div className="mb-10 max-w-7xl text-center md:text-left">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
-            Transparent Pricing
+            Fare Calculator &amp; Pricing
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
             {title || `${from} to ${to} Taxi Fare Details`}
@@ -105,30 +116,21 @@ export default function FareDetails({
               <thead>
                 <tr className="bg-slate-900 text-white">
                   <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    Cab Type
+                    Cab / Vehicle Type
                   </th>
 
                   <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    One Way
+                    One Way Fare
                   </th>
 
                   <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">
-                    Round Trip
+                    Round Trip Fare
                   </th>
                 </tr>
               </thead>
 
               <tbody className="divide-y divide-slate-200">
-                {fares.filter(
-                  (fare) =>
-                    [
-                      "luxury-tempo-traveller",
-                      "12-seater-tempo-traveller",
-                      "16-seater-tempo-traveller",
-                      "20-seater-tempo-traveller",
-                      "24-seater-tempo-traveller",
-                    ].includes(fare.vehicleId)
-                ).map((row) => (
+                {displayFares.map((row) => (
                   <tr
                     key={row._id}
                     className="transition-colors hover:bg-slate-50"
@@ -162,7 +164,7 @@ export default function FareDetails({
             </h3>
 
             <ul className="mt-4 space-y-3">
-              {INCLUDED.map((item) => (
+              {includedList.map((item) => (
                 <li
                   key={item}
                   className="flex items-start gap-3 text-[15px] leading-7 text-slate-600"
@@ -183,7 +185,7 @@ export default function FareDetails({
             </h3>
 
             <ul className="mt-4 space-y-3">
-              {EXTRAS.map((item) => (
+              {extraCharges.map((item) => (
                 <li
                   key={item}
                   className="flex items-start gap-3 text-[15px] leading-7 text-slate-600"
@@ -198,9 +200,9 @@ export default function FareDetails({
 
         {/* ===== Disclaimer ===== */}
         <p className="mt-6 text-center text-xs leading-6 text-slate-500">
-          * Fares apply to standard Noida–Delhi routes (up to 40 km). Tolls,
-          parking & airport entry fees are billed at actuals. Prices may vary
-          slightly during peak hours.
+          * Fares apply to standard {from} to {to} route. Tolls, state taxes,
+          parking &amp; airport entry fees are billed at actuals. Transparent
+          fares with zero surge pricing.
         </p>
       </div>
     </section>

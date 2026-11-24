@@ -1,53 +1,34 @@
 "use client";
 
-import { useState } from "react";
 import {
   Users,
-  Star,
   ShieldCheck,
   Phone,
   MessageCircle,
-  MapPin,
-  Calendar,
+  Luggage,
+  Sparkles,
 } from "lucide-react";
 import type { SeoPageData } from "@/app/data/seoPages";
 import LuxuryTempoTravellerCitySection from "@/_components/luxuryTempoTraveller/LuxuryTempoTravellerCitySection";
 import WhyChooseUs from "@/_components/WhyChooseUs";
 import Testimonials from "../Home/Testimonials";
-import LuxuryFleetDetails from "@/_components/luxuryTempoTraveller/LuxuryFleetDetails";
 import LuxuryTaxiFleet from "@/_components/luxuryTempoTraveller/LuxuryTaxiFleet";
 import LuxuryTaxiFaqs from "@/_components/luxuryTempoTraveller/LuxuryTaxiFaqs";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
 import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
+import VehicleFleet from "../Cab/Cabhub/VehicleFleet";
+import {
+  ServiceOverviewAndMap,
+  ServiceFareCalculator,
+  ServiceDestinationsAndStops,
+  ServiceRouteDetails,
+  ServicePurposesAndPickups,
+  ServiceBookingInfo,
+} from "./ServiceFormatSections";
 
 const PHONE_NUMBER = "+918726124680";
 const WHATSAPP_NUMBER = "918726124680";
-
-type SeaterType = string;
-
-const SEATER_OPTIONS = [
-  {
-    id: "12-seater",
-    label: "12 Seater Luxury",
-    description: "Ideal for small families & groups",
-  },
-  {
-    id: "16-seater",
-    label: "16 Seater Premium",
-    description: "Most popular for outstation trips",
-  },
-  {
-    id: "20-seater",
-    label: "20 Seater Maharaja",
-    description: "Maximum comfort & legroom",
-  },
-  {
-    id: "24-seater",
-    label: "24 Seater Maharaja",
-    description: "Best for large groups",
-  },
-];
 
 export default function LuxuryTempoTravellerTaxi({
   page,
@@ -56,188 +37,197 @@ export default function LuxuryTempoTravellerTaxi({
 }) {
   const { slug, title, description, intro, highlights, popularTrips, city } =
     page;
-  const [selectedSeater, setSelectedSeater] = useState<SeaterType>("12-seater");
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [passengers, setPassengers] = useState("");
-  const [travelDate, setTravelDate] = useState("");
-  const [pickup, setPickup] = useState("");
-  const [drop, setDrop] = useState("");
-
-  const today = new Date().toISOString().split("T")[0];
   const popularRoutes = generatePopularRoutes(page.city, "");
 
-  const handleWhatsAppSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const selectedOption = SEATER_OPTIONS.find(
-      (opt) => opt.id === selectedSeater,
-    );
-
-    const message = `Hello, I want to book a Luxury Tempo Traveller.
-
-Pickup: ${pickup || "Not specified"}
-Drop: ${drop || "Not specified"}
-Seater: ${selectedOption?.label}
-Passengers: ${passengers || "Not specified"}
-Travel Date: ${travelDate || "Not specified"}
-Name: ${name}
-Phone: ${phone}
-
-Please share the detailed quote and availability.`;
-
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank",
-    );
-  };
-
   return (
-    <main>
-      {/* ===== HERO SECTION ===== */}
-      <section className="relative overflow-hidden bg-stone-50 border-b border-slate-200">
-        {/* Decorative Gold Glow */}
-        <div className="pointer-events-none absolute -top-32 right-0 h-96 w-96 rounded-full bg-gold/50 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-gold/50 blur-3xl" />
+    <main className="flex flex-col gap-0">
+      {/* 1. HERO SECTION: Route-specific heading, pickup, destination */}
+      <section className="relative min-h-screen overflow-hidden bg-stone-50 border-b border-slate-200">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gold/5 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-gold/5 blur-3xl" />
+          <div className="absolute top-1/2 right-1/4 h-64 w-64 rounded-full bg-slate-100/80 blur-2xl" />
+        </div>
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-12 lg:grid-cols-2 lg:py-12  ">
-          {/* ================= LEFT: Content ================= */}
-          <div>
-            {/* Luxury Badge */}
-            <div className="mt-2 flex items-center text-sm text-gold">
-              <div className="flex items-center gap-2 bg-gold/10 px-3 py-1 rounded-full">
-                <span className="font-bold text-gold">★ 4.9/5</span>
-                <span className="ml-1">Rating</span>
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #000 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-12">
+          <div className="grid w-full items-center gap-12 lg:grid-cols-2">
+            <div className="max-w-3xl">
+              <div className="mt-2 flex items-center gap-5 text-sm text-gold">
+                <div>
+                  <span className="font-bold text-gold">★ 4.9/5</span>
+                  <span className="ml-2">Rating</span>
+                </div>
+                <div className="h-5 w-px bg-slate-300" />
+                <div>
+                  <span className="font-bold text-gold">Maharaja Edition</span>
+                </div>
               </div>
 
-              <div className="h-5 w-px bg-white/30" />
+              <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
+                {title || `Luxury Tempo Traveller in ${city}`}{" "}
+                <span className="text-gold">Maharaja Class</span>
+              </h1>
 
-              <div className="flex items-center gap-2 bg-gold/10 px-3 py-1 rounded-full">
-                <span className="font-bold text-gold">1,250+</span>{" "}
-                Customers
+              <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+                {description ||
+                  `Experience premium Maharaja luxury tempo travellers in ${city}. Recliner sofa seats, ambient mood lighting, LED TVs, charging points, and VIP travel assistance.`}
+              </p>
+
+              {/* Specs Grid */}
+              <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
+                <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
+                  <Sparkles className="mx-auto mb-2 h-6 w-6 text-gold" />
+                  <p className="text-lg font-bold text-slate-900 sm:text-xl">
+                    VIP Class
+                  </p>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
+                    Maharaja Luxury
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
+                  <Users className="mx-auto mb-2 h-6 w-6 text-gold" />
+                  <p className="text-lg font-bold text-slate-900 sm:text-xl">
+                    12–26
+                  </p>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
+                    Seater Options
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:p-4">
+                  <ShieldCheck className="mx-auto mb-2 h-6 w-6 text-gold" />
+                  <p className="text-lg font-bold text-slate-900 sm:text-xl">
+                    Top Chauffeur
+                  </p>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
+                    Trained Drivers
+                  </p>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
+                <a
+                  href={`tel:${PHONE_NUMBER}`}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
+                >
+                  <Phone className="h-4 w-4" />
+                  Call to Book
+                </a>
+
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-900 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-slate-900 transition-all duration-300 hover:bg-slate-900 hover:text-white hover:shadow-lg"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  WhatsApp Us
+                </a>
               </div>
             </div>
 
-            {/* UPDATED H1 HERE */}
-            <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:leading-tight">
-              Luxury Tempo Traveller on Rent for{" "}
-              <span className="text-gold">Comfortable Group Travel</span>
-            </h1>
-
-            <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-              Travel together in style. Featuring Maharaja pusher seats, LED TV,
-              powerful AC, and a premium music system — perfect for weddings,
-              pilgrimages, corporate outings, and family vacations.
-            </p>
-
-            {/* Seater Quick Filters */}
-            
-
-            {/* CTA Buttons */}
-            <div className="mt-9 flex flex-wrap gap-4">
-              <a
-                href={`tel:${PHONE_NUMBER}`}
-                className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all duration-300 hover:bg-gold/90 hover:shadow-lg"
-              >
-                <Phone className="h-4 w-4" />
-                Call for Quote
-              </a>
-
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-gold transition-all duration-300 hover:bg-gold hover:text-white"
-              >
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp Us
-              </a>
+            <div className="relative">
+              <UniversalSeoBookingForm
+                page={{
+                  slug: slug,
+                  city: city,
+                  service: "luxury-tempo-traveller",
+                  title: title,
+                  description: description,
+                  intro: intro,
+                  highlights: highlights,
+                  popularTrips: popularTrips,
+                }}
+              />
             </div>
           </div>
-
-          {/* ================= RIGHT: Booking Card ================= */}
-          <UniversalSeoBookingForm
-            page={{
-              slug: slug,
-              city: city,
-              service: "taxi",
-              title: title,
-              description: description,
-              intro: intro,
-              highlights: highlights,
-              popularTrips: popularTrips,
-            }}
-          />
         </div>
       </section>
-      
 
-      {/* ========================================================= */}
-      {/* ===== ADD THE REST OF YOUR COMPONENTS BELOW THIS LINE ===== */}
-      {/* ========================================================= */}
-        <LuxuryTempoTravellerCitySection />
+      {/* 2 & 3. Route Overview (Distance, estimated travel time) & Route Map (Actual route and important highways) */}
+      <ServiceOverviewAndMap city={city} mode="tempo" />
 
-        {/* <LuxuryTaxiFleet /> */}
-        {/* <TempoTravellerFeatures /> */}
-        {/* <TempoTravellerFaq /> */}
-        {popularRoutes.length > 0 && (
-          <PopularRoutes
-            routes={popularRoutes}
-            from={popularRoutes[0].from}
-            to="popular destinations"
-            pagetype="luxury-tempo-traveller"
-          />
-        )}
-        <WhyChooseUs 
-        cityName={city}
-  pageSlug={slug}
-  service="luxury-tempo-traveller"/>
-        <Testimonials />
-        <LuxuryTaxiFaqs city={city} />
+      {/* 4. Fare Calculator: Vehicle-wise route-specific starting fares */}
+      <ServiceFareCalculator city={city} mode="tempo" />
 
-        <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
-  {/* Decorative Background */}
-  <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
-  <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+      {/* 5 & 6. Popular Destinations (Destination ke aas-paas ke locations) & Major Stops (Highway stops, food breaks) */}
+      <ServiceDestinationsAndStops city={city} mode="tempo" />
 
-  <div className="relative mx-auto max-w-4xl text-center">
-   
+      {/* 7. Route Details: Toll, expressway, road conditions */}
+      <ServiceRouteDetails city={city} mode="tempo" />
 
-    <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-      Travel Together in{" "}
-      <span className="text-gold">Urbania Comfort</span>
-    </h2>
+      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
+      <VehicleFleet />
+      <LuxuryTaxiFleet />
 
-    <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
-      Book a spacious Urbania for family trips, group
-      tours, pilgrimages, weddings, sightseeing, and outstation journeys.
-      Enjoy comfortable travel with enough seating for larger groups.
-    </p>
+      {/* 9 & 10. Travel Purposes (Airport, office, family, business) & Nearby Pickup Areas (Localities) */}
+      <ServicePurposesAndPickups city={city} mode="tempo" />
 
-    <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-      <a
-        href="https://wa.me/918726124680?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20a%2020%20seater%20Urbania."
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full rounded-full bg-gold px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-gold/90 sm:w-auto"
-      >
-        Book Urbania on WhatsApp
-      </a>
+      {/* 11. FAQs: Route/city-specific questions and answers */}
+      <LuxuryTaxiFaqs city={city} />
 
-      <a
-        href="tel:+918726124680"
-        className="w-full rounded-full border border-white/20 px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
-      >
-        Call Now
-      </a>
-    </div>
+      {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
+      <ServiceBookingInfo city={city} mode="tempo" />
 
-    <p className="mt-6 text-sm text-stone-400">
-      Family Trips • Group Tours • Pilgrimage • Weddings • Sightseeing •
-      Outstation
-    </p>
-  </div>
-</section>
+      {/* Supporting Sections */}
+      <LuxuryTempoTravellerCitySection />
+
+      {popularRoutes.length > 0 && (
+        <PopularRoutes
+          routes={popularRoutes}
+          from={popularRoutes[0].from}
+          to="popular destinations"
+          pagetype="luxury-tempo-traveller"
+        />
+      )}
+
+      <Testimonials />
+      <WhyChooseUs />
+
+      {/* Final CTA Banner */}
+      <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+
+        <div className="relative mx-auto max-w-4xl text-center">
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+            Book Luxury Tempo Traveller in <span className="text-gold">{city}</span>
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
+            Elevate group travel with Maharaja sofa recliners, individual USB ports, and verified chauffeurs from {city}.
+          </p>
+
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20Tirupati%20Travels%2C%20I%20want%20to%20book%20a%20Luxury%20Tempo%20Traveller%20in%20${city}.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full rounded-full bg-gold px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-gold/90 sm:w-auto"
+            >
+              Book Luxury Tempo on WhatsApp
+            </a>
+
+            <a
+              href={`tel:${PHONE_NUMBER}`}
+              className="w-full rounded-full border border-white/20 px-8 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10 sm:w-auto"
+            >
+              Call Now
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

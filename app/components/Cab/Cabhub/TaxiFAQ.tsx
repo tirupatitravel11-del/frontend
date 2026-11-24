@@ -57,9 +57,9 @@ export default function TaxiFAQ({
 
   return (
     <section className="bg-slate-50 py-12 lg:py-12 border-b border-slate-200">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+        <div className="mx-auto mb-10 max-w-7xl text-center sm:mb-12">
           <p className="text-sm font-semibold uppercase tracking-widest text-gold">
             Frequently Asked Questions
           </p>

@@ -15,6 +15,7 @@ import Testimonials from "../components/Home/Testimonials";
 import SightseeingFAQ from "../components/Local-Seeing/SightseeingFAQ";
 import HowItWorks from "../components/AirportTransfer/HowItWorks";
 import VehicleFleet from "../components/Cab/Cabhub/VehicleFleet";
+import ServiceFormatSections from "../components/seo-pages/ServiceFormatSections";
 
 export default function LocalSightseeingPage() {
   return (
@@ -66,6 +67,7 @@ export default function LocalSightseeingPage() {
       {/* <PopularTours /> */}
 
       <VehicleFleet />
+      <ServiceFormatSections city="Ayodhya" mode="sightseeing" />
       <HowItWorks />
       <CustomItinerary />
       <WhyChooseUs />

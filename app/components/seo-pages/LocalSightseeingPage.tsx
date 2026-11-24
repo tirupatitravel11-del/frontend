@@ -12,6 +12,14 @@ import UniversalSeoBookingForm from "./UniversalSeoBookingForm";
 import AyodhyaRoutesSection from "@/_components/AyodhyaRoutesSection";
 import PopularRoutes from "@/_components/PopularRoutes";
 import { generatePopularRoutes } from "@/app/lib/api/route-data/route-generator";
+import {
+  ServiceOverviewAndMap,
+  ServiceFareCalculator,
+  ServiceDestinationsAndStops,
+  ServiceRouteDetails,
+  ServicePurposesAndPickups,
+  ServiceBookingInfo,
+} from "./ServiceFormatSections";
 
 export default function LocalSightseeingPage({ page }: { page: SeoPageData }) {
   const { slug, title, description, intro, highlights, popularTrips, city } =
@@ -82,8 +90,29 @@ export default function LocalSightseeingPage({ page }: { page: SeoPageData }) {
         </div>
       </section>
 
-      {/* <PopularTours /> */}
+      {/* 2 & 3. Route Overview (Distance, estimated duration) & Route Map (Sightseeing circuit) */}
+      <ServiceOverviewAndMap city={city} mode="sightseeing" />
+
+      {/* 4. Fare Calculator: Vehicle-wise package fares */}
+      {/* <ServiceFareCalculator city={city} mode="sightseeing" /> */}
+      
+      {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
       <VehicleFleet />
+
+      {/* 5 & 6. Popular Destinations & Major Stops */}
+      <ServiceDestinationsAndStops city={city} mode="sightseeing" />
+
+      {/* 7. Route Details: Toll, parking, road conditions */}
+      <ServiceRouteDetails city={city} mode="sightseeing" />
+
+      
+
+      {/* 9 & 10. Travel Purposes & Nearby Pickup Areas */}
+      <ServicePurposesAndPickups city={city} mode="sightseeing" />
+
+      
+
+      {/* Supporting Sections */}
       <HowItWorks />
       <CustomItinerary />
       <WhyChooseUs />
@@ -100,7 +129,12 @@ export default function LocalSightseeingPage({ page }: { page: SeoPageData }) {
         )
       )}
       <Testimonials />
+
+      {/* 11. FAQs: Route/city-specific questions and answers */}
       <SightseeingFAQ />
+
+      {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
+      <ServiceBookingInfo city={city} mode="sightseeing" />
       <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white">
   {/* Background Decorations */}
   <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
