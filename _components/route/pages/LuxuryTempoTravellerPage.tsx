@@ -89,7 +89,9 @@ export default function LuxuryTempoTravellerPage({ data }: any) {
       <RouteDetailsSection route={route} />
 
       {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
-      <LuxuryFleetDetails fares={tempoFares} vehicles={tempoVehicles} />
+      {/* <LuxuryFleetDetails fares={tempoFares} vehicles={tempoVehicles} /> */}
+      {/* Supporting Sections */}
+      <LuxuryTempoTravellerCitySection />
       <CabSelector
         from={route.fromCity}
         to={route.toCity}
@@ -103,14 +105,14 @@ export default function LuxuryTempoTravellerPage({ data }: any) {
       {/* 10. Nearby Pickup Areas: Relevant pickup localities */}
       <RouteNearbyPickupAreasSection route={route} />
 
-      {/* 11. FAQs: Route-specific questions and answers */}
-      <LuxuryTempoFaq from={route.fromCity} to={route.toCity} />
+     
 
       {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
       <RouteBookingInfoSection route={route} />
 
-      {/* Supporting Sections */}
-      <LuxuryTempoTravellerCitySection />
+      
+      <HowToBook from={route.fromCity} to={route.toCity} />
+
       <PopularRoutes
         routes={popularRoutes || data.popularRoutes}
         from={route.fromCity}
@@ -119,7 +121,8 @@ export default function LuxuryTempoTravellerPage({ data }: any) {
       />
       <WhyChooseUs />
       <Testimonials />
-      <HowToBook from={route.fromCity} to={route.toCity} />
+       {/* 11. FAQs: Route-specific questions and answers */}
+      <LuxuryTempoFaq from={route.fromCity} to={route.toCity} />
 
       <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white ">
         <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
