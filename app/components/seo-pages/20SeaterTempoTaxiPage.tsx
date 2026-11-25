@@ -158,7 +158,7 @@ export default function TwentySeaterTempoTaxiPage({
       <ServiceOverviewAndMap city={city} mode="tempo" />
 
       {/* 4. Fare Calculator: Vehicle-wise route-specific starting fares */}
-      <ServiceFareCalculator city={city} mode="tempo" />
+      {/* <ServiceFareCalculator city={city} mode="tempo" /> */}
 
       {/* 5 & 6. Popular Destinations (Destination ke aas-paas ke locations) & Major Stops (Highway stops, food breaks) */}
       <ServiceDestinationsAndStops city={city} mode="tempo" />
@@ -167,20 +167,16 @@ export default function TwentySeaterTempoTaxiPage({
       <ServiceRouteDetails city={city} mode="tempo" />
 
       {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
-      <VehicleFleet />
+      {/* <VehicleFleet /> */}
+      {/* Supporting Sections */}
+      <TwentySeaterStorySection />
       <TwentySeaterSeating />
 
       {/* 9 & 10. Travel Purposes (Airport, office, family, business) & Nearby Pickup Areas (Localities) */}
       <ServicePurposesAndPickups city={city} mode="tempo" />
 
-      {/* 11. FAQs: Route/city-specific questions and answers */}
-      <TwentySeaterFaq from={city} to="outstation destinations" />
-
       {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
       <ServiceBookingInfo city={city} mode="tempo" />
-
-      {/* Supporting Sections */}
-      <TwentySeaterStorySection />
 
       {popularRoutes.length > 0 && (
         <PopularRoutes
@@ -192,6 +188,8 @@ export default function TwentySeaterTempoTaxiPage({
       )}
 
       <Testimonials />
+      {/* 11. FAQs: Route/city-specific questions and answers */}
+      <TwentySeaterFaq from={city} to="outstation destinations" />
       <WhyChooseUs />
 
       {/* Final CTA Banner */}

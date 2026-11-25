@@ -89,7 +89,7 @@ export default function SixteenSeaterTempoFaq({
         }}
       />
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-8 text-center sm:mb-10">
           <p className="text-xs font-semibold uppercase tracking-widest text-gold sm:text-sm">
             16 Seater Tempo Traveller FAQs

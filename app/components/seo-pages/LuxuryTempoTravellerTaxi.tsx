@@ -155,11 +155,13 @@ export default function LuxuryTempoTravellerTaxi({
         </div>
       </section>
 
+{/* Supporting Sections */}
+      <LuxuryTempoTravellerCitySection />
       {/* 2 & 3. Route Overview (Distance, estimated travel time) & Route Map (Actual route and important highways) */}
       <ServiceOverviewAndMap city={city} mode="tempo" />
 
       {/* 4. Fare Calculator: Vehicle-wise route-specific starting fares */}
-      <ServiceFareCalculator city={city} mode="tempo" />
+      {/* <ServiceFareCalculator city={city} mode="tempo" /> */}
 
       {/* 5 & 6. Popular Destinations (Destination ke aas-paas ke locations) & Major Stops (Highway stops, food breaks) */}
       <ServiceDestinationsAndStops city={city} mode="tempo" />
@@ -168,20 +170,18 @@ export default function LuxuryTempoTravellerTaxi({
       <ServiceRouteDetails city={city} mode="tempo" />
 
       {/* 8. Cab Options: Sedan, SUV, Innova, Tempo Traveller */}
-      <VehicleFleet />
-      <LuxuryTaxiFleet />
+      {/* <VehicleFleet /> */}
+      {/* <LuxuryTaxiFleet /> */}
 
       {/* 9 & 10. Travel Purposes (Airport, office, family, business) & Nearby Pickup Areas (Localities) */}
       <ServicePurposesAndPickups city={city} mode="tempo" />
 
-      {/* 11. FAQs: Route/city-specific questions and answers */}
-      <LuxuryTaxiFaqs city={city} />
+      
 
       {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
       <ServiceBookingInfo city={city} mode="tempo" />
 
-      {/* Supporting Sections */}
-      <LuxuryTempoTravellerCitySection />
+      
 
       {popularRoutes.length > 0 && (
         <PopularRoutes
@@ -193,6 +193,8 @@ export default function LuxuryTempoTravellerTaxi({
       )}
 
       <Testimonials />
+      {/* 11. FAQs: Route/city-specific questions and answers */}
+      <LuxuryTaxiFaqs city={city} />
       <WhyChooseUs />
 
       {/* Final CTA Banner */}

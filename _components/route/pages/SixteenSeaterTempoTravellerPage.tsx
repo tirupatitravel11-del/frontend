@@ -85,14 +85,14 @@ export default function SixteenSeaterTempoTravellerPage({
       {/* 10. Nearby Pickup Areas: Relevant pickup localities */}
       <RouteNearbyPickupAreasSection route={route} />
 
-      {/* 11. FAQs: Route-specific questions and answers */}
-      <SixteenSeaterTempoFaq from={route.fromCity} to={route.toCity} />
 
       {/* 12. Booking Information: Cancellation, waiting, luggage, booking process */}
       <RouteBookingInfoSection route={route} />
 
       {/* Supporting Sections */}
       <SixteenSeaterGroupBenefits />
+      <HowToBook from={route.fromCity} to={route.toCity} />
+
       <PopularRoutes
         routes={popularRoutes || data.popularRoutes}
         from={route.fromCity}
@@ -100,7 +100,9 @@ export default function SixteenSeaterTempoTravellerPage({
         pagetype={page.pageType}
       />
       <Testimonials />
-      <HowToBook from={route.fromCity} to={route.toCity} />
+      
+      {/* 11. FAQs: Route-specific questions and answers */}
+      <SixteenSeaterTempoFaq from={route.fromCity} to={route.toCity} />
       <WhyChooseUs />
 
       <section className="relative overflow-hidden bg-stone-800 px-4 py-12 sm:px-6 lg:py-12 border-b border-white ">
